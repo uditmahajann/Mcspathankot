@@ -1,4 +1,5 @@
 import type React from "react";
+import { cld } from "../../../utils/cloudinary";
 
 const HistoryHero: React.FC = () => {
   return (
@@ -6,14 +7,14 @@ const HistoryHero: React.FC = () => {
       <div
         className="relative min-h-[60vh] md:min-h-[65vh] flex items-center"
         style={{
-          backgroundImage: `url('/Images/Campus/EntryFront.JPG')`,
+          backgroundImage: `url(${cld("SampleImage_nefv5n", 1600)})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed", // parallax-like
         }}
       >
         {/* left-to-right overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/60 to-transparent" />
 
         <div className="relative z-10 w-full">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">

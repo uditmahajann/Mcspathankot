@@ -1,4 +1,5 @@
 import type React from "react"
+import { cld } from "../../../utils/cloudinary";
 
 const History: React.FC = () => {
   return (
@@ -56,7 +57,7 @@ const History: React.FC = () => {
 
           <div className="sticky top-50 w-full max-h-fit overflow-hidden rounded-2xl shadow-xl">
             <img
-              src="/Images/Campus/EntryFront.JPG"
+              src={cld("SampleImage_nefv5n")}
               alt="MCS School Building"
               className="w-full object-cover"
             />
