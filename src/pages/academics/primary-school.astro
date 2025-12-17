@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PrimaryHero from '../../components/sections/academicspage/primary/PrimaryHero';
+import PrimaryAbout from '../../components/sections/academicspage/primary/PrimaryAbout';
+import PrimaryHighlights from '../../components/sections/academicspage/primary/PrimaryHighlights';
+import WhyPrimary from '../../components/sections/academicspage/primary/WhyPrimary';
+import PrimaryCurriculum from '../../components/sections/academicspage/primary/PrimaryCurriculum';
+import PrimaryExtra from '../../components/sections/academicspage/primary/PrimaryExtra';
+import PrimarySafety from '../../components/sections/academicspage/primary/PrimarySafety';
+import PrimaryParent from '../../components/sections/academicspage/primary/PrimaryParent';
+---
+
+<Layout
+  title="About MCS: Our History | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Learn about MCS Pathankot – our history, values, leadership, and dedication to nurturing disciplined, well-rounded students."
+  pubDate={new Date()}
+  >
+	<main class="w-full">
+    <PrimaryHero client:load/>
+    <PrimaryAbout client:load/>
+    <PrimaryHighlights client:load/>
+    <PrimaryExtra client:load/>
+    <WhyPrimary client:load/>
+    <PrimaryCurriculum client:load/>
+    <PrimarySafety client:load/>
+    <PrimaryParent client:load/>
+    
+</Layout>

@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SuccessStoriesHero from '../../components/sections/sucessstoriespage/SuccessStoriesHero';
+import HighlightsStrip from '../../components/sections/sucessstoriespage/HighlightsStrip';
+import AwardsGrid from '../../components/sections/sucessstoriespage/AwardsGrid';
+import AchieversCarousel from '../../components/sections/sucessstoriespage/AchieversCarousel';
+import PhotoHighlights from '../../components/sections/sucessstoriespage/PhotoHighlights';
+import MilestoneJourney from '../../components/sections/sucessstoriespage/MilestoneJourney';
+import BeyondAcademics from '../../components/sections/sucessstoriespage/BeyondAcademics';
+import AwardsRecognition from '../../components/sections/sucessstoriespage/AwardsRecognition';
+import StudentAchievers from '../../components/sections/sucessstoriespage/StudentAchievers';
+import SpecialMentions from '../../components/sections/sucessstoriespage/SpecialMentions';
+import AlumniSpotlight from '../../components/sections/sucessstoriespage/AlumniSpotlight';
+
+---
+
+<Layout
+  title="Krityam | Build Fast. Scale Smart. Launch Better."
+  description="From MVP to full-scale apps, Krityam builds high-performance digital products for startups and enterprises. We help businesses build MVPs, scale apps, and deliver full-stack digital experiences with speed and precision."
+  pubDate={new Date()}
+  >
+	<main class="w-full">
+    <SuccessStoriesHero client:load/>
+    <!-- <HighlightsStrip client:load/> -->
+    <AwardsGrid client:load/>
+    <AchieversCarousel client:load/>
+    <PhotoHighlights client:load/>
+    <AlumniSpotlight client:load/>
+    <SpecialMentions client:load/>
+    <!-- <BeyondAcademics client:load/> -->
+    <!-- <AwardsRecognition client:load/> -->
+    <!-- <StudentAchievers client:load/> -->
+    <MilestoneJourney client:load/>
+
+  </main>
+    
+</Layout>

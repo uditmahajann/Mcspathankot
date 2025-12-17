@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdmissionProcessHero from '../../components/sections/admissionspage/AdmissionProcessHero';
+import AdmissionProcess from '../../components/sections/admissionspage/AdmissionProcess';
+import ApplyOnline from '../../components/sections/admissionspage/ApplyOnline';
+
+---
+
+<Layout
+  title="Admissions at MCS Pathankot | Join Our Learning Community | Apply Online for Admissions | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Explore admission details at MCS Pathankot. Learn about eligibility, application process, key dates, and opportunities for your child to thrive academically and beyond."
+  pubDate={new Date()}
+  >
+	<main class="w-full">
+    <!-- Hero Section -->
+    <AdmissionProcessHero client:load />
+    
+    <!-- Navigation Pills -->
+    <!-- <div class="sticky top-0 bg-white shadow-md z-50">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <nav class="flex overflow-x-auto py-4" aria-label="Sections">
+          <ul class="flex min-w-full flex-none gap-x-8 px-1 text-sm font-semibold leading-6 text-gray-600">
+            <li>
+              <a href="#admission-procedure" class="hover:text-blue-600 transition-colors">Admission Procedure</a>
+            </li>
+            <li>
+              <a href="#apply-online" class="hover:text-blue-600 transition-colors">Apply Online</a>
+            </li>
+            <li>
+              <a href="#fee-structure" class="hover:text-blue-600 transition-colors">Fee Structure</a>
+            </li>
+            <li>
+              <a href="#withdrawals" class="hover:text-blue-600 transition-colors">Withdrawals</a>
+            </li>
+            <li>
+              <a href="#transfer-certificate" class="hover:text-blue-600 transition-colors">Transfer Certificate</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div> -->
+
+    <AdmissionProcess client:load />
+    <ApplyOnline client:load />
+	
+</Layout>
+

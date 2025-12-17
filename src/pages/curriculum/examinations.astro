@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CurriculumNav from '../../components/sections/curriculumpage/CurriculumNav';
+import ExaminationsHero from '../../components/sections/curriculumpage/ExaminationsHero';
+import Examinations from '../../components/sections/curriculumpage/Examinations';
+
+---
+
+<Layout
+  title="Examinations and Assessments | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Examination schedules, date sheets and evaluation methods at MCS Pathankot ensure fair assessment and continuous learning progress."
+  pubDate={new Date()}
+  >
+  
+  <main>
+
+    <!-- <HeroSection client:load />
+    <DanceSection client:load />
+    <MusicSection client:load />
+    <DramaSection client:load /> -->
+
+    <!-- Hero Section -->
+    <ExaminationsHero client:load />
+    
+    <!-- Navigation Pills -->
+    <!-- <CurriculumNav client:load /> -->
+    
+    <Examinations client:load />
+
+  </main>
+  </Layout>
+  
+  <!-- <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script> -->
+</body>
+</html>

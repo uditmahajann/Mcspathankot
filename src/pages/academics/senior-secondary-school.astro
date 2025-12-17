@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SeniorHero from '../../components/sections/academicspage/senior-secondary/SeniorHero';
+import SeniorAbout from '../../components/sections/academicspage/senior-secondary/SeniorAbout';
+import SeniorHighlights from '../../components/sections/academicspage/senior-secondary/SeniorHighlights';
+import WhySenior from '../../components/sections/academicspage/senior-secondary/WhySenior';
+import SeniorCurriculum from '../../components/sections/academicspage/senior-secondary/SeniorCurriculum';
+import SeniorExtra from '../../components/sections/academicspage/senior-secondary/SeniorExtra';
+import SeniorSafety from '../../components/sections/academicspage/senior-secondary/SeniorSafety';
+import SeniorParent from '../../components/sections/academicspage/senior-secondary/SeniorParent';
+---
+
+<Layout
+  title="About MCS: Our History | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Learn about MCS Pathankot – our history, values, leadership, and dedication to nurturing disciplined, well-rounded students."
+  pubDate={new Date()}
+  >
+	<main class="w-full">
+    <SeniorHero client:load/>
+    <SeniorAbout client:load/>
+    <SeniorHighlights client:load/>
+    <WhySenior client:load/>
+    <SeniorCurriculum client:load/>
+    <SeniorExtra client:load/>
+    <SeniorSafety client:load/>
+    <SeniorParent client:load/>
+</Layout>

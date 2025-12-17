@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CurriculumNav from '../../components/sections/curriculumpage/CurriculumNav';
+import OutreachProgramsHero from '../../components/sections/curriculumpage/OutreachProgramsHero';
+import NccNda from '../../components/sections/curriculumpage/NccNda';
+
+---
+
+<Layout
+  title="Krityam | Build Fast. Scale Smart. Launch Better."
+  description="From MVP to full-scale apps, Krityam builds high-performance digital products for startups and enterprises. We help businesses build MVPs, scale apps, and deliver full-stack digital experiences with speed and precision."
+  pubDate={new Date()}
+  >
+  
+  <main>
+
+    <!-- <HeroSection client:load />
+    <DanceSection client:load />
+    <MusicSection client:load />
+    <DramaSection client:load /> -->
+
+    <!-- Hero Section -->
+    <OutreachProgramsHero client:load />
+    
+    <!-- Navigation Pills -->
+    <!-- <CurriculumNav client:load /> -->
+    
+    <NccNda client:load />
+
+  </main>
+  </Layout>
+  
+  <!-- <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script> -->
+</body>
+</html>

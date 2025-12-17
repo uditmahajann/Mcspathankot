@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PerformingArtsHero from '../../components/sections/cocurricularpage/performingarts/PerformingArtsHero.tsx';
+import ArtsAbout from '../../components/sections/cocurricularpage/performingarts/ArtsAbout.tsx';
+import ArtsPhilosophy from '../../components/sections/cocurricularpage/performingarts/ArtsPhilosophy.tsx';
+import ArtsShowcase from '../../components/sections/cocurricularpage/performingarts/ArtsShowcase.tsx';
+import ArtsFacilities from '../../components/sections/cocurricularpage/performingarts/ArtsFacilities.tsx';
+import ArtsStreams from '../../components/sections/cocurricularpage/performingarts/ArtsStreams.tsx';
+import ArtsPrograms from '../../components/sections/cocurricularpage/performingarts/ArtsPrograms.tsx';
+import CompetitiveHighlights from '../../components/sections/cocurricularpage/performingarts/CompetitiveHighlights';
+import ArtsMentorship from '../../components/sections/cocurricularpage/performingarts/ArtsMentorship.tsx';
+---
+
+<Layout
+  title="About MCS: Our History | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Learn about MCS Pathankot – our history, values, leadership, and dedication to nurturing disciplined, well-rounded students."
+  pubDate={new Date()}
+  >
+	<main class="w-full">
+    <PerformingArtsHero client:load/>
+    <ArtsAbout client:load/>
+    <ArtsPhilosophy client:load/>
+    <ArtsStreams client:load/>
+    <ArtsShowcase client:load/>
+    <!-- <ArtsFacilities client:load/> -->
+    <ArtsPrograms client:load/>
+    <CompetitiveHighlights client:load/>
+    <ArtsMentorship client:load/>
+</Layout>

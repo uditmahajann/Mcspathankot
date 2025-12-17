@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import WhyMcsHero from '../../components/sections/admissionspage/WhyMcsHero';
+import WhyMcs from '../../components/sections/admissionspage/WhyMcs';
+import McsImpact from '../../components/sections/admissionspage/McsImpact';
+
+---
+
+<Layout
+  title="Why Choose Mcs? | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Discover why parents choose MCS Pathankot – a blend of discipline, academics, co-curriculars, and holistic development."
+  pubDate={new Date()}
+  >
+	<main class="w-full">
+    <WhyMcsHero client:load/>
+    <WhyMcs client:load/>
+    <McsImpact client:load/>
+    
+</Layout>

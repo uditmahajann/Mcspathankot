@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+import SportsGymHero from '../../components/sections/facilitiespage/SportsGymHero';
+import SportsGym from '../../components/sections/facilitiespage/SportsGym';
+
+---
+
+<Layout
+  title="Sports & Gym Facilities | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="From expansive sports grounds to modern gyms, MCS Pathankot promotes fitness, teamwork, and healthy living."
+  pubDate={new Date()}
+  >
+	 <main>
+    <SportsGymHero />
+
+    
+    <!-- Navigation Pills -->
+    <!-- <div class="sticky top-[72px] z-20 bg-white shadow-md py-3">
+      <div class="container mx-auto px-4 overflow-x-auto">
+        <div class="flex space-x-2 md:space-x-4 min-w-max">
+          <a href="#foundation-coaching" class="px-4 py-2 text-sm md:text-base rounded-full bg-blue-100 text-blue-900 hover:bg-blue-200 transition-colors">Foundation Coaching</a>
+          <a href="#competitive-coaching" class="px-4 py-2 text-sm md:text-base rounded-full bg-blue-100 text-blue-900 hover:bg-blue-200 transition-colors">Competitive Coaching</a>
+          <a href="#smart-classes" class="px-4 py-2 text-sm md:text-base rounded-full bg-blue-100 text-blue-900 hover:bg-blue-200 transition-colors">Smart Classes</a>
+          <a href="#professional-labs" class="px-4 py-2 text-sm md:text-base rounded-full bg-blue-100 text-blue-900 hover:bg-blue-200 transition-colors">Professional Labs</a>
+          <a href="#sports-gym" class="px-4 py-2 text-sm md:text-base rounded-full bg-blue-100 text-blue-900 hover:bg-blue-200 transition-colors">Sports & Gym</a>
+          <a href="#boarding-facility" class="px-4 py-2 text-sm md:text-base rounded-full bg-blue-100 text-blue-900 hover:bg-blue-200 transition-colors">Boarding</a>
+          <a href="#day-boarding-facility" class="px-4 py-2 text-sm md:text-base rounded-full bg-blue-100 text-blue-900 hover:bg-blue-200 transition-colors">Day-Boarding</a>
+        </div>
+      </div>
+    </div> -->
+
+    <SportsGym client:load />
+    
+  </main>
+</Layout>
+
+  <!-- <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script> -->

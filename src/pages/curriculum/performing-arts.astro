@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CurriculumNav from '../../components/sections/curriculumpage/CurriculumNav';
+import PerformingArtsHero from '../../components/sections/curriculumpage/PerformingArtsHero';
+import PerformingArts from '../../components/sections/curriculumpage/PerformingArts';
+
+---
+
+<Layout
+  title="Performing Arts | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Dance, music, and drama thrive at MCS Pathankot. Discover how performing arts nurture creativity, confidence, and cultural appreciation among students."
+  pubDate={new Date()}
+  >
+  
+  <main>
+
+    <PerformingArtsHero client:load />
+    
+    <!-- Navigation Pills -->
+    <!-- <CurriculumNav client:load /> -->
+    
+    <PerformingArts client:load />
+
+  </main>
+  </Layout>
+  
+  <!-- <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script> -->
+</body>
+</html>

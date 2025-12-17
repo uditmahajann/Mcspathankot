@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CurriculumNav from '../../components/sections/curriculumpage/CurriculumNav';
+import CompetitionsHero from '../../components/sections/curriculumpage/CompetitionsHero';
+import Competitions from '../../components/sections/curriculumpage/Competitions';
+
+---
+
+<Layout
+  title="Competitions | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="MCS Pathankot hosts academic, cultural, and sports competitions that foster leadership, teamwork, and excellence among students."
+  pubDate={new Date()}
+  >
+  
+  <main>
+
+    <!-- Hero Section -->
+    <CompetitionsHero client:load />
+    
+    <!-- Navigation Pills -->
+    <!-- <CurriculumNav client:load /> -->
+
+    <Competitions client:load />
+
+  </main>
+  </Layout>
+  
+  <!-- <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script> -->
+</body>
+</html>

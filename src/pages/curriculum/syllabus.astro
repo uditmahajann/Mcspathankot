@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CurriculumNav from '../../components/sections/curriculumpage/CurriculumNav';
+import SyllabusHero from '../../components/sections/curriculumpage/SyllabusHero';
+import Syllabus from '../../components/sections/curriculumpage/Syllabus';
+
+---
+
+<Layout
+  title="Important Circulars | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Download detailed CBSE-aligned syllabus for all grades at MCS Pathankot, designed to balance academics, creativity, and skill development."
+  pubDate={new Date()}
+  >
+  
+  <main>
+
+    <!-- <HeroSection client:load />
+    <DanceSection client:load />
+    <MusicSection client:load />
+    <DramaSection client:load /> -->
+
+    <!-- Hero Section -->
+    <SyllabusHero client:load />
+    
+    <!-- Navigation Pills -->
+    <!-- <CurriculumNav client:load /> -->
+    
+    <Syllabus client:load />
+
+  </main>
+  </Layout>
+  
+  <!-- <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script> -->
+</body>
+</html>

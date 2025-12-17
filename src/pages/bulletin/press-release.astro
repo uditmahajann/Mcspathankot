@@ -1,0 +1,78 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PressReleaseHero from '../../components/sections/bulletinpage/PressReleaseHero';
+import PressRelease from '../../components/sections/bulletinpage/PressRelease';
+---
+
+<Layout
+  title="Official Press Releases | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Read the latest press releases and media updates about MCS Pathankot. Discover school achievements, initiatives, and stories covered in the press."
+  pubDate={new Date()}
+  >
+  <main>
+    <PressReleaseHero client:load />
+    <PressRelease client:load />
+  </main>
+<!-- 
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId && targetId !== '#') {
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100, // Offset for header
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+    // Highlight active section in navigation
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('a[href^="#"]');
+
+    function highlightActiveSection() {
+      const scrollPosition = window.scrollY + 150; // Offset for header
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${sectionId}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }
+
+    window.addEventListener('scroll', highlightActiveSection);
+    highlightActiveSection(); // Run once on page load
+  </script> -->
+</Layout>
+
+<!-- <style>
+  a.active {
+    color: #2563eb; /* Blue-600 */
+    font-weight: 600;
+  }
+
+  /* Animation for news ticker */
+  @keyframes marquee {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+</style> -->

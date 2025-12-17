@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SportsHero from '../../components/sections/cocurricularpage/sportsathletics/SportsHero.tsx';
+import SportsAbout from '../../components/sections/cocurricularpage/sportsathletics/SportsAbout';
+import SportsPhilosophy from '../../components/sections/cocurricularpage/sportsathletics/SportsPhilosophy';
+import SportsShowcase from '../../components/sections/cocurricularpage/sportsathletics/SportsShowcase.tsx';
+import SportsFacilities from '../../components/sections/cocurricularpage/sportsathletics/SportsFacilities';
+import SportsPrograms from '../../components/sections/cocurricularpage/sportsathletics/SportsPrograms';
+import CompetitiveHighlights from '../../components/sections/cocurricularpage/sportsathletics/CompetitiveHighlights';
+import SportsMentorship from '../../components/sections/cocurricularpage/sportsathletics/SportsMentorship';
+---
+
+<Layout
+  title="About MCS: Our History | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Learn about MCS Pathankot – our history, values, leadership, and dedication to nurturing disciplined, well-rounded students."
+  pubDate={new Date()}
+  >
+	<main class="w-full">
+    <SportsHero client:load/>
+    <SportsAbout client:load/>
+    <SportsPhilosophy client:load/>
+    <SportsShowcase client:load/>
+    <SportsFacilities client:load/>
+    <SportsPrograms client:load/>
+    <CompetitiveHighlights client:load/>
+    <SportsMentorship client:load/>
+</Layout>

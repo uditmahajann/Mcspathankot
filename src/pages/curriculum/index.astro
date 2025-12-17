@@ -1,0 +1,82 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CurriculumNav from '../../components/sections/curriculumpage/CurriculumNav';
+import CurriculumHero from '../../components/sections/curriculumpage/CurriculumHero';
+import AnnualCalendar from '../../components/sections/curriculumpage/AnnualCalendar';
+import Academics from '../../components/sections/curriculumpage/Academics';
+import CoCurricular from '../../components/sections/curriculumpage/CoCurricular';
+import Sports from '../../components/sections/curriculumpage/Sports';
+import PerformingArts from '../../components/sections/curriculumpage/PerformingArts';
+import Competitions from '../../components/sections/curriculumpage/Competitions';
+import Courses from '../../components/sections/curriculumpage/Courses';
+import Syllabus from '../../components/sections/curriculumpage/Syllabus';
+import Booklist from '../../components/sections/curriculumpage/Booklist';
+import Uniforms from '../../components/sections/curriculumpage/Uniforms';
+import Examinations from '../../components/sections/curriculumpage/Examinations';
+import Results from '../../components/sections/curriculumpage/Results';
+import NccNda from '../../components/sections/curriculumpage/NccNda';
+
+// import HeroSection from '../../sections/CurriculumPage/HeroSection';
+// import DanceSection from '../../sections/CurriculumPage/DanceSection';
+// import MusicSection from '../../sections/CurriculumPage/MusicSection';
+// import DramaSection from '../../sections/CurriculumPage/DramaSection';
+
+---
+
+<Layout
+  title="Krityam | Build Fast. Scale Smart. Launch Better."
+  description="From MVP to full-scale apps, Krityam builds high-performance digital products for startups and enterprises. We help businesses build MVPs, scale apps, and deliver full-stack digital experiences with speed and precision."
+  pubDate={new Date()}
+  >
+  
+  <main>
+
+    <!-- <HeroSection client:load />
+    <DanceSection client:load />
+    <MusicSection client:load />
+    <DramaSection client:load /> -->
+
+    <!-- Hero Section -->
+    <CurriculumHero client:load />
+    
+    <!-- Navigation Pills -->
+    <!-- <CurriculumNav client:load /> -->
+    
+    <!-- Component Sections -->
+    <AnnualCalendar client:load />
+    <Courses client:load />
+    <Academics client:load />
+    <CoCurricular client:load />
+    <Sports client:load />
+    <PerformingArts client:load />
+    <Competitions client:load />
+    <Uniforms client:load />
+    <Syllabus client:load />
+    <Booklist client:load />
+    <Examinations client:load />
+    <Results client:load />
+    <NccNda client:load />
+
+  </main>
+  </Layout>
+  
+  <!-- <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script> -->
+</body>
+</html>
