@@ -1,11 +1,35 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Hero from "../components/sections/homepage/Hero";
+import News from "../components/sections/homepage/News";
+import InstaReels from "../components/sections/homepage/InstaReels";
+import AwardsCard from "../components/sections/homepage/Awards";
+import McsLife from "../components/sections/homepage/McsLife";
+import EduLevels from "../components/sections/homepage/EduLevels";
+import Admission from "../components/sections/homepage/Admission";
+import FutureTrends from "../components/sections/homepage/FutureTrends";
+import Partnerships from "../components/sections/homepage/Partnerships";
+import Achievements from "../components/sections/homepage/Achievements";
+import Alumni from "../components/sections/homepage/Alumni";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+	title="Krityam | Build Fast. Scale Smart. Launch Better."
+	description="From MVP to full-scale apps, Krityam builds high-performance digital products for startups and enterprises. We help businesses build MVPs, scale apps, and deliver full-stack digital experiences with speed and precision."
+	pubDate={new Date()}
+>
+	<main class="w-full">
+		<Hero client:load />
+		<Achievements client:only />
+		<News client:load />
+		<InstaReels client:load />
+		<AwardsCard client:load />
+		<McsLife client:load />
+		<EduLevels client:only />
+		<Admission client:load />
+		<FutureTrends client:load />
+		<Partnerships client:load />
+		<Alumni client:only />
+	</main>
 </Layout>

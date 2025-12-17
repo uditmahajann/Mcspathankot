@@ -1,0 +1,314 @@
+import type React from "react"
+import { Wallet, Landmark, CreditCard} from "lucide-react"
+import CtaButton from "../../interface/CtaButton";
+
+const FeeStructure: React.FC = () => {
+  // Fee structure data
+  const feeCategories = [
+    {
+      title: "B. Annual Fees- without meal (Day Boarders)",
+      description: "Fees is paid in four installments in a year (1-10th of April, July, October, January)",
+      fees: [
+        { class: "Nursery to KG", annual: "₹72,830", one: "₹18,230", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 1 to 2", annual: "₹79,580", one: "₹19,900", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 3 to 5", annual: "₹81,140", one: "₹20,340", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 6 to 8", annual: "₹82,140", one: "₹20,640", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 9 to 10", annual: "₹87,870", one: "₹22,070", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 11 to 12", annual: "₹89,670", one: "₹22,470", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+      ],
+    },
+    {
+      title: "C. Annual Fees- without meal (Day Boarders- Beyond Madhopur, Sarna, Chakki, Jugial) ",
+      description: "Fees is paid in four installments in a year (1-10th of April, July, October, January)",
+      fees: [
+        { class: "Nursery to KG", annual: "₹72,830", one: "₹18,230", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 1 to 2", annual: "₹79,580", one: "₹19,900", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 3 to 5", annual: "₹81,140", one: "₹20,340", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 6 to 8", annual: "₹82,140", one: "₹20,640", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 9 to 10", annual: "₹87,870", one: "₹22,070", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 11 to 12", annual: "₹89,670", one: "₹22,470", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+      ],
+    },
+    {
+      title: "D. Annual Fees- without meal (Day Boarders- For Lakhanpur & Kathua)",
+      description: "Fees is paid in four installments in a year (1-10th of April, July, October, January)",
+      fees: [
+        { class: "Nursery to KG", annual: "₹72,830", one: "₹18,230", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 1 to 2", annual: "₹79,580", one: "₹19,900", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 3 to 5", annual: "₹81,140", one: "₹20,340", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 6 to 8", annual: "₹82,140", one: "₹20,640", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 9 to 10", annual: "₹87,870", one: "₹22,070", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 11 to 12", annual: "₹89,670", one: "₹22,470", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+      ],
+    },
+    {
+      title: "E. Annual Fees (Boarders)",
+      description: "Fees is paid in four installments in a year (1-10th of April, July, October, January)",
+      fees: [
+        { class: "Nursery to KG", annual: "₹72,830", one: "₹18,230", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 1 to 2", annual: "₹79,580", one: "₹19,900", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 3 to 5", annual: "₹81,140", one: "₹20,340", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 6 to 8", annual: "₹82,140", one: "₹20,640", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 9 to 10", annual: "₹87,870", one: "₹22,070", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+        { class: "Classes 11 to 12", annual: "₹89,670", one: "₹22,470", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
+      ],
+    },
+  ]
+
+  // Payment methods
+  const paymentMethods = [
+    {
+      name: "Online Payment",
+      description: "Pay securely through our online portal using credit/debit cards or net banking.",
+      icon: Wallet,
+    },
+    {
+      name: "Bank Transfer",
+      description: "Direct bank transfer to the school account.",
+      icon: Landmark,
+    },
+    {
+      name: "Cheque/DD",
+      description: "Payable to 'Montessori Cambridge School' at the school accounts office.",
+      icon: CreditCard,
+    },
+  ]
+
+  return (
+    <section id="fee-structure" className="pb-10 sm:pb-16 py-10 my-10 bg-white">
+      <div className="container mx-auto px-5 min-[480px]:px-12 sm:px-16 lg:px-20 xl:px-40">
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
+            Our Fee <span className="relative inline-block">Structure
+              <img
+                src="/Images/Doodles/LineYellow.png"
+                alt="Underline"
+                className="absolute w-[85%] left-12 -bottom-4 sm:-bottom-6"
+              />
+            </span>
+          </h2>
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-700 max-w-2xl mx-auto">
+            Detailed breakdown of all applicable fees for the academic year 2024-25
+          </p>
+        </div>
+
+        {/* Fee Categories */}
+
+        <h3 className="text-2xl font-semibold mb-4 text-gray-900">A. One-Time Payable Fees</h3>
+        <div className="rounded-lg shadow-lg overflow-hidden border border-gray-100 mb-16">
+          <table className="min-w-full divide-y divide-gray-200">
+            <thead className="bg-primary text-white p-5 font-inter">
+              <tr>
+                <th className="px-6 py-5 text-left text-sm font-medium text-white uppercase tracking-wider ">Sr.No.</th>
+                <th className="px-6 py-5 text-left text-sm font-medium text-white uppercase tracking-wider ">Fee Type</th>
+                <th className="px-6 py-5 text-center text-sm font-medium text-white uppercase tracking-wider ">Fee Amount</th>
+                <th className="px-6 py-5 text-center text-sm font-medium text-white uppercase tracking-wider ">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="even:bg-white odd:bg-gray-100 hover:bg-blue-50 font-inter">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">1</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">Registration Fee</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">₹1000</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">One time payable and Non-refundable</td>
+              </tr>
+              <tr className="even:bg-white odd:bg-gray-100 hover:bg-blue-50 font-inter">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">2</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">Admission Fee</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">₹4000</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Payable at the time of admission and Non-Refundable</td>
+              </tr>
+              <tr className="even:bg-white odd:bg-gray-100 hover:bg-blue-50 font-inter">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">3</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">Prospectus Fee</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">₹100</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Non-Refundable</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+
+
+        {feeCategories.map((category, index) => (
+          <div key={index} className="bg-white">
+            <h3 className="text-2xl font-semibold mb-4 text-gray-900">{category.title}</h3>
+            <div className="rounded-lg shadow-lg overflow-hidden border border-gray-100 mb-16">
+              {/* <div className="bg-blue-600 p-5">
+              <h3 className="mb-1 text-xl font-poppins font-bold text-white tracking-wide">{category.title}</h3>
+              <p className="text-blue-100 text-base font-inter">{category.description}</p>
+            </div> */}
+              <div className="overflow-x-auto">
+
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className="bg-primary p-5 font-inter">
+
+                    <tr>
+                      <th
+                        scope="col"
+                        className="px-6 py-5 text-left text-sm font-medium text-white uppercase tracking-wider"
+                      >
+                        Class
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-6 py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
+                      >
+                        Annual Fees
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-6 py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
+                      >
+                        1st Installment
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-6 py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
+                      >
+                        2nd Installment
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-6 py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
+                      >
+                        3rd Installment
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-6 py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
+                      >
+                        4th Installment
+                      </th>
+                    </tr>
+
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {category.fees.map((fee, feeIndex) => (
+                      <tr key={feeIndex} className={feeIndex % 2 === 0 ? "bg-white hover:bg-blue-50" : "bg-gray-100 hover:bg-blue-50"}>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left font-inter">For {fee.class}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.annual}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.one}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.two}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.three}</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.four}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                  <tr className="bg-secondarylight">
+                    <th colSpan={6} className="px-6 py-4 text-left text-sm font-inter font-medium text-secondarydark">
+                      {category.description}
+                    </th>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        ))}
+
+        {/* Payment Methods */}
+
+        <div className="mt-20">
+          <h3 className="text-2xl font-poppins font-bold text-gray-900 text-center mb-8 tracking-wide">Payment Methods</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {paymentMethods.map((method, index) => {
+            const Icon = method.icon
+            return (
+              <div
+                key={index}
+                className="bg-blue-50 rounded-xl p-6 shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              >
+                <div className="flex w-12 h-12 items-center justify-center rounded-full bg-primarylight text-primary mb-4">
+                  <Icon className="w-6 h-6 flex-shrink-0" />
+                </div>
+                <div className="flex items-center mb-2">
+                  {/* <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-white text-sm font-medium mr-2">
+                    {index + 1}
+                  </span> */}
+                  <h3 className="text-lg font-poppins font-bold text-gray-900 tracking-wide">{index + 1}. {method.name}</h3>
+                </div>
+                <p className="text-gray-700 font-inter">{method.description}</p>
+              </div>
+            )
+          })}
+
+        </div>
+        </div>
+
+        {/* Fee Policy */}
+        <div className="mt-20 bg-gray-50 rounded-2xl p-8 shadow-md">
+          <h3 className="text-2xl font-poppins font-bold text-primarydark mb-6 tracking-wide">Our Fee Policy</h3>
+          <div className="space-y-4 text-gray-700 font-inter">
+            <p>
+              <strong>Due Dates:</strong> Quarterly fees are due on the 10th of April, July, October, and January.
+            </p>
+            <p>
+              <strong>Late Payment:</strong> A late fee of ₹100 per day will be charged for payments made after the due
+              date.
+            </p>
+            <p>
+              <strong>Sibling Discount:</strong> A 10% discount on tuition fees is offered for the second child and 15%
+              for the third child from the same family studying in the school.
+            </p>
+            <p>
+              <strong>Annual Payment Discount:</strong> A 5% discount is offered if the entire year's tuition fee is
+              paid in advance.
+            </p>
+            <p>
+              <strong>Refund Policy:</strong> No refund of fees will be made if a student withdraws from the school
+              during the middle of a quarter. The security deposit is refundable after adjusting any outstanding dues.
+            </p>
+            <p>
+              <strong>Fee Revision:</strong> The school reserves the right to revise the fee structure for the next
+              academic year.
+            </p>
+          </div>
+        </div>
+
+        {/* Financial Assistance */}
+
+        <div className="mt-12 bg-blue-50 rounded-xl p-12 shadow-md">
+          <div className="flex flex-col items-center justify-between">
+            <div className="mb-6 md:mb-0">
+              <h3 className="text-2xl font-poppins font-bold text-gray-900 mb-3 tracking-wide text-center">Financial Assistance & Scholarships</h3>
+              <p className="text-gray-700 font-inter text-center text-lg">
+                We believe that financial constraints should not be a barrier to quality education. Montessori Cambridge
+            School offers merit-based scholarships and need-based financial assistance to deserving students.
+              </p>
+            </div>
+           <div className="text-center text-base mt-6">
+              <CtaButton className="text-base" text="Learn More About Scholarships" href="/preview"/>
+            </div>
+          </div>
+        </div>
+
+
+        {/* <div className="mt-12 bg-blue-600 rounded-2xl p-8 text-white shadow-lg">
+          <h3 className="text-2xl font-bold mb-4">Financial Assistance & Scholarships</h3>
+          <p className="mb-6">
+            We believe that financial constraints should not be a barrier to quality education. Montessori Cambridge
+            School offers merit-based scholarships and need-based financial assistance to deserving students.
+          </p>
+          <a
+            href="/scholarships"
+            className="inline-flex items-center rounded-full bg-white px-6 py-3 text-base font-medium text-blue-600 shadow-sm hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600"
+          >
+            Learn More About Scholarships
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="ml-2 -mr-1 h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+        </div> */}
+      </div>
+    </section>
+  )
+}
+
+export default FeeStructure
