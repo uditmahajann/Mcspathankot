@@ -16,6 +16,8 @@
     "@fontsource-variable/playpen-sans": "^5.2.9",
     "@fontsource-variable/raleway": "^5.2.8",
     "@fontsource/poppins": "^5.2.7",
+    "@sanity/client": "^7.13.2",
+    "@sanity/image-url": "^2.0.2",
     "@tailwindcss/vite": "^4.1.18",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",

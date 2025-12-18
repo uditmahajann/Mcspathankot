@@ -12,6 +12,20 @@ import StudentAchievers from '../../components/sections/sucessstoriespage/Studen
 import SpecialMentions from '../../components/sections/sucessstoriespage/SpecialMentions';
 import AlumniSpotlight from '../../components/sections/sucessstoriespage/AlumniSpotlight';
 
+
+import { sanity } from '../../lib/sanity';
+
+const awards = await sanity.fetch(`
+  *[_type == "award"] | order(year desc){
+    _id,
+    name,
+    year,
+    description,
+    presentedBy,
+    image
+  }
+`);
+
 ---
 
 <Layout
@@ -22,7 +36,7 @@ import AlumniSpotlight from '../../components/sections/sucessstoriespage/AlumniS
 	<main class="w-full">
     <SuccessStoriesHero client:load/>
     <!-- <HighlightsStrip client:load/> -->
-    <AwardsGrid client:load/>
+    <AwardsGrid awards={awards} client:load/>
     <AchieversCarousel client:load/>
     <PhotoHighlights client:load/>
     <AlumniSpotlight client:load/>

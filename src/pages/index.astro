@@ -12,6 +12,27 @@ import Partnerships from "../components/sections/homepage/Partnerships";
 import Achievements from "../components/sections/homepage/Achievements";
 import Alumni from "../components/sections/homepage/Alumni";
 
+import { sanity } from "../lib/sanity";
+import { urlFor } from "../lib/sanityImage";
+
+const achievements = await sanity.fetch(`
+  *[_type == "achievement"] | order(date desc){
+    _id,
+    title,
+    image,
+    category,
+    personType
+  }
+`);
+
+// const homepage = await sanity.fetch(`
+//   *[_type == "homepage"][0]{
+//     title,
+//     heroText,
+// 	heroImage
+//   }
+// `);
+
 ---
 
 <Layout
@@ -20,6 +41,16 @@ import Alumni from "../components/sections/homepage/Alumni";
 	pubDate={new Date()}
 >
 	<main class="w-full">
+
+	<!-- <h1>{homepage.title}</h1>
+    <p>{homepage.heroText}</p>
+    {homepage.heroImage && (
+     <img
+     src={urlFor(homepage.heroImage).width(1200).url()}
+     alt="Homepage hero"
+     /> 
+     )} -->
+
 		<Hero client:load />
 		<Achievements client:only />
 		<News client:load />

@@ -1,41 +1,23 @@
 import type React from "react"
 
-const AWARDS = [
-  {
-    title: "Top Emerging School of the Year",
-    issuer: "Education Today Awards",
-    year: "2025",
-    image: "/Images/Sample/Academics.png", // Replace with actual award/trophy photo
-    description:
-      "Recognized for excellence in holistic development, innovation in learning, and community engagement.",
-  },
-  {
-    title: "Best Green School Award",
-    issuer: "National Environment Council",
-    year: "2024",
-    image: "/Images/Sample/Academics.png",
-    description:
-      "Awarded for sustainable campus practices, tree plantation drives, and student-led eco-initiatives.",
-  },
-  {
-    title: "Digital Innovation in Education",
-    issuer: "CBSE North Zone",
-    year: "2023",
-    image: "/Images/Sample/Academics.png",
-    description:
-      "Honoured for integrating modern technology and creative learning tools into classrooms.",
-  },
-  {
-    title: "Best Sports Programme Award",
-    issuer: "Pathankot District Council",
-    year: "2022",
-    image: "/Images/Sample/Academics.png",
-    description:
-      "Acknowledged for outstanding sports participation and state-level achievements in athletics and basketball.",
-  },
-];
+import { urlFor } from "../../../lib/sanityImage";
 
-const AwardsGrid: React.FC = () => {
+
+interface Award {
+  _id: string;
+  name: string;
+  year: number;
+  description?: string;
+  presentedBy?: string;
+  image?: any;
+}
+
+interface AwardsGridProps {
+  awards: Award[];
+}
+
+
+const AwardsGrid: React.FC<AwardsGridProps> = ({ awards }) => {
   return (
     <section id="awards" className="py-10 my-10 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -58,27 +40,44 @@ const AwardsGrid: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {AWARDS.map((award, index) => (
+          {awards.map((award) => (
+
             <div
-              key={index}
-              className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-transform hover:scale-[1.02]"
-            >
-              <img
-                src={award.image}
-                alt={award.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-5 text-left">
-                <h3 className="text-lg font-poppins font-semibold text-gray-900 mb-1 tracking-wide">
-                  {award.title}
-                </h3>
-                <p className="text-sm font-inter text-gray-600 mb-1">{award.issuer}</p>
-                <p className="text-base font-inter font-medium text-yellow-600 mb-2">
-                  {award.year}
-                </p>
-                <p className="text-sm font-inter text-gray-700">{award.description}</p>
-              </div>
-            </div>
+  key={award._id}
+  className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-transform hover:scale-[1.02]"
+>
+  {award.image && (
+    <img
+  src={urlFor(award.image).width(600).auto("format").url()}
+  alt={award.name}
+  className="w-full h-48 object-cover"
+/>
+
+  )}
+
+  <div className="p-5 text-left">
+    <h3 className="text-lg font-poppins font-semibold text-gray-900 mb-1 tracking-wide">
+      {award.name}
+    </h3>
+
+    {award.presentedBy && (
+      <p className="text-sm font-inter text-gray-600 mb-1">
+        {award.presentedBy}
+      </p>
+    )}
+
+    <p className="text-base font-inter font-medium text-yellow-600 mb-2">
+      {award.year}
+    </p>
+
+    {award.description && (
+      <p className="text-sm font-inter text-gray-700">
+        {award.description}
+      </p>
+    )}
+  </div>
+</div>
+
           ))}
         </div>
       </div>
