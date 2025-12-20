@@ -36,7 +36,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ navigation, currentPath }) => {
             {/* Logo */}
             <a href="/" className="flex items-center space-x-2">
               <img
-                src="/Images/Logos/McsLogoZ.png"
+                src="/Images/Logos/mcslogo.png"
                 alt="MCS Logo"
                 className="w-10 sm:w-12 rounded-full"
                 loading="lazy"

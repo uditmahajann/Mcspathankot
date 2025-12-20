@@ -5,7 +5,7 @@ import { MapPin, Navigation, Phone, Clock, Info } from "lucide-react"
 
 const LocationMap: React.FC = () => {
   return (
-    <section id="location" className="py-10 sm:py-16 my-10 bg-gray-50">
+    <section id="location" className="py-10 sm:py-16 my-10 bg-gray-50 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10 sm:mb-16">

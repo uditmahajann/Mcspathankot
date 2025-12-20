@@ -1,18 +1,19 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import TransferCertificateHero from '../../components/sections/admissionspage/TransferCertificateHero';
-import TransferCertificate from '../../components/sections/admissionspage/TransferCertificate';
+import AdmissionProcessHero from '../../components/sections/admissionpage/AdmissionProcessHero';
+import AdmissionProcess from '../../components/sections/admissionpage/AdmissionProcess';
+import ApplyOnline from '../../components/sections/admissionpage/ApplyOnline';
 
-// Page metadata
 ---
 
 <Layout
-  title="Transfer Certificate | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
-  description="Apply and download the Transfer Certificate (TC) from MCS Pathankot. Learn the procedure and requirements for obtaining the TC."
+  title="Admissions at MCS Pathankot | Join Our Learning Community | Apply Online for Admissions | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Explore admission details at MCS Pathankot. Learn about eligibility, application process, key dates, and opportunities for your child to thrive academically and beyond."
   pubDate={new Date()}
   >
 	<main class="w-full">
-    <TransferCertificateHero client:load />
+    <!-- Hero Section -->
+    <AdmissionProcessHero client:load />
     
     <!-- Navigation Pills -->
     <!-- <div class="sticky top-0 bg-white shadow-md z-50">
@@ -38,9 +39,9 @@ import TransferCertificate from '../../components/sections/admissionspage/Transf
         </nav>
       </div>
     </div> -->
-  
-    <TransferCertificate client:load />
-	
 
+    <AdmissionProcess client:load />
+    <ApplyOnline client:load />
+	
 </Layout>
 

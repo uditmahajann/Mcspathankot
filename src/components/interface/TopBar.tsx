@@ -1,9 +1,11 @@
 import type React from "react";
 import { Phone, Mail, Facebook, Instagram, Youtube, Linkedin } from "lucide-react";
+import SearchButton from "./SearchButton";
 
 const TopBar: React.FC = () => {
   // Hardcoded contact info
-  const phone = "+91-98765-70911";
+  const phone1 = "98765-70911";
+  const phone2 = "98765-70911";
   const email = "mcs_pathankot@yahoo.co.in";
 
   // Social links with brand hover styles
@@ -15,48 +17,60 @@ const TopBar: React.FC = () => {
   ];
 
   return (
-    <div className="bg-blue-900 text-white text-sm font-medium">
-      <div className="container px-5 py-1.5 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+    <div className="justify-items-center bg-blue-900 text-white text-sm font-inter">
+      <div className="container px-4 sm:px-6 py-2 flex flex-col gap-3 lg:flex-row items-center lg:justify-between">
         {/* Contact Info */}
-        
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-1">
-          <a
-            href={`tel:${phone}`}
-            className="flex items-center hover:text-blue-300 transition-colors"
-          >
-            <Phone className="h-4 w-4 mr-1" />
-            <span>{phone}</span>
-          </a>
+
+        <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-2">
           <a
             href={`mailto:${email}`}
-            className="flex items-center hover:text-blue-300 transition-colors"
+            className="flex items-center hover:underline"
           >
-            <Mail className="h-4 w-4 mr-1" />
+            <Mail className="h-3.5 w-3.5 sm:h-5 sm:w-5 mr-2 text-amber-300" />
             <span>{email}</span>
+          </a>|
+          <a
+            href={`tel:${phone1}`}
+            className="flex items-center hover:underline"
+          >
+            <Phone className="h-3.5 w-3.5 sm:h-5 sm:w-5 mr-2 fill-amber-300 stroke-0" />
+            <span>{phone1}</span>
           </a>
+          <a
+            href={`tel:${phone2}`}
+            className="hidden sm:flex items-center hover:underline"
+          >
+            <Phone className="h-3.5 w-3.5 sm:h-5 sm:w-5 mr-2 fill-amber-300 stroke-0" />
+            <span>{phone2}</span>
+          </a>
+
         </div>
 
         {/* Social: "Follow us on" + icons */}
-        <div className="flex items-center gap-3 flex-wrap">
-          <span className="text-white/90">Follow us on:</span>
-          <div className="flex items-center gap-1.5">
-            {socialLinks.map((link, i) => (
-              <a
-                key={i}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.name}
-                className={`group flex items-center justify-center w-7 h-7 rounded-full bg-white/10 transition-colors ${link.color}`}
-                title={link.name}
-              >
-                {link.icon === "facebook" && <Facebook className="h-4.5 w-4.5 text-white group-hover:text-white" />}
-                {link.icon === "instagram" && <Instagram className="h-4.5 w-4.5 text-white group-hover:text-white" />}
-                {link.icon === "youtube" && <Youtube className="h-4.5 w-4.5 text-white group-hover:text-white" />}
-                {link.icon === "linkedin" && <Linkedin className="h-4.5 w-4.5 text-white group-hover:text-white" />}
-              </a>
-            ))}
-          </div>
+        <div className="flex flex-wrap justify-center items-center gap-x-5 gap-y-2">
+          <div className="flex items-center gap-3 flex-wrap">
+            <span className="text-white/90">Follow us on:</span>
+            <div className="flex items-center gap-1.5">
+              {socialLinks.map((link, i) => (
+                <a
+                  key={i}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.name}
+                  className={`group flex items-center justify-center w-7 h-7 rounded-full bg-white/10 transition-colors ${link.color}`}
+                  title={link.name}
+                >
+                  {link.icon === "facebook" && <Facebook className="h-4.5 w-4.5 text-white group-hover:text-white" />}
+                  {link.icon === "instagram" && <Instagram className="h-4.5 w-4.5 text-white group-hover:text-white" />}
+                  {link.icon === "youtube" && <Youtube className="h-4.5 w-4.5 text-white group-hover:text-white" />}
+                  {link.icon === "linkedin" && <Linkedin className="h-4.5 w-4.5 text-white group-hover:text-white" />}
+                </a>
+              ))}
+            </div>
+          </div>|
+          <SearchButton />
+
         </div>
       </div>
     </div>

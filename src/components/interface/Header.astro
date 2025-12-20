@@ -1,11 +1,9 @@
 ---
 // Import necessary components
-import { Image } from "astro:assets";
 import { ChevronDown } from "lucide-react";
 import TopBar from "./TopBar";
-import SearchButton from "./SearchButton";
 import MobileNav from "./MobileNav";
-import CtaButton from "./CtaButton";
+
 
 // Define navigation structure with dropdowns
 const navigation = [
@@ -30,8 +28,8 @@ const navigation = [
     ],
   },
   {
-    name: "Success Stories",
-    href: "/success-stories",
+    name: "Achievements",
+    href: "/achievements",
     dropdown: false,
   },
   {
@@ -86,8 +84,8 @@ const navigation = [
   },
 
   {
-    name: "Admissions",
-    href: "/admissions",
+    name: "Admission",
+    href: "/admission",
     dropdown: true,
     items: [
       { name: "Why Choose MCS?", href: "/admissions/why-choose-MCS" },
@@ -100,15 +98,6 @@ const navigation = [
       },
     ],
   },
-  // {
-  //   name: "Careers",
-  //   href: "/careers",
-  //   dropdown: true,
-  //   items: [
-  //     { name: "Faculty Development", href: "/careers/careers" },
-  //     { name: "Alumni Connect", href: "/careers/circulars" },
-  //   ],
-  // },
   {
     name: "Bulletin",
     href: "/bulletin",
@@ -162,58 +151,28 @@ const currentPath = Astro.url.pathname;
   <!-- Sticky wrapper: BrandBar + NavBar stick together -->
   <div
     id="sticky-header"
-    class="headerwrap-transparent transition-all duration-300 ease-in-out"
+    class="headerwrap transition-all duration-500 ease-in-out"
   >
-    <!-- BrandBar -->
-    <div class="bg-white">
-      <div class="container px-5 lg:px-8">
-        <div class="flex items-center justify-between py-3.5">
-          <!-- Logo + School Name -->
-          <a
-            href="/"
-            class="flex items-center gap-3"
-            aria-label="Montessori Cambridge School home"
-          >
-            <img
-              src="/Images/Logos/McsLogoZ.png"
-              alt="MCS Logo"
-              class="w-12 sm:w-16"
-              loading="lazy"
-            />
-
-            <div
-              class="text-lg sm:text-4xl font-poppins font-extrabold text-blue-900 uppercase tracking-wide "
-            >
-              Montessori Cambridge School Pathankot
-            </div>
-          </a>
-
-          <!-- Right-side actions -->
-          <div class="hidden md:flex items-center gap-2">
-            <a
-              href="/enquire"
-              class="group inline-flex items-center justify-center px-4 py-2 md:px-5 md:py-2.5 text-outfit font-medium text-white bg-primarydark rounded-full transition-all duration-300 ease-in-out hover:font-semibold hover:text-white hover:bg-secondarydark hover:scale-105 active:scale-95 cursor-pointer text-sm"
-            >
-              ENQUIRE NOW
-            </a>
-            <a
-              href="/pay-fee"
-              class="group inline-flex items-center justify-center px-4 py-2 md:px-5 md:py-2.5 text-outfit font-medium text-white bg-primarydark rounded-full transition-all duration-300 ease-in-out hover:font-semibold hover:text-white hover:bg-secondarydark hover:scale-105 active:scale-95 cursor-pointer text-sm"
-            >
-              PAY FEES
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- NavBar -->
-    <div class="navbar">
-      <div class="container px-5 lg:px-6">
-        <div class="flex justify-center items-center py-1 gap-x-5">
+    <div class="w-full">
+      <div class="flex items-center justify-between w-full mx-auto px-5 sm:px-6">
+        <div class="flex items-center justify-between w-full py-2 gap-x-5">
+          <a
+            href="/"
+            class="flex items-center gap-3 shrink-0"
+            aria-label="Montessori Cambridge School Home"
+          >
+            <img
+              src="/Images/Logos/mcslogo.png"
+              alt="MCS Logo"
+              class="w-16 sm:w-18"
+              loading="lazy"
+            />
+          </a>
           <!-- Desktop Navigation -->
           <nav
-            class="hidden lg:flex items-center space-x-1"
+            class="hidden lg:flex flex-wrap justify-center gap-x-2 gap-y-5 flex-1 py-3"
             role="navigation"
             aria-label="Main navigation"
           >
@@ -222,12 +181,12 @@ const currentPath = Astro.url.pathname;
                 <div class="relative group">
                   <a
                     href={item.href}
-                    class={`navlink px-3 py-2 rounded-md text-base font-inter font-medium transition-colors ${
+                    class={`navlink px-2 py-2 hover:bg-primarylight hover:text-primarydark rounded-md text-base font-inter font-medium hover:font-semibold transition-colors ${
                       currentPath === item.href ||
                       (item.href !== "/" &&
                         currentPath.startsWith(item.href + "/"))
                         ? "text-primarydark font-semibold"
-                        : "text-gray-700"
+                        : "text-gray-800"
                     }`}
                   >
                     {item.name}
@@ -260,8 +219,13 @@ const currentPath = Astro.url.pathname;
           </nav>
 
           <!-- Search + Mobile -->
-          <div class="flex items-center gap-3">
-            <SearchButton client:load />
+          <div class="flex items-center gap-1">
+            <a
+              href="/pay-fee"
+              class="shrink-0 group inline-flex items-center justify-center py-2 px-5 sm:py-2.5 text-outfit font-medium text-white bg-primarydark rounded-full transition-all duration-300 ease-in-out hover:font-semibold hover:text-white hover:bg-secondarydark hover:scale-105 active:scale-95 cursor-pointer text-sm"
+            >
+              PAY FEES
+          </a>
             <MobileNav
               client:load
               navigation={navigation}
@@ -291,8 +255,8 @@ const currentPath = Astro.url.pathname;
   }
 
   /* Sticky wrapper states */
-  .headerwrap-transparent {
-    background: transparent;
+  .headerwrap {
+    background: #fff;
     position: relative;
     z-index: 30;
   }
@@ -304,27 +268,6 @@ const currentPath = Astro.url.pathname;
     z-index: 60;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   }
-  /* Default NavBar state */
-.navbar {
-  background-color: #f0f5ff; /* Tailwind blue-50 */
-}
-.navbar .navlink:hover {
-  background-color: #e0edff; /* light hover */
-  color: #193CB8; /* primary dark */
-}
-
-/* Sticky state: background blue + white text */
-.headerwrap-sticky .navbar {
-  background-color: #dbeafe; /* Tailwind blue-100 */
-}
-.headerwrap-sticky .navbar .navlink {
-  color: #000000 !important;
-}
-.headerwrap-sticky .navbar .navlink:hover {
-  background-color: rgba(255,255,255,0.15);
-  color: #193CB8 !important;
-}
-
 </style>
 
 <script type="module">
@@ -354,3 +297,5 @@ const currentPath = Astro.url.pathname;
     window.addEventListener("load", onScroll);
   }
 </script>
+
+

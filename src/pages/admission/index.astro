@@ -1,19 +1,26 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import AdmissionProcessHero from '../../components/sections/admissionspage/AdmissionProcessHero';
-import AdmissionProcess from '../../components/sections/admissionspage/AdmissionProcess';
-import ApplyOnline from '../../components/sections/admissionspage/ApplyOnline';
+import AdmissionsHero from '../../components/sections/admissionpage/AdmissionHero';
+import AdmissionProcedure from '../../components/sections/admissionpage/AdmissionProcess';
+import ApplyOnline from '../../components/sections/admissionpage/ApplyOnline';
+import FeeStructure from '../../components/sections/admissionpage/FeeStructure';
+import Withdrawals from '../../components/sections/admissionpage/Withdrawals';
+import TransferCertificate from '../../components/sections/admissionpage/TransferCertificate';
 
+// Page metadata
+const pageTitle = "Admissions";
+const pageDescription = "Learn about the admission process, fee structure, and application procedures at Montessori Cambridge School.";
+const schoolName = "Montessori Cambridge School";
 ---
 
 <Layout
-  title="Admissions at MCS Pathankot | Join Our Learning Community | Apply Online for Admissions | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
-  description="Explore admission details at MCS Pathankot. Learn about eligibility, application process, key dates, and opportunities for your child to thrive academically and beyond."
+  title="Krityam | Build Fast. Scale Smart. Launch Better."
+  description="From MVP to full-scale apps, Krityam builds high-performance digital products for startups and enterprises. We help businesses build MVPs, scale apps, and deliver full-stack digital experiences with speed and precision."
   pubDate={new Date()}
   >
 	<main class="w-full">
     <!-- Hero Section -->
-    <AdmissionProcessHero client:load />
+    <AdmissionsHero client:load />
     
     <!-- Navigation Pills -->
     <!-- <div class="sticky top-0 bg-white shadow-md z-50">
@@ -39,9 +46,14 @@ import ApplyOnline from '../../components/sections/admissionspage/ApplyOnline';
         </nav>
       </div>
     </div> -->
-
-    <AdmissionProcess client:load />
+    
+    <!-- Component Sections -->
+    <AdmissionProcedure client:load />
     <ApplyOnline client:load />
+    <FeeStructure client:load />
+    <Withdrawals client:load />
+    <TransferCertificate client:load />
 	
+
 </Layout>
 

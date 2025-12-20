@@ -117,10 +117,10 @@ const MobileNav: React.FC<MobileNavProps> = ({ navigation, currentPath, contactI
 
       {/* Mobile Navigation Menu */}
       <div ref={mobileMenuRef} className={`fixed inset-0 z-40 ${isOpen ? "" : "hidden"}`} onClick={handleBackdropClick}>
-        <div className="fixed inset-0 bg-black bg-opacity-50"></div>
+        <div className="fixed inset-0 bg-black/70"></div>
         <div
           ref={mobileMenuContainerRef}
-          className="fixed inset-y-0 right-0 max-w-xs w-full bg-white shadow-xl transform transition-transform duration-300 ease-in-out translate-x-full"
+          className="fixed inset-y-0 right-0 max-w-60 w-full bg-white shadow-xl transform transition-transform duration-300 ease-in-out translate-x-full"
         >
           <div className="flex items-center justify-between p-4 border-b">
             <h2 className="text-lg font-medium text-gray-900">Menu</h2>

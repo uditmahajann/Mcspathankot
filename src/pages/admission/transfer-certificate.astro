@@ -1,18 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import FeeStructureHero from '../../components/sections/admissionspage/FeeStructureHero';
-import FeeStructure from '../../components/sections/admissionspage/FeeStructure';
+import TransferCertificateHero from '../../components/sections/admissionpage/TransferCertificateHero';
+import TransferCertificate from '../../components/sections/admissionpage/TransferCertificate';
 
+// Page metadata
 ---
 
 <Layout
-  title="Free Structure | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
-  description="View the complete fee structure of MCS Pathankot. Transparent details of tuition fees, annual charges, and payment guidelines."
+  title="Transfer Certificate | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Apply and download the Transfer Certificate (TC) from MCS Pathankot. Learn the procedure and requirements for obtaining the TC."
   pubDate={new Date()}
   >
 	<main class="w-full">
-    <!-- Hero Section -->
-    <FeeStructureHero client:load />
+    <TransferCertificateHero client:load />
     
     <!-- Navigation Pills -->
     <!-- <div class="sticky top-0 bg-white shadow-md z-50">
@@ -38,8 +38,9 @@ import FeeStructure from '../../components/sections/admissionspage/FeeStructure'
         </nav>
       </div>
     </div> -->
-    
-    <FeeStructure client:load />
+  
+    <TransferCertificate client:load />
 	
+
 </Layout>
 

@@ -1,26 +1,17 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import AdmissionsHero from '../../components/sections/admissionspage/AdmissionHero';
-import AdmissionProcedure from '../../components/sections/admissionspage/AdmissionProcess';
-import ApplyOnline from '../../components/sections/admissionspage/ApplyOnline';
-import FeeStructure from '../../components/sections/admissionspage/FeeStructure';
-import Withdrawals from '../../components/sections/admissionspage/Withdrawals';
-import TransferCertificate from '../../components/sections/admissionspage/TransferCertificate';
-
-// Page metadata
-const pageTitle = "Admissions";
-const pageDescription = "Learn about the admission process, fee structure, and application procedures at Montessori Cambridge School.";
-const schoolName = "Montessori Cambridge School";
+import WithdrawalsHero from '../../components/sections/admissionpage/WithdrawalsHero';
+import Withdrawals from '../../components/sections/admissionpage/Withdrawals';
 ---
 
 <Layout
-  title="Krityam | Build Fast. Scale Smart. Launch Better."
-  description="From MVP to full-scale apps, Krityam builds high-performance digital products for startups and enterprises. We help businesses build MVPs, scale apps, and deliver full-stack digital experiences with speed and precision."
+  title="Withdrawals & School Leaving Policy | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Learn about the withdrawal process at MCS Pathankot, including application guidelines, notice periods, and transfer procedures."
   pubDate={new Date()}
   >
 	<main class="w-full">
     <!-- Hero Section -->
-    <AdmissionsHero client:load />
+    <WithdrawalsHero client:load />
     
     <!-- Navigation Pills -->
     <!-- <div class="sticky top-0 bg-white shadow-md z-50">
@@ -46,14 +37,8 @@ const schoolName = "Montessori Cambridge School";
         </nav>
       </div>
     </div> -->
-    
-    <!-- Component Sections -->
-    <AdmissionProcedure client:load />
-    <ApplyOnline client:load />
-    <FeeStructure client:load />
+
     <Withdrawals client:load />
-    <TransferCertificate client:load />
-	
 
 </Layout>
 

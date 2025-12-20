@@ -1,12 +1,12 @@
 import type React from "react"
-import { Phone, Mail, Clock, MapPin, Globe, FileText, Users, HelpCircle } from "lucide-react"
+import { Phone, Mail, Clock, MapPin } from "lucide-react"
 
 const ContactInfo: React.FC = () => {
   return (
-    <section className="py-10 my-10 bg-white">
-      <div className="container mx-auto px-5">
+    <section className="min-[540px]:py-4 xl:py-10 my-10 bg-white">
+      <div className="container mx-auto px-6 min-[540px]:px-16 sm:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div
               className="bg-blue-50 border-2 border-blue-100 rounded-xl p-6 flex flex-col items-center text-center transition-all transform hover:-translate-y-1"
             >
@@ -15,7 +15,7 @@ const ContactInfo: React.FC = () => {
               </div>
               <h3 className="font-poppins font-semibold text-xl mb-2 text-gray-900">Our Address</h3>
               <p className="text-gray-700 font-inter">
-                Defence Road (Pangoli), Pathankot – 145001
+                MCS, Defence Road (Pangoli), Pathankot – 145001
               </p>
             </div>
 
@@ -27,9 +27,9 @@ const ContactInfo: React.FC = () => {
               </div>
               <h3 className="font-poppins font-semibold text-xl mb-2 text-gray-900">Phone Numbers</h3>
               <p className="text-gray-700 font-inter">
-                Main: +91 98765-70911
+                +91 98765-70911
                 <br />
-                Admissions: +91 98765-70911
+                +91 98765-70911
               </p>
             </div>
 

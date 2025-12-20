@@ -1,17 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import WithdrawalsHero from '../../components/sections/admissionspage/WithdrawalsHero';
-import Withdrawals from '../../components/sections/admissionspage/Withdrawals';
+import FeeStructureHero from '../../components/sections/admissionpage/FeeStructureHero';
+import FeeStructure from '../../components/sections/admissionpage/FeeStructure';
+
 ---
 
 <Layout
-  title="Withdrawals & School Leaving Policy | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
-  description="Learn about the withdrawal process at MCS Pathankot, including application guidelines, notice periods, and transfer procedures."
+  title="Free Structure | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="View the complete fee structure of MCS Pathankot. Transparent details of tuition fees, annual charges, and payment guidelines."
   pubDate={new Date()}
   >
 	<main class="w-full">
     <!-- Hero Section -->
-    <WithdrawalsHero client:load />
+    <FeeStructureHero client:load />
     
     <!-- Navigation Pills -->
     <!-- <div class="sticky top-0 bg-white shadow-md z-50">
@@ -37,8 +38,8 @@ import Withdrawals from '../../components/sections/admissionspage/Withdrawals';
         </nav>
       </div>
     </div> -->
-
-    <Withdrawals client:load />
-
+    
+    <FeeStructure client:load />
+	
 </Layout>
 
