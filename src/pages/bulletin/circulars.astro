@@ -1,7 +1,20 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CircularsHero from '../../components/sections/bulletinpage/CircularsHero';
-import Circulars from '../../components/sections/bulletinpage/Circulars';
+import CircularsSection from '../../components/sections/bulletinpage/Circulars';
+
+import { sanity } from "../../lib/sanity";
+
+const circulars = await sanity.fetch(`
+  *[_type == "circular"] | order(date desc) {
+    _id,
+    category,
+    date,
+    title,
+    description,
+    image
+  }
+`);
 ---
 
 <Layout
@@ -11,68 +24,6 @@ import Circulars from '../../components/sections/bulletinpage/Circulars';
   >
   <main>
     <CircularsHero client:load />
-    <Circulars client:load />
+    <CircularsSection circulars={circulars} client:only />
   </main>
-<!-- 
-  <script>
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId && targetId !== '#') {
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            window.scrollTo({
-              top: targetElement.offsetTop - 100, // Offset for header
-              behavior: 'smooth'
-            });
-          }
-        }
-      });
-    });
-
-    // Highlight active section in navigation
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('a[href^="#"]');
-
-    function highlightActiveSection() {
-      const scrollPosition = window.scrollY + 150; // Offset for header
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${sectionId}`) {
-              link.classList.add('active');
-            }
-          });
-        }
-      });
-    }
-
-    window.addEventListener('scroll', highlightActiveSection);
-    highlightActiveSection(); // Run once on page load
-  </script> -->
 </Layout>
-
-<!-- <style>
-  a.active {
-    color: #2563eb; /* Blue-600 */
-    font-weight: 600;
-  }
-
-  /* Animation for news ticker */
-  @keyframes marquee {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
-  }
-
-  .animate-marquee {
-    animation: marquee 20s linear infinite;
-  }
-</style> -->

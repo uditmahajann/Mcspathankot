@@ -43,40 +43,40 @@ const AwardsGrid: React.FC<AwardsGridProps> = ({ awards }) => {
           {awards.map((award) => (
 
             <div
-  key={award._id}
-  className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-transform hover:scale-[1.02]"
->
-  {award.image && (
-    <img
-  src={urlFor(award.image).width(600).auto("format").url()}
-  alt={award.name}
-  className="w-full h-48 object-cover"
-/>
+              key={award._id}
+              className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-transform hover:scale-[1.02]"
+            >
+              {award.image && (
+                <img
+                  src={urlFor(award.image).width(600).auto("format").url()}
+                  alt={award.name}
+                  className="w-full h-48 object-cover"
+                />
 
-  )}
+              )}
 
-  <div className="p-5 text-left">
-    <h3 className="text-lg font-poppins font-semibold text-gray-900 mb-1 tracking-wide">
-      {award.name}
-    </h3>
+              <div className="p-5 text-left">
+                <h3 className="text-lg font-poppins font-semibold text-gray-900 mb-1 tracking-wide">
+                  {award.name}
+                </h3>
 
-    {award.presentedBy && (
-      <p className="text-sm font-inter text-gray-600 mb-1">
-        {award.presentedBy}
-      </p>
-    )}
+                {award.presentedBy && (
+                  <p className="text-sm font-inter text-gray-600 mb-1">
+                    {award.presentedBy}
+                  </p>
+                )}
 
-    <p className="text-base font-inter font-medium text-yellow-600 mb-2">
-      {award.year}
-    </p>
+                <p className="text-base font-inter font-medium text-yellow-600 mb-2">
+                  {award.year}
+                </p>
 
-    {award.description && (
-      <p className="text-sm font-inter text-gray-700">
-        {award.description}
-      </p>
-    )}
-  </div>
-</div>
+                {award.description && (
+                  <p className="text-sm font-inter text-gray-700">
+                    {award.description}
+                  </p>
+                )}
+              </div>
+            </div>
 
           ))}
         </div>

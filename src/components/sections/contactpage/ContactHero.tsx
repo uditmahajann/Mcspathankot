@@ -4,7 +4,7 @@ const ContactHero: React.FC = () => {
   return (
     <section className="relative text-white">
       <div
-        className="relative min-h-[60vh] md:min-h-[70vh] flex items-center"
+        className="relative min-h-[60vh] md:min-h-[65vh] flex items-center"
         style={{
           backgroundImage: `url('/Images/Heros/contacthero.JPG')`,
           backgroundSize: "cover",
@@ -13,7 +13,7 @@ const ContactHero: React.FC = () => {
         }}
       >
         {/* left-to-right overlay for readability */}
-        <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/90 via-black/60 to-transparent" />
 
         <div className="relative z-10 w-full">
           <div className="mx-auto max-w-7xl px-6 min-[540px]:px-10 sm:px-12 lg:px-20 xl:px-10">

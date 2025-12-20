@@ -5,16 +5,16 @@ import { MapPin, Navigation, Phone, Clock, Info } from "lucide-react"
 
 const LocationMap: React.FC = () => {
   return (
-    <section id="location" className="py-10 sm:py-16 my-10 bg-gray-50 overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section id="location" className="py-4 sm:py-10 lg:py-16 my-10 bg-white overflow-hidden">
+      <div className="container mx-auto px-6 min-[540px]:px-8 lg:px-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
-            Locate us & visit <span className="relative inline-block">our Campus
+          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
+            Locate <span className="relative inline-block">our Campus
               <img
                 src="/Images/Doodles/LineGreen.png"
                 alt="Underline"
-                className="absolute w-[80%] left-16 -bottom-4 sm:-bottom-6 md:-bottom-8"
+                className="absolute w-[80%] left-16 -bottom-4 min-[540px]:-bottom-6 md:-bottom-8"
               />
             </span>
           </h2>
@@ -25,7 +25,7 @@ const LocationMap: React.FC = () => {
 
           <div className="bg-white rounded-xl shadow-lg overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-3">
-              <div className="lg:col-span-2 h-[400px] lg:h-[500px] relative">
+              <div className="lg:col-span-2 h-100 lg:h-125 relative">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3372.1521197286183!2d75.66919097543949!3d32.30776667386326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391c7e56c1d3ebad%3A0x6775b62b31d7b45!2sMontessori%20Cambridge%20School!5e0!3m2!1sen!2sin!4v1748068024037!5m2!1sen!2sin"
                   width="100%"
@@ -38,12 +38,12 @@ const LocationMap: React.FC = () => {
                 ></iframe>
               </div>
 
-              <div className="p-8 bg-primarydark text-white">
-                <h3 className="text-2xl font-poppins font-bold mb-6 tracking-wide">Visit Our Campus</h3>
+              <div className="p-6 lg:-8 bg-primarydark text-white">
+                <h3 className="text-xl min-[540px]:text-2xl font-poppins font-bold mb-6 tracking-wide">Visit Our Campus</h3>
 
-                <div className="space-y-6 font-inter">
+                <div className="space-y-6 font-inter text-sm min-[540px]:text-base">
                   <div className="flex">
-                    <MapPin className="w-5 h-5 mt-1 mr-3 flex-shrink-0" />
+                    <MapPin className="w-5 h-5 mt-1 mr-3 shrink-0" />
                     <div>
                       <h4 className="font-semibold">Address</h4>
                       <p className="text-blue-100 mt-1">
@@ -54,20 +54,8 @@ const LocationMap: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* <div className="flex">
-                    <Navigation className="w-5 h-5 mt-1 mr-3 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold">Directions</h4>
-                      <p className="text-blue-100 mt-1">
-                        Near Punjab National Bank
-                        <br />
-                        Easily accessible from Pathankot Junction
-                      </p>
-                    </div>
-                  </div> */}
-
                   <div className="flex">
-                    <Phone className="w-5 h-5 mt-1 mr-3 flex-shrink-0" />
+                    <Phone className="w-5 h-5 mt-1 mr-3 shrink-0" />
                     <div>
                       <h4 className="font-semibold">Contact</h4>
                       <p className="text-blue-100 mt-1">
@@ -79,7 +67,7 @@ const LocationMap: React.FC = () => {
                   </div>
 
                   <div className="flex">
-                    <Clock className="w-5 h-5 mt-1 mr-3 flex-shrink-0" />
+                    <Clock className="w-5 h-5 mt-1 mr-3 shrink-0" />
                     <div>
                       <h4 className="font-semibold">Visiting Hours</h4>
                       <p className="text-blue-100 mt-1">
@@ -92,22 +80,11 @@ const LocationMap: React.FC = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* <div className="mt-8">
-                  <a
-                    href="https://maps.app.goo.gl/8c9VpRgHFo1AVxvM9"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-white text-blue-800 hover:bg-blue-100 transition-colors px-6 py-3 rounded-lg font-semibold"
-                  >
-                    Get Directions
-                  </a>
-                </div> */}
               </div>
             </div>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="mt-6 sm:mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
               <h3 className="text-lg font-outfit font-semibold text-primarydark mb-3">Parking Information</h3>
               <p className="text-gray-600">

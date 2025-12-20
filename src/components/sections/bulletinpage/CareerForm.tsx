@@ -83,16 +83,16 @@ const CareerForm: React.FC = () => {
     }
 
     return (
-        <section id="career-form" className="py-12 bg-white rounded-lg shadow-lg mx-12">
+        <section id="career-form" className="py-8 sm:py-10 lg:py-12 bg-white rounded-lg shadow-lg">
 
-            <div className="container">
-                <div className="pl-12">
+            <div className="container w-full items-center justify-center mx-auto ">
+                <div className="text-center mb-2">
                     <h3 className="text-xl text-primarydark font-poppins font-semibold tracking-wide">Application Form</h3>
                 </div>
 
 
                 {isSubmitted ? (
-                    <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-12 text-center mx-10">
+                    <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-6 sm:p-8 lg:p-12 text-center mx-10">
                         <div className="flex justify-center mb-4">
                             <CheckCircle className="w-16 h-16 text-emerald-500" />
                         </div>
@@ -108,7 +108,7 @@ const CareerForm: React.FC = () => {
                         </button>
                     </div>
                 ) : (
-                    <form onSubmit={handleSubmit} className="bg-white p-12 text-sm">
+                    <form onSubmit={handleSubmit} className="bg-white p-6 sm:p-8 lg:p-12 text-sm items-center justify-center">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <div>
                                 <label htmlFor="name" className="block text-gray-700 font-inter font-medium mb-2">
@@ -224,7 +224,7 @@ const CareerForm: React.FC = () => {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className={`flex items-center gap-2 px-5 py-2.5 rounded-lg font-outfit font-semibold text-base text-white ${isSubmitting ? "bg-blue-400 cursor-not-allowed" : "bg-primary hover:bg-primarydark cursor-pointer"} transition-colors`}
+                                className={`flex items-center gap-2 px-4 lg:px-5 py-2.5 rounded-lg font-outfit font-semibold text-sm lg:text-base text-white ${isSubmitting ? "bg-blue-400 cursor-not-allowed" : "bg-primary hover:bg-primarydark cursor-pointer"} transition-colors`}
                             >
                                 {isSubmitting ? (
                                     <>

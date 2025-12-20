@@ -115,22 +115,12 @@ const FAQSection: React.FC = () => {
   })
 
   return (
-    <section className="py-25 bg-gradient-to-br from-violet-950 via-blue-900 to-indigo-950">
-      <div className="container mx-auto px-4">
+    <section className="py-15 md:py-20 bg-linear-to-br from-violet-950 via-blue-900 to-indigo-950">
+      <div className="container mx-auto px-6 min-[540px]:px-8 lg:px-20 xl:px-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl text-yellow-400 font-playpen font-medium">
-              <span className="relative z-10 inline-block pl-5 pr-1">
-                Frequently
-                <span className="absolute inset-0 -z-10 -top-4 sm:-top-6 md:-top-8">
-                  <img
-                    src="/Images/Doodles/CircleYellow.png"
-                    alt="Circle Doodle"
-                    className="w-full h-auto object-contain"
-                  />
-                </span>
-              </span>{" "}
-              Asked Questions
+            <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-amber-300 font-playpen font-medium leading-normal">
+                Frequently Asked Questions
             </h2>
             <p className="mt-4 sm:mt-7 text-base sm:text-lg text-gray-200 max-w-3xl mx-auto">
               Find answers to most common questions about our school, admissions process, facilities, and more.
@@ -138,8 +128,8 @@ const FAQSection: React.FC = () => {
           </div>
 
           {/* Search and Filter */}
-          <div className="mb-12">
-            <div className="relative mb-10">
+          <div className="mb-6 lg:mb-12">
+            <div className="relative mb-6 sm:mb-10">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <Search className="h-5 w-5 text-gray-300" />
               </div>
@@ -152,13 +142,13 @@ const FAQSection: React.FC = () => {
               />
             </div>
 
-            <div className="flex flex-wrap gap-2 space-y-2 justify-center">
+            <div className="hidden lg:flex flex-wrap gap-2 space-y-2 justify-center">
               {categories.map((category) => (
                 <button
                   key={category.id}
                   className={`px-5 py-2 rounded-full text-base font-medium transition-colors cursor-pointer ${activeCategory === category.id
                       ? "bg-primary text-white"
-                      : "bg-gray-200/70 text-gray-700 hover:bg-gray-200"
+                      : "bg-white/30 text-gray-100 hover:bg-primary hover:text-white"
                     }`}
                   onClick={() => setActiveCategory(category.id)}
                 >
@@ -182,11 +172,11 @@ const FAQSection: React.FC = () => {
                     onClick={() => toggleFAQ(faq.id)}
                     aria-expanded={activeId === faq.id}
                   >
-                    <h3 className="text-lg font-inter font-semibold text-gray-900">{faq.question}</h3>
+                    <h3 className="text-base sm:text-lg font-inter font-semibold text-gray-900">{faq.question}</h3>
                     {activeId === faq.id ? (
-                      <ChevronUp className="w-5 h-5 text-primary flex-shrink-0" />
+                      <ChevronUp className="w-5 h-5 text-primary shrink-0" />
                     ) : (
-                      <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                      <ChevronDown className="w-5 h-5 text-gray-400 shrink-0" />
                     )}
                   </button>
 
@@ -217,7 +207,7 @@ const FAQSection: React.FC = () => {
           </div>
 
           {/* Still Have Questions */}
-          <div className="mt-12 bg-blue-50 rounded-xl p-8 text-center">
+          <div className="hidden sm:block mt-12 bg-blue-50 rounded-xl p-8 text-center">
             <h3 className="text-xl font-inter font-bold text-gray-900 mb-3">Still Have Questions?</h3>
             <p className="text-gray-600 font-inter mb-6">
               If you couldn't find the answer to your question, please feel free to contact us directly.

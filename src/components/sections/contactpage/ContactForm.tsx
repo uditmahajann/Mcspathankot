@@ -76,12 +76,12 @@ const ContactForm: React.FC = () => {
   }
 
   return (
-    <section id="contact-form" className="py-25 my-10 bg-gradient-to-br from-violet-950 via-blue-900 to-indigo-950">
+    <section id="contact-form" className="py-15 md:py-20 my-10 bg-linear-to-br from-violet-950 via-blue-900 to-indigo-950">
       
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 min-[540px]:px-8 lg:px-20 xl:px-10">
         <div className="max-w-5xl mx-auto">
            <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-yellow-400 font-playpen font-medium">
+          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-amber-300 font-playpen font-medium leading-normal">
             Send us your Message
           </h2>
           <p className="mt-4 sm:mt-7 text-base sm:text-lg text-gray-200 max-w-3xl mx-auto">
@@ -108,7 +108,7 @@ const ContactForm: React.FC = () => {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-12">
+            <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-6 min-[540px]:p-8 lg:p-12">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label htmlFor="name" className="block text-gray-700 font-inter font-medium mb-2">
@@ -218,7 +218,7 @@ const ContactForm: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-lg font-outfit font-semibold text-lg text-white ${isSubmitting ? "bg-blue-400 cursor-not-allowed" : "bg-primary hover:bg-primarydark cursor-pointer"} transition-colors`}
+                  className={`flex items-center gap-2 px-4 py-2.5 md:px-6 md:py-3 rounded-lg font-outfit font-semibold text-base md:text-lg text-white ${isSubmitting ? "bg-blue-400 cursor-not-allowed" : "bg-primary hover:bg-primarydark cursor-pointer"} transition-colors`}
                 >
                   {isSubmitting ? (
                     <>
@@ -257,7 +257,7 @@ const ContactForm: React.FC = () => {
           <div className="mt-8 text-center font-inter text-gray-200 text-sm">
             <p className="mt-2">
               By submitting this form, you agree to our{" "}
-              <a href="#" className="text-blue-600 hover:underline font-medium">
+              <a href="#" className="text-amber-300 hover:underline font-medium">
                 Privacy Policy
               </a>{" "}
               and consent to be contacted regarding your inquiry.
