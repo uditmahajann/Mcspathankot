@@ -75,54 +75,54 @@ const FeeStructure: React.FC = () => {
   ]
 
   return (
-    <section id="fee-structure" className="pb-10 sm:pb-16 py-10 my-10 bg-white">
-      <div className="container mx-auto px-5 min-[480px]:px-12 sm:px-16 lg:px-20 xl:px-40">
-        <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
+    <section id="fee-structure" className="py-4 sm:py-10 my-10 bg-white">
+      <div className="container mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
             Our Fee <span className="relative inline-block">Structure
               <img
                 src="/Images/Doodles/LineYellow.png"
                 alt="Underline"
-                className="absolute w-[85%] left-12 -bottom-4 sm:-bottom-6"
+                className="absolute w-[90%] left-6 -bottom-4 sm:-bottom-6"
               />
             </span>
           </h2>
-          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-700 max-w-2xl mx-auto">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
             Detailed breakdown of all applicable fees for the academic year 2024-25
           </p>
         </div>
 
         {/* Fee Categories */}
 
-        <h3 className="text-2xl font-semibold mb-4 text-gray-900">A. One-Time Payable Fees</h3>
+        <h3 className="text-xl lg:text-2xl font-semibold mb-4 text-gray-900">A. One-Time Payable Fees</h3>
         <div className="rounded-lg shadow-lg overflow-hidden border border-gray-100 mb-16">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-primary text-white p-5 font-inter">
               <tr>
-                <th className="px-6 py-5 text-left text-sm font-medium text-white uppercase tracking-wider ">Sr.No.</th>
-                <th className="px-6 py-5 text-left text-sm font-medium text-white uppercase tracking-wider ">Fee Type</th>
-                <th className="px-6 py-5 text-center text-sm font-medium text-white uppercase tracking-wider ">Fee Amount</th>
-                <th className="px-6 py-5 text-center text-sm font-medium text-white uppercase tracking-wider ">Notes</th>
+                <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-left text-sm font-medium text-white uppercase tracking-wider ">Sr.No.</th>
+                <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-left text-sm font-medium text-white uppercase tracking-wider ">Fee Type</th>
+                <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm font-medium text-white uppercase tracking-wider ">Fee Amount</th>
+                <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm font-medium text-white uppercase tracking-wider ">Notes</th>
               </tr>
             </thead>
             <tbody>
               <tr className="even:bg-white odd:bg-gray-100 hover:bg-blue-50 font-inter">
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">1</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">Registration Fee</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">₹1000</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">One time payable and Non-refundable</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">1</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">Registration Fee</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center">₹1000</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center">One time payable and Non-refundable</td>
               </tr>
               <tr className="even:bg-white odd:bg-gray-100 hover:bg-blue-50 font-inter">
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">2</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">Admission Fee</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">₹4000</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Payable at the time of admission and Non-Refundable</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">2</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">Admission Fee</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center">₹4000</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center">Payable at the time of admission and Non-Refundable</td>
               </tr>
               <tr className="even:bg-white odd:bg-gray-100 hover:bg-blue-50 font-inter">
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">3</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">Prospectus Fee</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">₹100</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">Non-Refundable</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">3</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">Prospectus Fee</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center">₹100</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center">Non-Refundable</td>
               </tr>
             </tbody>
           </table>
@@ -133,12 +133,8 @@ const FeeStructure: React.FC = () => {
 
         {feeCategories.map((category, index) => (
           <div key={index} className="bg-white">
-            <h3 className="text-2xl font-semibold mb-4 text-gray-900">{category.title}</h3>
+            <h3 className="text-xl lg:text-2xl font-semibold mb-4 text-gray-900">{category.title}</h3>
             <div className="rounded-lg shadow-lg overflow-hidden border border-gray-100 mb-16">
-              {/* <div className="bg-blue-600 p-5">
-              <h3 className="mb-1 text-xl font-poppins font-bold text-white tracking-wide">{category.title}</h3>
-              <p className="text-blue-100 text-base font-inter">{category.description}</p>
-            </div> */}
               <div className="overflow-x-auto">
 
                 <table className="min-w-full divide-y divide-gray-200">
@@ -147,37 +143,37 @@ const FeeStructure: React.FC = () => {
                     <tr>
                       <th
                         scope="col"
-                        className="px-6 py-5 text-left text-sm font-medium text-white uppercase tracking-wider"
+                        className="px-4.5 py-4 sm:px-6 sm:py-5 text-left text-sm font-medium text-white uppercase tracking-wider"
                       >
                         Class
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
+                        className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
                       >
                         Annual Fees
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
+                        className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
                       >
                         1st Installment
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
+                        className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
                       >
                         2nd Installment
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
+                        className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
                       >
                         3rd Installment
                       </th>
                       <th
                         scope="col"
-                        className="px-6 py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
+                        className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
                       >
                         4th Installment
                       </th>
@@ -187,17 +183,17 @@ const FeeStructure: React.FC = () => {
                   <tbody className="bg-white divide-y divide-gray-200">
                     {category.fees.map((fee, feeIndex) => (
                       <tr key={feeIndex} className={feeIndex % 2 === 0 ? "bg-white hover:bg-blue-50" : "bg-gray-100 hover:bg-blue-50"}>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left font-inter">For {fee.class}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.annual}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.one}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.two}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.three}</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.four}</td>
+                        <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left font-inter">For {fee.class}</td>
+                        <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.annual}</td>
+                        <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.one}</td>
+                        <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.two}</td>
+                        <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.three}</td>
+                        <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.four}</td>
                       </tr>
                     ))}
                   </tbody>
                   <tr className="bg-secondarylight">
-                    <th colSpan={6} className="px-6 py-4 text-left text-sm font-inter font-medium text-secondarydark">
+                    <th colSpan={6} className="px-4.5 py-3.5 text-left text-xs sm:text-sm font-inter font-medium text-secondarydark">
                       {category.description}
                     </th>
                   </tr>
@@ -209,9 +205,9 @@ const FeeStructure: React.FC = () => {
 
         {/* Payment Methods */}
 
-        <div className="mt-20">
-          <h3 className="text-2xl font-poppins font-bold text-gray-900 text-center mb-8 tracking-wide">Payment Methods</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="mt-16 sm:mt-20">
+          <h3 className="text-xl lg:text-2xl font-poppins font-bold text-gray-900 text-center mb-6 sm:mb-8 tracking-wide">Payment Methods</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16 xl:px-20">
           {paymentMethods.map((method, index) => {
             const Icon = method.icon
             return (
@@ -220,12 +216,9 @@ const FeeStructure: React.FC = () => {
                 className="bg-blue-50 rounded-xl p-6 shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
               >
                 <div className="flex w-12 h-12 items-center justify-center rounded-full bg-primarylight text-primary mb-4">
-                  <Icon className="w-6 h-6 flex-shrink-0" />
+                  <Icon className="w-6 h-6 shrink-0" />
                 </div>
                 <div className="flex items-center mb-2">
-                  {/* <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-white text-sm font-medium mr-2">
-                    {index + 1}
-                  </span> */}
                   <h3 className="text-lg font-poppins font-bold text-gray-900 tracking-wide">{index + 1}. {method.name}</h3>
                 </div>
                 <p className="text-gray-700 font-inter">{method.description}</p>
@@ -237,8 +230,8 @@ const FeeStructure: React.FC = () => {
         </div>
 
         {/* Fee Policy */}
-        <div className="mt-20 bg-gray-50 rounded-2xl p-8 shadow-md">
-          <h3 className="text-2xl font-poppins font-bold text-primarydark mb-6 tracking-wide">Our Fee Policy</h3>
+        <div className="mt-16 sm:mt-20 bg-gray-50 rounded-2xl p-6 sm:p-8 shadow-md">
+          <h3 className="text-xl lg:text-2xl font-poppins font-bold text-primarydark mb-6 tracking-wide">Our Fee Policy</h3>
           <div className="space-y-4 text-gray-700 font-inter">
             <p>
               <strong>Due Dates:</strong> Quarterly fees are due on the 10th of April, July, October, and January.
@@ -268,11 +261,11 @@ const FeeStructure: React.FC = () => {
 
         {/* Financial Assistance */}
 
-        <div className="mt-12 bg-blue-50 rounded-xl p-12 shadow-md">
+        <div className="mt-8 sm:mt-12 bg-blue-50 rounded-xl p-8 sm:p-12 shadow-md">
           <div className="flex flex-col items-center justify-between">
             <div className="mb-6 md:mb-0">
-              <h3 className="text-2xl font-poppins font-bold text-gray-900 mb-3 tracking-wide text-center">Financial Assistance & Scholarships</h3>
-              <p className="text-gray-700 font-inter text-center text-lg">
+              <h3 className="text-xl lg:text-2xl font-poppins font-bold text-gray-900 mb-3 tracking-wide text-center">Financial Assistance & Scholarships</h3>
+              <p className="text-gray-700 font-inter text-center text-base sm:text-lg">
                 We believe that financial constraints should not be a barrier to quality education. Montessori Cambridge
             School offers merit-based scholarships and need-based financial assistance to deserving students.
               </p>
@@ -282,30 +275,6 @@ const FeeStructure: React.FC = () => {
             </div>
           </div>
         </div>
-
-
-        {/* <div className="mt-12 bg-blue-600 rounded-2xl p-8 text-white shadow-lg">
-          <h3 className="text-2xl font-bold mb-4">Financial Assistance & Scholarships</h3>
-          <p className="mb-6">
-            We believe that financial constraints should not be a barrier to quality education. Montessori Cambridge
-            School offers merit-based scholarships and need-based financial assistance to deserving students.
-          </p>
-          <a
-            href="/scholarships"
-            className="inline-flex items-center rounded-full bg-white px-6 py-3 text-base font-medium text-blue-600 shadow-sm hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600"
-          >
-            Learn More About Scholarships
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="ml-2 -mr-1 h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </a>
-        </div> */}
       </div>
     </section>
   )

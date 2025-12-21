@@ -101,26 +101,26 @@ const ApplyOnline: React.FC = () => {
   }
 
   return (
-    <section id="apply-online" className="pb-10 sm:pb-16 my-10 bg-white">
-      <div className="container mx-auto px-5 min-[480px]:px-12 sm:px-16 lg:px-20 xl:px-40">
-        <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
+    <section id="apply-online" className="py-4 sm:py-10 my-10 bg-white">
+      <div className="container mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl font-playpen text-gray-900 font-medium leading-normal">
             Apply Online for <span className="relative inline-block">Admissions
               <img
                 src="/Images/Doodles/LineYellow.png"
                 alt="Underline"
-                className="absolute w-[80%] left-12 -bottom-4 sm:-bottom-6 md:-bottom-8"
+                className="absolute w-[80%] left-8 -bottom-4 sm:-bottom-6 md:-bottom-8"
               />
             </span>
           </h2>
-          <p className="mt-4 sm:mt-7 text-base sm:text-lg text-gray-700 max-w-2xl mx-auto">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
             Complete the application form below to begin the admission process
           </p>
         </div>
 
 
         {/* Progress Steps */}
-        <div className="max-w-4xl mx-auto mb-12">
+        <div className="max-w-7xl mx-auto px-2 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 mb-8 sm:mb-12">
           <div className="flex items-center justify-between">
             <div className="flex flex-col items-center font-inter">
               <div
@@ -166,17 +166,15 @@ const ApplyOnline: React.FC = () => {
 
         {/* Application Form */}
 
-
-
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden mx-20">
-          <div className="p-12">
+        <div className="bg-white rounded-lg shadow-lg overflow-hidden xl:mx-20">
+          <div className="p-6 sm:p-8 lg:p-12">
             <form onSubmit={handleSubmit}>
               {/* Step 1: Student Information */}
               {formStep === 1 && (
                 <div className="space-y-6">
                   <h3 className="text-xl font-poppins font-bold text-gray-900 mb-6 tracking-wide">Student Information</h3>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm md:text-base">
                     <div>
                       <label htmlFor="studentName" className="block text-gray-700 font-inter font-medium mb-2">
                         Full Name <span className="text-red-500">*</span>
@@ -305,7 +303,7 @@ const ApplyOnline: React.FC = () => {
                     <button
                       type="button"
                       onClick={nextStep}
-                      className="flex items-center gap-2 px-6 py-3 rounded-lg font-outfit font-semibold text-md text-white bg-primary hover:bg-primarydark cursor-pointer"
+                      className="flex items-center gap-2 px-5 py-2.5 lg:px-6 lg:py-3 rounded-lg font-outfit font-semibold text-base text-white bg-primary hover:bg-primarydark cursor-pointer"
                     >
                       Next Step <ArrowRight className="w-5 h-5" />
                     </button>
@@ -318,7 +316,7 @@ const ApplyOnline: React.FC = () => {
                 <div className="space-y-6">
                   <h3 className="text-xl font-poppins font-bold text-gray-900 mb-6 tracking-wide">Parent/Guardian Information</h3>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm md:text-base">
                     <div>
                       <label htmlFor="parentName" className="block text-gray-700 font-inter font-medium mb-2">
                         Parent/Guardian Name <span className="text-red-500">*</span>
@@ -417,14 +415,14 @@ const ApplyOnline: React.FC = () => {
                     <button
                       type="button"
                       onClick={prevStep}
-                      className="px-6 py-3 rounded-lg font-outfit font-semibold text-md bg-gray-200 text-gray-700 hover:bg-gray-300 cursor-pointer"
+                      className="px-5 py-2.5 lg:px-6 lg:py-3 rounded-lg font-outfit font-semibold text-base bg-gray-200 text-gray-700 hover:bg-gray-300 cursor-pointer"
                     >
                       Previous Step
                     </button>
                     <button
                       type="button"
                       onClick={nextStep}
-                      className="flex items-center gap-2 px-6 py-3 rounded-lg font-outfit font-semibold text-md text-white bg-primary hover:bg-primarydark cursor-pointer"
+                      className="flex items-center gap-2 px-5 py-2.5 lg:px-6 lg:py-3 rounded-lg font-outfit font-semibold text-base text-white bg-primary hover:bg-primarydark cursor-pointer"
                     >
                       Next Step <ArrowRight className="w-5 h-5" />
                     </button>
@@ -437,7 +435,7 @@ const ApplyOnline: React.FC = () => {
                 <div className="space-y-6">
                   <h3 className="text-xl font-poppins font-bold text-gray-900 mb-6 tracking-wide">Review Your Application</h3>
 
-                  <div className="bg-gray-50 p-6 rounded-lg">
+                  <div className="bg-gray-50 p-6 rounded-lg text-sm md:text-base">
                     <h4 className="font-inter font-semibold text-xl text-primarydark mb-6">Student Information</h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                       <div>
@@ -508,14 +506,14 @@ const ApplyOnline: React.FC = () => {
                     <button
                       type="button"
                       onClick={prevStep}
-                      className="px-6 py-3 rounded-lg font-outfit font-semibold text-md bg-gray-200 text-gray-700 hover:bg-gray-300 cursor-pointer"
+                      className="px-5 py-2.5 lg:px-6 lg:py-3 rounded-lg font-outfit font-semibold text-base bg-gray-200 text-gray-700 hover:bg-gray-300 cursor-pointer"
                     >
                       Previous Step
                     </button>
                     <button
                       type="submit"
                       disabled={!formData.agreeToTerms}
-                      className={`px-6 py-3 rounded-lg font-outfit font-semibold text-md focus:outline-none focus:ring-2 focus:ring-offset-2 ${formData.agreeToTerms
+                      className={`px-5 py-2.5 lg:px-6 lg:py-3 rounded-lg font-outfit font-semibold text-base focus:outline-none focus:ring-2 focus:ring-offset-2 ${formData.agreeToTerms
                           ? "bg-primary text-white hover:bg-bg-primarydark focus:ring-blue-500 cursor-pointer"
                           : "bg-gray-300 text-gray-500 cursor-not-allowed"
                         }`}
@@ -530,30 +528,30 @@ const ApplyOnline: React.FC = () => {
         </div>
 
         {/* Additional Information */}
-        <div className="mx-auto mt-12 bg-blue-50 rounded-xl p-8">
-          <h3 className="text-xl font-poppins font-bold text-gray-900 mb-4 tracking-wide">Important Information</h3>
-          <ul className="space-y-3">
+        <div className="mx-auto mt-12 bg-blue-50 rounded-xl p-6 sm:p-8 lg:p-12">
+          <h3 className="text-lg sm:text-xl font-poppins font-bold text-gray-900 mb-4 tracking-wide">Important Information</h3>
+          <ul className="space-y-3 text-sm sm:text-base">
               <li className="flex items-start">
-                <Info className="w-5 h-5 flex-shrink-0 text-secondary mr-2 mt-1" />
+                <Info className="w-5 h-5 shrink-0 text-secondary mr-2 mt-1" />
                 <span className="text-gray-700 font-inter">
                   After submitting the online application, you will receive a confirmation email with further instructions.
                 </span>
               </li>
               <li className="flex items-start">
-                <Info className="w-5 h-5 flex-shrink-0 text-secondary mt-1 mr-2" />
+                <Info className="w-5 h-5 shrink-0 text-secondary mt-1 mr-2" />
                 <span className="text-gray-700 font-inter">
                   You will need to submit physical copies of all required documents to the school office within 7 days of
               online application.
                 </span>
               </li>
               <li className="flex items-start">
-                <Info className="w-5 h-5 flex-shrink-0 text-secondary mt-1 mr-2" />
+                <Info className="w-5 h-5 shrink-0 text-secondary mt-1 mr-2" />
                 <span className="text-gray-700 font-inter">
                   The application fee is non-refundable and submission of an application does not guarantee admission.
                 </span>
               </li>
               <li className="flex items-start">
-                <Info className="w-5 h-5 flex-shrink-0 text-secondary mt-1 mr-2" />
+                <Info className="w-5 h-5 shrink-0 text-secondary mt-1 mr-2" />
                 <span className="text-gray-700 font-inter">
                   For any queries regarding the admission process, please contact our admissions office at{" "}
               <a href="mailto:admissions@mcs.edu" className="text-blue-600 hover:underline">

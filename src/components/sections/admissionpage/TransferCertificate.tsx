@@ -38,15 +38,15 @@ const TransferCertificate: React.FC = () => {
   ]
 
   return (
-    <section id="transfer-certificate" className="pb-10 sm:pb-16 py-10 my-10 bg-white">
-      <div className="container mx-auto px-5 min-[480px]:px-12 sm:px-16 lg:px-20 xl:px-40">
-        <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
+    <section id="transfer-certificate" className="py-4 sm:py-10 my-10 bg-white">
+      <div className="container mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
             Transfer <span className="relative inline-block">Certificate
               <img
                 src="/Images/Doodles/LineYellow.png"
                 alt="Underline"
-                className="absolute w-[80%] left-12 -bottom-4 sm:-bottom-6"
+                className="absolute w-[90%] left-6 -bottom-4 sm:-bottom-6 lg:-bottom-8"
               />
             </span>
           </h2>
@@ -56,8 +56,8 @@ const TransferCertificate: React.FC = () => {
         </div>
 
         {/* What is a TC */}
-        <div className="bg-blue-50 rounded-2xl p-12 shadow-md mb-16">
-          <h3 className="text-2xl font-poppins font-bold text-gray-900 mb-4 tracking-wide">What is a Transfer Certificate?</h3>
+        <div className="bg-blue-50 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-md mb-12 lg:mb-16">
+          <h3 className="text-xl lg:text-2xl font-poppins font-bold text-gray-900 mb-4 tracking-wide">What is a Transfer Certificate?</h3>
           <p className="text-gray-700 mb-4 font-inter">
             A Transfer Certificate (TC) is an official document issued by the school when a student leaves to join
             another educational institution. It contains essential information about the student's academic record,
@@ -70,7 +70,7 @@ const TransferCertificate: React.FC = () => {
         </div>
 
         {/* TC Process Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 px-20 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 mb-12 lg:mb-16 xl:px-20">
           {tcSteps.map((step, index) => {
             const Icon = step.icon
             return (
@@ -79,12 +79,9 @@ const TransferCertificate: React.FC = () => {
                 className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
               >
                 <div className="flex w-12 h-12 items-center justify-center rounded-full bg-secondarylight text-secondary mb-4">
-                  <Icon className="w-6 h-6 flex-shrink-0" />
+                  <Icon className="w-6 h-6 shrink-0" />
                 </div>
                 <div className="flex items-center mb-2">
-                  {/* <span className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-white text-sm font-medium mr-2">
-                    {index + 1}
-                  </span> */}
                   <h3 className="text-lg font-poppins font-bold text-gray-900 tracking-wide">{index + 1}. {step.title}</h3>
                 </div>
                 <p className="text-gray-700 font-inter">{step.description}</p>
@@ -95,16 +92,16 @@ const TransferCertificate: React.FC = () => {
         </div>
 
         {/* Required Documents */}
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 mb-16">
+        <div className="bg-white rounded-xl lg:rounded-2xl shadow-lg overflow-hidden border border-gray-100 mb-12 lg:mb-16">
           <div className="bg-primary p-5">
             <h3 className="mb-1 text-xl font-poppins font-bold text-white tracking-wide">Required Documents</h3>
-            <p className="text-blue-100 text-base font-inter">Documents needed for TC application</p>
+            <p className="text-blue-100 text-sm sm:text-base font-inter">Documents needed for TC application</p>
           </div>
           <div className="p-6">
             <ul className="space-y-4">
               {requiredDocuments.map((document, index) => (
                 <li key={index} className="flex items-center">
-                  <Check className="w-5 h-5 flex-shrink-0 text-green-600 mr-1" />
+                  <Check className="w-5 h-5 shrink-0 text-green-600 mr-2" />
                   <span className="text-gray-700 font-inter">{document}</span>
                 </li>
               ))}
@@ -113,32 +110,32 @@ const TransferCertificate: React.FC = () => {
         </div>
 
         {/* Important Information */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
             <h3 className="text-xl font-poppins font-bold text-gray-900 mb-4 tracking-wide">Important Information</h3>
             <ul className="space-y-3">
               <li className="flex items-start">
-                <Info className="w-5 h-5 flex-shrink-0 text-secondary mr-2 mt-1" />
+                <Info className="w-5 h-5 shrink-0 text-secondary mr-2 mt-1" />
                 <span className="text-gray-700 font-inter">
                   The TC will be issued in the name that appears on the student's admission records.
                 </span>
               </li>
               <li className="flex items-start">
-                <Info className="w-5 h-5 flex-shrink-0 text-secondary mt-1 mr-2" />
+                <Info className="w-5 h-5 shrink-0 text-secondary mt-1 mr-2" />
                 <span className="text-gray-700 font-inter">
                   In case of any discrepancy in the name or other details, it should be brought to the notice of the
                   school administration immediately.
                 </span>
               </li>
               <li className="flex items-start">
-                <Info className="w-5 h-5 flex-shrink-0 text-secondary mt-1 mr-2" />
+                <Info className="w-5 h-5 shrink-0 text-secondary mt-1 mr-2" />
                 <span className="text-gray-700 font-inter">
                   The TC will be issued only once. In case of loss, a duplicate TC can be issued upon submission of an
                   FIR and payment of the prescribed fee.
                 </span>
               </li>
               <li className="flex items-start">
-                <Info className="w-5 h-5 flex-shrink-0 text-secondary mt-1 mr-2" />
+                <Info className="w-5 h-5 shrink-0 text-secondary mt-1 mr-2" />
                 <span className="text-gray-700 font-inter">
                   The TC must be collected by the parent/guardian in person from the school office.
                 </span>
@@ -156,54 +153,6 @@ const TransferCertificate: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* Contact Information */}
-        {/* <div className="mt-16 bg-blue-50 rounded-xl p-8 shadow-md">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">Need Assistance?</h3>
-          <p className="text-gray-700 mb-6">
-            For any queries regarding Transfer Certificates, please contact our administrative office:
-          </p>
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-            <div className="flex items-center mb-4 md:mb-0">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-blue-600 mr-3"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              </svg>
-              <a href="mailto:admin@mcs.edu" className="text-blue-600 hover:underline">
-                admin@mcs.edu
-              </a>
-            </div>
-            <div className="flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-blue-600 mr-3"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
-              <a href="tel:+911234567890" className="text-blue-600 hover:underline">
-                +91 123 456 7890
-              </a>
-            </div>
-          </div>
-        </div> */}
       </div>
     </section>
   )
