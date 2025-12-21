@@ -198,19 +198,19 @@ const Booklist: React.FC = () => {
   const currentBooklists = booklists.filter((b) => b.group === activeTab)
 
   return (
-    <section id="booklist" className="my-10 py-10 bg-white">
-      <div className="container mx-auto px-5 min-[480px]:px-12 sm:px-16 lg:px-20 xl:px-40">
-        <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
+    <section id="booklist" className="py-4 sm:py-10 my-10 bg-white">
+      <div className="container mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-gray-900 font-playpen font-medium leading-normal">
             MCS Learning Resources <span className="relative inline-block">and Booklist
               <img
                 src="/Images/Doodles/LineYellow.png"
                 alt="Underline"
-                className="absolute w-[80%] left-12 -bottom-4 sm:-bottom-6 md:-bottom-8"
+                className="absolute w-[80%] left-12 -bottom-4 sm:-bottom-6"
               />
             </span>
           </h2>
-          <p className="mt-4 sm:mt-7 text-base sm:text-lg text-gray-700 max-w-4xl mx-auto">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
             Find the complete list of prescribed textbooks and reference materials for each grade level.
           </p>
         </div>
@@ -233,11 +233,11 @@ const Booklist: React.FC = () => {
         <div className="space-y-12">
           {currentBooklists.map((list, index) => (
             <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg border border-gray-100 transition-all duration-300 hover:shadow-xl">
-              <div className="bg-primary px-5 py-4 flex flex-col sm:flex-row justify-between items-center">
+              <div className="bg-primary px-5 py-4 flex flex-row justify-between items-center gap-3">
                 <h3 className="text-white font-inter font-semibold text-lg tracking-wide uppercase">{list.grade} Booklist</h3>
                 <a
                   href={list.downloadLink}
-                  className="text-primary bg-white px-4 py-2 text-sm font-inter font-medium rounded hover:bg-blue-50"
+                  className="text-primary bg-white px-4 py-2 text-sm font-inter font-semibold rounded hover:bg-blue-50"
                 >
                   Download PDF
                 </a>
@@ -247,59 +247,59 @@ const Booklist: React.FC = () => {
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50 font-inter uppercase text-sm tracking-wide">
                     <tr>
-                      <th className="px-6 py-5 text-left text-gray-500">Sr. No.</th>
-                      <th className="px-6 py-5 text-left text-gray-500">Subject</th>
-                      <th className="px-6 py-5 text-left text-gray-500">Title</th>
-                      <th className="px-6 py-5 text-left text-gray-500">Publisher</th>
+                      <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-left text-gray-500">Sr. No.</th>
+                      <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-left text-gray-500">Subject</th>
+                      <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-left text-gray-500">Title</th>
+                      <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-left text-gray-500">Publisher</th>
                     </tr>
                   </thead>
                   <tbody>
-  {(() => {
-    const groupedBySubject: { [key: string]: { sr: string; title: string; publisher: string }[] } = {}
+                    {(() => {
+                      const groupedBySubject: { [key: string]: { sr: string; title: string; publisher: string }[] } = {}
 
-    list.books.forEach((book) => {
-      if (!groupedBySubject[book.subject]) {
-        groupedBySubject[book.subject] = []
-      }
-      groupedBySubject[book.subject].push({
-        sr: book.srno,
-        title: book.title,
-        publisher: book.publisher,
-      })
-    })
+                      list.books.forEach((book) => {
+                        if (!groupedBySubject[book.subject]) {
+                          groupedBySubject[book.subject] = []
+                        }
+                        groupedBySubject[book.subject].push({
+                          sr: book.srno,
+                          title: book.title,
+                          publisher: book.publisher,
+                        })
+                      })
 
-    const rows: JSX.Element[] = []
-    let globalIndex = 0 // ← GLOBAL index for alternate color pattern
+                      const rows: JSX.Element[] = []
+                      let globalIndex = 0 // ← GLOBAL index for alternate color pattern
 
-    for (const [subject, books] of Object.entries(groupedBySubject)) {
-      books.forEach((book, index) => {
-        const isEven = globalIndex % 2 === 0
-        rows.push(
-          <tr
-            key={`${subject}-${index}`}
-            className={`${isEven ? "bg-white" : "bg-gray-100"} hover:bg-blue-50 font-inter`}
-          >
-            {index === 0 && (
-              <>
-                <td rowSpan={books.length} className="px-6 py-4 whitespace-nowrap text-left text-gray-700 align-top">
-                  {book.sr}
-                </td>
-                <td rowSpan={books.length} className="px-6 py-4 whitespace-nowrap text-left font-medium text-gray-900 align-top">
-                  {subject}
-                </td>
-              </>
-            )}
-            <td className="px-6 py-4 whitespace-nowrap text-left font-medium text-gray-900">{book.title}</td>
-            <td className="px-6 py-4 whitespace-nowrap text-left text-gray-700">{book.publisher}</td>
-          </tr>
-        )
-        globalIndex++ // ← increment for each rendered row
-      })
-    }
+                      for (const [subject, books] of Object.entries(groupedBySubject)) {
+                        books.forEach((book, index) => {
+                          const isEven = globalIndex % 2 === 0
+                          rows.push(
+                            <tr
+                              key={`${subject}-${index}`}
+                              className={`${isEven ? "bg-white" : "bg-gray-100"} hover:bg-blue-50 font-inter`}
+                            >
+                              {index === 0 && (
+                                <>
+                                  <td rowSpan={books.length} className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-left text-gray-700 align-top">
+                                    {book.sr}
+                                  </td>
+                                  <td rowSpan={books.length} className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-left font-medium text-gray-900 align-top">
+                                    {subject}
+                                  </td>
+                                </>
+                              )}
+                              <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-left font-medium text-gray-900">{book.title}</td>
+                              <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-left text-gray-700">{book.publisher}</td>
+                            </tr>
+                          )
+                          globalIndex++ // ← increment for each rendered row
+                        })
+                      }
 
-    return rows
-  })()}
-</tbody>
+                      return rows
+                    })()}
+                  </tbody>
 
                 </table>
               </div>

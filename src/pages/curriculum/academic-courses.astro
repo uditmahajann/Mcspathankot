@@ -1,8 +1,23 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import CurriculumNav from '../../components/sections/curriculumpage/CurriculumNav';
 import AcademicCoursesHero from '../../components/sections/curriculumpage/AcademicCoursesHero';
-import Courses from '../../components/sections/curriculumpage/Courses';
+import CoursesSection from '../../components/sections/curriculumpage/Courses';
+
+import { sanity } from "../../lib/sanity";
+
+const courseGroups = await sanity.fetch(`
+  *[_type == "courseGroup"]{
+    _id,
+    gradeGroup,
+    title,
+    description,
+    courses[]{
+      name,
+      description,
+      components
+    }
+  }
+`);
 
 ---
 
@@ -15,31 +30,9 @@ import Courses from '../../components/sections/curriculumpage/Courses';
   <main>
 
     <AcademicCoursesHero client:load />
-    
-    <!-- Navigation Pills -->
-    <!-- <CurriculumNav client:load /> -->
-    
-    <Courses client:load />
+    <CoursesSection courseGroups={courseGroups} client:only />
+
   </main>
   </Layout>
-  
-  <!-- <script>
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 100,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-  </script> -->
 </body>
 </html>

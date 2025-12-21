@@ -1,13 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import CurriculumNav from '../../components/sections/curriculumpage/CurriculumNav';
 import UniformsHero from '../../components/sections/curriculumpage/UniformsHero';
 import Uniforms from '../../components/sections/curriculumpage/Uniforms';
-
-// import HeroSection from '../../sections/CurriculumPage/HeroSection';
-// import DanceSection from '../../sections/CurriculumPage/DanceSection';
-// import MusicSection from '../../sections/CurriculumPage/MusicSection';
-// import DramaSection from '../../sections/CurriculumPage/DramaSection';
 
 ---
 
@@ -18,40 +12,11 @@ import Uniforms from '../../components/sections/curriculumpage/Uniforms';
   >
   
   <main>
-
-    <!-- <HeroSection client:load />
-    <DanceSection client:load />
-    <MusicSection client:load />
-    <DramaSection client:load /> -->
-
-    <!-- Hero Section -->
     <UniformsHero client:load />
-    
-    <!-- Navigation Pills -->
-    <!-- <CurriculumNav client:load /> -->
-
     <Uniforms client:load />
 
   </main>
   </Layout>
   
-  <!-- <script>
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 100,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-  </script> -->
 </body>
 </html>

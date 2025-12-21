@@ -1,10 +1,20 @@
-"use client"
-
 import { useState } from "react"
 import {
   ChevronRight,
   ChevronLeft,
 } from "lucide-react"
+
+interface CalendarCMSItem {
+  _id: string
+  title: string
+  description?: string
+  category: "academic" | "sports" | "cultural" | "administrative"
+  date: string
+  time?: string
+  location?: string
+  audience?: string
+}
+
 
 type EventType = {
   id: number
@@ -17,69 +27,6 @@ type EventType = {
   audience: string
   image?: string
 }
-
-const eventsData: EventType[] = [
-  {
-    id: 1,
-    title: "Annual Sports Day",
-    date: "2025-06-10",
-    time: "9:00 AM - 4:00 PM",
-    location: "School Sports Ground",
-    category: "Sports",
-    description: "Annual inter-house sports competition featuring track and field events, team sports, and individual competitions.",
-    audience: "All students and parents",
-  },
-  {
-    id: 2,
-    title: "Science Exhibition",
-    date: "2025-06-15",
-    time: "10:00 AM - 3:00 PM",
-    location: "School Auditorium",
-    category: "Academic",
-    description: "Students showcase their science projects and innovations. Open to all parents and visitors.",
-    audience: "All grades",
-  },
-  {
-    id: 3,
-    title: "Orientation Day",
-    date: "2025-06-03",
-    time: "8:00 AM - 11:00 AM",
-    location: "Main Hall",
-    category: "Administrative",
-    description: "Orientation for new students and parents.",
-    audience: "Grade I",
-  },
-  {
-    id: 4,
-    title: "Cultural Fest",
-    date: "2025-06-20",
-    time: "11:00 AM - 5:00 PM",
-    location: "Open Stage",
-    category: "Cultural",
-    description: "Celebrate the diversity of our student body with music, dance, and food.",
-    audience: "All students",
-  },
-  {
-    id: 5,
-    title: "Parent-Teacher Meeting",
-    date: "2025-06-27",
-    time: "9:00 AM - 1:00 PM",
-    location: "Respective Classrooms",
-    category: "Administrative",
-    description: "Regular interaction between parents and teachers for student progress.",
-    audience: "All parents",
-  },
-  {
-    id: 6,
-    title: "Math Olympiad",
-    date: "2025-06-30",
-    time: "10:00 AM - 1:00 PM",
-    location: "Math Lab",
-    category: "Academic",
-    description: "A national level competitive mathematics exam.",
-    audience: "Grades VI–X",
-  },
-]
 
 // Calendar View
 const CalendarView: React.FC<{
@@ -231,23 +178,43 @@ const ListView: React.FC<{
 }
 
 // ---------- MAIN COMPONENT ----------
-const AnnualCalendar = () => {
+const AnnualCalendar = ({ events }: { events: CalendarCMSItem[] }) => {
+
+  const mappedEvents: EventType[] = events.map((e, index) => ({
+  id: index + 1,
+  title: e.title,
+  date: e.date,
+  time: e.time ?? "",
+  location: e.location ?? "",
+  category:
+    e.category === "academic"
+      ? "Academic"
+      : e.category === "sports"
+      ? "Sports"
+      : e.category === "cultural"
+      ? "Cultural"
+      : "Administrative",
+  description: e.description ?? "",
+  audience: e.audience ?? "",
+}));
+
+
   const [activeView, setActiveView] = useState<"calendar" | "list">("calendar")
   const [activeFilter, setActiveFilter] = useState("All")
   const [selectedEvent, setSelectedEvent] = useState<EventType | null>(null)
 
   return (
-    <section className="py-10 sm:py-16 my-10 bg-white" id="events">
-      <div className="container mx-auto px-5 min-[480px]:px-12 sm:px-16 lg:px-20 xl:px-40">
-        <div className="text-center mb-10 sm:mb-12 lg:mb-20">
-           <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
+    <section className="py-4 sm:py-10 my-10 bg-white" id="events">
+      <div className="container mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
+        <div className="text-center mb-8 sm:mb-16">
+           <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
              Academic{" "}
              <span className="relative inline-block">
                Calendar (2025-2026)
                <img
                  src="/Images/Doodles/SparkGreen.png"
                  alt="Spark"
-                 className="absolute w-10 sm:w-12 md:w-14 -top-6 -right-15"
+                 className="absolute w-10 sm:w-12 md:w-14 -top-6 -right-10 sm:-right-15"
                />
              </span>
            </h2>
@@ -256,8 +223,8 @@ const AnnualCalendar = () => {
            </p>
          </div>
 
-        <div className="flex flex-wrap justify-between items-center mb-6 gap-3">
-          <div>
+        <div className="flex flex-wrap justify-center lg:justify-between items-center mb-6 gap-12">
+          <div className="hidden md:flex justify-center">
             <button onClick={() => setActiveView("calendar")} className={`px-4 py-2 rounded-lg text-sm font-inter font-medium ${
               activeView === "calendar" ? "bg-blue-600 text-white" : "bg-gray-100 hover:bg-gray-200 text-gray-700 cursor-pointer"
             }`}>Calendar View</button>
@@ -265,7 +232,7 @@ const AnnualCalendar = () => {
               activeView === "list" ? "bg-blue-600 text-white" : "bg-gray-100 hover:bg-gray-200 text-gray-700 cursor-pointer"
             }`}>List View</button>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 justify-center">
             {["All", "Academic", "Sports", "Cultural", "Administrative"].map(filter => (
               <button key={filter} onClick={() => setActiveFilter(filter)} className={`text-sm rounded-full px-5 py-2 font-inter font-medium ${
                 activeFilter === filter ? "bg-blue-600 text-white" : "bg-gray-100 hover:bg-gray-200 text-gray-900 cursor-pointer"
@@ -274,17 +241,27 @@ const AnnualCalendar = () => {
           </div>
         </div>
 
+        <div className="hidden md:block">
         {activeView === "calendar" ? (
-          <CalendarView events={eventsData} activeFilter={activeFilter} onEventClick={setSelectedEvent} />
+          <CalendarView events={mappedEvents} activeFilter={activeFilter} onEventClick={setSelectedEvent} />
         ) : (
-          <ListView events={eventsData} activeFilter={activeFilter} onEventClick={setSelectedEvent} />
+          <ListView events={mappedEvents} activeFilter={activeFilter} onEventClick={setSelectedEvent} />
         )}
+        </div>
+
+        <div className="block md:hidden">
+        {activeView === "list" ? (
+          <CalendarView events={mappedEvents} activeFilter={activeFilter} onEventClick={setSelectedEvent} />
+        ) : (
+          <ListView events={mappedEvents} activeFilter={activeFilter} onEventClick={setSelectedEvent} />
+        )}
+        </div>
 
         {selectedEvent && (
           <div className="fixed inset-0 bg-black/80 bg-opacity-50 z-50 flex items-center justify-center">
-            <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-xl relative mx-4">
+            <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-lg relative mx-4">
               <button onClick={() => setSelectedEvent(null)} className="absolute top-4 right-6 text-gray-600 hover:text-secondarydark cursor-pointer">✕</button>
-              <h3 className="text-2xl font-poppins font-semibold text-primarydark mb-2">{selectedEvent.title}</h3>
+              <h3 className="text-xl lg:text-2xl font-poppins font-semibold text-primarydark mb-2">{selectedEvent.title}</h3>
               <p className="text-md text-gray-600 mb-4 font-inter">{selectedEvent.description}</p>
               <div className="space-y-2 text-md text-gray-700 font-inter">
                 <p><strong>Date:</strong> {selectedEvent.date}</p>

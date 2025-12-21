@@ -13,17 +13,17 @@ const CampusLifeHero: React.FC = () => {
         }}
       >
         {/* left-to-right overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/90 via-black/50 to-transparent" />
 
         <div className="relative z-10 w-full">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8">
-            <div className="max-w-2xl">
-              <span className="text-sm tracking-widest uppercase font-semibold text-white/80">Life @MCS</span>
-              <h1 className="mt-3 text-4xl sm:text-5xl lg:text-6xl font-poppins font-semibold leading-tight">
-                <span className="text-purple-400">Moments</span> that create <br className="hidden sm:block" />
+          <div className="mx-auto max-w-7xl px-6 min-[540px]:px-10 sm:px-12 lg:px-20 xl:px-10">
+            <div className="max-w-md md:max-w-xl lg:max-w-2xl">
+              <span className="text-xs md:text-sm tracking-widest uppercase font-semibold text-white/80">Life @MCS</span>
+              <h1 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-poppins font-semibold leading-tight">
+                <span className="text-purple-400">Moments</span> that create <br className="" />
                 Memories
               </h1>
-              <p className="mt-4 text-base sm:text-lg text-white/85">
+              <p className="mt-3 sm:mt-4 text-base md:text-lg text-white/85">
                 Experience our vibrant, enriching, and holistic environment where students thrive academically, socially, and personally.
               </p>
             </div>

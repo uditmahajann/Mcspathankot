@@ -1,8 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import CurriculumNav from '../../components/sections/curriculumpage/CurriculumNav';
 import SyllabusHero from '../../components/sections/curriculumpage/SyllabusHero';
-import Syllabus from '../../components/sections/curriculumpage/Syllabus';
+import SyllabusSection from '../../components/sections/curriculumpage/Syllabus';
+
+import { sanity } from "../../lib/sanity";
+
+const syllabus = await sanity.fetch(`
+  *[_type == "syllabus"] | order(classOrder asc) {
+    _id,
+    group,
+    className,
+    classOrder,
+    description,
+    downloadFile {
+      asset->{
+        url
+      }
+    }
+  }
+`);
 
 ---
 
@@ -13,40 +29,10 @@ import Syllabus from '../../components/sections/curriculumpage/Syllabus';
   >
   
   <main>
-
-    <!-- <HeroSection client:load />
-    <DanceSection client:load />
-    <MusicSection client:load />
-    <DramaSection client:load /> -->
-
-    <!-- Hero Section -->
     <SyllabusHero client:load />
-    
-    <!-- Navigation Pills -->
-    <!-- <CurriculumNav client:load /> -->
-    
-    <Syllabus client:load />
+    <SyllabusSection syllabus={syllabus} client:load />
 
   </main>
   </Layout>
-  
-  <!-- <script>
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 100,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-  </script> -->
 </body>
 </html>
