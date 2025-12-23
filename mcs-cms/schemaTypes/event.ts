@@ -46,26 +46,41 @@ export default defineType({
     }),
 
     defineField({
-      name: "media",
-      title: "Event Media",
-      type: "object",
-      fields: [
-        defineField({
-          name: "image",
-          title: "Event Image",
-          type: "image",
-          options: { hotspot: true },
-        }),
-        defineField({
-          name: "video",
-          title: "Event Video",
-          type: "file",
-          options: {
-            accept: "video/*",
-          },
-        }),
-      ],
+  name: "media",
+  title: "Event Media",
+  type: "object",
+  fields: [
+    defineField({
+      name: "type",
+      title: "Media Type",
+      type: "string",
+      options: {
+        list: [
+          { title: "Image", value: "image" },
+          { title: "Video", value: "video" },
+        ],
+        layout: "radio",
+      },
+      validation: (Rule) => Rule.required(),
     }),
+
+    defineField({
+      name: "image",
+      title: "Event Image",
+      type: "image",
+      options: { hotspot: true },
+      hidden: ({ parent }) => parent?.type !== "image",
+    }),
+
+    defineField({
+      name: "video",
+      title: "Event Video",
+      type: "file",
+      options: { accept: "video/*" },
+      hidden: ({ parent }) => parent?.type !== "video",
+    }),
+  ],
+}),
 
     defineField({
       name: "tags",

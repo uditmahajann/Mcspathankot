@@ -49,7 +49,7 @@ const BoardingExperience = () => {
             </div>
 
             {/* Weekend Activities */}
-            <div className="bg-gradient-to-r from-primary to-primarydark rounded-xl p-8 text-white">
+            <div className="bg-linear-to-r from-primary to-primarydark rounded-xl p-8 text-white">
               <h3 className="text-2xl font-poppins font-semibold mb-3 tracking-wide">Weekend Activities</h3>
               <p className="text-blue-50 mb-6 font-inter">
                 Weekends at MCS are filled with enriching activities that balance recreation, learning, and personal

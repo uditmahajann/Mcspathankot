@@ -10,20 +10,20 @@ import {
 
 interface EventMedia {
   type: "image" | "video"
-  src: string
-  alt?: string
+  image?: any
+  video?: string
 }
 
 interface Event {
-  id: string
+  _id: string
   title: string
   description: string
   date: string
   location: string
-  media: EventMedia[]
   featured: boolean
-  tags: string[]
+  media: EventMedia
 }
+
 
 export default function EventsActivities() {
   const [currentFeaturedEvent, setCurrentFeaturedEvent] = useState<number>(0)
@@ -352,7 +352,7 @@ export default function EventsActivities() {
                 Previous
               </button>
 
-              <div className="flex gap-4 flex-wrap justify-center">
+              <div className="flex gap-3 md:gap-4 flex-wrap justify-center">
                 {Array.from({ length: totalPages }, (_, i) => (
                   <button
                     key={i + 1}
