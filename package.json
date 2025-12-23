@@ -1,32 +1,3 @@
-{
-  "name": "",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/react": "^4.4.2",
-    "@fontsource-variable/inter": "^5.2.8",
-    "@fontsource-variable/lora": "^5.2.8",
-    "@fontsource-variable/outfit": "^5.2.8",
-    "@fontsource-variable/playpen-sans": "^5.2.9",
-    "@fontsource-variable/raleway": "^5.2.8",
-    "@fontsource/poppins": "^5.2.7",
-    "@sanity/client": "^7.13.2",
-    "@sanity/image-url": "^2.0.2",
-    "@tailwindcss/vite": "^4.1.18",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "astro": "^5.16.6",
-    "framer-motion": "^12.23.26",
-    "lottie-react": "^2.4.1",
-    "lucide-react": "^0.561.0",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "tailwindcss": "^4.1.18"
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:936f8a1e9ef875014b22cd43f3e8781b459621521814e4899f437d74e714c7f1
+size 877
