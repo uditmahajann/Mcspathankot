@@ -38,14 +38,14 @@ const MILESTONES = [
 
 const MilestonesJourney: React.FC = () => {
   return (
-    <section id="journey" className="py-20 my-10 bg-white overflow-x-auto">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10">
+    <section id="journey" className="py-4 sm:py-10 my-10 bg-white">
+      <div className="mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
         {/* Header */}
-        <div className="text-center mb-10 sm:mb-30 lg:mb-20">
+        <div className="text-center mb-8 sm:mb-16">
           <h2 className="text-gray-900 text-2xl sm:text-3xl md:text-4xl font-playpen font-medium inline-block relative">The
           <span className="relative z-10 inline-block pl-5 pr-1">
           MCS Journey
-          <span className="absolute inset-0 -z-10 -top-4 sm:-top-6 md:-top-10">
+          <span className="absolute inset-0 -z-10 -top-6 md:-top-10">
           <img
           src="/Images/Doodles/CircleYellow.png"
           alt="Circle Doodle"
@@ -55,24 +55,24 @@ const MilestonesJourney: React.FC = () => {
         </span>{" "}
         so far...
         </h2>
-        <p className=" mt-4 sm:mt-6 text-base sm:text-lg text-gray-700 max-w-2xl mx-auto">
+        <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
         From a humble beginning to a leading educational institution — a story of growth, milestones, and excellence.
         </p>
         </div>
 
         {/* Timeline */}
-        <div className="flex items-start space-x-10 overflow-x-auto pb-6 no-scrollbar hide-scrollbar">
+        <div className="flex items-start space-x-6 lg:space-x-10 overflow-x-auto pb-6 no-scrollbar hide-scrollbar">
           {MILESTONES.map((milestone, index) => {
             const Icon = milestone.icon;
             return (
               <div
                 key={index}
-                className="flex-shrink-0 w-72 bg-gradient-to-br from-yellow-50 to-white border border-yellow-100 rounded-2xl p-6 shadow-sm hover:shadow-lg transition"
+                className="shrink-0 w-72 bg-linear-to-br from-yellow-50 to-white border border-yellow-100 rounded-2xl p-6 shadow-sm hover:shadow-lg transition"
               >
                 <div className="flex items-center justify-center w-12 h-12 bg-yellow-400 text-white rounded-full mb-4 shadow">
                   <Icon size={22} />
                 </div>
-                <h3 className="text-2xl font-semibold font-outfit text-yellow-600">{milestone.year}</h3>
+                <h3 className="text-xl sm:text-2xl font-semibold font-outfit text-yellow-600">{milestone.year}</h3>
                 <h4 className="text-lg text-gray-900 font-poppins tracking-wide font-semibold mt-1">{milestone.title}</h4>
                 <p className="font-inter text-gray-600 mt-2 leading-relaxed">
                   {milestone.description}

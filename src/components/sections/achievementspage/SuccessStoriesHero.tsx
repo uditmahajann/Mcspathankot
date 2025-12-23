@@ -13,33 +13,18 @@ const SuccessStoriesHero: React.FC = () => {
         }}
       >
         {/* left-to-right overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/90 via-black/50 to-transparent" />
 
         <div className="relative z-10 w-full">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8">
-            <div className="max-w-2xl">
-              <span className="text-sm tracking-widest uppercase font-semibold text-white/80">Awards & Achievements</span>
-              <h1 className="mt-3 text-4xl sm:text-5xl lg:text-6xl font-poppins font-semibold leading-tight">
-                Celebrating Success. <span className="text-amber-500">Inspiring </span>Futures.<br className="hidden sm:block" />
+          <div className="mx-auto max-w-7xl px-6 min-[540px]:px-10 sm:px-12 lg:px-20 xl:px-10">
+            <div className="max-w-md md:max-w-xl lg:max-w-2xl">
+              <span className="text-xs md:text-sm tracking-widest uppercase font-semibold text-white/80">Awards & Achievements</span>
+              <h1 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-poppins font-semibold leading-tight">
+                Celebrating Success. <span className="text-amber-500">Inspiring </span>Futures.<br className="" />
               </h1>
-              <p className="mt-4 text-base sm:text-lg text-white/85">
+              <p className="mt-3 sm:mt-4 text-base md:text-lg text-white/85">
                 At MCS, every achievement — big or small — is a milestone of growth, effort, and excellence.
               </p>
-
-              {/* <div className="sm:mt-2 md:mt-6 flex items-center gap-4">
-                <a
-                  href="/curriculum/academic-courses"
-                  className="group inline-flex items-center px-6 py-2 md:py-3 text-outfit font-medium text-white bg-primary rounded-lg transition-all duration-300 ease-in-out hover:font-semibold cursor-pointer hover:bg-blue-600"
-                >
-                  Find Courses
-                </a>
-                <a
-                  href="/about/history"
-                  className="group inline-flex items-center px-6 py-2 md:py-3 text-outfit font-medium bg-white/15 backdrop-blur rounded-lg transition-all duration-300 ease-in-out hover:font-semibold cursor-pointer hover:bg-white/25"
-                >
-                  Our History
-                </a>
-              </div> */}
             </div>
           </div>
         </div>

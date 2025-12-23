@@ -2,18 +2,18 @@ import { Award, TrendingUp, Users, BarChart, CheckCircle, CheckCircle2 } from "l
 
 const CompetitiveCoaching = () => {
   return (
-    <section id="competitive-coaching" className="py-10 my-10 bg-white">
-      <div className="container mx-auto px-5 min-[480px]:px-12 sm:px-16 lg:px-20 xl:px-40">
-        <div className="flex flex-col md:flex-row-reverse gap-20">
+    <section id="competitive-coaching" className="py-4 sm:py-10 my-10 bg-white">
+      <div className="container mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
+        <div className="flex flex-col md:flex-row-reverse gap-12 md:gap-20">
 
           <div className="md:w-1/2">
-            <div className="mb-8">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
+            <div className="mb-6 md:mb-8">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl text-gray-900 font-playpen font-medium leading-normal">
                 Competitive <span className="relative inline-block">Coaching
                   <img
                     src="/Images/Doodles/LineBlue.png"
                     alt="Underline"
-                    className="absolute -bottom-4 sm:-bottom-6 md:-bottom-8"
+                    className="absolute -bottom-4 sm:-bottom-6"
                   />
                 </span>
               </h2>
@@ -26,7 +26,7 @@ const CompetitiveCoaching = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <div className="bg-emerald-50 p-4 rounded-lg">
-                <TrendingUp className="w-6 h-6 text-emerald-500 flex-shrink-0 mb-2" />
+                <TrendingUp className="w-6 h-6 text-emerald-500 shrink-0 mb-2" />
                 <h4 className="font-poppins font-semibold text-base text-gray-900 tracking-wide">Advanced Curriculum</h4>
                 <p className="text-gray-700 font-inter mt-2">
                   Specialized study material and advanced concepts for competitive exams.
@@ -34,7 +34,7 @@ const CompetitiveCoaching = () => {
               </div>
 
               <div className="bg-rose-50 p-4 rounded-lg">
-                <Users className="w-6 h-6 text-rose-500 flex-shrink-0 mb-2" />
+                <Users className="w-6 h-6 text-rose-500 shrink-0 mb-2" />
                 <h4 className="font-poppins font-semibold text-base text-gray-900 tracking-wide">Expert Mentors</h4>
                 <p className="text-gray-700 font-inter mt-2">
                   Guidance from experienced faculty having record in competitive exams.
@@ -42,13 +42,13 @@ const CompetitiveCoaching = () => {
               </div>
 
               <div className="bg-yellow-50 p-4 rounded-lg">
-                <BarChart className="w-6 h-6 text-yellow-500 flex-shrink-0 mb-2" />
+                <BarChart className="w-6 h-6 text-yellow-500 shrink-0 mb-2" />
                 <h4 className="font-poppins font-semibold text-base text-gray-900 tracking-wide">Regular Assessments</h4>
                 <p className="text-gray-700 font-inter mt-2">Regular mock tests and performance analysis to track progress.</p>
               </div>
 
               <div className="bg-purple-100/60 p-4 rounded-lg">
-                <CheckCircle2 className="w-6 h-6 text-purple-500 flex-shrink-0 mb-2" />
+                <CheckCircle2 className="w-6 h-6 text-purple-500 shrink-0 mb-2" />
                 <h4 className="font-poppins font-semibold text-base text-gray-900 tracking-wide">Personalized Feedback</h4>
                 <p className="text-gray-700 font-inter mt-2">Individual attention and customized improvement plans.</p>
               </div>
@@ -58,7 +58,7 @@ const CompetitiveCoaching = () => {
               <h4 className="font-outfit font-semibold text-primary flex items-center gap-2 mb-4">
                 <CheckCircle className="w-6 h-6 text-primary" />
                 Competitions We Prepare For:</h4>
-              <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
+              <ul className="grid grid-cols-2 gap-x-1 md:gap-x-4 gap-y-2">
                 <li className="flex items-center gap-2 text-gray-700 font-outfit">
                   <span className="w-2 h-2 bg-primary rounded-full"></span>
                   Mathematics Olympiad
@@ -95,56 +95,49 @@ const CompetitiveCoaching = () => {
             </div>
           </div>
 
-          <div className="md:w-1/2 sticky top-40 max-h-fit">
+          <div className="hidden md:block md:w-1/2 sticky top-40 max-h-fit">
             <div className="relative">
               <img
-                src="/Images/Campus/NewHostel.JPG"
+                src="/Images/Heros/samplehero.JPG"
                 alt="Competitive coaching class with students"
                 className="rounded-lg shadow-xl relative z-10 w-full"
               />
-              {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-900/80 text-white p-4 md:p-6 rounded-lg backdrop-blur-sm z-20 w-4/5 md:w-2/3 text-center">
-                <Award className="w-8 h-8 mx-auto mb-2 text-blue-300" />
-                <h3 className="text-xl font-semibold">Excellence in Competitions</h3>
-                <p className="text-sm text-blue-100 mt-1">
-                  Preparing students for national and international competitions
-                </p>
-              </div> */}
             </div>
           </div>
           
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-25">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12 md:mt-25">
           <div className="relative overflow-hidden group rounded-xl shadow-lg">
             <img
-              src="/Images/Sample/Academics.png"
+              src="/Images/Heros/samplehero.JPG"
               alt="Interactive digital whiteboard in classroom"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-transparent flex p-6">
+            <div className="absolute inset-0 bg-linear-to-b from-black/90 to-transparent flex p-5 sm:p-6">
             
-              <h3 className="text-white text-xl font-poppins font-semibold tracking-wider mt-1">Laying the Academic Bedrock</h3>
+              <h3 className="text-white text-lg sm:text-xl font-poppins font-semibold tracking-wider mt-1">Laying the Academic Bedrock</h3>
             </div>
           </div>
 
           <div className="relative overflow-hidden group rounded-xl shadow-lg">
             <img
-              src="/Images/Sample/BeyondBooks.png"
+              src="/Images/Heros/samplehero.JPG"
               alt="Students using tablets in classroom"
               className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-transparent to-transparent flex p-6">
-              <h3 className="text-white text-xl font-poppins font-semibold tracking-wider mt-1">Learning Beyond Books</h3>
+            <div className="absolute inset-0 bg-linear-to-b from-black/90 via-transparent to-transparent flex p-5 sm:p-6">
+              <h3 className="text-white text-lg sm:text-xl font-poppins font-semibold tracking-wider mt-1">Learning Beyond Books</h3>
             </div>
           </div>
 
           <div className="relative overflow-hidden group rounded-xl shadow-lg">
             <img
-              src="/Images/Sample/Sports.png"
+              src="/Images/Heros/samplehero.JPG"
               alt="Virtual reality learning session"
               className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-transparent flex p-6">
-              <h3 className="text-white text-xl font-poppins font-semibold tracking-wider mt-1">Modern Infrastructure</h3>
+            <div className="absolute inset-0 bg-linear-to-b from-black/90 to-transparent flex p-5 sm:p-6">
+              <h3 className="text-white text-lg sm:text-xl font-poppins font-semibold tracking-wider mt-1">Modern Infrastructure</h3>
             </div>
           </div>
         </div>

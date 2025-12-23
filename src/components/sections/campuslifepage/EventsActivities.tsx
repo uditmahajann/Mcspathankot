@@ -8,24 +8,23 @@ import {
   Play,
 } from "lucide-react"
 
-interface EventMedia {
-  type: "image" | "video"
-  image?: any
-  video?: string
-}
-
 interface Event {
   _id: string
   title: string
   description: string
   date: string
-  location: string
+  location?: string
   featured: boolean
-  media: EventMedia
+  tags?: string[]
+  video: {
+    asset: {
+      url: string
+    }
+  }
 }
 
+export default function EventsActivities({ events }: { events: Event[] }) {
 
-export default function EventsActivities() {
   const [currentFeaturedEvent, setCurrentFeaturedEvent] = useState<number>(0)
   const [activeVideo, setActiveVideo] = useState<string | null>(null)
   const videoRefs = useRef<Record<string, HTMLVideoElement | null>>({})
@@ -36,112 +35,22 @@ export default function EventsActivities() {
     "bg-rose-100/60",
   ]
 
-  // 🎯 Events Data
-  const events: Event[] = [
-    {
-      id: "1",
-      title: "Annual Science Fair 2024",
-      description:
-        "Students showcased innovative projects and experiments in our annual science exhibition.",
-      date: "March 15, 2024",
-      location: "Main Auditorium",
-      media: [
-        { type: "image", src: "/Images/Campus/NewHostel.JPG", alt: "Science Fair" },
-      ],
-      featured: true,
-      tags: ["innovation", "STEM", "research", "competition"],
-    },
-    {
-      id: "2",
-      title: "Inter-House Sports Championship",
-      description:
-        "Thrilling sports competition between all four houses with various athletic events.",
-      date: "February 20–22, 2024",
-      location: "Sports Complex",
-      media: [
-        { type: "image", src: "/Images/Campus/NewHostel.JPG", alt: "Sports Championship" },
-      ],
-      featured: true,
-      tags: ["competition", "teamwork", "athletics", "championship"],
-    },
-    {
-      id: "3",
-      title: "Cultural Fest - Kaleidoscope 2024",
-      description:
-        "A vibrant celebration of music, dance, and drama performances by our talented students.",
-      date: "January 28, 2024",
-      location: "Open Air Theatre",
-      media: [
-        { type: "image", src: "/Images/Campus/NewHostel.JPG", alt: "Cultural Fest" },
-      ],
-      featured: true,
-      tags: ["culture", "performance", "arts", "diversity"],
-    },
-    {
-      id: "4",
-      title: "Independence Day Celebration 2024",
-      description:
-        "Students showcased their patriotism through songs, speeches, and parades celebrating India’s freedom.",
-      date: "August 15, 2024",
-      location: "School Ground",
-      media: [
-        { type: "video", src: "/Videos/Mcs2023.mp4" },
-      ],
-      featured: false,
-      tags: ["patriotism", "celebration", "unity"],
-    },
-    {
-      id: "5",
-      title: "Book Week & Literary Fest",
-      description:
-        "An exciting week of debates, storytelling, and creative writing promoting reading culture among students.",
-      date: "September 10–15, 2024",
-      location: "Library Wing",
-      media: [
-        { type: "video", src: "/Videos/Mcs2023.mp4" },
-      ],
-      featured: false,
-      tags: ["literature", "reading", "creativity"],
-    },
-    {
-      id: "6",
-      title: "Art & Craft Exhibition",
-      description:
-        "Students displayed creative art, crafts, and sculptures showcasing imagination and skill.",
-      date: "October 5, 2024",
-      location: "Activity Hall",
-      media: [
-        { type: "video", src: "/Videos/Mcs2023.mp4" },
-      ],
-      featured: false,
-      tags: ["art", "craft", "creativity", "design"],
-    },
-    {
-      id: "7",
-      title: "Art & Craft Exhibition",
-      description:
-        "Students displayed creative art, crafts, and sculptures showcasing imagination and skill.",
-      date: "October 5, 2024",
-      location: "Activity Hall",
-      media: [
-        { type: "video", src: "/Videos/Mcs2023.mp4" },
-      ],
-      featured: false,
-      tags: ["art", "craft", "creativity", "design"],
-    },
-  ]
 
   // 🎯 Split Featured & Non-featured
   const featuredEvents = events.filter((event) => event.featured).slice(0, 3)
   const otherEvents = events.filter((event) => !event.featured)
 
-  // 🎯 Auto-rotate featured images
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentFeaturedEvent((prev) => (prev + 1) % featuredEvents.length)
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [featuredEvents.length])
+  const handlePrevFeatured = () => {
+  setCurrentFeaturedEvent((prev) =>
+    prev === 0 ? featuredEvents.length - 1 : prev - 1
+  )
+}
+
+const handleNextFeatured = () => {
+  setCurrentFeaturedEvent((prev) =>
+    prev === featuredEvents.length - 1 ? 0 : prev + 1
+  )
+}
 
   // 🎯 Pagination for other events (videos)
   const eventsPerPage = 3
@@ -206,16 +115,21 @@ export default function EventsActivities() {
         </div>
 
         {/* 🖼️ Featured Events Carousel (Images) */}
-        <div className="bg-white pb-6 xl:pb-16">
+        <div className="bg-white pb-6 lg:pb-8">
           {featuredEvents.length > 0 && (
             <div className="relative mx-auto">
               <div className="overflow-hidden rounded-2xl shadow-2xl">
                 <div className="relative h-96 md:h-125">
-                  <img
-                    src={featuredEvents[currentFeaturedEvent]?.media[0]?.src}
-                    alt={featuredEvents[currentFeaturedEvent]?.title}
-                    className="w-full h-full object-cover rounded-xl sm:rounded-2xl"
+                  <video
+                    key={featuredEvents[currentFeaturedEvent]?._id}
+                    src={featuredEvents[currentFeaturedEvent]?.video.asset.url}
+                    className="w-full h-full object-cover rounded-2xl"
+                    muted
+                    autoPlay
+                    loop
+                    playsInline
                   />
+
                   <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent rounded-2xl"></div>
 
                   <div className="absolute bottom-8 left-8 right-8 text-white">
@@ -247,20 +161,14 @@ export default function EventsActivities() {
 
               {/* Carousel Controls */}
               <button
-                onClick={() =>
-                  setCurrentFeaturedEvent(
-                    (prev) => (prev - 1 + featuredEvents.length) % featuredEvents.length
-                  )
-                }
+                onClick={handlePrevFeatured}
                 className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 text-white p-2 sm:p-3 rounded-full hover:bg-white/30 transition-all duration-300 cursor-pointer"
               >
                 <ChevronLeft className="w-4.5 h-4.5 md:w-6 md:h-6" />
               </button>
 
               <button
-                onClick={() =>
-                  setCurrentFeaturedEvent((prev) => (prev + 1) % featuredEvents.length)
-                }
+                onClick={handleNextFeatured}
                 className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 text-white p-2 sm:p-3 rounded-full hover:bg-white/30 transition-all duration-300 cursor-pointer"
               >
                 <ChevronRight className="w-4.5 h-4.5 md:w-6 md:h-6" />
@@ -272,11 +180,10 @@ export default function EventsActivities() {
                   <button
                     key={index}
                     onClick={() => setCurrentFeaturedEvent(index)}
-                    className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
-                      currentFeaturedEvent === index
+                    className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${currentFeaturedEvent === index
                         ? "bg-primarydark scale-110"
                         : "bg-gray-300 hover:bg-gray-400"
-                    }`}
+                      }`}
                   />
                 ))}
               </div>
@@ -289,13 +196,12 @@ export default function EventsActivities() {
           <div className="mt-10 xl:mt-16 space-y-16">
             {paginatedEvents.map((event, index) => {
               const actualIndex = (currentPage - 1) * eventsPerPage + index
-              const videoId = event.id
+              const videoId = event._id
               return (
                 <div
-                  key={event.id}
-                  className={`flex flex-col lg:flex-row ${
-                    actualIndex % 2 === 1 ? "lg:flex-row-reverse" : ""
-                  } gap-6 sm:gap-8 lg:gap-12 items-stretch relative`}
+                  key={event._id}
+                  className={`flex flex-col lg:flex-row ${actualIndex % 2 === 1 ? "lg:flex-row-reverse" : ""
+                    } gap-6 sm:gap-8 lg:gap-12 items-stretch relative`}
                 >
                   {/* Video Section */}
                   <div
@@ -304,8 +210,8 @@ export default function EventsActivities() {
                   >
                     <video
                       ref={(el) => (videoRefs.current[videoId] = el)}
-                      src={event.media[0].src}
-                      className="w-full h-60 md:h-80 lg:h-auto object-cover rounded-lg"
+                      src={event.video.asset.url}
+                      className="w-full h-full object-cover rounded-lg"
                     />
                     {!activeVideo || activeVideo !== videoId ? (
                       <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
@@ -357,11 +263,10 @@ export default function EventsActivities() {
                   <button
                     key={i + 1}
                     onClick={() => setCurrentPage(i + 1)}
-                    className={`px-5 py-2.5 rounded-full font-medium cursor-pointer ${
-                      currentPage === i + 1
+                    className={`px-5 py-2.5 rounded-full font-medium cursor-pointer ${currentPage === i + 1
                         ? "bg-blue-600 text-white"
                         : "bg-gray-200 hover:bg-gray-300"
-                    }`}
+                      }`}
                   >
                     {i + 1}
                   </button>

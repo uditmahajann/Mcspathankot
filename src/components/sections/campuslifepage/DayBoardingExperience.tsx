@@ -2,9 +2,9 @@ import { Clock, Home, Utensils, Book, Users, Moon, Sun, Brain, Award, Timer, Vol
 
 const DayBoardingExperience = () => {
     return (
-        <section id="boarding-experience" className="my-10 py-25 bg-gradient-to-br from-violet-950 via-blue-900 to-indigo-950">
-            <div className="container mx-auto px-5 min-[480px]:px-12 sm:px-16 lg:px-20 xl:px-40">
-                <div className="text-center mb-10 sm:mb-16">
+        <section id="boarding-experience" className="px-6 min-[540px]:px-12 sm:px-16 lg:px-20 my-10 md:my-20 py-15 md:py-20 bg-linear-to-br from-violet-950 via-blue-900 to-indigo-950">
+            <div className="container max-w-5xl mx-auto ">
+                <div className="text-center mb-10">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl text-yellow-400 font-playpen font-medium">
                         Day-Boarding School Experience
                     </h2>
@@ -15,17 +15,17 @@ const DayBoardingExperience = () => {
                 </div>
 
                 {/* Main Content Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 sm:p-6 lg:p-8 gap-8 xl:gap-10 mb-8 md:mb-12 items-center">
                     {/* Right Column - Daily Schedule */}
                     
                         <div className="grid grid-cols-2 gap-4">
                             {[
-                                "/Images/Campus/NewHostel.JPG",
-                                "/Images/Campus/NewHostel.JPG",
-                                "/Images/Campus/NewHostel.JPG",
-                                "/Images/Campus/NewHostel.JPG",
-                                "/Images/Campus/NewHostel.JPG",
-                                "/Images/Campus/NewHostel.JPG",
+                                "/Images/Heros/samplehero.JPG",
+                                "/Images/Heros/samplehero.JPG",
+                                "/Images/Heros/samplehero.JPG",
+                                "/Images/Heros/samplehero.JPG",
+                                "/Images/Heros/samplehero.JPG",
+                                "/Images/Heros/samplehero.JPG",
                             ].map((src, idx) => (
                                 <div key={idx} className="overflow-hidden rounded-lg shadow-md group">
                                     <img
@@ -39,13 +39,13 @@ const DayBoardingExperience = () => {
                     
                     {/* Left Column - Description and Features */}
                     <div>
-                        <div className="bg-blue-50 rounded-xl p-10 mb-8">
-                            <h3 className="text-2xl font-poppins font-semibold text-primarydark mb-3 tracking-wide">A Second Home for Day-Boarders</h3>
+                        <div className="bg-blue-50 rounded-xl p-8 mb-8">
+                            <h3 className="text-xl sm:text-2xl font-poppins font-semibold text-primarydark mb-3 tracking-wide">A Second Home for Day-Boarders</h3>
                             <p className="text-gray-700 mb-6 font-inter">
                                 Our day-boarding program offers a structured, secure and enriching environment, where students grow holistically with access to academic support, engaging activities, and personal mentorship.
                             </p>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                                 {[
                                     { icon: <Timer size={22} />, text: "Extended academic hours" },
                                     { icon: <Utensils size={22} />, text: "Healthy & timely meals" },
@@ -63,8 +63,8 @@ const DayBoardingExperience = () => {
                         </div>
 
                         {/* Weekend Activities */}
-                        <div className="bg-gradient-to-r from-primary to-primarydark rounded-xl p-8 text-white">
-                            <h3 className="text-2xl font-poppins font-semibold mb-3 tracking-wide">Weekend Activities</h3>
+                        <div className="bg-linear-to-r from-primary to-primarydark rounded-xl p-8 text-white">
+                            <h3 className="text-xl sm:text-2xl font-poppins font-semibold mb-3 tracking-wide">Weekend Activities</h3>
                             <p className="text-blue-50 mb-6 font-inter">
                                 Weekends at MCS are filled with enriching activities that balance recreation, learning, and personal
                                 development.
@@ -91,8 +91,8 @@ const DayBoardingExperience = () => {
                 </div>
 
                 {/* Testimonials */}
-                <div className="bg-blue-100 rounded-xl p-12">
-                    <h3 className="text-2xl font-playpen font-semibold text-primarydark mb-8 text-center">What Our Day-Boarding Students Say:</h3>
+                <div className="bg-blue-100 rounded-xl p-6 sm:p-12">
+                    <h3 className="text-xl sm:text-2xl font-playpen font-semibold text-primarydark mb-6 sm:mb-8 sm:text-center">What Our Day-Boarding Students Say:</h3>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
@@ -112,7 +112,7 @@ const DayBoardingExperience = () => {
                                 student: "David L., Grade 12",
                             },
                         ].map((testimonial, index) => (
-                            <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
+                            <div key={index} className="bg-white p-5 sm:p-6 rounded-lg shadow-lg text-sm sm:text-base">
                                 <p className="text-gray-700 mb-4 italic font-inter">"{testimonial.quote}"</p>
                                 <p className="text-primarydark font-inter font-semibold">— {testimonial.student}</p>
                             </div>

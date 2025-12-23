@@ -10,105 +10,105 @@ const ACHIEVERS = [
     name: "Aarav Sharma",
     category: "Academics",
     achievement: "Topped District in CBSE Grade 10 with 98.6%",
-    image: "/Images/Sample/Academics.png",
+    image: "/Images/Heros/samplehero.JPG",
     year: "2025",
   },
   {
     name: "Aarav Sharma",
     category: "Academics",
     achievement: "Topped District in CBSE Grade 10 with 98.6%",
-    image: "/Images/Sample/Academics.png",
+    image: "/Images/Heros/samplehero.JPG",
     year: "2025",
   },
   {
     name: "Aarav Sharma",
     category: "Academics",
     achievement: "Topped District in CBSE Grade 10 with 98.6%",
-    image: "/Images/Sample/Academics.png",
+    image: "/Images/Heros/samplehero.JPG",
     year: "2025",
   },
   {
     name: "Aarav Sharma",
     category: "Academics",
     achievement: "Topped District in CBSE Grade 10 with 98.6%",
-    image: "/Images/Sample/Academics.png",
+    image: "/Images/Heros/samplehero.JPG",
     year: "2025",
   },
   {
     name: "Aarav Sharma",
     category: "Academics",
     achievement: "Topped District in CBSE Grade 10 with 98.6%",
-    image: "/Images/Sample/Academics.png",
+    image: "/Images/Heros/samplehero.JPG",
     year: "2025",
   },
   {
     name: "Simran Kaur",
     category: "Sports",
     achievement: "Gold Medal - State Level Swimming Championship",
-    image: "/Images/Sample/Academics.png",
+    image: "/Images/Heros/samplehero.JPG",
     year: "2025",
   },
   {
     name: "Simran Kaur",
     category: "Sports",
     achievement: "Gold Medal - State Level Swimming Championship",
-    image: "/Images/Sample/Academics.png",
+    image: "/Images/Heros/samplehero.JPG",
     year: "2025",
   },
   {
     name: "Simran Kaur",
     category: "Sports",
     achievement: "Gold Medal - State Level Swimming Championship",
-    image: "/Images/Sample/Academics.png",
+    image: "/Images/Heros/samplehero.JPG",
     year: "2025",
   },
   {
     name: "Ananya Gupta",
     category: "Cultural",
     achievement: "Winner - National Level Art Fest, Delhi",
-    image: "/Images/Sample/Academics.png",
+    image: "/Images/Heros/samplehero.JPG",
     year: "2024",
   },
   {
     name: "Ananya Gupta",
     category: "Cultural",
     achievement: "Winner - National Level Art Fest, Delhi",
-    image: "/Images/Sample/Academics.png",
+    image: "/Images/Heros/samplehero.JPG",
     year: "2024",
   },
   {
     name: "Ananya Gupta",
     category: "Cultural",
     achievement: "Winner - National Level Art Fest, Delhi",
-    image: "/Images/Sample/Academics.png",
+    image: "/Images/Heros/samplehero.JPG",
     year: "2024",
   },
   {
     name: "Rahul Verma",
     category: "Leadership",
     achievement: "School Captain - Led Student Parliament 2024",
-    image: "/Images/Sample/Academics.png",
+    image: "/Images/Heros/samplehero.JPG",
     year: "2024",
   },
   {
     name: "Rahul Verma",
     category: "Leadership",
     achievement: "School Captain - Led Student Parliament 2024",
-    image: "/Images/Sample/Academics.png",
+    image: "/Images/Heros/samplehero.JPG",
     year: "2024",
   },
   {
     name: "Neha Singh",
     category: "Sports",
     achievement: "Bronze Medal - National Taekwondo Championship",
-    image: "/Images/Sample/Academics.png",
+    image: "/Images/Heros/samplehero.JPG",
     year: "2025",
   },
   {
     name: "Ishita Mehta",
     category: "Academics",
     achievement: "Merit Award - Science Olympiad Foundation",
-    image: "/Images/Sample/Academics.png",
+    image: "/Images/Heros/samplehero.JPG",
     year: "2025",
   },
 ];
@@ -121,11 +121,11 @@ const StudentAchieversGrid: React.FC = () => {
   );
 
   return (
-    <section id="achievers" className="py-25 bg-gradient-to-br from-violet-950 via-blue-900 to-indigo-950">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="achievers" className="mt-10 md:mt-20 py-15 md:py-20 bg-linear-to-br from-violet-950 via-blue-900 to-indigo-950">
+      <div className="mx-auto max-w-7xl px-6 min-[540px]:px-12 sm:px-16 lg:px-20">
         {/* Header */}
-        <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-yellow-400 font-playpen font-medium">
+        <div className="text-center mb-10">
+          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-yellow-400 font-playpen font-medium leading-normal">
             Our Proud Achievers in 2025-26
           </h2>
           <p className="mt-4 sm:mt-7 text-base sm:text-lg text-gray-200 max-w-3xl mx-auto">
@@ -134,12 +134,12 @@ const StudentAchieversGrid: React.FC = () => {
         </div>
 
         {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 mb-8 sm:mb-12">
           {CATEGORIES.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-5 py-2 rounded-full text-base font-outfit font-medium transition cursor-pointer ${
+              className={`px-4 sm:px-5 py-2 rounded-full text-base font-outfit font-medium transition cursor-pointer ${
                 activeCategory === category
                   ? "bg-yellow-400 text-gray-900"
                   : "bg-white border border-gray-300 hover:bg-gray-100"
@@ -151,7 +151,7 @@ const StudentAchieversGrid: React.FC = () => {
         </div>
 
         {/* Achievers Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
           {filteredAchievers.map((achiever, index) => (
             <div
               key={index}
@@ -164,12 +164,12 @@ const StudentAchieversGrid: React.FC = () => {
                 className="w-full h-64 object-cover"
                 loading="lazy"
               />
-              <div className="absolute bottom-3 left-3 flex items-center gap-2 bg-white/80 px-3 py-1 rounded-full shadow-sm">
+              <div className="absolute bottom-5 left-3 flex items-center gap-2 bg-white/80 px-3 py-1 rounded-full shadow-sm">
                     <Trophy className="h-4 w-4 text-yellow-500" />
                     <span className="text-sm font-inter font-semibold text-gray-900">{achiever.year} - {achiever.category}</span>
                   </div>
               </div>
-              <div className="p-5">
+              <div className="p-4 sm:p-5">
                 <h3 className="text-lg font-poppins font-semibold text-gray-900 tracking-wide">
                   {achiever.name}
                 </h3>

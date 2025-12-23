@@ -19,18 +19,18 @@ interface AwardsGridProps {
 
 const AwardsGrid: React.FC<AwardsGridProps> = ({ awards }) => {
   return (
-    <section id="awards" className="py-10 my-10 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
-            Awards and {" "}
+    <section id="awards" className="py-4 sm:py-10 my-10 bg-white">
+      <div className="mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-gray-900 font-playpen font-medium leading-normal">
+            Awards & {" "}
             <span className="relative inline-block">
               Recognitions
               {/* Spark Doodle */}
               <img
                 src="/Images/Doodles/SparkYellow.png"
                 alt="Spark"
-                className="absolute w-10 sm:w-12 md:w-14 -top-8 -right-16"
+                className="absolute w-10 sm:w-12 md:w-14 -top-6 md:-top-8 -right-12 md:-right-15"
               />
             </span>
           </h2>
@@ -50,12 +50,12 @@ const AwardsGrid: React.FC<AwardsGridProps> = ({ awards }) => {
                 <img
                   src={urlFor(award.image).width(600).auto("format").url()}
                   alt={award.name}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-60 object-cover"
                 />
 
               )}
 
-              <div className="p-5 text-left">
+              <div className="p-4 sm:p-5 text-left">
                 <h3 className="text-lg font-poppins font-semibold text-gray-900 mb-1 tracking-wide">
                   {award.name}
                 </h3>

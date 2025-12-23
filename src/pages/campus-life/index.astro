@@ -7,6 +7,27 @@ import DayBoardingExperience from "../../components/sections/campuslifepage/DayB
 import Exhibitions from "../../components/sections/campuslifepage/EnrichingExhibitions";
 import OutreachPrograms from '../../components/sections/campuslifepage/OutreachPrograms';
 import ToursExcursions from '../../components/sections/campuslifepage/ToursExcursions';
+
+import { sanity } from "../../lib/sanity"
+
+const eventsQuery = `
+*[_type == "event"] | order(date desc) {
+  _id,
+  title,
+  description,
+  date,
+  location,
+  featured,
+  tags,
+  video {
+    asset->{
+      url
+    }
+  }
+}
+`;
+
+const events = await sanity.fetch(eventsQuery);
 ---
 
 <Layout
@@ -16,7 +37,7 @@ import ToursExcursions from '../../components/sections/campuslifepage/ToursExcur
   >
   <main>
     <CampusLifeHero client:load />
-    <EventsActivities client:load />
+    <EventsActivities events={events} client:only />
     <BoardingExperience client:load />
     <DayBoardingExperience client:load />
     <OutreachPrograms client:load />

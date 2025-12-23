@@ -3,25 +3,13 @@ import { cld } from "../../../utils/cloudinary";
 
 const History: React.FC = () => {
   return (
-    <section id="our-story" className="py-10 my-10 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* <div className="text-center mb-10 sm:mb-16 lg:mb-20">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
-            <span className="relative inline-block">Our History
-              <img
-                src="/Images/Doodles/LinePink.png"
-                alt="Underline"
-                className="w-[80%] absolute left-8 -bottom-4 sm:-bottom-6 md:-bottom-8"
-              />
-            </span>
-          </h2>
-        </div> */}
+    <section id="our-story" className="py-4 sm:py-10 my-10 bg-white">
+      <div className="mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
+        <div className="grid grid-cols-1 gap-8 sm:gap-12 lg:grid-cols-2">
 
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+          <div className="space-y-6 font-inter text-base sm:text-lg">
 
-          <div className="space-y-6 font-inter text-lg">
-
-            <h3 className="text-2xl max-w-5xl font-playpen font-semibold text-primarydark italic">
+            <h3 className="text-xl sm:text-2xl max-w-5xl font-playpen font-semibold text-primarydark italic">
               "With your first step in MCS campus, there is immediately a sense that it is more than just a school"
             </h3>
 
@@ -61,11 +49,10 @@ const History: React.FC = () => {
               alt="MCS School Building"
               className="w-full object-cover"
             />
-            {/* <div className="absolute inset-0 bg-blue-600 mix-blend-multiply opacity-10"></div> */}
           </div>
         </div>
 
-        <div className="w-full my-20">
+        <div className="w-full my-8 sm:my-12 lg:my-20">
           <video
             className="w-full h-full rounded-xl shadow-lg"
             autoPlay
@@ -78,20 +65,19 @@ const History: React.FC = () => {
           </video>
         </div>
 
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 sm:gap-12 lg:grid-cols-2">
 
-          <div className="sticky top-40 w-full max-h-fit overflow-hidden rounded-2xl shadow-xl">
+          <div className="hidden lg:block lg:sticky top-40 w-full max-h-fit overflow-hidden rounded-2xl shadow-xl">
             <img
-              src="/Images/About/Beauty3.JPG"
+              src="/Images/Heros/samplehero.JPG"
               alt="MCS School Building"
               className="w-full object-cover"
             />
-            {/* <div className="absolute inset-0 bg-blue-600 mix-blend-multiply opacity-10"></div> */}
           </div>
 
-          <div className="space-y-6 font-inter text-lg">
+          <div className="space-y-6 font-inter text-base sm:text-lg">
 
-            <h3 className="text-2xl max-w-5xl font-playpen font-semibold text-primarydark italic">
+            <h3 className="text-xl sm:text-2xl max-w-5xl font-playpen font-semibold text-primarydark italic">
               "An environment where every learning experience is surrounded by Beauty, Peace, and Inspiration"
             </h3>
 
@@ -115,47 +101,47 @@ const History: React.FC = () => {
 
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 my-8 sm:my-12 lg:my-20">
           <div className="relative overflow-hidden group rounded-xl shadow-lg">
             <img
-              src="/Images/About/Beauty2.JPG"
+              src="/Images/Heros/samplehero.JPG"
               alt="Interactive digital whiteboard in classroom"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-transparent to-transparent flex p-6">
+            <div className="absolute inset-0 bg-linear-to-b from-black/90 via-transparent to-transparent flex p-5 sm:p-6">
 
-              <h3 className="text-white text-xl font-poppins font-semibold tracking-wider mt-1">Green Spaces</h3>
+              <h3 className="text-white text-lg sm:text-xl font-poppins font-semibold tracking-wider mt-1">Green Spaces</h3>
             </div>
           </div>
 
           <div className="relative overflow-hidden group rounded-xl shadow-lg">
             <img
-              src="/Images/About/HM3.JPG"
+              src="/Images/Heros/samplehero.JPG"
               alt="Students using tablets in classroom"
               className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-transparent to-transparent flex p-6">
-              <h3 className="text-white text-xl font-poppins font-semibold tracking-wider mt-1">Spacious Classrooms</h3>
+            <div className="absolute inset-0 bg-linear-to-b from-black/90 via-transparent to-transparent flex p-5 sm:p-6">
+              <h3 className="text-white text-lg sm:text-xl font-poppins font-semibold tracking-wider mt-1">Spacious Classrooms</h3>
             </div>
           </div>
 
           <div className="relative overflow-hidden group rounded-xl shadow-lg">
             <img
-              src="/Images/About/Beauty1.JPG"
+              src="/Images/Heros/samplehero.JPG"
               alt="Virtual reality learning session"
               className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-transparent to-transparent flex p-6">
-              <h3 className="text-white text-xl font-poppins font-semibold tracking-wider mt-1">Scenic Beauty</h3>
+            <div className="absolute inset-0 bg-linear-to-b from-black/90 via-transparent to-transparent flex p-5 sm:p-6">
+              <h3 className="text-white text-lg sm:text-xl font-poppins font-semibold tracking-wider mt-1">Scenic Beauty</h3>
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 sm:gap-12 lg:grid-cols-2">
 
-          <div className="space-y-6 font-inter text-lg">
+          <div className="space-y-6 font-inter text-base sm:text-lg">
 
-            <h3 className="text-2xl max-w-5xl font-playpen font-semibold text-primarydark italic">
+            <h3 className="text-xl sm:text-2xl max-w-5xl font-playpen font-semibold text-primarydark italic">
               "Where young minds take shape—with strong values, joyful learning, and a spark of curiosity that lasts a lifetime."
             </h3>
 
@@ -182,49 +168,12 @@ const History: React.FC = () => {
 
           <div className="sticky top-40 w-full max-h-fit overflow-hidden rounded-2xl shadow-xl">
             <img
-              src="/Images/About/HM1.JPG"
+              src="/Images/Heros/samplehero.JPG"
               alt="MCS School Building"
               className="w-full object-cover"
             />
-            {/* <div className="absolute inset-0 bg-blue-600 mix-blend-multiply opacity-10"></div> */}
           </div>
         </div>
-
-        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
-          <div className="relative overflow-hidden group rounded-xl shadow-lg">
-            <img
-              src="/Images/About/Curiosity1.JPG"
-              alt="Interactive digital whiteboard in classroom"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-transparent to-transparent flex p-6">
-
-              <h3 className="text-white text-xl font-poppins font-semibold tracking-wider mt-1">Laying the Academic Bedrock</h3>
-            </div>
-          </div>
-
-          <div className="relative overflow-hidden group rounded-xl shadow-lg">
-            <img
-              src="/Images/About/Curiosity2.JPG"
-              alt="Students using tablets in classroom"
-              className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-transparent to-transparent flex p-6">
-              <h3 className="text-white text-xl font-poppins font-semibold tracking-wider mt-1">Modern Infrastructure</h3>
-            </div>
-          </div>
-
-          <div className="relative overflow-hidden group rounded-xl shadow-lg">
-            <img
-              src="/Images/About/Curiosity3.JPG"
-              alt="Virtual reality learning session"
-              className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-transparent to-transparent flex p-6">
-              <h3 className="text-white text-xl font-poppins font-semibold tracking-wider mt-1">Learning Beyond Books</h3>
-            </div>
-          </div>
-        </div> */}
 
       </div>
     </section>

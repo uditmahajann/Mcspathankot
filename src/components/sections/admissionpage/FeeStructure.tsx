@@ -99,30 +99,30 @@ const FeeStructure: React.FC = () => {
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-primary text-white p-5 font-inter">
               <tr>
-                <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-left text-sm font-medium text-white uppercase tracking-wider ">Sr.No.</th>
-                <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-left text-sm font-medium text-white uppercase tracking-wider ">Fee Type</th>
-                <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm font-medium text-white uppercase tracking-wider ">Fee Amount</th>
-                <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm font-medium text-white uppercase tracking-wider ">Notes</th>
+                <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-left text-sm lg:text-base font-medium text-white uppercase tracking-wider ">Sr.No.</th>
+                <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-left text-sm lg:text-base font-medium text-white uppercase tracking-wider ">Fee Type</th>
+                <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm lg:text-base font-medium text-white uppercase tracking-wider ">Fee Amount</th>
+                <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm lg:text-base font-medium text-white uppercase tracking-wider ">Notes</th>
               </tr>
             </thead>
             <tbody>
               <tr className="even:bg-white odd:bg-gray-100 hover:bg-blue-50 font-inter">
-                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">1</td>
-                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">Registration Fee</td>
-                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center">₹1000</td>
-                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center">One time payable and Non-refundable</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base font-medium text-gray-900 text-left">1</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base font-medium text-gray-900 text-left">Registration Fee</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base text-gray-500 text-center">₹1000</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base text-gray-500 text-center">One time payable and Non-refundable</td>
               </tr>
               <tr className="even:bg-white odd:bg-gray-100 hover:bg-blue-50 font-inter">
-                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">2</td>
-                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">Admission Fee</td>
-                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center">₹4000</td>
-                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center">Payable at the time of admission and Non-Refundable</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base font-medium text-gray-900 text-left">2</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base font-medium text-gray-900 text-left">Admission Fee</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base text-gray-500 text-center">₹4000</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base text-gray-500 text-center">Payable at the time of admission and Non-Refundable</td>
               </tr>
               <tr className="even:bg-white odd:bg-gray-100 hover:bg-blue-50 font-inter">
-                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">3</td>
-                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left">Prospectus Fee</td>
-                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center">₹100</td>
-                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center">Non-Refundable</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base font-medium text-gray-900 text-left">3</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base font-medium text-gray-900 text-left">Prospectus Fee</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base text-gray-500 text-center">₹100</td>
+                <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base text-gray-500 text-center">Non-Refundable</td>
               </tr>
             </tbody>
           </table>
@@ -143,37 +143,37 @@ const FeeStructure: React.FC = () => {
                     <tr>
                       <th
                         scope="col"
-                        className="px-4.5 py-4 sm:px-6 sm:py-5 text-left text-sm font-medium text-white uppercase tracking-wider"
+                        className="px-4.5 py-4 sm:px-6 sm:py-5 text-left text-sm lg:text-base font-medium text-white uppercase tracking-wider"
                       >
                         Class
                       </th>
                       <th
                         scope="col"
-                        className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
+                        className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm lg:text-base font-medium text-white uppercase tracking-wider"
                       >
                         Annual Fees
                       </th>
                       <th
                         scope="col"
-                        className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
+                        className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm lg:text-base font-medium text-white uppercase tracking-wider"
                       >
                         1st Installment
                       </th>
                       <th
                         scope="col"
-                        className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
+                        className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm lg:text-base font-medium text-white uppercase tracking-wider"
                       >
                         2nd Installment
                       </th>
                       <th
                         scope="col"
-                        className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
+                        className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm lg:text-base font-medium text-white uppercase tracking-wider"
                       >
                         3rd Installment
                       </th>
                       <th
                         scope="col"
-                        className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm font-medium text-white uppercase tracking-wider"
+                        className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm lg:text-base font-medium text-white uppercase tracking-wider"
                       >
                         4th Installment
                       </th>
@@ -183,12 +183,12 @@ const FeeStructure: React.FC = () => {
                   <tbody className="bg-white divide-y divide-gray-200">
                     {category.fees.map((fee, feeIndex) => (
                       <tr key={feeIndex} className={feeIndex % 2 === 0 ? "bg-white hover:bg-blue-50" : "bg-gray-100 hover:bg-blue-50"}>
-                        <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-left font-inter">For {fee.class}</td>
-                        <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.annual}</td>
-                        <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.one}</td>
-                        <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.two}</td>
-                        <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.three}</td>
-                        <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm text-gray-500 text-center font-inter">{fee.four}</td>
+                        <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base font-medium text-gray-900 text-left font-inter">For {fee.class}</td>
+                        <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base text-gray-500 text-center font-inter">{fee.annual}</td>
+                        <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base text-gray-500 text-center font-inter">{fee.one}</td>
+                        <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base text-gray-500 text-center font-inter">{fee.two}</td>
+                        <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base text-gray-500 text-center font-inter">{fee.three}</td>
+                        <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base text-gray-500 text-center font-inter">{fee.four}</td>
                       </tr>
                     ))}
                   </tbody>

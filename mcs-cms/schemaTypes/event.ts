@@ -25,9 +25,6 @@ export default defineType({
       name: "date",
       title: "Event Date",
       type: "date",
-      options: {
-        dateFormat: "DD MMM YYYY",
-      },
       validation: (Rule) => Rule.required(),
     }),
 
@@ -42,54 +39,25 @@ export default defineType({
       title: "Featured Event",
       type: "boolean",
       initialValue: false,
-      description: "Featured events are shown prominently on the website",
-    }),
-
-    defineField({
-  name: "media",
-  title: "Event Media",
-  type: "object",
-  fields: [
-    defineField({
-      name: "type",
-      title: "Media Type",
-      type: "string",
-      options: {
-        list: [
-          { title: "Image", value: "image" },
-          { title: "Video", value: "video" },
-        ],
-        layout: "radio",
-      },
-      validation: (Rule) => Rule.required(),
-    }),
-
-    defineField({
-      name: "image",
-      title: "Event Image",
-      type: "image",
-      options: { hotspot: true },
-      hidden: ({ parent }) => parent?.type !== "image",
+      description: "Featured events appear in the top section",
     }),
 
     defineField({
       name: "video",
       title: "Event Video",
       type: "file",
-      options: { accept: "video/*" },
-      hidden: ({ parent }) => parent?.type !== "video",
+      options: {
+        accept: "video/*",
+      },
+      validation: (Rule) => Rule.required(),
     }),
-  ],
-}),
 
     defineField({
       name: "tags",
       title: "Tags",
       type: "array",
       of: [{ type: "string" }],
-      options: {
-        layout: "tags",
-      },
+      options: { layout: "tags" },
     }),
   ],
 
@@ -98,13 +66,11 @@ export default defineType({
       title: "title",
       date: "date",
       featured: "featured",
-      media: "media.image",
     },
-    prepare({ title, date, featured, media }) {
+    prepare({ title, date, featured }) {
       return {
-        title: title,
+        title,
         subtitle: `${featured ? "⭐ Featured" : "Event"} • ${date ?? ""}`,
-        media,
       };
     },
   },
