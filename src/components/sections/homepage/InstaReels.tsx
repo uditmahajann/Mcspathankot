@@ -1,243 +1,297 @@
-"use client";
-import { useState, useEffect, useRef } from "react";
-import { ChevronLeft, ChevronRight, Play, Pause, Instagram } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Play, Pause, Instagram } from "lucide-react";
 
 const reels = [
-  {
-      id: "1",
-      imageUrl: "/placeholder.svg?height=600&width=340",
-      videoUrl: "/Videos/Reel1.mp4", // Replace with actual video URL
-      postUrl: "https://www.instagram.com/reel/DJt_aQesgLt/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-      title: "CELEBRATING OUR CBSE 10TH TOPPERS",
-      subtitle: "PRIDE OF MONTESSORI!",
-    },
-    {
-      id: "2",
-      imageUrl: "/placeholder.svg?height=600&width=340",
-      videoUrl: "/Videos/Reel2.mp4", // Replace with actual video URL
-      postUrl: "https://www.instagram.com/reel/DJt_8uqxMk_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-      title: "CELEBRATING OUR CBSE 12TH TOPPERS",
-      subtitle: "PRIDE OF MONTESSORI!",
-    },
-    {
-      id: "3",
-      imageUrl: "/placeholder.svg?height=600&width=340",
-      videoUrl: "/Videos/Reel3.mp4", // Replace with actual video URL
-      postUrl: "https://www.instagram.com/reel/DFajLNII13c/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-      title: "Sports'S DAY CELEBRATION",
-      subtitle: "CHAMPIONS IN ACTION",
-    },
-    {
-      id: "4",
-      imageUrl: "/placeholder.svg?height=600&width=340",
-      videoUrl: "/Videos/Reel4.mp4", // Replace with actual video URL
-      postUrl: "https://www.instagram.com/reel/DHWDkH8CNNN/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-      title: "",
-      subtitle: "",
-    },
-    {
-      id: "5",
-      imageUrl: "/placeholder.svg?height=600&width=340",
-      videoUrl: "/Videos/Reel5.mp4", // Replace with actual video URL
-      postUrl: "https://www.instagram.com/reel/DJRbRn6tymA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-      title: "CELEBRATING EARTH DAY 2025",
-      subtitle: "STUDENT-LED SAPLING PLANTATION DRIVE",
-    },
-    {
-      id: "6",
-      imageUrl: "/placeholder.svg?height=600&width=340",
-      videoUrl: "/Videos/Reel6.mp4", // Replace with actual video URL
-      postUrl: "https://www.instagram.com/reel/DJPIevNKmyF/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-      title: "CELEBRATING OUR CBSE 10TH TOPPERS",
-      subtitle: "PRIDE OF MONTESSORI!",
-    },
-
+  { id: "1", videoUrl: "/Videos/Reel1.mp4" },
+  { id: "2", videoUrl: "/Videos/Reel2.mp4" },
+  { id: "3", videoUrl: "/Videos/Reel3.mp4" },
+  { id: "4", videoUrl: "/Videos/Reel4.mp4" },
+  { id: "5", videoUrl: "/Videos/Reel5.mp4" },
+  { id: "6", videoUrl: "/Videos/Reel6.mp4" },
 ];
 
-const CARD_WIDTH = 320;
-const CARD_GAP = 20;
-const AUTOSCROLL_INTERVAL = 30;
-const AUTOSCROLL_STEP = 1;
+// Must match Tailwind card styles
+const CARD_WIDTH = 240;
+const CARD_GAP = 16;
+const SLIDE_SPEED = 2;
 
 const InstaReels = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const videoRefs = useRef<{ [id: string]: HTMLVideoElement | null }>({});
-  const [isPaused, setIsPaused] = useState(false);
-  const [playingVideo, setPlayingVideo] = useState<string | null>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const videoRefs = useRef<Record<string, HTMLVideoElement | null>>({});
+  const rafRef = useRef<number | null>(null);
+  const positionRef = useRef(0);
 
-  // Auto-scroll logic
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+
+  /* ---------------- AUTO SLIDE (TRANSFORM BASED) ---------------- */
   useEffect(() => {
-    if (isPaused || playingVideo) return;
-    const el = scrollRef.current;
-    if (!el) return;
+    if (activeVideo) return;
 
-    let frame: number;
-    const scroll = () => {
-      if (!el) return;
-      if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 1) {
-        el.scrollLeft = 0;
-      } else {
-        el.scrollLeft += AUTOSCROLL_STEP;
+    const track = trackRef.current;
+    if (!track) return;
+
+    const totalWidth = (CARD_WIDTH + CARD_GAP) * reels.length;
+
+    const animate = () => {
+      positionRef.current += SLIDE_SPEED;
+
+      if (positionRef.current >= totalWidth) {
+        positionRef.current = 0;
       }
-      frame = window.setTimeout(scroll, AUTOSCROLL_INTERVAL);
-    };
-    frame = window.setTimeout(scroll, AUTOSCROLL_INTERVAL);
-    return () => clearTimeout(frame);
-  }, [isPaused, playingVideo]);
 
-  // Pause all other videos when one is played
-  useEffect(() => {
-    Object.entries(videoRefs.current).forEach(([id, video]) => {
-      if (video) {
-        if (playingVideo !== id) {
-          video.pause();
-          video.currentTime = 0;
-        }
+      track.style.transform = `translateX(-${positionRef.current}px)`;
+      rafRef.current = requestAnimationFrame(animate);
+    };
+
+    rafRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [activeVideo]);
+
+  /* ---------------- VIDEO CONTROL (BROWSER SAFE) ---------------- */
+  const handleVideoClick = (
+    id: string,
+    video: HTMLVideoElement
+  ) => {
+    // Stop auto slide immediately
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+
+    // Pause all other videos
+    Object.entries(videoRefs.current).forEach(([key, v]) => {
+      if (v && key !== id) {
+        v.pause();
+        v.currentTime = 0;
       }
     });
-  }, [playingVideo]);
 
-  // Play video when play button is pressed
-  const handlePlayPause = (id: string) => {
-    const video = videoRefs.current[id];
-    if (!video) return;
-    if (playingVideo === id) {
+    if (activeVideo === id) {
       video.pause();
-      setPlayingVideo(null);
+      setActiveVideo(null);
     } else {
-      setPlayingVideo(id);
-      // Try to play (with sound)
-      setTimeout(() => {
-        video.play().catch(() => {
-          // If browser blocks, mute and play
-          video.muted = true;
-          video.play();
-        });
-      }, 0);
+      video.play(); // ✅ Direct user gesture → always allowed
+      setActiveVideo(id);
     }
   };
 
-  // Navigation
-  const scrollBy = (dir: "left" | "right") => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const amount = dir === "left" ? -(CARD_WIDTH + CARD_GAP) * 2 : (CARD_WIDTH + CARD_GAP) * 2;
-    el.scrollBy({ left: amount, behavior: "smooth" });
-  };
-
   return (
-    <section className="py-10 sm:py-16 my-10 bg-white">
-      <div className="container mx-auto max-w-7xl px-5">
-        <div className="flex flex-col md:flex-row items-start justify-between">
-          <div className="text-center mb-10 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
-              <span className="relative inline-block">
-                Campus Chronicles:
-                <img
-                  src="/Images/Doodles/LinePink.png"
-                  alt="Underline"
-                  className="w-[60%] absolute -bottom-6 sm:-bottom-8 lg:-bottom-10"
-                />
-              </span>{" "}
-              Highlights of 2025
-            </h2>
-          </div>
+    <section className="bg-blue-950 my-10 py-12 md:py-20  overflow-hidden">
+      <div className="mx-auto max-w-7xl px-5 min-[540px]:px-12 sm:px-16 xl:px-0">
+
+        {/* Header */}
+        <div className="mb-8 md:mb-12 flex flex-col gap-6 md:flex-row items-start justify-between">
+          <h2 className="text-2xl min-[540px]:text-3xl font-playpen font-medium text-amber-400 leading-normal">
+            Campus Chronicles: Highlights of 2025
+          </h2>
+
           <a
             href="https://instagram.com/montessoricambridge"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 md:mt-0 inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transition-colors"
+            className="inline-flex items-center shrink-0 gap-2 rounded-md bg-linear-to-r from-purple-600 to-pink-600 px-4 py-2 font-medium text-white hover:opacity-90"
           >
             Follow Us
-            <Instagram className="h-5 w-5 ml-2" />
+            <Instagram className="h-5 w-5" />
           </a>
         </div>
 
-        <div className="relative overflow-hidden"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          {/* Left Arrow */}
-          <button
-            className="absolute left-0 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-md flex items-center justify-center z-10 opacity-90 hover:opacity-100"
-            onClick={() => scrollBy("left")}
-            aria-label="Scroll left"
-            type="button"
-          >
-            <ChevronLeft className="h-5 w-5 text-gray-700" />
-          </button>
-
-          {/* Reel Cards */}
+        {/* Viewport */}
+        <div className="relative overflow-hidden">
           <div
-            ref={scrollRef}
-            className="flex overflow-x-auto scrollbar-hide snap-x snap-mandatory py-4"
-            style={{ scrollBehavior: "smooth" }}
+            ref={trackRef}
+            className="flex gap-4 will-change-transform"
           >
-            {reels.map((reel) => (
-              <div key={reel.id} className="shrink-0 w-70 sm:w-[320px] mx-2 snap-start">
-                <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
-                  {/* Reel Content */}
-                  <div className="relative aspect-9/15 bg-gray-100">
-                    <video
-                      ref={el => { videoRefs.current[reel.id] = el }}
-                      src={reel.videoUrl}
-                      className="w-full h-full object-cover"
-                      controls={false}
-                      autoPlay={playingVideo === reel.id}
-                      muted={false}
-                      loop={false}
-                      playsInline
-                      preload="metadata"
-                      onEnded={() => setPlayingVideo(null)}
-                      tabIndex={0}
-                      style={{ cursor: "pointer" }}
-                      onClick={() => handlePlayPause(reel.id)}
-                    />
-                    {/* Play/Pause Button */}
-                    <button
-                      onClick={e => {
-                        e.stopPropagation();
-                        handlePlayPause(reel.id);
-                      }}
-                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center transition duration-300 z-10"
-                      aria-label={playingVideo === reel.id ? "Pause video" : "Play video"}
-                    >
-                      {playingVideo === reel.id ? (
-                        <Pause className="w-8 h-8 text-white" />
-                      ) : (
-                        <Play className="w-8 h-8 text-white" />
-                      )}
-                    </button>
-                    
+            {[...reels, ...reels].map((reel, index) => (
+              <div
+                key={`${reel.id}-${index}`}
+                className="h-105 w-60 shrink-0 overflow-hidden rounded-xl bg-black"
+              >
+                <div className="relative h-full w-full">
+
+                  {/* VIDEO (CLICK TARGET) */}
+                  <video
+                    ref={(el) => {
+                      videoRefs.current[reel.id] = el;
+                    }}
+                    src={reel.videoUrl}
+                    playsInline
+                    preload="metadata"
+                    className="h-full w-full object-cover cursor-pointer"
+                    onClick={(e) =>
+                      handleVideoClick(reel.id, e.currentTarget)
+                    }
+                    onEnded={() => setActiveVideo(null)}
+                  />
+
+
+                  {/* PLAY / PAUSE OVERLAY (VISUAL ONLY) */}
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/30">
+                    {activeVideo === reel.id ? (
+                      <Pause className="h-8 w-8 text-white" />
+                    ) : (
+                      <Play className="h-8 w-8 text-white" />
+                    )}
                   </div>
-                  {/* View on Instagram Button */}
-                  <a
-                    href={reel.postUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center p-3 text-blue-600 hover:text-blue-800 transition-colors"
-                  >
-                    <Instagram className="h-5 w-5 mr-2" />
-                    View on Instagram
-                  </a>
+
                 </div>
               </div>
             ))}
           </div>
-
-          {/* Right Arrow */}
-          <button
-            className="absolute right-0 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-md flex items-center justify-center z-10 opacity-90 hover:opacity-100"
-            onClick={() => scrollBy("right")}
-            aria-label="Scroll right"
-            type="button"
-          >
-            <ChevronRight className="h-5 w-5 text-gray-700" />
-          </button>
         </div>
+
       </div>
     </section>
   );
 };
 
 export default InstaReels;
+
+
+
+
+
+// const CARD_WIDTH = 260;
+// const AUTO_SCROLL_SPEED = 0.4;
+
+// const InstaReels = () => {
+//   const scrollRef = useRef<HTMLDivElement>(null);
+//   const videoRefs = useRef<Record<string, HTMLVideoElement | null>>({});
+//   const [activeVideo, setActiveVideo] = useState<string | null>(null);
+//   const [pauseScroll, setPauseScroll] = useState(false);
+
+//   /* ---------------- Auto Scroll ---------------- */
+//   useEffect(() => {
+//     const el = scrollRef.current;
+//     if (!el || pauseScroll || activeVideo) return;
+
+//     let raf: number;
+
+//     const autoScroll = () => {
+//       el.scrollLeft += AUTO_SCROLL_SPEED;
+
+//       if (el.scrollLeft + el.clientWidth >= el.scrollWidth) {
+//         el.scrollLeft = 0;
+//       }
+//       raf = requestAnimationFrame(autoScroll);
+//     };
+
+//     raf = requestAnimationFrame(autoScroll);
+//     return () => cancelAnimationFrame(raf);
+//   }, [pauseScroll, activeVideo]);
+
+//   /* ---------------- Video Control ---------------- */
+//   const toggleVideo = (id: string) => {
+//     const video = videoRefs.current[id];
+//     if (!video) return;
+
+//     // Pause all others
+//     Object.entries(videoRefs.current).forEach(([key, v]) => {
+//       if (v && key !== id) {
+//         v.pause();
+//         v.currentTime = 0;
+//       }
+//     });
+
+//     if (activeVideo === id) {
+//       video.pause();
+//       setActiveVideo(null);
+//     } else {
+//       video.muted = true;
+//       video.play();
+//       setActiveVideo(id);
+//     }
+//   };
+
+//   /* ---------------- Manual Scroll ---------------- */
+//   const scrollByCards = (dir: "left" | "right") => {
+//     scrollRef.current?.scrollBy({
+//       left: dir === "left" ? -CARD_WIDTH * 2 : CARD_WIDTH * 2,
+//       behavior: "smooth",
+//     });
+//   };
+
+//   return (
+//     <section className="bg-blue-950 py-16">
+//       <div className="mx-auto max-w-7xl px-6">
+
+//         {/* Header */}
+//         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+//           <h2 className="text-3xl font-playpen font-medium text-amber-400">
+//             Campus Chronicles: Highlights of 2025
+//           </h2>
+
+//           <a
+//             href="https://instagram.com/montessoricambridge"
+//             target="_blank"
+//             rel="noopener noreferrer"
+//             className="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-purple-600 to-pink-600 px-4 py-2 font-medium text-white hover:opacity-90"
+//           >
+//             Follow Us
+//             <Instagram className="h-5 w-5" />
+//           </a>
+//         </div>
+
+//         {/* Carousel */}
+//         <div
+//           className="relative"
+//           onMouseEnter={() => setPauseScroll(true)}
+//           onMouseLeave={() => setPauseScroll(false)}
+//         >
+//           {/* Left */}
+//           <button
+//             onClick={() => scrollByCards("left")}
+//             className="absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white p-2 shadow"
+//           >
+//             <ChevronLeft />
+//           </button>
+
+//           {/* Reels */}
+//           <div
+//             ref={scrollRef}
+//             className="flex gap-4 overflow-x-hidden py-4"
+//           >
+//             {[...reels, ...reels].map((reel, i) => (
+//               <div
+//                 key={`${reel.id}-${i}`}
+//                 className="h-[420px] w-[240px] shrink-0 overflow-hidden rounded-xl bg-black"
+//               >
+//                 <div
+//                   className="relative h-full w-full cursor-pointer"
+//                   onClick={() => toggleVideo(reel.id)}
+//                 >
+//                   <video
+//                     ref={(el) => (videoRefs.current[reel.id] = el)}
+//                     src={reel.videoUrl}
+//                     className="h-full w-full object-cover"
+//                     playsInline
+//                     preload="metadata"
+//                     onEnded={() => setActiveVideo(null)}
+//                   />
+
+//                   <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+//                     {activeVideo === reel.id ? (
+//                       <Pause className="h-8 w-8 text-white" />
+//                     ) : (
+//                       <Play className="h-8 w-8 text-white" />
+//                     )}
+//                   </div>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+
+//           {/* Right */}
+//           <button
+//             onClick={() => scrollByCards("right")}
+//             className="absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white p-2 shadow"
+//           >
+//             <ChevronRight />
+//           </button>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default InstaReels;

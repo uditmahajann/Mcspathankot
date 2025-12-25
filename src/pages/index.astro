@@ -25,36 +25,18 @@ const achievements = await sanity.fetch(`
   }
 `);
 
-// const homepage = await sanity.fetch(`
-//   *[_type == "homepage"][0]{
-//     title,
-//     heroText,
-// 	heroImage
-//   }
-// `);
-
 ---
 
 <Layout
-	title="Krityam | Build Fast. Scale Smart. Launch Better."
-	description="From MVP to full-scale apps, Krityam builds high-performance digital products for startups and enterprises. We help businesses build MVPs, scale apps, and deliver full-stack digital experiences with speed and precision."
+	title="MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+	description="Montessori Cambridge School is a top boarding school delivering quality education, modern hostels, sports excellence, and all-round student development."
 	pubDate={new Date()}
 >
 	<main class="w-full">
-
-	<!-- <h1>{homepage.title}</h1>
-    <p>{homepage.heroText}</p>
-    {homepage.heroImage && (
-     <img
-     src={urlFor(homepage.heroImage).width(1200).url()}
-     alt="Homepage hero"
-     /> 
-     )} -->
-
 		<Hero client:load />
-		<Achievements client:only />
 		<News client:load />
 		<InstaReels client:load />
+		<Achievements client:only />
 		<AwardsCard client:load />
 		<McsLife client:load />
 		<EduLevels client:only />

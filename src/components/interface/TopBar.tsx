@@ -17,7 +17,7 @@ const TopBar: React.FC = () => {
   ];
 
   return (
-    <div className="justify-items-center bg-blue-900 text-white text-sm font-inter">
+    <div className="justify-items-center bg-blue-950 text-white text-sm font-inter">
       <div className="container px-4 sm:px-6 py-2 flex flex-col gap-3 lg:flex-row items-center lg:justify-between">
         {/* Contact Info */}
 
