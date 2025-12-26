@@ -29,6 +29,9 @@ importers:
       '@fontsource/poppins':
         specifier: ^5.2.7
         version: 5.2.7
+      '@portabletext/react':
+        specifier: ^6.0.0
+        version: 6.0.0(react@19.2.3)
       '@sanity/client':
         specifier: ^7.13.2
         version: 7.13.2
@@ -520,6 +523,20 @@ packages:
 
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
+
+  '@portabletext/react@6.0.0':
+    resolution: {integrity: sha512-8jzmFruC6fhC8A47c+RdiFfldzRq/rRW/FwRsr5ZMeNeCf3S0dXVlM/LJQRWH5JLQXbH3oxINN1UV2mbuZQJ9w==}
+    engines: {node: '>=20.19 <22 || >=22.12'}
+    peerDependencies:
+      react: ^18.2 || ^19
+
+  '@portabletext/toolkit@5.0.0':
+    resolution: {integrity: sha512-jcDOv1RKO/j08pdnc/6i5tULcAzEYCR41XDVYOqmmX8bvEJbWJabhpVjHT1ls6p27v9gtA4NG2SO5xdMpgWSQQ==}
+    engines: {node: '>=20.19 <22 || >=22.12'}
+
+  '@portabletext/types@4.0.0':
+    resolution: {integrity: sha512-mEoN82OQckrshqRx8idp+x8B/OpMfUMSjQp1w1wZFM3hf8cplGhK59Sa/UuGU6XdgAnFq90vJtnj5ejOmZmhvw==}
+    engines: {node: '>=20.19 <22 || >=22.12'}
 
   '@rolldown/pluginutils@1.0.0-beta.27':
     resolution: {integrity: sha512-+d0F4MKMCbeVUJwG96uQ4SgAznZNSq93I3V+9NHA4OpvqG8mRCpGdKmK8l/dl02h2CCDHwW2FqilnTyDcAnqjA==}
@@ -2472,6 +2489,18 @@ snapshots:
   '@noble/hashes@2.0.1': {}
 
   '@oslojs/encoding@1.1.0': {}
+
+  '@portabletext/react@6.0.0(react@19.2.3)':
+    dependencies:
+      '@portabletext/toolkit': 5.0.0
+      '@portabletext/types': 4.0.0
+      react: 19.2.3
+
+  '@portabletext/toolkit@5.0.0':
+    dependencies:
+      '@portabletext/types': 4.0.0
+
+  '@portabletext/types@4.0.0': {}
 
   '@rolldown/pluginutils@1.0.0-beta.27': {}
 

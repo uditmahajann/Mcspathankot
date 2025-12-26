@@ -1,21 +1,23 @@
 import { useEffect, useRef, useState } from "react";
 import { Play, Pause, Instagram } from "lucide-react";
 
-const reels = [
-  { id: "1", videoUrl: "/Videos/Reel1.mp4" },
-  { id: "2", videoUrl: "/Videos/Reel2.mp4" },
-  { id: "3", videoUrl: "/Videos/Reel3.mp4" },
-  { id: "4", videoUrl: "/Videos/Reel4.mp4" },
-  { id: "5", videoUrl: "/Videos/Reel5.mp4" },
-  { id: "6", videoUrl: "/Videos/Reel6.mp4" },
-];
+type Reel = {
+  _id: string;
+  title: string;
+  videoUrl: string;
+};
+
+type Props = {
+  reels: Reel[];
+};
 
 // Must match Tailwind card styles
 const CARD_WIDTH = 240;
 const CARD_GAP = 16;
 const SLIDE_SPEED = 2;
 
-const InstaReels = () => {
+const InstaReels = ({ reels }: Props) => {
+
   const trackRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<Record<string, HTMLVideoElement | null>>({});
   const rafRef = useRef<number | null>(null);
@@ -24,6 +26,19 @@ const InstaReels = () => {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   /* ---------------- AUTO SLIDE (TRANSFORM BASED) ---------------- */
+  useEffect(() => {
+  const handleVisibility = () => {
+    if (document.hidden && rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+    }
+  };
+
+  document.addEventListener("visibilitychange", handleVisibility);
+  return () =>
+    document.removeEventListener("visibilitychange", handleVisibility);
+}, []);
+
+
   useEffect(() => {
     if (activeVideo) return;
 
@@ -104,7 +119,7 @@ const InstaReels = () => {
           >
             {[...reels, ...reels].map((reel, index) => (
               <div
-                key={`${reel.id}-${index}`}
+                key={`${reel._id}-${index}`}
                 className="h-105 w-60 shrink-0 overflow-hidden rounded-xl bg-black"
               >
                 <div className="relative h-full w-full">
@@ -112,14 +127,14 @@ const InstaReels = () => {
                   {/* VIDEO (CLICK TARGET) */}
                   <video
                     ref={(el) => {
-                      videoRefs.current[reel.id] = el;
+                      videoRefs.current[reel._id] = el;
                     }}
                     src={reel.videoUrl}
                     playsInline
                     preload="metadata"
                     className="h-full w-full object-cover cursor-pointer"
                     onClick={(e) =>
-                      handleVideoClick(reel.id, e.currentTarget)
+                      handleVideoClick(reel._id, e.currentTarget)
                     }
                     onEnded={() => setActiveVideo(null)}
                   />
@@ -127,7 +142,7 @@ const InstaReels = () => {
 
                   {/* PLAY / PAUSE OVERLAY (VISUAL ONLY) */}
                   <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/10">
-                    {activeVideo === reel.id ? (
+                    {activeVideo === reel._id ? (
                       <Pause className="h-8 w-8 text-white" />
                     ) : (
                       <Play className="h-8 w-8 text-white" />

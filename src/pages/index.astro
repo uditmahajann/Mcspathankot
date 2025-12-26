@@ -13,7 +13,15 @@ import Achievements from "../components/sections/homepage/Achievements";
 import Alumni from "../components/sections/homepage/Alumni";
 
 import { sanity } from "../lib/sanity";
-import { urlFor } from "../lib/sanityImage";
+import { newsListingQuery } from "../lib/queries/news";
+import { instaReelsQuery } from "../lib/queries/instaReels";
+import { awardsQuery } from "../lib/queries/awards";
+
+
+const news = await sanity.fetch(newsListingQuery);
+const instaReels = await sanity.fetch(instaReelsQuery);
+const awards = await sanity.fetch(awardsQuery);
+
 
 const achievements = await sanity.fetch(`
   *[_type == "achievement"] | order(date desc){
@@ -34,10 +42,10 @@ const achievements = await sanity.fetch(`
 >
 	<main class="w-full">
 		<Hero client:load />
-		<News client:load />
-		<InstaReels client:load />
+		<News news={news} client:load />
+		<InstaReels reels={instaReels} client:load />
 		<Achievements client:only />
-		<Awards client:load />
+		<Awards awards={awards} client:load />
 		<EduLevels client:only />
 		<Admission client:load />
 		<FutureTrends client:load />

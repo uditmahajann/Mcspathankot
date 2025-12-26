@@ -10,17 +10,9 @@ import AlumniSpotlight from '../../components/sections/achievementspage/AlumniSp
 
 
 import { sanity } from '../../lib/sanity';
+import { awardsQuery } from "../../lib/queries/awards";
 
-const awards = await sanity.fetch(`
-  *[_type == "award"] | order(year desc){
-    _id,
-    name,
-    year,
-    description,
-    presentedBy,
-    image
-  }
-`);
+const awards = await sanity.fetch(awardsQuery);
 
 ---
 

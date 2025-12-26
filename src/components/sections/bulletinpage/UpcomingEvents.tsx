@@ -1,5 +1,3 @@
-"use client"
-
 import React, { useState, useEffect } from "react"
 import {
   CalendarDays,
@@ -8,85 +6,6 @@ import {
   Clock,
   ArrowRight,
 } from "lucide-react"
-
-const featuredNews = [
-  {
-    id: 1,
-    title: "Annual Sports Meet 2025: Where Passion Meets Perseverance",
-    date: "February 18, 2025",
-    image: "/Images/Campus/NewHostel.JPG",
-    summary:
-      "Energy, excitement, and school spirit filled the air as students competed across track, field, and team sports — showcasing the true spirit of MCS excellence.",
-  },
-  {
-    id: 2,
-    title: "National Science Fair Triumph: Innovation in Action",
-    date: "March 10, 2025",
-    image: "/Images/Campus/NewHostel.JPG",
-    summary:
-      "Our students’ groundbreaking ideas in renewable energy and robotics won top national accolades, reflecting MCS’s focus on future-ready education.",
-  },
-  {
-    id: 3,
-    title: "‘Rhythms of India’ Cultural Fest: A Celebration of Diversity",
-    date: "April 20, 2025",
-    image: "/Images/Campus/NewHostel.JPG",
-    summary:
-      "A breathtaking celebration of Indian art, dance, and heritage — where tradition met creativity and every beat echoed unity.",
-  },
-]
-
-const allNews = [
-  {
-    id: 4,
-    title: "Inter-House Debate Competition Winners Announced",
-    date: "May 2, 2025",
-    image: "/Images/Campus/NewHostel.JPG",
-    desc: "Students from Sapphire House won the inter-house debate competition with an engaging argument on AI and ethics.",
-  },
-  {
-    id: 5,
-    title: "Earth Day Plantation Drive",
-    date: "April 22, 2025",
-    image: "/Images/Campus/NewHostel.JPG",
-    desc: "MCS students planted over 200 saplings within the campus to promote environmental awareness and sustainability.",
-  },
-  {
-    id: 6,
-    title: "Teachers’ Workshop on Digital Learning Tools",
-    date: "March 30, 2025",
-    image: "/Images/Campus/NewHostel.JPG",
-    desc: "An interactive session helping educators adopt new-age teaching methodologies for hybrid learning environments.",
-  },
-  {
-    id: 7,
-    title: "MCS Choir Wins Regional Music Contest",
-    date: "March 15, 2025",
-    image: "/Images/Campus/NewHostel.JPG",
-    desc: "Our talented school choir bagged the first position at the North Region Music Contest, showcasing their harmony and skill.",
-  },
-  {
-    id: 8,
-    title: "Career Counseling Week 2025",
-    date: "April 10, 2025",
-    image: "/Images/Campus/NewHostel.JPG",
-    desc: "An enlightening week where students interacted with university representatives and industry professionals.",
-  },
-  {
-    id: 9,
-    title: "Career Counseling Week 2025",
-    date: "April 10, 2025",
-    image: "/Images/Campus/NewHostel.JPG",
-    desc: "An enlightening week where students interacted with university representatives and industry professionals.",
-  },
-  {
-    id: 10,
-    title: "Career Counseling Week 2025",
-    date: "April 10, 2025",
-    image: "/Images/Campus/NewHostel.JPG",
-    desc: "An enlightening week where students interacted with university representatives and industry professionals.",
-  },
-]
 
 const upcomingEvents = [
   {
@@ -126,7 +45,21 @@ const upcomingEvents = [
   },
 ]
 
-const NewsEvents = () => {
+type NewsItem = {
+  title: string
+  description: string
+  date: string
+  image: string
+  slug: string
+}
+
+const NewsEvents = ({ news }: { news: NewsItem[] }) => {
+
+  const FEATURED_COUNT = 3
+
+  const featuredNews = news.slice(0, FEATURED_COUNT)
+  const remainingNews = news.slice(FEATURED_COUNT)
+
   const [activeIndex, setActiveIndex] = useState(0)
   const [currentPage, setCurrentPage] = useState(1)
   const newsPerPage = 6
@@ -140,128 +73,128 @@ const NewsEvents = () => {
 
   const indexOfLast = currentPage * newsPerPage
   const indexOfFirst = indexOfLast - newsPerPage
-  const currentNews = allNews.slice(indexOfFirst, indexOfLast)
-  const totalPages = Math.ceil(allNews.length / newsPerPage)
+  const currentNews = remainingNews.slice(indexOfFirst, indexOfLast)
+  const totalPages = Math.ceil(remainingNews.length / newsPerPage)
 
   return (
     <section className="pb-10 sm:pb-16 py-10 my-10 bg-white">
-      
+
       {/* HERO */}
-       <div className="text-center mb-10 sm:mb-12 px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
-            Campus Stories & {" "}
-            <span className="relative inline-block">
-              Highlights
-              {/* Spark Doodle */}
-              <img
-                src="/Images/Doodles/SparkPurple.png"
-                alt="Spark"
-                className="absolute w-10 sm:w-12 md:w-14 -top-8 -right-16"
-              />
-            </span>
-          </h2>
-          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-700 max-w-4xl mx-auto">
-            Catch up on the highlights, triumphs, and everyday magic that make our school truly special. Celebrating the people, passions, and progress that define life at MCS.
-          </p>
+      <div className="text-center mb-10 sm:mb-12 px-4 sm:px-6 lg:px-8">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
+          Campus Stories & {" "}
+          <span className="relative inline-block">
+            Highlights
+            {/* Spark Doodle */}
+            <img
+              src="/Images/Doodles/SparkPurple.png"
+              alt="Spark"
+              className="absolute w-10 sm:w-12 md:w-14 -top-8 -right-16"
+            />
+          </span>
+        </h2>
+        <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-700 max-w-4xl mx-auto">
+          Catch up on the highlights, triumphs, and everyday magic that make our school truly special. Celebrating the people, passions, and progress that define life at MCS.
+        </p>
+      </div>
+
+      {/* UPCOMING EVENTS – Warm Glowy Horizontal Scroll */}
+      <div className="relative pb-20 px-6 sm:px-10 lg:px-20">
+        <h2 className="text-2xl font-poppins font-semibold mb-12 text-gray-900">
+          Upcoming Events
+        </h2>
+
+        {/* Horizontal Scroll Container */}
+        <div className="flex gap-8 overflow-x-auto scroll-smooth no-scrollbar scrollbar-hide pb-4">
+          {[
+            {
+              date: "June 5–15, 2025",
+              title: "Summer Camp 2025",
+              desc: "A creative summer learning retreat featuring robotics, painting, theatre, and adventure sports.",
+              location: "MCS Campus Grounds",
+            },
+            {
+              date: "July 12, 2025",
+              title: "Parent-Teacher Meet (Term 1)",
+              desc: "Our annual PTM fostering open dialogue and collaboration between parents and educators.",
+              location: "Main Auditorium",
+            },
+            {
+              date: "August 15, 2025",
+              title: "Independence Day Celebration",
+              desc: "A vibrant morning of flag hoisting, cultural performances, and heartfelt tributes to our nation.",
+              location: "School Grounds",
+            },
+            {
+              date: "September 10–12, 2025",
+              title: "Art & Innovation Fair",
+              desc: "A 3-day exhibition where creativity meets curiosity — from student inventions to fine art displays.",
+              location: "Multipurpose Hall",
+            },
+          ].map((event, idx) => {
+            const month = event.date.match(/[A-Za-z]+/g)?.[0] ?? "Month"
+            const day = event.date.match(/\d+/)?.[0] ?? ""
+            const year = event.date.match(/\d{4}/)?.[0] ?? ""
+
+            return (
+              <div
+                key={idx}
+                className="relative flex flex-col sm:flex-row min-w-85 sm:min-w-115 md:min-w-125 lg:min-w-140 bg-white border border-gray-100 rounded-3xl overflow-hidden  transition-all duration-500"
+              >
+                {/* Left Date Section */}
+                <div className="sm:w-1/3 bg-linear-to-br from-yellow-50 to-amber-100 flex flex-col justify-center items-center p-6 sm:p-8 text-center border-b sm:border-b-0 sm:border-r border-amber-200 relative">
+                  <div className="absolute inset-0 bg-yellow-200/20 blur-3xl opacity-30"></div>
+                  <p className="text-sm font-semibold text-amber-700 uppercase tracking-wide mb-1">
+                    {month}
+                  </p>
+                  <p className="text-3xl font-poppins font-bold text-gray-900 leading-tight">{day}</p>
+                  <p className="text-sm text-gray-700 font-inter mt-1">{year}</p>
+                </div>
+
+                {/* Right Details Section */}
+                <div className="flex-1 flex flex-col justify-between p-6 sm:p-8 relative">
+                  {/* Soft Glow on Hover */}
+                  <div className="absolute inset-0 rounded-3xl bg-linear-to-r from-yellow-100 via-white to-transparent opacity-0 hover:opacity-100 transition-all duration-500"></div>
+
+                  <div className="relative z-10">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2 font-poppins tracking-wide">
+                      {event.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4 font-inter">
+                      {event.desc}
+                    </p>
+                  </div>
+
+                  <div className="mt-auto relative z-10">
+                    <p className="text-sm font-medium text-amber-700 flex items-center gap-1">
+                      📍 {event.location}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
         </div>
 
-        {/* UPCOMING EVENTS – Warm Glowy Horizontal Scroll */}
-<div className="relative pb-20 px-6 sm:px-10 lg:px-20">
-  <h2 className="text-2xl font-poppins font-semibold mb-12 text-gray-900">
-    Upcoming Events
-  </h2>
-
-    {/* Horizontal Scroll Container */}
-    <div className="flex gap-8 overflow-x-auto scroll-smooth no-scrollbar scrollbar-hide pb-4">
-      {[
-        {
-          date: "June 5–15, 2025",
-          title: "Summer Camp 2025",
-          desc: "A creative summer learning retreat featuring robotics, painting, theatre, and adventure sports.",
-          location: "MCS Campus Grounds",
-        },
-        {
-          date: "July 12, 2025",
-          title: "Parent-Teacher Meet (Term 1)",
-          desc: "Our annual PTM fostering open dialogue and collaboration between parents and educators.",
-          location: "Main Auditorium",
-        },
-        {
-          date: "August 15, 2025",
-          title: "Independence Day Celebration",
-          desc: "A vibrant morning of flag hoisting, cultural performances, and heartfelt tributes to our nation.",
-          location: "School Grounds",
-        },
-        {
-          date: "September 10–12, 2025",
-          title: "Art & Innovation Fair",
-          desc: "A 3-day exhibition where creativity meets curiosity — from student inventions to fine art displays.",
-          location: "Multipurpose Hall",
-        },
-      ].map((event, idx) => {
-        const month = event.date.match(/[A-Za-z]+/g)?.[0] ?? "Month"
-        const day = event.date.match(/\d+/)?.[0] ?? ""
-        const year = event.date.match(/\d{4}/)?.[0] ?? ""
-
-        return (
-          <div
-            key={idx}
-            className="relative flex flex-col sm:flex-row min-w-[340px] sm:min-w-[460px] md:min-w-[500px] lg:min-w-[560px] bg-white border border-gray-100 rounded-3xl overflow-hidden  transition-all duration-500"
-          >
-            {/* Left Date Section */}
-            <div className="sm:w-1/3 bg-gradient-to-br from-yellow-50 to-amber-100 flex flex-col justify-center items-center p-6 sm:p-8 text-center border-b sm:border-b-0 sm:border-r border-amber-200 relative">
-              <div className="absolute inset-0 bg-yellow-200/20 blur-3xl opacity-30"></div>
-              <p className="text-sm font-semibold text-amber-700 uppercase tracking-wide mb-1">
-                {month}
-              </p>
-              <p className="text-3xl font-poppins font-bold text-gray-900 leading-tight">{day}</p>
-              <p className="text-sm text-gray-700 font-inter mt-1">{year}</p>
-            </div>
-
-            {/* Right Details Section */}
-            <div className="flex-1 flex flex-col justify-between p-6 sm:p-8 relative">
-              {/* Soft Glow on Hover */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-yellow-100 via-white to-transparent opacity-0 hover:opacity-100 transition-all duration-500"></div>
-
-              <div className="relative z-10">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 font-poppins tracking-wide">
-                  {event.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4 font-inter">
-                  {event.desc}
-                </p>
-              </div>
-
-              <div className="mt-auto relative z-10">
-                <p className="text-sm font-medium text-amber-700 flex items-center gap-1">
-                  📍 {event.location}
-                </p>
-              </div>
-            </div>
-          </div>
-        )
-      })}
-    </div>
-
-  {/* Fading edges for soft scroll finish */}
-  <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
-  <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
-</div>
+        {/* Fading edges for soft scroll finish */}
+        <div className="absolute top-0 left-0 w-32 h-full bg-linear-to-r from-white to-transparent pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-32 h-full bg-linear-to-l from-white to-transparent pointer-events-none"></div>
+      </div>
 
 
 
-        {/* FEATURED SLIDER */}
+      {/* FEATURED SLIDER */}
       <div className="relative overflow-hidden">
         <div
-          className="w-full h-[500px] relative transition-all duration-1000 ease-in-out"
-          key={featuredNews[activeIndex].id}
+          className="w-full h-125 relative transition-all duration-1000 ease-in-out"
+          key={featuredNews[activeIndex].slug}
         >
           <img
             src={featuredNews[activeIndex].image}
             alt={featuredNews[activeIndex].title}
             className="w-full h-full object-cover brightness-90"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/40 to-transparent"></div>
           <div className="absolute bottom-12 left-10 sm:left-20 max-w-2xl text-white">
             <h2 className="text-2xl sm:text-3xl font-semibold font-poppins mb-2">
               {featuredNews[activeIndex].title}
@@ -270,10 +203,10 @@ const NewsEvents = () => {
               {featuredNews[activeIndex].date}
             </p>
             <p className="text-gray-100 leading-relaxed mb-5">
-              {featuredNews[activeIndex].summary}
+              {featuredNews[activeIndex].description}
             </p>
             <a
-              href="#"
+              href={`/news/${featuredNews[activeIndex].slug}`}
               className="inline-flex items-center gap-2 bg-white text-blue-900 font-medium px-5 py-2.5 rounded-full hover:bg-blue-50 transition-all"
             >
               Read More <ArrowRight size={18} />
@@ -285,9 +218,8 @@ const NewsEvents = () => {
           {featuredNews.map((_, i) => (
             <div
               key={i}
-              className={`h-2 w-2 rounded-full cursor-pointer transition-all ${
-                i === activeIndex ? "bg-white w-6" : "bg-gray-400"
-              }`}
+              className={`h-2 w-2 rounded-full cursor-pointer transition-all ${i === activeIndex ? "bg-white w-6" : "bg-gray-400"
+                }`}
               onClick={() => setActiveIndex(i)}
             ></div>
           ))}
@@ -295,13 +227,13 @@ const NewsEvents = () => {
       </div>
 
 
-        {/* ALL NEWS SECTION */}
+      {/* ALL NEWS SECTION */}
       <div className="max-w-7xl mx-auto px-6 my-20 sm:px-10 lg:px-20">
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {currentNews.map((item) => (
             <div
-              key={item.id}
+              key={item.slug}
               className="bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all"
             >
               <img
@@ -317,10 +249,10 @@ const NewsEvents = () => {
                   {item.title}
                 </h3>
                 <p className="text-gray-600 text-sm line-clamp-3 mb-4">
-                  {item.desc}
+                  {item.description}
                 </p>
                 <a
-                  href="#"
+                  href={`/news/${item.slug}`}
                   className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center gap-1"
                 >
                   Read More <ArrowRight size={16} />
@@ -336,11 +268,10 @@ const NewsEvents = () => {
             <button
               key={idx}
               onClick={() => setCurrentPage(idx + 1)}
-              className={`w-9 h-9 rounded-full text-sm font-medium transition-all ${
-                currentPage === idx + 1
+              className={`w-9 h-9 rounded-full text-sm font-medium transition-all ${currentPage === idx + 1
                   ? "bg-blue-600 text-white"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
+                }`}
             >
               {idx + 1}
             </button>

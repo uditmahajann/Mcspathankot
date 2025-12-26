@@ -2,6 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 import EventsHero from '../../components/sections/bulletinpage/UpcomingEventsHero';
 import Events from '../../components/sections/bulletinpage/UpcomingEvents';
+
+import { sanity } from "../../lib/sanity";
+import { newsListingQuery } from "../../lib/queries/news";
+
+const news = await sanity.fetch(newsListingQuery);
 ---
 
 <Layout
@@ -11,6 +16,6 @@ import Events from '../../components/sections/bulletinpage/UpcomingEvents';
   >
   <main>
     <EventsHero client:load />
-    <Events client:load />
+    <Events news={news} client:load client:load />
   </main>
 </Layout>

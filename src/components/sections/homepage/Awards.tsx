@@ -1,53 +1,34 @@
 import { useEffect, useState } from "react";
 import { Award } from "lucide-react"
 
-const awards = [
-  {
-    title: "Educational Excellence Award",
-    description:
-      "Honored by Hon'ble Education Minister, Punjab Sh. Harjot Singh Bains at News18 Network Conclave",
-    year: "2025",
-    authority: "Presented at News18 Network Education Conclave 2025",
-    image: "/Images/Sample/Award11.jpg",
-  },
-  {
-    title: "Best School for Sports Development",
-    description:
-      "Awarded for promoting sportsmanship, discipline, and excellence across multiple sporting disciplines.",
-    year: "2023",
-    authority: "Presented at News18 Network Education Conclave 2025",
-    image: "/Images/Sample/Award31.jpeg",
-  },
-  {
-    title: "Innovation in Teaching Practices",
-    description:
-      "Honoured for adopting innovative teaching methodologies and modern learning tools.",
-    year: "2023",
-    authority: "Presented at News18 Network Education Conclave 2025",
-    image: "/Images/Sample/Award11.jpg",
-  },
-  {
-    title: "Cultural Excellence Award",
-    description:
-      "Recognised for nurturing creativity, cultural values, and student participation in arts and culture.",
-    year: "2022",
-    authority: "Presented at News18 Network Education Conclave 2025",
-    image: "/Images/Sample/Award31.jpeg",
-  },
-];
+type AwardItem = {
+  _id: string;
+  name: string;
+  description: string;
+  year: number;
+  presentedBy: string;
+  image: string;
+};
+
+type Props = {
+  awards: AwardItem[];
+};
+
+
+const AwardsSpotlight = ({ awards }: Props) => {
 
 const INTERVAL = 3000; // 5 seconds (calm, premium)
 
-const AwardsSpotlight = () => {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
+    if (!awards || awards.length === 0) return;
     const timer = setInterval(() => {
       setActive((prev) => (prev + 1) % awards.length);
     }, INTERVAL);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [awards]);
 
   const award = awards[active];
 
@@ -80,7 +61,7 @@ const AwardsSpotlight = () => {
             <div className="w-full shadow-sm">
               <img
                 src={award.image}
-                alt={award.title}
+                alt={award.name}
                 className="h-full w-full object-cover rounded-2xl"
               />
             </div>
@@ -101,11 +82,11 @@ const AwardsSpotlight = () => {
               {/* <span className="text-sm text-gray-500">{award.year}</span> */}
 
               <h3 className="mt-3 text-3xl sm:text-4xl xl:text-5xl font-raleway font-bold sm:font-black bg-linear-to-r from-yellow-800 via-yellow-200 to-yellow-800 text-transparent bg-clip-text uppercase leading-tight">
-                {award.title}
+                {award.name}
               </h3>
 
               <p className="mt-4 xl:mt-6 text-base lg:text-lg font-medium text-white">
-                ({award.authority})
+                ({award.presentedBy})
               </p>
             </div>
           </div>
