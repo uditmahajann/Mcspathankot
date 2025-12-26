@@ -47,40 +47,37 @@ const partners = [
 ]
 
 const Partnerships: React.FC = () => {
-  const firstRow = partners.slice(0, 5)
-  const secondRow = partners.slice(5)
-
   return (
     <section
-      className="h-full px-5 min-[480px]:px-12 sm:px-10 py-35 my-10 bg-no-repeat bg-cover bg-center sm:bg-[url('/Svg/PaperTorn.svg')] bg-[url('/Svg/PaperTornM.svg')]"
+      className="relative bg-white py-4 sm:py-10 my-10"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="mx-auto max-w-6xl px-5 min-[540px]:px-12 sm:px-16 xl:px-0">
         {/* Heading */}
-        <div className="text-center mb-10 sm:mb-16 lg:mb-20">
-          <h2 className="text-2xl sm:text-3xl text-gray-900 md:text-4xl font-playpen font-medium">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl min-[540px]:text-3xl text-gray-900 font-playpen font-medium leading-normal">
             School Community{" "}
             <span className="relative inline-block">
               Engagements
               <img
                 src="/Images/Doodles/LineYellow.png"
                 alt="Underline"
-                className="absolute left-8 -bottom-4 sm:-bottom-6 md:-bottom-8 xl:-bottom-9"
+                className="absolute w-[80%] -bottom-4 sm:-bottom-6"
               />
             </span>
           </h2>
-          <p className="mt-5 sm:mt-8 text-base sm:text-lg text-gray-700 max-w-2xl mx-auto">
+          <p className="mt-3 sm:mt-6 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
             Our strong community partnerships help extend learning beyond classrooms and enrich student experiences through local collaborations.
           </p>
         </div>
 
         {/* Logos Grid */}
-        <div className="flex flex-col gap-6 sm:gap-12 mb-20 items-center">
+        <div className="flex flex-col gap-6 sm:gap-12 items-center">
           {/* First Row - 5 logos */}
           <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
-            {firstRow.map((partner) => (
+            {partners.map((partner) => (
               <div
                 key={partner.name}
-                className="bg-white/80 rounded-lg sm:rounded-xl px-1 sm:px-4 py-1 sm:py-3 shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-105 hover:bg-white hover:shadow-2xl"
+                className="p-1 sm:p-3 flex items-center justify-center shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl"
                 style={{ minWidth: 90, minHeight: 60 }}
               >
                 <img
@@ -92,29 +89,6 @@ const Partnerships: React.FC = () => {
               </div>
             ))}
           </div>
-
-          {/* Second Row - 3 logos */}
-          <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
-            {secondRow.map((partner) => (
-              <div
-                key={partner.name}
-                className="bg-white/80 rounded-lg sm:rounded-xl px-1 sm:px-4 py-2 sm:py-3 shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-105 hover:bg-white hover:shadow-2xl"
-                style={{ minWidth: 90, minHeight: 60 }}
-              >
-                <img
-                  src={partner.logo}
-                  alt={partner.alt}
-                  className="h-14 sm:h-20 w-auto object-contain transition-all duration-300"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div className="mt-6 sm:mt-10 flex items-center justify-center">
-          <CtaButton text="Connect as a Community Partner" href="" />
         </div>
       </div>
     </section>

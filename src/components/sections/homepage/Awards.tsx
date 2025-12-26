@@ -1,164 +1,118 @@
-"use client"
+import { useEffect, useState } from "react";
+import { Award } from "lucide-react"
 
-import type React from "react"
-import { useEffect, useRef, useState } from "react"
-import { Award, Trophy, Medal, Star, BookOpen, GraduationCap } from "lucide-react"
+const awards = [
+  {
+    title: "Educational Excellence Award",
+    description:
+      "Honored by Hon'ble Education Minister, Punjab Sh. Harjot Singh Bains at News18 Network Conclave",
+    year: "2025",
+    authority: "Presented at News18 Network Education Conclave 2025",
+    image: "/Images/Sample/Award11.jpg",
+  },
+  {
+    title: "Best School for Sports Development",
+    description:
+      "Awarded for promoting sportsmanship, discipline, and excellence across multiple sporting disciplines.",
+    year: "2023",
+    authority: "Presented at News18 Network Education Conclave 2025",
+    image: "/Images/Sample/Award31.jpeg",
+  },
+  {
+    title: "Innovation in Teaching Practices",
+    description:
+      "Honoured for adopting innovative teaching methodologies and modern learning tools.",
+    year: "2023",
+    authority: "Presented at News18 Network Education Conclave 2025",
+    image: "/Images/Sample/Award11.jpg",
+  },
+  {
+    title: "Cultural Excellence Award",
+    description:
+      "Recognised for nurturing creativity, cultural values, and student participation in arts and culture.",
+    year: "2022",
+    authority: "Presented at News18 Network Education Conclave 2025",
+    image: "/Images/Sample/Award31.jpeg",
+  },
+];
 
-interface AwardCategory {
-  title: string
-  icon: React.ReactNode
-}
+const INTERVAL = 3000; // 5 seconds (calm, premium)
 
-interface AwardData {
-  title: string
-  subtitle: string
-  awardTitle: string
-  awardImages: string[] // Array of 3 images per award
-  awardDetails: string
-  awardPromoter: string
-  awardCategories: AwardCategory[]
-}
+const AwardsSpotlight = () => {
+  const [active, setActive] = useState(0);
 
-export default function Awards() {
-  // Array of award data, each with 3 images
-  const awards: AwardData[] = [
-    {
-      title: "Honored by Hon'ble Education Minister, Punjab",
-      subtitle: "Sh. Harjot Singh Bains",
-      awardTitle: "EDUCATIONAL EXCELLENCE AWARD",
-      awardImages: [
-        "/Images/Awards/Award11.jpg",
-        "/Images/Awards/Award12.jpeg",
-        "/Images/Awards/Award13.jpg",
-      ],
-      awardDetails: "",
-      awardPromoter: "(Presented at News18 Network Education Conclave 2025)",
-      awardCategories: [
-        { title: "Outstanding contributions in academics & co-curriculars", icon: <Award className="w-5 h-5" /> },
-        { title: "Shaping young minds with a holistic approach", icon: <Trophy className="w-5 h-5" /> },
-      ],
-    },
-    {
-      title: "Our esteemed Principle, Mrs. Rashmi Ahluwalia",
-      subtitle: "bestowed with the prestigious",
-      awardTitle: "AWARD OF EXCELLENCE 2024-25",
-      awardImages: [
-        "/Images/Awards/Award21.jpeg",
-        "/Images/Awards/Award22.jpeg",
-        "/Images/Awards/Award23.jpeg",
-      ],
-      awardDetails: "",
-      awardPromoter: "(From the Department of School Education, Punjab)",
-      awardCategories: [
-        { title: "Remarkable work in the field of Sports", icon: <Medal className="w-5 h-5" /> },
-        { title: "Unparallel contributions to Education", icon: <GraduationCap className="w-5 h-5" /> },
-      ],
-    },
-    {
-      title: "Received by Principle, Mrs. Rashmi Ahluwalia",
-      subtitle: "INDIA's MOST IMPACTFUL SCHOOL LEADERS in 2024",
-      awardTitle: "IPN IMPACT LEADER 2024",
-      awardImages: [
-        "/Images/Awards/Award31.jpeg",
-        "/Images/Awards/Award32.jpeg",
-        "/Images/Awards/Award33.jpeg",
-      ],
-      awardDetails: "",
-      awardPromoter: "(By IPN Foundation & Amrita Vishwa Vidyapeetham)",
-      awardCategories: [
-        { title: "For creating a Legacy of Impact", icon: <Star className="w-5 h-5" /> },
-        { title: "Transformative Approach to Education", icon: <BookOpen className="w-5 h-5" /> },
-      ],
-    },
-  ]
-
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isTransitioning, setIsTransitioning] = useState(false)
-  const [displayedAward, setDisplayedAward] = useState(awards[0])
-  const sectionRef = useRef<HTMLDivElement>(null)
-
-  // Handle automatic rotation
   useEffect(() => {
-    const rotationTimer = setTimeout(() => {
-      setIsTransitioning(true)
-      setTimeout(() => {
-        const nextIndex = (currentIndex + 1) % awards.length
-        setCurrentIndex(nextIndex)
-        setDisplayedAward(awards[nextIndex])
-        setTimeout(() => {
-          setIsTransitioning(false)
-        }, 300)
-      }, 500)
-    }, 6000)
+    const timer = setInterval(() => {
+      setActive((prev) => (prev + 1) % awards.length);
+    }, INTERVAL);
 
-    return () => clearTimeout(rotationTimer)
-  }, [currentIndex, awards])
+    return () => clearInterval(timer);
+  }, []);
 
-  // Animation on scroll
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in")
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
-
-    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll")
-    elements?.forEach((el) => observer.observe(el as Element))
-
-    return () => {
-      elements?.forEach((el) => observer.unobserve(el as Element))
-    }
-  }, [])
+  const award = awards[active];
 
   return (
-    <section ref={sectionRef}
-      className="relative z-10 w-full h-full bg-cover bg-center bg-no-repeat text-white overflow-hidden awards-section"
-      style={{ backgroundImage: "url('/Images/Awards/AwardsBg.png')" }}>
+    <section className="relative bg-linear-to-r from-blue-950 via-blue-900 to-blue-950 my-10 py-12 md:py-20 overflow-hidden">
 
-      <div className="relative">
-        {/* Award title section */}
-        <div
-          className={`relative z-20 text-center px-5 my-12 pt-16 transition-all duration-500 ${isTransitioning ? "opacity-0 translate-y-8" : "opacity-100 translate-y-0"
-            }`}
-        >
-          <p className="text-lg md:text-xl mb-1">{displayedAward.title}</p>
-          <p className="text-lg md:text-xl mb-4">{displayedAward.subtitle}</p>
+      <picture>
+          <img
+            src="/Images/Sample/awardsbg.png"
+            alt="MCS"
+            className="hidden lg:block absolute -top-20 right-0"
+          />
+        </picture>
 
-          <div className="flex items-center justify-center gap-4 mb-2">
-            <div className="w-16 md:w-24 h-px bg-amber-200/60"></div>
-            <Award className="w-6 h-6 text-amber-200" />
-            <div className="w-16 md:w-24 h-px bg-amber-200/60"></div>
-          </div>
+        <picture>
+          <img
+            src="/Images/Sample/awardsbg.png"
+            alt="MCS"
+            className="hidden lg:block absolute -bottom-20 right-0 scale-y-[-1]"
+          />
+        </picture>
+        
+      <div className="mx-auto max-w-7xl px-5 min-[540px]:px-12 sm:px-16 xl:px-0">
 
-          <h2 className="text-3xl md:text-5xl font-bold tracking-wide mb-4 bg-linear-to-r from-yellow-950 via-yellow-200 to-yellow-950 text-transparent bg-clip-text">
-            {displayedAward.awardTitle}
-          </h2>
-          <h3 className="text-xl md:text-2xl font-semibold text-white">{displayedAward.awardPromoter}</h3>
-        </div>
-      </div>
+        {/* Spotlight Card */}
+        <div className="relative overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 xl:gap-12">
 
-      {/* Award images - 3 images side by side */}
-      <div className="relative mx-auto w-full px-5 py-5 mb-28">
-        <div
-          className={`w-full flex flex-row gap-4 justify-center items-center transition-all duration-500 ${isTransitioning ? "opacity-0" : "opacity-100"
-            }`}
-        >
-          {displayedAward.awardImages.map((img, idx) => (
-            <div key={img} className="flex-1 max-w-100">
+            {/* Image */}
+            <div className="w-full shadow-sm">
               <img
-                src={img}
-                alt={`${displayedAward.awardTitle} AWARD ${idx + 1}`}
-                className="w-full aspect-[3/2.5] rounded-lg object-cover shadow-xl transition-transform duration-600 hover:scale-105"
+                src={award.image}
+                alt={award.title}
+                className="h-full w-full object-cover rounded-2xl"
               />
             </div>
-          ))}
+
+            {/* Content */}
+            <div className="flex flex-col justify-center text-center">
+
+              <p className="mb-4 text-base sm:text-lg xl:text-xl text-white leading-normal">
+                {award.description}
+              </p>
+
+              <div className="flex items-center justify-center gap-4 mb-2">
+                <div className="w-16 md:w-24 h-px bg-amber-200/60"></div>
+                <Award className="w-6 h-6 text-amber-200" />
+                <div className="w-16 md:w-24 h-px bg-amber-200/60"></div>
+              </div>
+
+              {/* <span className="text-sm text-gray-500">{award.year}</span> */}
+
+              <h3 className="mt-3 text-3xl sm:text-4xl xl:text-5xl font-raleway font-bold sm:font-black bg-linear-to-r from-yellow-800 via-yellow-200 to-yellow-800 text-transparent bg-clip-text uppercase leading-tight">
+                {award.title}
+              </h3>
+
+              <p className="mt-4 xl:mt-6 text-base lg:text-lg font-medium text-white">
+                ({award.authority})
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
+
+export default AwardsSpotlight;

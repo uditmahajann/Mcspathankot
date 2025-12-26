@@ -1,23 +1,19 @@
-"use client"
-
 import type React from "react"
 import { useEffect, useRef, useState } from "react"
-import { ArrowRight } from "lucide-react"
 
 interface TrendCardProps {
   number: string
   title: string
   description: string
   imagePath: string
-  isActive: boolean
 }
 
-const TrendCard: React.FC<TrendCardProps> = ({ number, title, description, imagePath, isActive }) => {
+const TrendCard: React.FC<TrendCardProps> = ({ number, title, description, imagePath }) => {
   return (
     <div
-      className={`lg:w-[80%] relative flex flex-col gap-4 transition-all duration-300 ${isActive ? "scale-[1.02]" : "scale-1.02"}`}
+      className={`lg:w-[80%] relative flex flex-col gap-4 transition-all duration-300`}
     >
-      <div className={`absolute top-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-teal-400 text-white ${isActive ? "-left-14" : "-left-16"}`}>
+      <div className={`absolute top-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-blue-900 text-white font-inter -left-15`}>
         {number}
       </div>
       <div className="overflow-hidden rounded-lg lg:rounded-xl">
@@ -28,11 +24,9 @@ const TrendCard: React.FC<TrendCardProps> = ({ number, title, description, image
         />
       </div>
       <div className="space-y-3">
-        <h3 className="text-xl sm:text-2xl font-poppins font-semibold text-gray-900">{title}</h3>
-        <p className="text-base sm:text-md text-gray-700">{description}</p>
-        <a href="#" className="text-lg inline-flex font-medium items-center text-primarydark hover:text-secondarydark transition-colors">
-          Learn More <ArrowRight className="ml-1 h-4 w-4 sm:h-5 sm:w-5" />
-        </a>
+        <h3 className="text-xl sm:text-2xl font-raleway font-semibold text-gray-900">{title}</h3>
+        <p className="text-base sm:text-md text-gray-700 font-inter">{description}</p>
+        
       </div>
     </div>
   )
@@ -45,39 +39,39 @@ const FutureTrends: React.FC = () => {
 
   const trends = [
     {
-      number: "01",
+      number: "1",
       title: "STEAM Learning",
       description:
         "We integrate Science, Technology, Engineering, Arts, and Math into a unified, hands-on curriculum that nurtures creativity, innovation, and real-world problem-solving across all age groups. By combining technical knowledge with artistic expression, students learn to approach problems from multiple angles.",
-      imagePath: "/Images/Facilities/Steam.JPG",
+      imagePath: "/Images/Heros/samplehero.JPG",
     },
     {
-      number: "02",
+      number: "2",
       title: "SEL- Social & Emotional Learning",
       description:
         "We prioritize well-being alongside academics. Through SEL, students build self-awareness, empathy, emotional regulation and responsible decision-making skills essential for lifelong success. Mindfulness practices, such as meditation and deep breathing, are also being introduced to support mental well-being and focus.",
-      imagePath: "/Images/Facilities/SEL.JPG",
+      imagePath: "/Images/Heros/samplehero.JPG",
     },
     {
-      number: "03",
+      number: "3",
       title: "Global Learning",
       description:
         "Our particular focus on 'Global learning' helps in broadening students’ perspectives through international collaborations, exchange programs, and cultural awareness activities. Language learning and exposure to different cultures fosters a global mindset & prepare them to lead in a truly global society",
-      imagePath: "/Images/Facilities/Global.jpg",
+      imagePath: "/Images/Heros/samplehero.JPG",
     },
     {
-      number: "04",
+      number: "4",
       title: "Sports & Physical Development",
       description:
         "With world-class facilities, expert coaches, and a strong culture of sportsmanship, we promote athleticism, discipline, and teamwork — empowering students to excel in both competitive and recreational sports while building confidence, resilience, and lifelong healthy habits.",
-      imagePath: "/Images/Facilities/Swimming.JPG",
+      imagePath: "/Images/Heros/samplehero.JPG",
     },
     {
-      number: "05",
+      number: "5",
       title: "Beyond Academics",
       description:
         "Beyond classrooms, students explore their passion through music, drama, debate, and leadership events. From performing arts to social initiatives and leadership clubs, our vibrant co-curricular life fuels creativity, collaboration, and a sense of purpose beyond the classroom.",
-      imagePath: "/Images/Facilities/Cultural.jpg",
+      imagePath: "/Images/Heros/samplehero.JPG",
     },
   ]
 
@@ -117,24 +111,24 @@ const FutureTrends: React.FC = () => {
   }, [trends.length])
 
   return (
-    <div ref={containerRef} className="relative bg-white py-10 sm:py-16 md:py-20 xl:py-25 my-10">
-      <div className="container mx-auto pl-7 pr-6 min-[480px]:px-12 sm:px-10">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
+    <div ref={containerRef} className="relative bg-white py-4 sm:py-10 lg:py-20 my-10">
+      <div className="container mx-auto px-8 min-[540px]:px-12 sm:px-16 xl:px-0 max-w-7xl">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           {/* Left side - Sticky content */}
-          <div className="lg:sticky top-7/20 h-fit xl:pl-20 space-y-6 self-start">
-            <h2 className="text-gray-900 text-2xl sm:text-3xl md:text-4xl font-playpen font-medium mb-8 sm:mb-10 leading-8 sm:leading-12">
+          <div className="lg:sticky top-7/20 h-fit self-start">
+            <h2 className="text-2xl min-[540px]:text-3xl text-gray-900 font-playpen font-medium leading-normal">
               Insights into
               <div className="container">
                 <span className="relative inline-block">Future Learning
                   <img
                     src="/Images/Doodles/LinePink.png"
                     alt="Underline"
-                    className="w-[75%] absolute -bottom-6 sm:-bottom-8"
+                    className="w-[60%] absolute -bottom-4 sm:-bottom-5"
                   />
                 </span>Trends
               </div>
             </h2>
-            <p className="self-start text-base sm:text-lg text-gray-700 max-w-lg">
+            <p className="mt-4 sm:mt-6 self-start text-base sm:text-lg text-gray-700 max-w-3xl">
               At MCS, education is evolving to equip students with the mindset, skills, and values needed for success in tomorrow’s world.
             </p>
           </div>
@@ -142,15 +136,15 @@ const FutureTrends: React.FC = () => {
           {/* Right side - Scrollable content with progress line */}
           <div className="relative">
             {/* Progress line */}
-            <div className="absolute left-0 top-0 h-full w-0.5 md:w-0.75 bg-gray-200">
+            <div className="absolute left-0 top-0 h-full w-0.5 lg:w-0.75 bg-gray-200">
               <div
-                className="absolute left-0 top-0 w-0.5 md:w-0.75 bg-teal-400 transition-all duration-300"
+                className="absolute left-0 top-0 w-0.5 lg:w-0.75 bg-amber-300 transition-all duration-300"
                 style={{ height: `${scrollProgress * 100}%` }}
               ></div>
             </div>
 
             {/* Cards */}
-            <div className="ml-11 sm:ml-12 space-y-20 sm:space-y-32">
+            <div className="ml-11 space-y-20 lg:space-y-32">
               {trends.map((trend, index) => (
                 <TrendCard
                   key={index}
@@ -158,7 +152,6 @@ const FutureTrends: React.FC = () => {
                   title={trend.title}
                   description={trend.description}
                   imagePath={trend.imagePath}
-                  isActive={index === activeCardIndex}
                 />
               ))}
             </div>

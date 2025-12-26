@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Hero from "../components/sections/homepage/Hero";
 import News from "../components/sections/homepage/News";
 import InstaReels from "../components/sections/homepage/InstaReels";
-import AwardsCard from "../components/sections/homepage/Awards";
+import Awards from "../components/sections/homepage/Awards";
 import McsLife from "../components/sections/homepage/McsLife";
 import EduLevels from "../components/sections/homepage/EduLevels";
 import Admission from "../components/sections/homepage/Admission";
@@ -37,12 +37,13 @@ const achievements = await sanity.fetch(`
 		<News client:load />
 		<InstaReels client:load />
 		<Achievements client:only />
-		<AwardsCard client:load />
-		<McsLife client:load />
+		<Awards client:load />
 		<EduLevels client:only />
 		<Admission client:load />
 		<FutureTrends client:load />
-		<Partnerships client:load />
+		<!-- <McsLife client:load /> -->
 		<Alumni client:only />
+		<Partnerships client:load />
+		
 	</main>
 </Layout>

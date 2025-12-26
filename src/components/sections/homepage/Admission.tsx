@@ -1,86 +1,66 @@
-"use client"
+import { ArrowRight } from "lucide-react";
 
-import React from "react"
-import {
-  ArrowRight,
-  CalendarDays,
-  Clock,
-  UserPlus,
-  Mail,
-} from "lucide-react"
-
-const Admission: React.FC = () => {
+const AdmissionsCTA = () => {
   return (
-    <section className="w-full bg-linear-to-l from-[#e0eeff] via-[#f8fcff] to-[#e0eeff] sm:pb-12 lg:pb-16 lg:pt-16 my-10">
-      <div className="w-full mx-auto flex flex-col lg:flex-row items-center gap-12 sm:gap-14 lg:gap-5">
+    <section className="relative bg-linear-to-r from-blue-950 via-blue-900 to-blue-950 py-12 md:py-20">
+      <div className="mx-auto max-w-7xl px-5 min-[540px]:px-12">
 
-  {/* ⬅️ Left Image (Desktop) */}
-  <div className="flex w-full lg:w-1/3 justify-end">
-    <div className="relative lg:rounded-tl-[60px] lg:rounded-br-[120px] overflow-hidden shadow-lg lg:border-4 border-[#d3eaff] bg-white aspect-21/9 lg:aspect-4/5 w-full lg:max-w-70 xl:max-w-90 transition-transform duration-300 hover:scale-105">
-      <img
-        src="/Images/Campus/MCSExit.JPG"
-        alt="Student applying"
-        className="w-full h-full object-cover"
-        loading="lazy"
-      />
-      <span className="absolute bottom-4 left-4 bg-white/75 px-4 py-2 rounded-full hidden lg:flex items-center gap-2 text-sm font-medium text-primarydark shadow">
-        <UserPlus size={16} /> New Admission
-      </span>
-    </div>
-  </div>
+        <div className="grid grid-cols-1 gap-8 sm:gap-12 md:grid-cols-2 items-center">
 
-  {/* 🖥️ Center Content (Text) */}
-  <div className="px-5 min-[480px]:px-8 sm:px-12 md:px-20 lg:px-8 w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
-    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl font-poppins font-semibold mb-5 text-gray-900 leading-8 sm:leading-12 tracking-wide">
-      Admissions are{" "}
-      <span className="text-primary font-bold">NOW OPEN</span> for 2025–26
-    </h2>
-    <p className="text-gray-700 mb-6 text-base sm:text-lg w-full font-inter">
-      Join our vibrant learning community at MCS! Applications are open for Pre-Primary to Senior Secondary levels. Secure your child’s future with expert faculty, holistic education, and world-class facilities. <span className="font-semibold"><i>Join MCS Today- where Futures begin and Greatness grows!</i></span>
-    </p>
+          {/* Left Content */}
+          <div className="text-white">
+            <span className="inline-block rounded-full font-inter bg-white/10 px-4 py-2 text-xs sm:text-sm">
+              Admissions Open
+            </span>
 
-    <div className="flex flex-col sm:flex-row gap-4 mb-8 w-full justify-center lg:justify-start">
-      <div className="flex items-center gap-2 bg-white/90 px-4 py-3 rounded-lg shadow hover:shadow-lg transition-all duration-300">
-        <CalendarDays size={22} className="text-secondarydark" />
-        <span className="font-medium text-gray-900">Admissions Closes: July 31, 2025</span>
+            <h2 className="mt-6 text-3xl sm:text-4xl font-raleway font-bold leading-tight">
+              Begin Your Child’s <br />
+              Journey Towards <span className="text-amber-400">Excellence</span>
+            </h2>
+
+            <p className="mt-6 max-w-xl text-base sm:text-lg text-slate-300">
+              Applications are now open for the academic session 2025–26.
+              Join a nurturing environment focused on academic strength,
+              values, and holistic development.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="/admissions"
+                className="inline-flex items-center gap-2 rounded-lg bg-amber-400 px-4 sm:px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-lg hover:bg-amber-500"
+              >
+                Apply for Admissions
+                <ArrowRight size={18} className="hidden sm:block"/>
+              </a>
+
+              <a
+                href="/campus"
+                className="hidden md:block rounded-lg border border-white/40 px-4 sm:px-6 py-3 text-sm sm:text-base font-semibold text-white hover:bg-white/10"
+              >
+                Enquire Now
+              </a>
+            </div>
+          </div>
+
+          {/* Right Highlights */}
+          <div className="hidden lg:block rounded-2xl bg-white/5 p-8 md:p-10 backdrop-blur-sm font-inter">
+            <h3 className="text-xl font-semibold text-white">
+              Admission Highlights
+            </h3>
+
+            <ul className="mt-6 space-y-4 text-blue-100">
+              <li>• Classes from Pre-Primary to Senior Secondary</li>
+              <li>• Experienced & qualified faculty</li>
+              <li>• Safe, secure & student-friendly campus</li>
+              <li>• Focus on academics, values & life skills</li>
+              <li>• Limited seats available</li>
+            </ul>
+          </div>
+
+        </div>
       </div>
-      <div className="flex items-center gap-2 bg-white/90 px-4 py-3 rounded-lg shadow hover:shadow-lg transition-all duration-300">
-        <Clock size={22} className="text-secondarydark" />
-        <span className="font-medium text-gray-900">Only Limited Seats Left</span>
-      </div>
-    </div>
-
-    <a
-      href="/admissions"
-      className="group inline-flex items-center gap-2 bg-primary text-white px-6 py-2 text-outfit text-base md:text-lg font-medium cursor-pointer rounded-full shadow-lg hover:bg-secondarydark transition-all duration-300 ease-in-out hover:font-semibold hover:scale-105"
-    >
-      <Mail size={20} />
-      Apply Now
-      <ArrowRight size={20} />
-    </a>
-  </div>
-
-  {/* ➡️ Right Image (Desktop) */}
-  <div className="flex sm:hidden lg:flex w-full lg:w-1/3 justify-start">
-    <div className="relative lg:rounded-tr-[60px] lg:rounded-bl-[120px] overflow-hidden shadow-lg lg:border-4 border-[#d3eaff] bg-white aspect-21/9 lg:aspect-4/5 w-full lg:max-w-70 xl:max-w-90 transition-transform duration-300 hover:scale-105">
-      <img
-        src="/Images/Campus/NewHostel.JPG"
-        alt="Student at desk"
-        className="w-full h-full object-cover"
-        loading="lazy"
-      />
-      <span className="absolute top-4 right-4 bg-white/75 px-4 py-2 rounded-full hidden lg:flex items-center gap-2 text-sm font-medium text-primarydark shadow">
-        <UserPlus size={16} /> Enroll Today
-      </span>
-    </div>
-  </div>
-
-  {/* 📱 Mobile Layout: Both Images Side by Side on Top */}
-  
-</div>
-
     </section>
-  )
-}
+  );
+};
 
-export default Admission
+export default AdmissionsCTA;

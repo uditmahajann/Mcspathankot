@@ -76,7 +76,7 @@ const InstaReels = () => {
   };
 
   return (
-    <section className="bg-blue-950 my-10 py-12 md:py-20  overflow-hidden">
+    <section className="bg-linear-to-r from-blue-950 via-blue-900 to-blue-950 my-10 py-12 md:py-20 overflow-hidden">
       <div className="mx-auto max-w-7xl px-5 min-[540px]:px-12 sm:px-16 xl:px-0">
 
         {/* Header */}
@@ -126,7 +126,7 @@ const InstaReels = () => {
 
 
                   {/* PLAY / PAUSE OVERLAY (VISUAL ONLY) */}
-                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/30">
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/10">
                     {activeVideo === reel.id ? (
                       <Pause className="h-8 w-8 text-white" />
                     ) : (
@@ -146,152 +146,3 @@ const InstaReels = () => {
 };
 
 export default InstaReels;
-
-
-
-
-
-// const CARD_WIDTH = 260;
-// const AUTO_SCROLL_SPEED = 0.4;
-
-// const InstaReels = () => {
-//   const scrollRef = useRef<HTMLDivElement>(null);
-//   const videoRefs = useRef<Record<string, HTMLVideoElement | null>>({});
-//   const [activeVideo, setActiveVideo] = useState<string | null>(null);
-//   const [pauseScroll, setPauseScroll] = useState(false);
-
-//   /* ---------------- Auto Scroll ---------------- */
-//   useEffect(() => {
-//     const el = scrollRef.current;
-//     if (!el || pauseScroll || activeVideo) return;
-
-//     let raf: number;
-
-//     const autoScroll = () => {
-//       el.scrollLeft += AUTO_SCROLL_SPEED;
-
-//       if (el.scrollLeft + el.clientWidth >= el.scrollWidth) {
-//         el.scrollLeft = 0;
-//       }
-//       raf = requestAnimationFrame(autoScroll);
-//     };
-
-//     raf = requestAnimationFrame(autoScroll);
-//     return () => cancelAnimationFrame(raf);
-//   }, [pauseScroll, activeVideo]);
-
-//   /* ---------------- Video Control ---------------- */
-//   const toggleVideo = (id: string) => {
-//     const video = videoRefs.current[id];
-//     if (!video) return;
-
-//     // Pause all others
-//     Object.entries(videoRefs.current).forEach(([key, v]) => {
-//       if (v && key !== id) {
-//         v.pause();
-//         v.currentTime = 0;
-//       }
-//     });
-
-//     if (activeVideo === id) {
-//       video.pause();
-//       setActiveVideo(null);
-//     } else {
-//       video.muted = true;
-//       video.play();
-//       setActiveVideo(id);
-//     }
-//   };
-
-//   /* ---------------- Manual Scroll ---------------- */
-//   const scrollByCards = (dir: "left" | "right") => {
-//     scrollRef.current?.scrollBy({
-//       left: dir === "left" ? -CARD_WIDTH * 2 : CARD_WIDTH * 2,
-//       behavior: "smooth",
-//     });
-//   };
-
-//   return (
-//     <section className="bg-blue-950 py-16">
-//       <div className="mx-auto max-w-7xl px-6">
-
-//         {/* Header */}
-//         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-//           <h2 className="text-3xl font-playpen font-medium text-amber-400">
-//             Campus Chronicles: Highlights of 2025
-//           </h2>
-
-//           <a
-//             href="https://instagram.com/montessoricambridge"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//             className="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-purple-600 to-pink-600 px-4 py-2 font-medium text-white hover:opacity-90"
-//           >
-//             Follow Us
-//             <Instagram className="h-5 w-5" />
-//           </a>
-//         </div>
-
-//         {/* Carousel */}
-//         <div
-//           className="relative"
-//           onMouseEnter={() => setPauseScroll(true)}
-//           onMouseLeave={() => setPauseScroll(false)}
-//         >
-//           {/* Left */}
-//           <button
-//             onClick={() => scrollByCards("left")}
-//             className="absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white p-2 shadow"
-//           >
-//             <ChevronLeft />
-//           </button>
-
-//           {/* Reels */}
-//           <div
-//             ref={scrollRef}
-//             className="flex gap-4 overflow-x-hidden py-4"
-//           >
-//             {[...reels, ...reels].map((reel, i) => (
-//               <div
-//                 key={`${reel.id}-${i}`}
-//                 className="h-[420px] w-[240px] shrink-0 overflow-hidden rounded-xl bg-black"
-//               >
-//                 <div
-//                   className="relative h-full w-full cursor-pointer"
-//                   onClick={() => toggleVideo(reel.id)}
-//                 >
-//                   <video
-//                     ref={(el) => (videoRefs.current[reel.id] = el)}
-//                     src={reel.videoUrl}
-//                     className="h-full w-full object-cover"
-//                     playsInline
-//                     preload="metadata"
-//                     onEnded={() => setActiveVideo(null)}
-//                   />
-
-//                   <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-//                     {activeVideo === reel.id ? (
-//                       <Pause className="h-8 w-8 text-white" />
-//                     ) : (
-//                       <Play className="h-8 w-8 text-white" />
-//                     )}
-//                   </div>
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-
-//           {/* Right */}
-//           <button
-//             onClick={() => scrollByCards("right")}
-//             className="absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white p-2 shadow"
-//           >
-//             <ChevronRight />
-//           </button>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default InstaReels;

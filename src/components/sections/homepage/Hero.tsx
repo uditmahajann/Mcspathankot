@@ -102,7 +102,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="/admissions"
-                className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 sm:px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-lg hover:bg-blue-700"
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 sm:px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-lg hover:bg-blue-700"
               >
                 Apply for Admissions
                 <ArrowRight size={18} className="hidden sm:block"/>

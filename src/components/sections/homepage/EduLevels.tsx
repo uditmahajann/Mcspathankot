@@ -141,44 +141,29 @@ const EduLevels: React.FC = () => {
     <div ref={containerRef} className="relative" style={{ height: `${educationalLevels.length * 100}vh` }}>
       <div
         ref={sectionRef}
-        className="bg-neutral-50 px-5 min-[480px]:px-12 sm:px-10 py-10 sm:py-16 md:py-20 xl:py-25 my-10 sticky top-0 h-screen"
+        className="bg-neutral-50 px-5 min-[540px]:px-12 sm:px-16 xl:px-0 py-4 sm:py-10 lg:py-20 my-10 sticky top-0 h-screen"
       >
-        <picture>
-          <img
-            src="/Images/Doodles/Graduate.png"
-            alt="MCS"
-            className="hidden lg:block absolute lg:w-30 -top-[5%] right-[15%] rotate-25"
-          />
-        </picture>
-
-        <picture>
-          <img
-            src="/Images/Doodles/Graduate.png"
-            alt="MCS"
-            className="hidden lg:block absolute scale-x-[-1] lg:w-30 -top-[5%] left-[12%] -rotate-25"
-          />
-        </picture>
 
         <div className="container mx-auto h-full">
-          
+
           <div className="text-center mb-10 sm:mb-30 lg:mb-20">
-          <h2 className="text-gray-900 text-2xl sm:text-3xl md:text-4xl font-playpen font-medium inline-block relative">
-          <span className="relative z-10 inline-block pl-5 pr-1">
-          Educational
-          <span className="absolute inset-0 -z-10 -top-4 sm:-top-6 md:-top-8">
-          <img
-          src="/Images/Doodles/CircleYellow.png"
-          alt="Circle Doodle"
-          className="w-full h-auto object-contain"
-          />
-         </span>
-        </span>{" "}
-        Levels at MCS
-        </h2>
-        <p className=" mt-4 sm:mt-5 text-base sm:text-lg text-gray-700 max-w-2xl mx-auto">
-        Discover our structured academic journey, nurturing learners from foundational skills to future-ready excellence.
-        </p>
-        </div>
+            <h2 className="text-2xl min-[540px]:text-3xl lg:text-4xl text-gray-900 font-playpen font-medium inline-block relative leading-normal">
+              <span className="relative z-10 inline-block pl-3 pr-2">
+                Educational
+                <span className="absolute inset-0 -z-10 -top-6 md:-top-8">
+                  <img
+                    src="/Images/Doodles/CircleYellow.png"
+                    alt="Circle Doodle"
+                    className="w-full h-auto object-contain"
+                  />
+                </span>
+              </span>{" "}
+              Levels at MCS
+            </h2>
+            <p className="mt-2 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
+              Discover our structured academic journey, nurturing learners from foundational skills to future-ready excellence.
+            </p>
+          </div>
 
 
           {/* Progress indicator (desktop only) */}
@@ -187,42 +172,40 @@ const EduLevels: React.FC = () => {
               {educationalLevels.map((_, index) => (
                 <div
                   key={`indicator-${index}`}
-                  className={`h-2.5 w-2.5 lg:h-3 lg:w-3 rounded-full transition-all duration-300 ${
-                    index === activeLevel ? "bg-gray-800 scale-125" : "bg-gray-300"
-                  }`}
+                  className={`h-2.5 w-2.5 lg:h-3 lg:w-3 rounded-full transition-all duration-300 ${index === activeLevel ? "bg-gray-800 scale-125" : "bg-gray-300"
+                    }`}
                 />
               ))}
             </div>
           </div>
 
           {/* Main Content: Responsive stacking */}
-          <div className="w-full flex flex-col sm:flex-row justify-start sm:items-center gap-y-30 gap-x-5 md:gap-x-10 xl:gap-x-20 xl:px-40">
-  
+          <div className="w-full flex flex-col sm:flex-row justify-start sm:items-center gap-y-30 gap-x-5 xl:px-40">
+
             {/* Animation - always first in markup, on top for mobile, left for desktop */}
             <div className="relative w-full flex items-center justify-center">
-            {/* Background Circle */}
-            <div
-            className="absolute w-60 h-60 md:w-80 md:h-80 lg:w-100 lg:h-100 xl:w-110 xl:h-110 rounded-full"
-            style={{
-              backgroundColor: `${educationalLevels[activeLevel].color}25`,
-            }}
-            />
-  
-            {/* Lottie animation */}
-            <div className="z-10 w-50 h-50 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-90 xl:h-90 overflow-hidden">
-              {renderAnimation(educationalLevels[activeLevel])}
+              {/* Background Circle */}
+              <div
+                className="absolute w-60 h-60 md:w-80 md:h-80 lg:w-100 lg:h-100 xl:w-110 xl:h-110 rounded-full"
+                style={{
+                  backgroundColor: `${educationalLevels[activeLevel].color}25`,
+                }}
+              />
+
+              {/* Lottie animation */}
+              <div className="z-10 w-50 h-50 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-90 xl:h-90 overflow-hidden">
+                {renderAnimation(educationalLevels[activeLevel])}
+              </div>
             </div>
-          </div>
-            
+
 
             {/* Description - always second in markup, below on mobile, right on desktop */}
-            <div className="relative w-full max-w-lg flex flex-col justify-center items-center">
+            <div className="relative w-full max-w-lg flex flex-col justify-center items-center mx-2">
               {educationalLevels.map((level, index) => (
                 <div
                   key={level.id}
-                  className={`transition-all duration-700 absolute w-full ${
-                    activeLevel === index ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 pointer-events-none"
-                  }`}
+                  className={`transition-all duration-700 absolute w-full ${activeLevel === index ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 pointer-events-none"
+                    }`}
                   style={{
                     transform: activeLevel === index ? "translateY(0)" : `translateY(${(index - activeLevel) * 50}px)`,
                   }}
@@ -235,17 +218,17 @@ const EduLevels: React.FC = () => {
                       <level.icon size={20} className="sm:hidden" />
                       <level.icon size={24} className="hidden sm:block" />
                     </div>
-                    <span className="text-xl sm:text-2xl font-light text-gray-500 ">0{level.id}</span>
+                    <span className="text-xl sm:text-2xl text-gray-500 ">0{level.id}</span>
                   </div>
 
-                  <h3 className="mt-3 md:mt-4 sm:text-2xl md:text-3xl lg:text-4xl font-poppins font-bold text-gray-900">{level.title}</h3>
+                  <h3 className="mt-3 md:mt-4 text-xl sm:text-2xl md:text-3xl xl:text-4xl font-raleway font-bold text-gray-900">{level.title}</h3>
 
-                  <p className="mt-3 md:mt-4 text-base md:text-lg lg:text-xl text-gray-700">{level.description}</p>
+                  <p className="mt-3 md:mt-4 font-inter text-base md:text-lg xl:text-xl text-gray-700">{level.description}</p>
 
                   <div className="mt-4 md:mt-6">
                     <a
                       href={level.link}
-                      className="group inline-flex items-center rounded-full px-4 py-2 md:px-6 md:py-3 text-base sm:text-lg font-outfit font-medium transition-all duration-300 hover:translate-x-1"
+                      className="group inline-flex items-center rounded-full px-4 py-2 md:px-6 md:py-3 text-base sm:text-lg font-inter font-medium transition-all duration-300 hover:translate-x-1"
                       style={{
                         backgroundColor: `${level.color}20`,
                         color: level.color,
