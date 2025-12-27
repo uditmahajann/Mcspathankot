@@ -113,7 +113,7 @@ const ToursExcursions = () => {
                 </button>
 
                 <div
-                  ref={(el) => (scrollRefs.current[index] = el)}
+                  ref={(el) => {scrollRefs.current[index] = el}}
                   className="flex gap-3 md:gap-6 overflow-x-auto scroll-smooth hide-scrollbar pb-4"
                 >
                   {tour.images.map((src, i) => (

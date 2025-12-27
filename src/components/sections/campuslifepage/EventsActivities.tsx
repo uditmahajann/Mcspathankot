@@ -41,16 +41,16 @@ export default function EventsActivities({ events }: { events: Event[] }) {
   const otherEvents = events.filter((event) => !event.featured)
 
   const handlePrevFeatured = () => {
-  setCurrentFeaturedEvent((prev) =>
-    prev === 0 ? featuredEvents.length - 1 : prev - 1
-  )
-}
+    setCurrentFeaturedEvent((prev) =>
+      prev === 0 ? featuredEvents.length - 1 : prev - 1
+    )
+  }
 
-const handleNextFeatured = () => {
-  setCurrentFeaturedEvent((prev) =>
-    prev === featuredEvents.length - 1 ? 0 : prev + 1
-  )
-}
+  const handleNextFeatured = () => {
+    setCurrentFeaturedEvent((prev) =>
+      prev === featuredEvents.length - 1 ? 0 : prev + 1
+    )
+  }
 
   // 🎯 Pagination for other events (videos)
   const eventsPerPage = 3
@@ -181,8 +181,8 @@ const handleNextFeatured = () => {
                     key={index}
                     onClick={() => setCurrentFeaturedEvent(index)}
                     className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${currentFeaturedEvent === index
-                        ? "bg-primarydark scale-110"
-                        : "bg-gray-300 hover:bg-gray-400"
+                      ? "bg-primarydark scale-110"
+                      : "bg-gray-300 hover:bg-gray-400"
                       }`}
                   />
                 ))}
@@ -209,7 +209,9 @@ const handleNextFeatured = () => {
                     onClick={() => handlePlayVideo(videoId)}
                   >
                     <video
-                      ref={(el) => (videoRefs.current[videoId] = el)}
+                      ref={(el) => {
+                        videoRefs.current[videoId] = el;
+                      }}
                       src={event.video.asset.url}
                       className="w-full h-full object-cover rounded-lg"
                     />
@@ -264,8 +266,8 @@ const handleNextFeatured = () => {
                     key={i + 1}
                     onClick={() => setCurrentPage(i + 1)}
                     className={`px-5 py-2.5 rounded-full font-medium cursor-pointer ${currentPage === i + 1
-                        ? "bg-blue-600 text-white"
-                        : "bg-gray-200 hover:bg-gray-300"
+                      ? "bg-blue-600 text-white"
+                      : "bg-gray-200 hover:bg-gray-300"
                       }`}
                   >
                     {i + 1}
