@@ -9,9 +9,9 @@ import pressRelease from "./pressRelease";
 import printMedia from "./printMedia";
 import careerOpening from "./careerOpening";
 
-import feeStructure from "./feeStructure";
-import feeSection from "./objects/feeSection";
-import feeRow from "./objects/feeRow";
+import feeStructure from "./feeStructure"
+import { feeTable } from "./feeStructure"
+import { feeRow } from "./feeStructure"
 
 import syllabus from "./syllabus";
 
@@ -20,6 +20,9 @@ import courseGroup from "./courseGroup";
 
 import annualCalendar from "./annualCalendar";
 import instaReel from "./instaReel";
+
+import banner from "./banner";
+import mandatoryDisclosure from "./mandatoryDisclosure";
 
 
 
@@ -34,21 +37,14 @@ export const schemaTypes = [
   printMedia,
   careerOpening,
   feeStructure,
-  feeSection,
+  feeTable,
   feeRow,
   syllabus,
   course,
   courseGroup,
   annualCalendar,
   instaReel,
+  banner,
+  mandatoryDisclosure,
   
 ];
-
-
-// export const schemaTypes = [award];
-
-
-// import homepage from "./homepage";
-
-// export const schemaTypes = [homepage];
-

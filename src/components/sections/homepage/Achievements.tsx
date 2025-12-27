@@ -1,19 +1,31 @@
 import CtaButton from "../../interface/CtaButton";
 import React, { useState } from "react"
-import ClassXToppers from "../../elements/ClassXToppers"
-import ClassXIIToppers from "../../elements/ClassXIIToppers"
-import StudentAchievers from "../../elements/StudentAchievers"
-import AlumniChronicles from "../../elements/AlumniChronicles"
+import BannerGallery from "../../elements/BannerGallery";
+
+type Banner = {
+  _id: string;
+  title?: string;
+  imageUrl: string;
+};
+
+type Props = {
+  classXII: Banner[];
+  classX: Banner[];
+  students: Banner[];
+};
 
 const categories = [
-  { key: "class-12", label: "Class XII Toppers" },
-  { key: "class-10", label: "Class X Toppers" },
+  { key: "class-xii", label: "Class XII Toppers" },
+  { key: "class-x", label: "Class X Toppers" },
   { key: "student-achievers", label: "Student Achievers" },
-  { key: "alumni-chronicles", label: "Alumni Chronicles" },
-]
+];
 
-const Achievements: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState("class-12")
+const Achievements: React.FC<Props> = ({
+  classXII,
+  classX,
+  students,
+}) => {
+  const [activeCategory, setActiveCategory] = useState("class-xii");
 
   return (
     <section
@@ -47,8 +59,8 @@ const Achievements: React.FC = () => {
               key={cat.key}
               onClick={() => setActiveCategory(cat.key)}
               className={`px-5 py-2 rounded-full text-sm sm:text-base font-inter font-medium cursor-pointer border-2 transition ${activeCategory === cat.key
-                  ? "bg-primary text-white"
-                  : "bg-white text-primary border-blue-200"
+                ? "bg-primary text-white"
+                : "bg-white text-primary border-blue-200"
                 }`}
             >
               {cat.label}
@@ -58,14 +70,20 @@ const Achievements: React.FC = () => {
 
         {/* Conditional rendering of section components */}
         <div className="mt-8">
-          {activeCategory === "class-12" && <ClassXIIToppers />}
-          {activeCategory === "class-10" && <ClassXToppers />}
-          {activeCategory === "student-achievers" && <StudentAchievers />}
-          {activeCategory === "alumni-chronicles" && <AlumniChronicles />}
-          
+          {activeCategory === "class-xii" && (
+            <BannerGallery banners={classXII} />
+          )}
+
+          {activeCategory === "class-x" && (
+            <BannerGallery banners={classX} />
+          )}
+
+          {activeCategory === "student-achievers" && (
+            <BannerGallery banners={students} />
+          )}
         </div>
 
-         {/* CTA */}
+        {/* CTA */}
         <div className="mt-8 sm:mt-12 flex items-center justify-center">
           <CtaButton text="View All Achievements" href="" />
         </div>

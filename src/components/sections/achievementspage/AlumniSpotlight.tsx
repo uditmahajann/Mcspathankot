@@ -1,53 +1,40 @@
-"use client";
-
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const ALUMNI = [
-  {
-    title: "Research Scientist, NASA",
-    name: "Dr. Aarushi Kapoor",
-    role: "Research Scientist, NASA",
-    quote:
-      "The curiosity Montessori nurtured in me as a child became the foundation of my research career. I still remember those first science experiments in our lab!",
-    image: "/Images/Heros/samplehero.JPG",
-    country: "USA",
-  },
-  {
-    title: "Research Scientist, NASA",
-    name: "Aditya Mehta",
-    role: "Software Engineer, Google",
-    quote:
-      "MCS taught me how to think, not what to think. The school’s emphasis on exploration shaped my approach to coding and innovation.",
-    image: "/Images/Heros/samplehero.JPG",
-    country: "USA",
-  },
-  {
-    title: "Research Scientist, NASA",
-    name: "Simran Kaur",
-    role: "Fashion Designer, Milan School of Design",
-    quote:
-      "From art exhibitions to creative clubs — MCS gave me a platform to dream, design, and dare. That spirit still drives my work today.",
-    image: "/Images/Heros/samplehero.JPG",
-    country: "Italy",
-  },
-  {
-    title: "Research Scientist, NASA",
-    name: "Rohan Gupta",
-    role: "Entrepreneur, EduTech Startup Founder",
-    quote:
-      "Leadership and teamwork weren’t just words — they were lived every day at MCS. My startup’s core values come from my school experience.",
-    image: "/Images/Heros/samplehero.JPG",
-    country: "India",
-  },
-];
+type Alumni = {
+  _id: string;
+  title: string;
+  personName: string;
+  personDesignation?: string;
+  description: string;
+  date: string;
+  image: {
+    asset: {
+      url: string;
+    };
+  };
+};
 
-const AlumniSpotlight: React.FC = () => {
+type Props = {
+  alumni: Alumni[];
+};
+
+
+const AlumniSpotlight: React.FC<Props> = ({ alumni }) => {
+  if (!alumni || alumni.length === 0) return null;
+
+  const MAX = 10;
+  const items = alumni.slice(0, MAX);
+
   const [index, setIndex] = useState(0);
-  const next = () => setIndex((prev) => (prev + 1) % ALUMNI.length);
-  const prev = () => setIndex((prev) => (prev - 1 + ALUMNI.length) % ALUMNI.length);
 
-  const alum = ALUMNI[index];
+  const next = () =>
+    setIndex((prev) => (prev + 1) % items.length);
+
+  const prev = () =>
+    setIndex((prev) => (prev - 1 + items.length) % items.length);
+
+  const alum = items[index];
 
   return (
     <section id="alumni-spotlight" className="relative py-4 sm:py-10 my-10 bg-white">
@@ -75,8 +62,8 @@ const AlumniSpotlight: React.FC = () => {
         {/* Image */}
         <div className="relative w-full lg:w-1/2 rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg">
           <img
-            src={alum.image}
-            alt={alum.name}
+            src={alum.image.asset.url}
+            alt={alum.personName}
             className="w-full h-105 object-cover"
             loading="lazy"
           />
@@ -88,10 +75,10 @@ const AlumniSpotlight: React.FC = () => {
           <h2 className="text-xl sm:text-2xl md:text-3xl font-poppins tracking-wide font-semibold text-gray-900 mb-3 sm:mb-4">
             {alum.title}
           </h2>
-          <p className="font-inter text-base sm:text-lg text-gray-600 mb-6 max-w-xl">{alum.quote}</p>
-          <h3 className="text-lg sm:text-xl font-poppins tracking-wide font-semibold text-gray-900">{alum.name}</h3>
+          <p className="font-inter text-base sm:text-lg text-gray-600 mb-6 max-w-xl">{alum.description}</p>
+          <h3 className="text-lg sm:text-xl font-poppins tracking-wide font-semibold text-gray-900">{alum.personName}</h3>
           <p className="text-sm sm:text-base font-inter text-yellow-700 font-medium">
-            {alum.role} — {alum.country}
+            {alum.personDesignation} — {alum.date}
           </p>
         </div>
       </div>

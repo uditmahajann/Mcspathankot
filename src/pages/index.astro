@@ -1,10 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 import Hero from "../components/sections/homepage/Hero";
 import News from "../components/sections/homepage/News";
 import InstaReels from "../components/sections/homepage/InstaReels";
 import Awards from "../components/sections/homepage/Awards";
-import McsLife from "../components/sections/homepage/McsLife";
+// import McsLife from "../components/sections/homepage/McsLife";
 import EduLevels from "../components/sections/homepage/EduLevels";
 import Admission from "../components/sections/homepage/Admission";
 import FutureTrends from "../components/sections/homepage/FutureTrends";
@@ -16,23 +16,31 @@ import { sanity } from "../lib/sanity";
 import { newsListingQuery } from "../lib/queries/news";
 import { instaReelsQuery } from "../lib/queries/instaReels";
 import { awardsQuery } from "../lib/queries/awards";
-
+import { bannersByCategoryQuery } from "../lib/queries/banner";
 
 const news = await sanity.fetch(newsListingQuery);
 const instaReels = await sanity.fetch(instaReelsQuery);
 const awards = await sanity.fetch(awardsQuery);
 
+const classXIIBanners = await sanity.fetch(bannersByCategoryQuery, {
+	category: "class-xii",
+});
 
-const achievements = await sanity.fetch(`
-  *[_type == "achievement"] | order(date desc){
-    _id,
-    title,
-    image,
-    category,
-    personType
-  }
-`);
+const classXBanners = await sanity.fetch(bannersByCategoryQuery, {
+	category: "class-x",
+});
 
+const studentBanners = await sanity.fetch(bannersByCategoryQuery, {
+	category: "student-achievers",
+});
+
+// normalize once
+const normalize = (items: any[]) =>
+	items.map((b: { _id: any; title: any; image: { asset: { url: any; }; }; }) => ({
+		_id: b._id,
+		title: b.title,
+		imageUrl: b.image.asset.url,
+	}));
 ---
 
 <Layout
@@ -44,7 +52,12 @@ const achievements = await sanity.fetch(`
 		<Hero client:load />
 		<News news={news} client:load />
 		<InstaReels reels={instaReels} client:load />
-		<Achievements client:only />
+		<Achievements
+			classXII={normalize(classXIIBanners)}
+			classX={normalize(classXBanners)}
+			students={normalize(studentBanners)}
+			client:load
+		/>
 		<Awards awards={awards} client:load />
 		<EduLevels client:only />
 		<Admission client:load />
@@ -52,6 +65,5 @@ const achievements = await sanity.fetch(`
 		<!-- <McsLife client:load /> -->
 		<Alumni client:only />
 		<Partnerships client:load />
-		
 	</main>
 </Layout>

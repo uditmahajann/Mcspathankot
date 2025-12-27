@@ -2,58 +2,27 @@ import type React from "react"
 import { Wallet, Landmark, CreditCard} from "lucide-react"
 import CtaButton from "../../interface/CtaButton";
 
-const FeeStructure: React.FC = () => {
-  // Fee structure data
-  const feeCategories = [
-    {
-      title: "B. Annual Fees- without meal (Day Boarders)",
-      description: "Fees is paid in four installments in a year (1-10th of April, July, October, January)",
-      fees: [
-        { class: "Nursery to KG", annual: "₹72,830", one: "₹18,230", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 1 to 2", annual: "₹79,580", one: "₹19,900", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 3 to 5", annual: "₹81,140", one: "₹20,340", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 6 to 8", annual: "₹82,140", one: "₹20,640", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 9 to 10", annual: "₹87,870", one: "₹22,070", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 11 to 12", annual: "₹89,670", one: "₹22,470", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-      ],
-    },
-    {
-      title: "C. Annual Fees- without meal (Day Boarders- Beyond Madhopur, Sarna, Chakki, Jugial) ",
-      description: "Fees is paid in four installments in a year (1-10th of April, July, October, January)",
-      fees: [
-        { class: "Nursery to KG", annual: "₹72,830", one: "₹18,230", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 1 to 2", annual: "₹79,580", one: "₹19,900", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 3 to 5", annual: "₹81,140", one: "₹20,340", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 6 to 8", annual: "₹82,140", one: "₹20,640", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 9 to 10", annual: "₹87,870", one: "₹22,070", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 11 to 12", annual: "₹89,670", one: "₹22,470", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-      ],
-    },
-    {
-      title: "D. Annual Fees- without meal (Day Boarders- For Lakhanpur & Kathua)",
-      description: "Fees is paid in four installments in a year (1-10th of April, July, October, January)",
-      fees: [
-        { class: "Nursery to KG", annual: "₹72,830", one: "₹18,230", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 1 to 2", annual: "₹79,580", one: "₹19,900", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 3 to 5", annual: "₹81,140", one: "₹20,340", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 6 to 8", annual: "₹82,140", one: "₹20,640", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 9 to 10", annual: "₹87,870", one: "₹22,070", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 11 to 12", annual: "₹89,670", one: "₹22,470", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-      ],
-    },
-    {
-      title: "E. Annual Fees (Boarders)",
-      description: "Fees is paid in four installments in a year (1-10th of April, July, October, January)",
-      fees: [
-        { class: "Nursery to KG", annual: "₹72,830", one: "₹18,230", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 1 to 2", annual: "₹79,580", one: "₹19,900", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 3 to 5", annual: "₹81,140", one: "₹20,340", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 6 to 8", annual: "₹82,140", one: "₹20,640", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 9 to 10", annual: "₹87,870", one: "₹22,070", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-        { class: "Classes 11 to 12", annual: "₹89,670", one: "₹22,470", two: "₹18,230", three: "₹18,230", four: "₹18,230" },
-      ],
-    },
-  ]
+type FeeRow = {
+  class: string
+  annual: string
+  one: string
+  two: string
+  three: string
+  four: string
+}
+
+type FeeCategory = {
+  key: string
+  title: string
+  description?: string
+  rows: FeeRow[]
+}
+
+interface FeeStructureProps {
+  feeCategories: FeeCategory[]
+}
+
+const FeeStructure: React.FC<FeeStructureProps> = ({ feeCategories }) => {
 
   // Payment methods
   const paymentMethods = [
@@ -128,10 +97,60 @@ const FeeStructure: React.FC = () => {
           </table>
         </div>
 
+        {feeCategories?.map((category) => (
+        <div key={category.key}>
+          <h2 className="text-xl lg:text-2xl font-semibold mb-4 text-gray-900">
+            {category.key}. {category.title}
+          </h2>
+
+          <div className="rounded-lg shadow-lg overflow-hidden border border-gray-100 mb-16">
+            <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-gray-200">
+              <thead className="bg-primary p-5 font-inter">
+                <tr>
+                  <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-left text-sm lg:text-base font-medium text-white uppercase tracking-wider">CLASS</th>
+                  <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm lg:text-base font-medium text-white uppercase tracking-wider">ANNUAL FEES</th>
+                  <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm lg:text-base font-medium text-white uppercase tracking-wider">1ST INSTALLMENT</th>
+                  <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm lg:text-base font-medium text-white uppercase tracking-wider">2ND INSTALLMENT</th>
+                  <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm lg:text-base font-medium text-white uppercase tracking-wider">3RD INSTALLMENT</th>
+                  <th className="px-4.5 py-4 sm:px-6 sm:py-5 text-center text-sm lg:text-base font-medium text-white uppercase tracking-wider">4TH INSTALLMENT</th>
+                </tr>
+              </thead>
+
+              <tbody className="bg-white divide-y divide-gray-200">
+                {category.rows?.map((row, index) => (
+                  <tr
+                    key={index}
+                    className={index % 2 === 0 ? "bg-white hover:bg-blue-50" : "bg-gray-100 hover:bg-blue-50"}
+                  >
+                    <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base font-medium text-gray-900 text-left font-inter">{row.class}</td>
+                    <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base text-gray-500 text-center font-inter">{row.annual}</td>
+                    <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base text-gray-500 text-center font-inter">{row.one}</td>
+                    <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base text-gray-500 text-center font-inter">{row.two}</td>
+                    <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base text-gray-500 text-center font-inter">{row.three}</td>
+                    <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base text-gray-500 text-center font-inter">{row.four}</td>
+                  </tr>
+                ))}
+              </tbody>
+              <tr className="bg-secondarylight">
+                    <th colSpan={6} className="px-4.5 py-3.5 text-left text-xs sm:text-sm font-inter font-medium text-secondarydark">
+                      {category.description}
+                    </th>
+              </tr>
+            </table>
+            </div>
+
+            {/* {category.description && (
+              <div className="bg-red-50 p-4 text-sm text-red-600">
+                {category.description}
+              </div>
+            )} */}
+          </div>
+        </div>
+      ))}
 
 
-
-        {feeCategories.map((category, index) => (
+        {/* {feeCategories.map((category, index) => (
           <div key={index} className="bg-white">
             <h3 className="text-xl lg:text-2xl font-semibold mb-4 text-gray-900">{category.title}</h3>
             <div className="rounded-lg shadow-lg overflow-hidden border border-gray-100 mb-16">
@@ -181,7 +200,7 @@ const FeeStructure: React.FC = () => {
 
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
-                    {category.fees.map((fee, feeIndex) => (
+                    {category.rows.map((fee, feeIndex) => (
                       <tr key={feeIndex} className={feeIndex % 2 === 0 ? "bg-white hover:bg-blue-50" : "bg-gray-100 hover:bg-blue-50"}>
                         <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base font-medium text-gray-900 text-left font-inter">For {fee.class}</td>
                         <td className="px-4.5 py-3.5 sm:px-6 sm:py-4 whitespace-nowrap text-sm lg:text-base text-gray-500 text-center font-inter">{fee.annual}</td>
@@ -201,7 +220,7 @@ const FeeStructure: React.FC = () => {
               </div>
             </div>
           </div>
-        ))}
+        ))} */}
 
         {/* Payment Methods */}
 

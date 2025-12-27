@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { X, ChevronRight, ChevronLeft } from "lucide-react";
 
-const images = [
-  "/Images/Sample/Class12Result1.jpg",
-  "/Images/Sample/Class12Result2.jpg",
-  "/Images/Sample/Class12Result1.jpg",
-  "/Images/Sample/Class12Result2.jpg",
-  "/Images/Sample/Class12Result1.jpg",
-  "/Images/Sample/Class12Result2.jpg",
-];
+type Banner = {
+  _id: string;
+  title?: string;
+  imageUrl: string;
+};
 
-const MAX_ITEMS = 3;
+type Props = {
+  banners: Banner[];
+};
 
-const ClassXToppers: React.FC = () => {
-  const visibleImages = images.slice(0, MAX_ITEMS);
+
+const BannerGallery: React.FC<Props> = ({ banners }) => {
+
+  const MAX_ITEMS = 3;
+  const visibleBanners = banners.slice(0, MAX_ITEMS);
 
   const [isOpen, setIsOpen] = useState(false);
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -27,12 +29,12 @@ const ClassXToppers: React.FC = () => {
 
   const prevImage = () =>
     setCurrentIdx((prev) =>
-      prev === 0 ? visibleImages.length - 1 : prev - 1
+      prev === 0 ? visibleBanners.length - 1 : prev - 1
     );
 
   const nextImage = () =>
     setCurrentIdx((prev) =>
-      prev === visibleImages.length - 1 ? 0 : prev + 1
+      prev === visibleBanners.length - 1 ? 0 : prev + 1
     );
 
   useEffect(() => {
@@ -52,15 +54,15 @@ const ClassXToppers: React.FC = () => {
       {/* Image Layout */}
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-center gap-6 flex-wrap">
-          {visibleImages.map((src, idx) => (
+          {visibleBanners.map((banner, idx) => (
             <div
               key={idx}
               className="md:w-80 xl:w-90 overflow-hidden rounded-xl shadow-md cursor-pointer transition-transform duration-300 hover:scale-105"
               onClick={() => openModal(idx)}
             >
               <img
-                src={src}
-                alt={`Class XII Result ${idx + 1}`}
+                src={banner.imageUrl}
+                alt={banner.title || "Achievement Banner"}
                 className="w-full h-auto object-cover"
                 loading="lazy"
               />
@@ -89,8 +91,7 @@ const ClassXToppers: React.FC = () => {
           </button>
 
           <img
-            src={visibleImages[currentIdx]}
-            alt={`Full Preview ${currentIdx + 1}`}
+            src={visibleBanners[currentIdx].imageUrl}
             className="max-w-[90%] max-h-[90%] rounded-xl shadow-lg"
           />
 
@@ -107,4 +108,4 @@ const ClassXToppers: React.FC = () => {
   );
 };
 
-export default ClassXToppers;
+export default BannerGallery;

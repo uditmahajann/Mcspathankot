@@ -11,8 +11,15 @@ import AlumniSpotlight from '../../components/sections/achievementspage/AlumniSp
 
 import { sanity } from '../../lib/sanity';
 import { awardsQuery } from "../../lib/queries/awards";
+import { achievementsQuery } from "../../lib/queries/achievements";
+import { alumniQuery } from "../../lib/queries/alumni";
+import { studentAchieversBannersQuery } from "../../lib/queries/banner";
 
 const awards = await sanity.fetch(awardsQuery);
+const achievements = await sanity.fetch(achievementsQuery);
+const alumni = await sanity.fetch(alumniQuery);
+const banner = await sanity.fetch(studentAchieversBannersQuery);
+
 
 ---
 
@@ -24,10 +31,10 @@ const awards = await sanity.fetch(awardsQuery);
 	<main class="w-full">
     <SuccessStoriesHero client:load/>
     <AwardsGrid awards={awards} client:load/>
-    <AchieversCarousel client:load/>
+    <AchieversCarousel achievements={achievements} client:load/>
     <PhotoHighlights client:load/>
-    <AlumniSpotlight client:load/>
-    <SpecialMentions client:load/>
+    <AlumniSpotlight alumni={alumni} client:load/>
+    <SpecialMentions  banners={banner} client:load/>
     <MilestoneJourney client:load/>
 
   </main>

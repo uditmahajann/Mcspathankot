@@ -3,6 +3,10 @@ import Layout from '../../layouts/Layout.astro';
 import DisclosureHero from '../../components/sections/aboutpage/MandatoryDisclosureHero';
 import MandatoryDisclosure from '../../components/sections/aboutpage/MandatoryDisclosure';
 
+import { sanity } from "../../lib/sanity";
+import { mandatoryDisclosureQuery } from "../../lib/queries/mandatoryDisclosure";
+
+const data = await sanity.fetch(mandatoryDisclosureQuery);
 
 ---
 
@@ -29,6 +33,6 @@ import MandatoryDisclosure from '../../components/sections/aboutpage/MandatoryDi
       </div>
     </section>
     
-    <MandatoryDisclosure client:load/>
+    <MandatoryDisclosure data={data} client:load/>
 
 </Layout>

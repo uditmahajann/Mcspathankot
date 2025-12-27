@@ -3,6 +3,11 @@ import Layout from '../../layouts/Layout.astro';
 import FeeStructureHero from '../../components/sections/admissionpage/FeeStructureHero';
 import FeeStructureSection from '../../components/sections/admissionpage/FeeStructure';
 
+import { sanity } from "../../lib/sanity";
+import { feeStructureQuery } from "../../lib/queries/feeStructure";
+
+const data = await sanity.fetch(feeStructureQuery)
+
 ---
 
 <Layout
@@ -13,7 +18,7 @@ import FeeStructureSection from '../../components/sections/admissionpage/FeeStru
 	<main class="w-full">
     
     <FeeStructureHero client:load />
-    <FeeStructureSection client:load />
+    <FeeStructureSection feeCategories={data.tables} client:load />
 	
 </Layout>
 
