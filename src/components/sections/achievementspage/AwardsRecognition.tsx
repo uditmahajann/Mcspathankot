@@ -43,7 +43,7 @@ const AWARDS = [
 
 const AwardsRecognitions: React.FC = () => {
   return (
-    <section id="awards" className="py-20 bg-gradient-to-b from-yellow-50 to-white">
+    <section id="awards" className="py-20 bg-linear-to-b from-yellow-50 to-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-10">
         {/* Header */}
         <div className="text-center mb-12">
@@ -71,7 +71,7 @@ const AwardsRecognitions: React.FC = () => {
                     className="w-full h-48 object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
                   <div className="absolute bottom-3 left-4 flex items-center gap-2 text-white">
                     <Icon className="w-5 h-5" />
                     <span className="font-medium">{award.year}</span>

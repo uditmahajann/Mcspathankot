@@ -1,5 +1,3 @@
-"use client"
-
 import type React from "react"
 import { MapPin, Navigation, Phone, Clock, Info } from "lucide-react"
 

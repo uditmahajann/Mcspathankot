@@ -53,7 +53,7 @@ export default function FacilitiesNav() {
   };
 
   return (
-    <div className="sticky top-[130px] z-40 bg-white backdrop-blur-md border-b shadow">
+    <div className="sticky top-32.5 z-40 bg-white backdrop-blur-md border-b shadow">
       <div className="container mx-auto px-4 py-3 overflow-x-auto">
         <div className="flex w-max gap-3">
           {sections.map((item, index) => (

@@ -135,7 +135,7 @@ const Events = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {upcomingEvents.map((event, index) => (
                 <div key={index} className="flex gap-4 bg-white p-4 rounded-lg shadow-sm">
-                  <div className="flex-shrink-0 w-16 h-16 bg-blue-100 rounded-lg flex flex-col items-center justify-center text-blue-800">
+                  <div className="shrink-0 w-16 h-16 bg-blue-100 rounded-lg flex flex-col items-center justify-center text-blue-800">
                     <Clock size={20} className="mb-1" />
                     <span className="text-xs font-medium">Upcoming</span>
                   </div>

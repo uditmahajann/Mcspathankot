@@ -1,8 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import CurriculumNav from '../../components/sections/curriculumpage/CurriculumNav';
 import ExaminationsHero from '../../components/sections/curriculumpage/ExaminationsHero';
-import Examinations from '../../components/sections/curriculumpage/Examinations';
+import ExaminationsSection from '../../components/sections/curriculumpage/Examinations';
 
 ---
 
@@ -25,28 +24,10 @@ import Examinations from '../../components/sections/curriculumpage/Examinations'
     <!-- Navigation Pills -->
     <!-- <CurriculumNav client:load /> -->
     
-    <Examinations client:load />
+    <ExaminationsSection client:load />
 
   </main>
   </Layout>
-  
-  <!-- <script>
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 100,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-  </script> -->
+
 </body>
 </html>

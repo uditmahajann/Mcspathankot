@@ -402,7 +402,7 @@ const Results = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-purple-700 to-indigo-800 text-white py-16 md:py-24">
+      <section className="relative bg-linear-to-r from-purple-700 to-indigo-800 text-white py-16 md:py-24">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-[url('/public/result-pattern.svg')] opacity-10"></div>
         </div>
@@ -574,7 +574,7 @@ const Results = () => {
                   .map((result, index) => (
                     <div
                       key={index}
-                      className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg p-5 border border-purple-100"
+                      className="bg-linear-to-br from-purple-50 to-indigo-50 rounded-lg p-5 border border-purple-100"
                     >
                       <div className="flex items-center gap-4">
                         <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-purple-200">
@@ -1100,7 +1100,7 @@ const Results = () => {
                 {achievers.map((achiever, index) => (
                   <div
                     key={index}
-                    className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg p-6 border border-purple-100"
+                    className="bg-linear-to-br from-purple-50 to-indigo-50 rounded-lg p-6 border border-purple-100"
                   >
                     <div className="flex items-center gap-4 mb-4">
                       <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-purple-200">

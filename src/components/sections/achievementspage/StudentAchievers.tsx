@@ -48,7 +48,7 @@ const ACHIEVERS = [
 
 const StudentAchievers: React.FC = () => {
   return (
-    <section id="student-achievers" className="py-20 bg-gradient-to-b from-white to-yellow-50">
+    <section id="student-achievers" className="py-20 bg-linear-to-b from-white to-yellow-50">
       <div className="max-w-7xl mx-auto px-6 sm:px-10">
         {/* Header */}
         <div className="text-center mb-12">

@@ -51,7 +51,7 @@ const SportsFacilities = () => {
       {/* Facility Grid */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
         {facilities.map((item, index) => (
-          <div key={index} className="relative rounded-2xl overflow-hidden group h-[280px] md:h-[320px] lg:h-[360px] cursor-pointer">
+          <div key={index} className="relative rounded-2xl overflow-hidden group h-70 md:h-80 lg:h-90 cursor-pointer">
             <img
               src={item.image}
               alt={item.title}

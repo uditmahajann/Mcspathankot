@@ -104,7 +104,7 @@ const CurriculumOverview: React.FC = () => {
                 {/* icon & title */}
                 <div className="flex items-start gap-4">
                   <div
-                    className={`flex h-12 w-12 rounded-lg items-center justify-center text-white flex-shrink-0 bg-gradient-to-br ${d.color}`}
+                    className={`flex h-12 w-12 rounded-lg items-center justify-center text-white shrink-0 bg-linear-to-br ${d.color}`}
                     aria-hidden
                   >
                     <Icon className="h-6 w-6" />

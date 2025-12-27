@@ -13,7 +13,7 @@ const ResultsHero: React.FC = () => {
         }}
       >
         {/* left-to-right overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/60 to-transparent" />
 
         <div className="relative z-10 w-full">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">

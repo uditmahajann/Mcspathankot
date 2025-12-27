@@ -37,7 +37,7 @@ const PerformingArtsFacilitiesA = () => {
           >
             <img
               src={item.img}
-              className="w-full h-[420px] object-cover rounded-3xl shadow-xl"
+              className="w-full h-105 object-cover rounded-3xl shadow-xl"
               alt={item.title}
             />
             <div>

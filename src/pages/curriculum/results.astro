@@ -1,8 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import CurriculumNav from '../../components/sections/curriculumpage/CurriculumNav';
 import ResultsHero from '../../components/sections/curriculumpage/ResultsHero';
-import Results from '../../components/sections/curriculumpage/Results';
+import ResultsSection from '../../components/sections/curriculumpage/Results';
 
 ---
 
@@ -14,39 +13,11 @@ import Results from '../../components/sections/curriculumpage/Results';
   
   <main>
 
-    <!-- <HeroSection client:load />
-    <DanceSection client:load />
-    <MusicSection client:load />
-    <DramaSection client:load /> -->
-
     <!-- Hero Section -->
     <ResultsHero client:load />
-    
-    <!-- Navigation Pills -->
-    <!-- <CurriculumNav client:load /> -->
-    
-    <Results client:load />
+    <ResultsSection client:load />
 
   </main>
   </Layout>
-  
-  <!-- <script>
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 100,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-  </script> -->
 </body>
 </html>

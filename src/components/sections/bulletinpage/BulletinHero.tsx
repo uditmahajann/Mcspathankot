@@ -13,7 +13,7 @@ const NewsEventsHero: React.FC<AboutHeroProps> = ({ schoolName, foundingYear, ta
     <>
       <section className="relative overflow-hidden pb-0 text-white">
         <div
-        className="relative z-10 flex flex-col items-center justify-center text-center py-10 bg-gradient-to-r from-blue-900 to-indigo-800"
+        className="relative z-10 flex flex-col items-center justify-center text-center py-10 bg-linear-to-r from-blue-900 to-indigo-800"
         style={{
           clipPath: "ellipse(100% 90% at 50% 0%)", // Curves only the bottom
         }}

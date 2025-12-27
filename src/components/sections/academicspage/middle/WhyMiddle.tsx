@@ -108,7 +108,7 @@ const WhyKindergarten: React.FC = () => {
                   {/* chip + icon */}
                   <div className="flex items-start gap-4">
                     <div
-                      className={`flex h-12 w-12 rounded-lg items-center justify-center text-white flex-shrink-0 bg-gradient-to-br ${p.accent}`}
+                      className={`flex h-12 w-12 rounded-lg items-center justify-center text-white shrink-0 bg-linear-to-br ${p.accent}`}
                       aria-hidden
                     >
                       <Icon className="h-6 w-6" />

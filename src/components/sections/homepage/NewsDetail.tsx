@@ -22,7 +22,7 @@ export default function NewsDetail() {
         <div className="rounded-3xl overflow-hidden shadow-md mb-10">
           <img
             src="/Images/Campus/McsEntry.JPG"
-            className="w-full h-[380px] object-cover"
+            className="w-full h-95 object-cover"
             alt="News Banner"
           />
         </div>

@@ -6,8 +6,8 @@ import { Sparkles, Smile, Heart } from "lucide-react";
 const AboutKindergarten: React.FC = () => {
   return (
     <section className="relative py-25 bg-white overflow-hidden">
-      <div className="absolute top-0 left-0 w-40 h-40 bg-yellow-200/30 rounded-full blur-3xl -z-0"></div>
-      <div className="absolute bottom-10 right-0 w-56 h-56 bg-pink-100/40 rounded-full blur-3xl -z-0"></div>
+      <div className="absolute top-0 left-0 w-40 h-40 bg-yellow-200/30 rounded-full blur-3xl z-0"></div>
+      <div className="absolute bottom-10 right-0 w-56 h-56 bg-pink-100/40 rounded-full blur-3xl z-0"></div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         

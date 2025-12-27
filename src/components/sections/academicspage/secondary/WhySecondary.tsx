@@ -70,7 +70,7 @@ const WhyKindergarten: React.FC = () => {
       <img
         src="/Images/Academics/SeniorWhy.png"
         alt="Cute monkey illustration"
-        className="absolute bottom-[-50px] right-0 w-[380px] sm:w-[460px] lg:w-[640px] z-20 pointer-events-none select-none"
+        className="absolute -bottom-12.5 right-0 w-95 sm:w-115 lg:w-160 z-20 pointer-events-none select-none"
       />
 
       <div className="relative z-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -108,7 +108,7 @@ const WhyKindergarten: React.FC = () => {
                   {/* chip + icon */}
                   <div className="flex items-start gap-4">
                     <div
-                      className={`flex h-12 w-12 rounded-lg items-center justify-center text-white flex-shrink-0 bg-gradient-to-br ${p.accent}`}
+                      className={`flex h-12 w-12 rounded-lg items-center justify-center text-white shrink-0 bg-linear-to-br ${p.accent}`}
                       aria-hidden
                     >
                       <Icon className="h-6 w-6" />

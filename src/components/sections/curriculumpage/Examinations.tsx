@@ -372,7 +372,7 @@ const Examination = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-purple-700 to-indigo-800 text-white py-16 md:py-24">
+      <section className="relative bg-linear-to-r from-purple-700 to-indigo-800 text-white py-16 md:py-24">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-[url('/public/exam-pattern.svg')] opacity-10"></div>
         </div>

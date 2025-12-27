@@ -65,8 +65,8 @@ const SportsShowcase = () => {
       <div className="grid md:grid-cols-2 gap-10 px-20">
         {players.map((p, i) => (
           <div key={i} className="relative rounded-3xl overflow-hidden group cursor-pointer">
-            <img src={p.img} className="w-full h-[580px] object-cover group-hover:scale-105 transition-all duration-500" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent flex flex-col justify-end p-6 text-white">
+            <img src={p.img} className="w-full h-145 object-cover group-hover:scale-105 transition-all duration-500" />
+            <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent flex flex-col justify-end p-6 text-white">
               <h3 className="font-poppins tracking-wide text-2xl font-bold">{p.headline}</h3>
               <p className="mt-1 font-inter opacity-90">{p.sport}</p>
               <p className="mt-2 text-sm font-inter font-bold text-[#C9FF6C] uppercase tracking-wide">{p.year}</p>

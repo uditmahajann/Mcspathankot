@@ -34,7 +34,7 @@ const ParentPartnership: React.FC = () => {
       <img
         src="/Images/Academics/Secondaryfooter.png"
         alt="Cute monkey illustration"
-        className="absolute w-full bottom-[0px] pointer-events-none select-none"
+        className="absolute w-full bottom-0 pointer-events-none select-none"
       />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
