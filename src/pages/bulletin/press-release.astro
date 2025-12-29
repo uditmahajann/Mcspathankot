@@ -3,9 +3,9 @@ import Layout from "../../layouts/Layout.astro";
 import PressReleaseHero from "../../components/sections/bulletinpage/PressReleaseHero";
 import PressReleaseSection from "../../components/sections/bulletinpage/PressRelease";
 
-import { sanity } from "../../lib/sanity";
+import { client } from "../../lib/sanity";
 
-const pressReleases = await sanity.fetch(`
+const pressReleases = await client.fetch(`
   *[_type == "pressRelease"] | order(date desc) {
     _id,
     title,
@@ -17,7 +17,7 @@ const pressReleases = await sanity.fetch(`
   }
 `);
 
-const printMedia = await sanity.fetch(`
+const printMedia = await client.fetch(`
   *[_type == "printMedia"] | order(_createdAt desc) {
     _id,
     title,

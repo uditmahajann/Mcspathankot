@@ -1,5 +1,4 @@
 import type React from "react";
-import { cld } from "../../../utils/cloudinary";
 
 const HistoryHero: React.FC = () => {
   return (
@@ -7,7 +6,7 @@ const HistoryHero: React.FC = () => {
       <div
         className="relative min-h-[60vh] md:min-h-[65vh] flex items-center"
         style={{
-          backgroundImage: `url(${cld("SampleImage_nefv5n", 1600)})`,
+          backgroundImage: "",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed", // parallax-like

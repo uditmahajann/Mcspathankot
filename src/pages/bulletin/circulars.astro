@@ -3,9 +3,9 @@ import Layout from '../../layouts/Layout.astro';
 import CircularsHero from '../../components/sections/bulletinpage/CircularsHero';
 import CircularsSection from '../../components/sections/bulletinpage/Circulars';
 
-import { sanity } from "../../lib/sanity";
+import { client } from "../../lib/sanity";
 
-const circulars = await sanity.fetch(`
+const circulars = await client.fetch(`
   *[_type == "circular"] | order(date desc) {
     _id,
     category,

@@ -9,16 +9,16 @@ import SpecialMentions from '../../components/sections/achievementspage/SpecialM
 import AlumniSpotlight from '../../components/sections/achievementspage/AlumniSpotlight';
 
 
-import { sanity } from '../../lib/sanity';
+import { client } from '../../lib/sanity';
 import { awardsQuery } from "../../lib/queries/awards";
 import { achievementsQuery } from "../../lib/queries/achievements";
 import { alumniQuery } from "../../lib/queries/alumni";
 import { studentAchieversBannersQuery } from "../../lib/queries/banner";
 
-const awards = await sanity.fetch(awardsQuery);
-const achievements = await sanity.fetch(achievementsQuery);
-const alumni = await sanity.fetch(alumniQuery);
-const banner = await sanity.fetch(studentAchieversBannersQuery);
+const awards = await client.fetch(awardsQuery);
+const achievements = await client.fetch(achievementsQuery);
+const alumni = await client.fetch(alumniQuery);
+const banner = await client.fetch(studentAchieversBannersQuery);
 
 
 ---

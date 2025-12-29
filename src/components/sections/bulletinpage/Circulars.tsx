@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Search, ChevronRight, X, Download } from "lucide-react"
-import { urlFor } from "../../../lib/sanityImage";
+import { urlFor } from "../../../lib/sanity";
 
 
 interface Circular {

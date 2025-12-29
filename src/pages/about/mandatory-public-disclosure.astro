@@ -3,10 +3,10 @@ import Layout from '../../layouts/Layout.astro';
 import DisclosureHero from '../../components/sections/aboutpage/MandatoryDisclosureHero';
 import MandatoryDisclosure from '../../components/sections/aboutpage/MandatoryDisclosure';
 
-import { sanity } from "../../lib/sanity";
+import { client } from "../../lib/sanity";
 import { mandatoryDisclosureQuery } from "../../lib/queries/mandatoryDisclosure";
 
-const data = await sanity.fetch(mandatoryDisclosureQuery);
+const data = await client.fetch(mandatoryDisclosureQuery);
 
 ---
 

@@ -2,7 +2,7 @@ import type React from "react";
 import { useEffect, useState } from "react";
 import { ArrowRight, X, ChevronLeft, ChevronRight } from "lucide-react";
 
-import { urlFor } from "../../../lib/sanityImage";
+import { urlFor } from "../../../lib/sanity";
 
 interface PrintMediaItem {
   _id: string;

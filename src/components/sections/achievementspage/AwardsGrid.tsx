@@ -1,5 +1,5 @@
 import type React from "react"
-import { urlFor } from "../../../lib/sanityImage";
+import { urlFor } from "../../../lib/sanity";
 
 
 interface Award {

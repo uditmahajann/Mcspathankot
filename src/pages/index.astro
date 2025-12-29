@@ -12,25 +12,25 @@ import Partnerships from "../components/sections/homepage/Partnerships";
 import Achievements from "../components/sections/homepage/Achievements";
 import Alumni from "../components/sections/homepage/Alumni";
 
-import { sanity } from "../lib/sanity";
+import { client } from "../lib/sanity";
 import { newsListingQuery } from "../lib/queries/news";
 import { instaReelsQuery } from "../lib/queries/instaReels";
 import { awardsQuery } from "../lib/queries/awards";
 import { bannersByCategoryQuery } from "../lib/queries/banner";
 
-const news = await sanity.fetch(newsListingQuery);
-const instaReels = await sanity.fetch(instaReelsQuery);
-const awards = await sanity.fetch(awardsQuery);
+const news = await client.fetch(newsListingQuery);
+const instaReels = await client.fetch(instaReelsQuery);
+const awards = await client.fetch(awardsQuery);
 
-const classXIIBanners = await sanity.fetch(bannersByCategoryQuery, {
+const classXIIBanners = await client.fetch(bannersByCategoryQuery, {
 	category: "class-xii",
 });
 
-const classXBanners = await sanity.fetch(bannersByCategoryQuery, {
+const classXBanners = await client.fetch(bannersByCategoryQuery, {
 	category: "class-x",
 });
 
-const studentBanners = await sanity.fetch(bannersByCategoryQuery, {
+const studentBanners = await client.fetch(bannersByCategoryQuery, {
 	category: "student-achievers",
 });
 
@@ -41,6 +41,7 @@ const normalize = (items: any[]) =>
 		title: b.title,
 		imageUrl: b.image.asset.url,
 	}));
+
 ---
 
 <Layout
@@ -59,7 +60,7 @@ const normalize = (items: any[]) =>
 			client:load
 		/>
 		<Awards awards={awards} client:load />
-		<EduLevels client:only />
+		<EduLevels client:load />
 		<Admission client:load />
 		<FutureTrends client:load />
 		<!-- <McsLife client:load /> -->

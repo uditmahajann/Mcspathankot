@@ -3,9 +3,9 @@ import Layout from '../../layouts/Layout.astro';
 import SyllabusHero from '../../components/sections/curriculumpage/SyllabusHero';
 import SyllabusSection from '../../components/sections/curriculumpage/Syllabus';
 
-import { sanity } from "../../lib/sanity";
+import { client } from "../../lib/sanity";
 
-const syllabus = await sanity.fetch(`
+const syllabus = await client.fetch(`
   *[_type == "syllabus"] | order(classOrder asc) {
     _id,
     group,

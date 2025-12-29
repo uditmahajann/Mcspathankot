@@ -3,9 +3,9 @@ import Layout from '../../layouts/Layout.astro';
 import AcademicCoursesHero from '../../components/sections/curriculumpage/AcademicCoursesHero';
 import CoursesSection from '../../components/sections/curriculumpage/Courses';
 
-import { sanity } from "../../lib/sanity";
+import { client } from "../../lib/sanity";
 
-const courseGroups = await sanity.fetch(`
+const courseGroups = await client.fetch(`
   *[_type == "courseGroup"]{
     _id,
     gradeGroup,

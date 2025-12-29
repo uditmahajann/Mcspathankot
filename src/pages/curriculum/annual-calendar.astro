@@ -2,9 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import AnnualCalendarHero from '../../components/sections/curriculumpage/AnnualCalendarHero';
 import AnnualCalendarSection from '../../components/sections/curriculumpage/AnnualCalendar';
-import { sanity } from "../../lib/sanity";
+import { client } from "../../lib/sanity";
 
-const calendarEvents = await sanity.fetch(`
+const calendarEvents = await client.fetch(`
   *[_type == "annualCalendar"] | order(date asc) {
     _id,
     title,

@@ -3,10 +3,10 @@ import Layout from '../../layouts/Layout.astro';
 import EventsHero from '../../components/sections/bulletinpage/UpcomingEventsHero';
 import Events from '../../components/sections/bulletinpage/UpcomingEvents';
 
-import { sanity } from "../../lib/sanity";
+import { client } from "../../lib/sanity";
 import { newsListingQuery } from "../../lib/queries/news";
 
-const news = await sanity.fetch(newsListingQuery);
+const news = await client.fetch(newsListingQuery);
 ---
 
 <Layout

@@ -3,9 +3,9 @@ import Layout from '../../layouts/Layout.astro';
 import CareersHero from '../../components/sections/bulletinpage/CareersHero';
 import CareersSection from '../../components/sections/bulletinpage/Careers';
 
-import { sanity } from "../../lib/sanity";
+import { client } from "../../lib/sanity";
 
-const careers = await sanity.fetch(`
+const careers = await client.fetch(`
   *[_type == "careerOpening"] | order(applicationDeadline asc) {
     _id,
     title,
