@@ -1,0 +1,301 @@
+---
+// Import necessary components
+import { ChevronDown } from "lucide-react";
+import TopBar from "./TopBar";
+import MobileNav from "./MobileNav";
+
+
+// Define navigation structure with dropdowns
+const navigation = [
+  {
+    name: "Home",
+    href: "/",
+    dropdown: false,
+  },
+  {
+    name: "About",
+    href: "/about",
+    dropdown: true,
+    items: [
+      { name: "Our History", href: "/about/history" },
+      { name: "Vision & Mission", href: "/about/vision-&-mission" },
+      { name: "Our Leadership", href: "/about/leadership" },
+      { name: "Infrastructure", href: "/about/infrastructure" },
+      {
+        name: "Mandatory Public Disclosure",
+        href: "/about/mandatory-public-disclosure",
+      },
+    ],
+  },
+  {
+    name: "Achievements",
+    href: "/achievements",
+    dropdown: false,
+  },
+  {
+    name: "Facilities",
+    href: "/facilities",
+    dropdown: false,
+  },
+  {
+    name: "Campus Life",
+    href: "/campus-life",
+    dropdown: false,
+  },
+  {
+    name: "Academics",
+    href: "/academics",
+    dropdown: true,
+    items: [
+      { name: "Kindergarten", href: "/academics/kindergarten" },
+      { name: "Primary School", href: "/academics/primary-school" },
+      { name: "Middle School", href: "/academics/middle-school" },
+      { name: "Secondary School", href: "/academics/secondary-school" },
+      {
+        name: "Senior Sec. School",
+        href: "/academics/senior-secondary-school",
+      },
+    ],
+  },
+ {
+    name: "Co-curriculars",
+    href: "/academics",
+    dropdown: true,
+    items: [
+      { name: "Performative Arts", href: "/co-curriculars/performing-arts" },
+      { name: "Research & Innovation", href: "/co-curriculars/research-&-innovation" },
+      { name: "Sports & Athletics", href: "/co-curriculars/sports-&-athletics" },
+      // { name: "NCC & NDA", href: "/co-curriculars/ncc-&-nda" },
+    ],
+  },
+  {
+    name: "Curriculum",
+    href: "/curriculum",
+    dropdown: true,
+    items: [
+      { name: "Annual Calendar", href: "/curriculum/annual-calendar" },
+      { name: "Academic Courses", href: "/curriculum/academic-courses" },
+      { name: "Syllabus", href: "/curriculum/syllabus" },
+      { name: "Book List", href: "/curriculum/booklist" },
+      { name: "Uniform", href: "/curriculum/uniform" },
+      { name: "Examinations", href: "/curriculum/examinations" },
+      { name: "Results", href: "/curriculum/results" },
+    ],
+  },
+
+  {
+    name: "Admission",
+    href: "#",
+    dropdown: true,
+    items: [
+      { name: "Why Choose MCS?", href: "/admission/why-choose-MCS" },
+      { name: "Admission Process", href: "/admission/admission-process" },
+      { name: "Fee Structure", href: "/admission/fee-structure" },
+      { name: "Withdrawals", href: "/admission/withdrawals" },
+      {
+        name: "Transfer Certificate",
+        href: "/admission/transfer-certificate",
+      },
+    ],
+  },
+  {
+    name: "Bulletin",
+    href: "#",
+    dropdown: true,
+    items: [
+      { name: "Circulars", href: "/bulletin/circulars" },
+      { name: "News & Events", href: "/bulletin/upcoming-events" },
+      { name: "Media & Press Release", href: "/bulletin/press-release" },
+      { name: "Student Blogs", href: "/bulletin/student-blogs" },
+      { name: "Teacher Blogs", href: "/bulletin/teacher-blogs" },
+      { name: "Careers", href: "/bulletin/careers" },
+    ],
+  },
+  {
+    name: "Contact",
+    href: "/contact",
+    dropdown: false,
+  },
+];
+
+// Social media links
+const socialLinks = [
+  { name: "Facebook", href: "https://facebook.com", icon: "facebook" },
+  { name: "Twitter", href: "https://twitter.com", icon: "twitter" },
+  { name: "Instagram", href: "https://instagram.com", icon: "instagram" },
+  { name: "YouTube", href: "https://youtube.com", icon: "youtube" },
+];
+
+// Quick action buttons
+const quickActions = [
+  { name: "Pay Fee", href: "/pay-fee", icon: "credit-card" },
+  { name: "Enquire Now", href: "/enquire", icon: "message-circle" },
+  { name: "School ERP", href: "/erp", icon: "layout-dashboard" },
+  { name: "Alumni Connect", href: "/alumni", icon: "users" },
+];
+
+// Contact information
+const contactInfo = {
+  phone: "+91-98765-70911",
+  email: "mcs_pathankot@yahoo.co.in",
+};
+
+// Get current path for active link highlighting
+const currentPath = Astro.url.pathname;
+---
+
+<header class="w-full">
+  <!-- Top Banner (kept non-sticky) -->
+  <TopBar client:load />
+
+  <!-- Sticky wrapper: BrandBar + NavBar stick together -->
+  <div
+    id="sticky-header"
+    class="headerwrap transition-all duration-500 ease-in-out"
+  >
+
+    <!-- NavBar -->
+    <div class="w-full">
+      <div class="flex items-center justify-between w-full mx-auto px-5 sm:px-6">
+        <div class="flex items-center justify-between w-full py-2 gap-x-5">
+          <a
+            href="/"
+            class="flex items-center gap-3 shrink-0"
+            aria-label="Montessori Cambridge School Home"
+          >
+            <img
+              src="/Images/Logos/mcslogo.png"
+              alt="MCS Logo"
+              class="w-15"
+              loading="lazy"
+            />
+          </a>
+          <!-- Desktop Navigation -->
+          <nav
+            class="hidden lg:flex flex-wrap justify-center gap-x-2 gap-y-5 flex-1 py-3"
+            role="navigation"
+            aria-label="Main navigation"
+          >
+            {
+              navigation.map((item) => (
+                <div class="relative group">
+                  <a
+                    href={item.href}
+                    class={`navlink px-2 py-2 hover:bg-primarylight hover:text-primarydark rounded-md text-base font-inter font-medium hover:font-semibold transition-colors ${
+                      currentPath === item.href ||
+                      (item.href !== "/" &&
+                        currentPath.startsWith(item.href + "/"))
+                        ? "text-primarydark font-semibold"
+                        : "text-gray-800"
+                    }`}
+                  >
+                    {item.name}
+                    {item.dropdown && (
+                      <ChevronDown
+                        client:load
+                        className="h-4.5 w-4.5 inline-block"
+                      />
+                    )}
+                  </a>
+
+                  {item.dropdown && (
+                    <div class="absolute left-0 mt-3 w-52 rounded-md shadow-lg bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                      <div class="py-2" role="menu" aria-orientation="vertical">
+                        {item.items?.map((subItem) => (
+                          <a
+                            href={subItem.href}
+                            class="block px-4 py-2 font-inter text-base text-gray-900 hover:bg-secondarylight hover:text-secondarydark"
+                            role="menuitem"
+                          >
+                            {subItem.name}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))
+            }
+          </nav>
+
+          <!-- Search + Mobile -->
+          <div class="flex items-center gap-1">
+            <a
+              href="/pay-fee"
+              class="shrink-0 group inline-flex items-center justify-center py-2 px-5 sm:py-2.5 text-outfit font-medium text-white bg-primarydark rounded-full transition-all duration-300 ease-in-out hover:font-semibold hover:text-white hover:bg-secondarydark hover:scale-105 active:scale-95 cursor-pointer text-sm"
+            >
+              PAY FEES
+          </a>
+            <MobileNav
+              client:load
+              navigation={navigation}
+              currentPath={currentPath}
+              contactInfo={contactInfo}
+              socialLinks={socialLinks}
+              quickActions={quickActions}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  .animate-slideDown {
+    animation: slideDown 0.28s ease-in-out;
+  }
+
+  /* Sticky wrapper states */
+  .headerwrap {
+    background: #fff;
+    position: relative;
+    z-index: 30;
+  }
+  .headerwrap-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 60;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  }
+</style>
+
+<script type="module">
+  if (typeof window !== "undefined") {
+    const sticky = document.getElementById("sticky-header");
+
+    const onScroll = () => {
+      if (!sticky) return;
+      if (window.scrollY > 50) {
+        if (!sticky.classList.contains("headerwrap-sticky")) {
+          sticky.classList.add("headerwrap-sticky", "animate-slideDown");
+          sticky.classList.remove("headerwrap-transparent");
+          // Add body padding equal to combined height to avoid jump
+          const h = sticky.offsetHeight;
+          document.body.style.paddingTop = `${h}px`;
+        }
+      } else {
+        sticky.classList.remove("headerwrap-sticky", "animate-slideDown");
+        sticky.classList.add("headerwrap-transparent");
+        document.body.style.paddingTop = "";
+      }
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    window.addEventListener("load", onScroll);
+  }
+</script>
+
+

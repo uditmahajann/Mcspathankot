@@ -1,11 +1,69 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/sections/homepage/Hero";
+import News from "../components/sections/homepage/News";
+import InstaReels from "../components/sections/homepage/InstaReels";
+import Awards from "../components/sections/homepage/Awards";
+// import McsLife from "../components/sections/homepage/McsLife";
+import EduLevels from "../components/sections/homepage/EduLevels";
+import Admission from "../components/sections/homepage/Admission";
+import FutureTrends from "../components/sections/homepage/FutureTrends";
+import Partnerships from "../components/sections/homepage/Partnerships";
+import Achievements from "../components/sections/homepage/Achievements";
+import Alumni from "../components/sections/homepage/Alumni";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { sanity } from "../lib/sanity";
+import { newsListingQuery } from "../lib/queries/news";
+import { instaReelsQuery } from "../lib/queries/instaReels";
+import { awardsQuery } from "../lib/queries/awards";
+import { bannersByCategoryQuery } from "../lib/queries/banner";
+
+const news = await sanity.fetch(newsListingQuery);
+const instaReels = await sanity.fetch(instaReelsQuery);
+const awards = await sanity.fetch(awardsQuery);
+
+const classXIIBanners = await sanity.fetch(bannersByCategoryQuery, {
+	category: "class-xii",
+});
+
+const classXBanners = await sanity.fetch(bannersByCategoryQuery, {
+	category: "class-x",
+});
+
+const studentBanners = await sanity.fetch(bannersByCategoryQuery, {
+	category: "student-achievers",
+});
+
+// normalize once
+const normalize = (items: any[]) =>
+	items.map((b: { _id: any; title: any; image: { asset: { url: any; }; }; }) => ({
+		_id: b._id,
+		title: b.title,
+		imageUrl: b.image.asset.url,
+	}));
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+	title="MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+	description="Montessori Cambridge School is a top boarding school delivering quality education, modern hostels, sports excellence, and all-round student development."
+	pubDate={new Date()}
+>
+	<main class="w-full">
+		<Hero client:load />
+		<News news={news} client:load />
+		<InstaReels reels={instaReels} client:load />
+		<Achievements
+			classXII={normalize(classXIIBanners)}
+			classX={normalize(classXBanners)}
+			students={normalize(studentBanners)}
+			client:load
+		/>
+		<Awards awards={awards} client:load />
+		<EduLevels client:only />
+		<Admission client:load />
+		<FutureTrends client:load />
+		<!-- <McsLife client:load /> -->
+		<Alumni client:only />
+		<Partnerships client:load />
+	</main>
 </Layout>

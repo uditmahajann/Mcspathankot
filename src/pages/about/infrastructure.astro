@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import InfrastructureHero from '../../components/sections/aboutpage/InfrastructureHero';
+import InfrastructureSection from '../../components/sections/aboutpage/Infrastructure';
+
+
+---
+
+<Layout
+  title="MCS Infrastructure | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Explore the modern infrastructure of MCS Pathankot, including smart classrooms, boarding, sports facilities, and labs."
+  pubDate={new Date()}
+  >
+	<main class="w-full">
+    <InfrastructureHero client:load/>
+    <InfrastructureSection client:load/>
+    
+</Layout>

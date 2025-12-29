@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MiddleHero from '../../components/sections/academicspage/middle/MiddleHero';
+import MiddleAbout from '../../components/sections/academicspage/middle/MiddleAbout';
+import MiddleHighlights from '../../components/sections/academicspage/middle/MiddleHighlights';
+import WhyMiddle from '../../components/sections/academicspage/middle/WhyMiddle';
+import MiddleCurriculum from '../../components/sections/academicspage/middle/MiddleCurriculum';
+import MiddleExtra from '../../components/sections/academicspage/middle/MiddleExtra';
+import MiddleSafety from '../../components/sections/academicspage/middle/MiddleSafety';
+import MiddleParent from '../../components/sections/academicspage/middle/MiddleParent';
+---
+
+<Layout
+  title="About MCS: Our History | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Learn about MCS Pathankot – our history, values, leadership, and dedication to nurturing disciplined, well-rounded students."
+  pubDate={new Date()}
+  >
+	<main class="w-full">
+    <MiddleHero client:load/>
+    <MiddleAbout client:load/>
+    <MiddleHighlights client:load/>
+    <WhyMiddle client:load/>
+    <MiddleCurriculum client:load/>
+    <MiddleExtra client:load/>
+    <MiddleSafety client:load/>
+    <MiddleParent client:load/>    
+</Layout>

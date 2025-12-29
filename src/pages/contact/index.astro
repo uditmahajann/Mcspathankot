@@ -1,0 +1,22 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ContactHero from "../../components/sections/contactpage/ContactHero";
+import ContactForm from "../../components/sections/contactpage/ContactForm";
+import ContactInfo from "../../components/sections/contactpage/ContactInfo";
+import LocationMap from "../../components/sections/contactpage/LocationMap";
+import FAQSection from "../../components/sections/contactpage/FAQSection";
+---
+
+<Layout
+  title="Contact Us | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Get in touch with MCS office for admissions, transport, campus visits, or general inquiries. We are here to answer your questions and guide you through the admission process and school facilities."
+  pubDate={new Date()}
+>
+  <main>
+    <ContactHero client:load />
+    <ContactInfo />
+    <ContactForm client:load />
+    <LocationMap client:load />
+    <FAQSection client:load />
+  </main>
+</Layout>

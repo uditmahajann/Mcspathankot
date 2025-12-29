@@ -1,0 +1,47 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import CampusLifeHero from "../../components/sections/campuslifepage/CampusLifeHero";
+import EventsActivities from "../../components/sections/campuslifepage/EventsActivities";
+import BoardingExperience from "../../components/sections/campuslifepage/BoardingExperience";
+import DayBoardingExperience from "../../components/sections/campuslifepage/DayBoardingExperience";
+import Exhibitions from "../../components/sections/campuslifepage/EnrichingExhibitions";
+import OutreachPrograms from '../../components/sections/campuslifepage/OutreachPrograms';
+import ToursExcursions from '../../components/sections/campuslifepage/ToursExcursions';
+
+import { sanity } from "../../lib/sanity"
+
+const eventsQuery = `
+*[_type == "event"] | order(date desc) {
+  _id,
+  title,
+  description,
+  date,
+  location,
+  featured,
+  tags,
+  video {
+    asset->{
+      url
+    }
+  }
+}
+`;
+
+const events = await sanity.fetch(eventsQuery);
+---
+
+<Layout
+  title="Campus Life @MCS | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Explore the campus life at MCS Pathankot that is filled with fun, learning, and skill-building activities shaping student growth, teamwork, and leadership while nurturing independence, discipline, and camaraderie among students."
+  pubDate={new Date()}
+  >
+  <main>
+    <CampusLifeHero client:load />
+    <EventsActivities events={events} client:only />
+    <BoardingExperience client:load />
+    <DayBoardingExperience client:load />
+    <OutreachPrograms client:load />
+    <Exhibitions client:load />
+    <ToursExcursions client:load />
+  </main>
+</Layout>

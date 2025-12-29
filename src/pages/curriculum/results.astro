@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ResultsHero from '../../components/sections/curriculumpage/ResultsHero';
+import ResultsSection from '../../components/sections/curriculumpage/Results';
+
+---
+
+<Layout
+  title="CBSE Board Results MCS | School Results | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Excellence reflected in results. View academic performance and board examination achievements of MCS Pathankot students."
+  pubDate={new Date()}
+  >
+  
+  <main>
+
+    <!-- Hero Section -->
+    <ResultsHero client:load />
+    <ResultsSection client:load />
+
+  </main>
+  </Layout>
+</body>
+</html>

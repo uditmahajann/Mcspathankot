@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TransferCertificateHero from '../../components/sections/admissionpage/TransferCertificateHero';
+import TransferCertificateSection from '../../components/sections/admissionpage/TransferCertificate';
+
+---
+
+<Layout
+  title="Transfer Certificate | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Apply and download the Transfer Certificate (TC) from MCS Pathankot. Learn the procedure and requirements for obtaining the TC."
+  pubDate={new Date()}
+  >
+	<main class="w-full">
+    <TransferCertificateHero client:load />
+    <TransferCertificateSection client:load />
+	
+</Layout>
+

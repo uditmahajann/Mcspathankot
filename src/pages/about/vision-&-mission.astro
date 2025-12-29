@@ -1,0 +1,16 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import VisionHero from '../../components/sections/aboutpage/VisionHero';
+import Vision from '../../components/sections/aboutpage/Vision';
+---
+
+<Layout
+  title="Vision & Mission | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Explore the vision and mission of MCS Pathankot – shaping future-ready students with values, discipline, and academic excellence."
+  pubDate={new Date()}
+  >
+	<main class="w-full">
+    <VisionHero client:load/>
+    <Vision client:load/>
+    
+</Layout>

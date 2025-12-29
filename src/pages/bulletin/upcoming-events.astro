@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import EventsHero from '../../components/sections/bulletinpage/UpcomingEventsHero';
+import Events from '../../components/sections/bulletinpage/UpcomingEvents';
+
+import { sanity } from "../../lib/sanity";
+import { newsListingQuery } from "../../lib/queries/news";
+
+const news = await sanity.fetch(newsListingQuery);
+---
+
+<Layout
+  title="MCS News & Events | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Stay updated with upcoming events, celebrations, competitions, and important activities at MCS Pathankot. Explore our calendar of cultural, academic, and sports events."
+  pubDate={new Date()}
+  >
+  <main>
+    <EventsHero client:load />
+    <Events news={news} client:load client:load />
+  </main>
+</Layout>

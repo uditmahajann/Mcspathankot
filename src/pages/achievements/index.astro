@@ -1,0 +1,42 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SuccessStoriesHero from '../../components/sections/achievementspage/SuccessStoriesHero';
+import AwardsGrid from '../../components/sections/achievementspage/AwardsGrid';
+import AchieversCarousel from '../../components/sections/achievementspage/AchieversCarousel';
+import PhotoHighlights from '../../components/sections/achievementspage/PhotoHighlights';
+import MilestoneJourney from '../../components/sections/achievementspage/MilestoneJourney';
+import SpecialMentions from '../../components/sections/achievementspage/SpecialMentions';
+import AlumniSpotlight from '../../components/sections/achievementspage/AlumniSpotlight';
+
+
+import { sanity } from '../../lib/sanity';
+import { awardsQuery } from "../../lib/queries/awards";
+import { achievementsQuery } from "../../lib/queries/achievements";
+import { alumniQuery } from "../../lib/queries/alumni";
+import { studentAchieversBannersQuery } from "../../lib/queries/banner";
+
+const awards = await sanity.fetch(awardsQuery);
+const achievements = await sanity.fetch(achievementsQuery);
+const alumni = await sanity.fetch(alumniQuery);
+const banner = await sanity.fetch(studentAchieversBannersQuery);
+
+
+---
+
+<Layout
+  title="Achievements & Awards | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Discover the achievements and awards of MCS — our outstanding academic results, sports achievements, cultural awards, and national recognitions earned by our students."
+  pubDate={new Date()}
+  >
+	<main class="w-full">
+    <SuccessStoriesHero client:load/>
+    <AwardsGrid awards={awards} client:load/>
+    <AchieversCarousel achievements={achievements} client:load/>
+    <PhotoHighlights client:load/>
+    <AlumniSpotlight alumni={alumni} client:load/>
+    <SpecialMentions  banners={banner} client:load/>
+    <MilestoneJourney client:load/>
+
+  </main>
+    
+</Layout>

@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdmissionProcessHero from '../../components/sections/admissionpage/AdmissionProcessHero';
+import AdmissionProcessSection from '../../components/sections/admissionpage/AdmissionProcess';
+import ApplyOnline from '../../components/sections/admissionpage/ApplyOnline';
+
+---
+
+<Layout
+  title="Admissions at MCS Pathankot | Join Our Learning Community | Apply Online for Admissions | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Explore admission details at MCS Pathankot. Learn about eligibility, application process, key dates, and opportunities for your child to thrive academically and beyond."
+  pubDate={new Date()}
+  >
+	<main class="w-full">
+    <AdmissionProcessHero client:load />
+    <AdmissionProcessSection client:load />
+    <ApplyOnline client:load />
+	
+</Layout>
+

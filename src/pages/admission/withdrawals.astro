@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import WithdrawalsHero from '../../components/sections/admissionpage/WithdrawalsHero';
+import WithdrawalsSection from '../../components/sections/admissionpage/Withdrawals';
+---
+
+<Layout
+  title="Withdrawals & School Leaving Policy | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Learn about the withdrawal process at MCS Pathankot, including application guidelines, notice periods, and transfer procedures."
+  pubDate={new Date()}
+  >
+	<main class="w-full">
+  
+    <WithdrawalsHero client:load />
+    <WithdrawalsSection client:load />
+
+</Layout>
+

@@ -1,0 +1,105 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { sanity } from "../../lib/sanity";
+import { PortableText } from "@portabletext/react";
+import { urlFor } from "../../lib/sanityImage";
+
+export async function getStaticPaths() {
+  const slugs = await sanity.fetch(`
+    *[_type == "news" && defined(slug.current)][]{
+      "slug": slug.current
+    }
+  `);
+
+  return slugs.map((item: { slug: any; }) => ({
+    params: { slug: item.slug },
+  }));
+}
+
+
+const { slug } = Astro.params;
+
+const news = await sanity.fetch(
+  `
+  *[_type == "news" && slug.current == $slug][0]{
+    title,
+    description,
+    date,
+    coverImage,
+    content,
+    highlightsGallery[]{
+      asset->{
+        url
+      }
+    }
+  }
+  `,
+  { slug }
+);
+
+
+if (!news) {
+  throw new Error("News article not found");
+}
+---
+
+
+<Layout
+  title={news.title}
+  description={news.description}
+  pubDate={new Date(news.date)}
+>
+  <article class="max-w-4xl mx-auto px-6 py-10">
+
+    <!-- Cover Image -->
+    {news.coverImage && (
+      <img
+        src={urlFor(news.coverImage).width(1200).url()}
+        alt={news.title}
+        class="w-full h-105 object-cover rounded-2xl mb-8"
+      />
+    )}
+
+    <!-- Meta -->
+    <p class="text-sm text-blue-700 font-inter mb-2">
+      {new Date(news.date).toLocaleDateString("en-IN", {
+        month: "long",
+        year: "numeric",
+      })}
+    </p>
+
+    <h1 class="text-3xl md:text-4xl font-playpen font-bold mb-4">
+      {news.title}
+    </h1>
+
+    <p class="text-lg text-gray-700 mb-10 font-inter">
+      {news.description}
+    </p>
+
+    <!-- Article Content -->
+    <div class="prose prose-lg max-w-none">
+      <PortableText value={news.content} />
+    </div>
+
+    {news.highlightsGallery?.length > 0 && (
+  <section class="mt-14">
+    <h2 class="text-2xl font-playpen font-semibold mb-6">
+      Event Highlights
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      {news.highlightsGallery.map((img: { asset: { url: string | null | undefined; }; }, i: number) => (
+        <img
+          src={img.asset.url}
+          alt={`${news.title} highlight ${i + 1}`}
+          class="w-full h-64 object-cover rounded-xl shadow-sm hover:scale-[1.02] transition"
+          loading="lazy"
+        />
+      ))}
+    </div>
+  </section>
+)}
+
+
+  </article>
+</Layout>

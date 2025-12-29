@@ -1,0 +1,41 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { searchIndex } from "./searchIndex";
+
+const query = Astro.url.searchParams.get("q")?.toLowerCase() || "";
+
+const results = searchIndex.filter((item) =>
+  item.title.toLowerCase().includes(query) ||
+  item.description.toLowerCase().includes(query)
+);
+---
+
+<Layout title={`Search results for "${query}"`} description="Search results">
+  <main class="container px-6 py-16">
+    <h1 class="text-3xl font-bold mb-6">
+      Search results for “{query}”
+    </h1>
+
+    {query === "" && (
+      <p class="text-gray-600">Please enter a search term.</p>
+    )}
+
+    {query && results.length === 0 && (
+      <p class="text-gray-600">No results found.</p>
+    )}
+
+    <ul class="space-y-6">
+      {results.map((item) => (
+        <li class="border-b pb-4">
+          <a
+            href={item.url}
+            class="text-xl font-semibold text-primarydark hover:underline"
+          >
+            {item.title}
+          </a>
+          <p class="text-gray-600 mt-1">{item.description}</p>
+        </li>
+      ))}
+    </ul>
+  </main>
+</Layout>

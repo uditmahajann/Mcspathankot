@@ -1,0 +1,35 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AnnualCalendarHero from '../../components/sections/curriculumpage/AnnualCalendarHero';
+import AnnualCalendarSection from '../../components/sections/curriculumpage/AnnualCalendar';
+import { sanity } from "../../lib/sanity";
+
+const calendarEvents = await sanity.fetch(`
+  *[_type == "annualCalendar"] | order(date asc) {
+    _id,
+    title,
+    description,
+    category,
+    date,
+    time,
+    location,
+    audience
+  }
+`);
+
+---
+
+<Layout
+  title="Krityam | Build Fast. Scale Smart. Launch Better."
+  description="From MVP to full-scale apps, Krityam builds high-performance digital products for startups and enterprises. We help businesses build MVPs, scale apps, and deliver full-stack digital experiences with speed and precision."
+  pubDate={new Date()}
+  >
+  
+  <main>
+    <AnnualCalendarHero client:load />
+    <AnnualCalendarSection events={calendarEvents} client:only />
+
+  </main>
+  </Layout>
+</body>
+</html>

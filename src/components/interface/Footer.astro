@@ -1,0 +1,131 @@
+---
+import { Phone, MapPin, Mail, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
+
+const currentYear = new Date().getFullYear();
+
+const schoolName = "Montessori Cambridge School";
+
+const contact = {
+  address: "Defence Road (Pangoli), Pathankot – 145001",
+  phone: "+9198765-70911",
+  email: "mcs_pathankot@yahoo.co.in"
+};
+
+const academics = [
+  { name: "Pre-Primary School", href: "/curriculum" },
+  { name: "Primary School", href: "/faculty" },
+  { name: "Middle School", href: "/library" },
+  { name: "Secondary School", href: "/research" },
+  { name: "Senior Secondary School", href: "/calendar" }
+];
+
+const admissions = [
+  { name: "Admission Procedure", href: "/apply" },
+  { name: "Apply Online", href: "/tuition" },
+  { name: "Fee Structure", href: "/scholarships" },
+  { name: "Withdrawals", href: "/visit" },
+  { name: "Transfer Certificates", href: "/international" }
+];
+
+const curriculum = [
+  { name: "Annual Calendar", href: "/athletics" },
+  { name: "Syllabus", href: "/arts" },
+  { name: "Booklists", href: "/clubs" },
+  { name: "Examinations", href: "/wellness" },
+  { name: "Results", href: "/safety" }
+];
+---
+
+<footer class="bg-blue-950 text-white font-poppins leading-relaxed">
+  <div class="px-5 sm:px-10 md:px-16 lg:px-20 xl:px-24 py-12">
+    <div class="grid grid-cols-1 gap-y-12 gap-x-12 md:grid-cols-2 lg:grid-cols-5">
+      <!-- Contact Section -->
+      <div class="space-y-6 lg:col-span-2">
+        <div class="flex items-start gap-4">
+          <img src="/Images/Logos/McsLogoB.png" alt="MCS Logo" class="w-20 invert mb-2" loading="lazy" />
+          <h2 class="text-2xl font-bold text-white mt-2">Montessori<br />Cambridge School</h2>
+        </div>
+
+        <div class="space-y-4 text-slate-300 text-base">
+          <p class="flex items-start">
+            <MapPin className="w-5 h-5 mr-2 text-sky-500" />
+            <span>{contact.address}</span>
+          </p>
+          <p class="flex items-center">
+            <Phone className="w-5 h-5 mr-2 text-sky-500" />
+            <span>{contact.phone}</span>
+          </p>
+          <p class="flex items-center">
+            <Mail className="w-5 h-5 mr-2 text-sky-500" />
+            <a href={`mailto:${contact.email}`} class="hover:text-emerald-400 transition-colors">
+              {contact.email}
+            </a>
+          </p>
+        </div>
+
+        <div class="flex space-x-4 pt-2">
+          <a href="#" class="rounded-full bg-slate-700 p-2 text-slate-300 transition-colors hover:bg-sky-500 hover:text-white">
+            <span class="sr-only">Facebook</span>
+            <Facebook className="w-6 h-6" />
+          </a>
+          <a href="#" class="rounded-full bg-slate-700 p-2 text-slate-300 transition-colors hover:bg-sky-500 hover:text-white">
+            <span class="sr-only">Instagram</span>
+            <Instagram className="w-6 h-6" />
+          </a>
+          <a href="#" class="rounded-full bg-slate-700 p-2 text-slate-300 transition-colors hover:bg-sky-500 hover:text-white">
+            <span class="sr-only">YouTube</span>
+            <Youtube className="w-6 h-6" />
+          </a>
+          <a href="#" class="rounded-full bg-slate-700 p-2 text-slate-300 transition-colors hover:bg-sky-500 hover:text-white">
+            <span class="sr-only">LinkedIn</span>
+            <Linkedin className="w-6 h-6" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Academics -->
+      <div>
+        <h3 class="text-lg font-semibold text-white">Academics</h3>
+        <ul class="mt-4 space-y-2">
+          {academics.map(item => (
+            <li><a href={item.href} class="text-slate-300 hover:text-sky-500">{item.name}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Admissions -->
+      <div>
+        <h3 class="text-lg font-semibold text-white">Admissions</h3>
+        <ul class="mt-4 space-y-2">
+          {admissions.map(item => (
+            <li><a href={item.href} class="text-slate-300 hover:text-sky-500">{item.name}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Campus Life -->
+      <div>
+        <h3 class="text-lg font-semibold text-white">Curriculum</h3>
+        <ul class="mt-4 space-y-2">
+          {curriculum.map(item => (
+            <li><a href={item.href} class="text-slate-300 hover:text-sky-500">{item.name}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-12 border-t border-slate-700 pt-8">
+      <div class="flex flex-col items-center justify-between gap-6 md:flex-row">
+        <p class="text-sm text-slate-400">
+          &copy; {currentYear} {schoolName}. All rights reserved.
+        </p>
+        <nav class="flex flex-wrap gap-x-6 text-sm text-slate-400">
+          <a href="/privacy" class="hover:text-sky-500">Privacy Policy</a>
+          <a href="/terms" class="hover:text-sky-500">Terms of Service</a>
+          <a href="/accessibility" class="hover:text-sky-500">Accessibility</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</footer>

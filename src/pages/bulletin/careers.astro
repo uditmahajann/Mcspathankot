@@ -1,0 +1,33 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CareersHero from '../../components/sections/bulletinpage/CareersHero';
+import CareersSection from '../../components/sections/bulletinpage/Careers';
+
+import { sanity } from "../../lib/sanity";
+
+const careers = await sanity.fetch(`
+  *[_type == "careerOpening"] | order(applicationDeadline asc) {
+    _id,
+    title,
+    department,
+    experience,
+    education,
+    applicationDeadline,
+    description,
+    responsibilities
+  }
+`);
+
+---
+
+<Layout
+  title="Careers at MCS | Faculty Development | Join Our Team of Educators & Staff | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Explore teaching and adminstrative job opportunities at MCS. Join a dynamic environment dedicated to academic excellence, innovation, and nurturing future leaders."
+  pubDate={new Date()}
+  >
+  <main>
+    <CareersHero client:load />
+    <CareersSection careers={careers} client:only />
+
+  </main>
+</Layout>

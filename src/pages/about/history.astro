@@ -1,0 +1,16 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HistoryHero from '../../components/sections/aboutpage/HistoryHero';
+import HistorySection from '../../components/sections/aboutpage/History';
+---
+
+<Layout
+  title="About MCS: Our History | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Learn about MCS Pathankot – our history, values, leadership, and dedication to nurturing disciplined, well-rounded students."
+  pubDate={new Date()}
+  >
+	<main class="w-full">
+    <HistoryHero client:load/>
+    <HistorySection client:load/>
+    
+</Layout>

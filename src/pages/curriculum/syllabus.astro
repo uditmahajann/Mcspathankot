@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SyllabusHero from '../../components/sections/curriculumpage/SyllabusHero';
+import SyllabusSection from '../../components/sections/curriculumpage/Syllabus';
+
+import { sanity } from "../../lib/sanity";
+
+const syllabus = await sanity.fetch(`
+  *[_type == "syllabus"] | order(classOrder asc) {
+    _id,
+    group,
+    className,
+    classOrder,
+    description,
+    downloadFile {
+      asset->{
+        url
+      }
+    }
+  }
+`);
+
+---
+
+<Layout
+  title="Important Circulars | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Download detailed CBSE-aligned syllabus for all grades at MCS Pathankot, designed to balance academics, creativity, and skill development."
+  pubDate={new Date()}
+  >
+  
+  <main>
+    <SyllabusHero client:load />
+    <SyllabusSection syllabus={syllabus} client:load />
+
+  </main>
+  </Layout>
+</body>
+</html>

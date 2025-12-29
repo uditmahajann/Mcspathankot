@@ -1,0 +1,24 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FeeStructureHero from '../../components/sections/admissionpage/FeeStructureHero';
+import FeeStructureSection from '../../components/sections/admissionpage/FeeStructure';
+
+import { sanity } from "../../lib/sanity";
+import { feeStructureQuery } from "../../lib/queries/feeStructure";
+
+const data = await sanity.fetch(feeStructureQuery)
+
+---
+
+<Layout
+  title="Free Structure | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="View the complete fee structure of MCS Pathankot. Transparent details of tuition fees, annual charges, and payment guidelines."
+  pubDate={new Date()}
+  >
+	<main class="w-full">
+    
+    <FeeStructureHero client:load />
+    <FeeStructureSection feeCategories={data.tables} client:load />
+	
+</Layout>
+

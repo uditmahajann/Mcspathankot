@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AcademicCoursesHero from '../../components/sections/curriculumpage/AcademicCoursesHero';
+import CoursesSection from '../../components/sections/curriculumpage/Courses';
+
+import { sanity } from "../../lib/sanity";
+
+const courseGroups = await sanity.fetch(`
+  *[_type == "courseGroup"]{
+    _id,
+    gradeGroup,
+    title,
+    description,
+    courses[]{
+      name,
+      description,
+      components
+    }
+  }
+`);
+
+---
+
+<Layout
+  title="Academic Courses | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Discover academic courses across primary, middle, secondary, and senior secondary levels at MCS Pathankot, designed to prepare students for success."
+  pubDate={new Date()}
+  >
+  
+  <main>
+
+    <AcademicCoursesHero client:load />
+    <CoursesSection courseGroups={courseGroups} client:only />
+
+  </main>
+  </Layout>
+</body>
+</html>

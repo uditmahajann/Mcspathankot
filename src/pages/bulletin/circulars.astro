@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CircularsHero from '../../components/sections/bulletinpage/CircularsHero';
+import CircularsSection from '../../components/sections/bulletinpage/Circulars';
+
+import { sanity } from "../../lib/sanity";
+
+const circulars = await sanity.fetch(`
+  *[_type == "circular"] | order(date desc) {
+    _id,
+    category,
+    date,
+    title,
+    description,
+    image
+  }
+`);
+---
+
+<Layout
+  title="Circulars & Announcements | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Stay updated with the latest school circulars from MCS, including academic notices, events, holidays, and important announcements for students and parents."
+  pubDate={new Date()}
+  >
+  <main>
+    <CircularsHero client:load />
+    <CircularsSection circulars={circulars} client:only />
+  </main>
+</Layout>

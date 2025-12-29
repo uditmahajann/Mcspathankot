@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DisclosureHero from '../../components/sections/aboutpage/MandatoryDisclosureHero';
+import MandatoryDisclosure from '../../components/sections/aboutpage/MandatoryDisclosure';
+
+import { sanity } from "../../lib/sanity";
+import { mandatoryDisclosureQuery } from "../../lib/queries/mandatoryDisclosure";
+
+const data = await sanity.fetch(mandatoryDisclosureQuery);
+
+---
+
+<Layout
+  title="Important Circulars | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="From MVP to full-scale apps, Krityam builds high-performance digital products for startups and enterprises. We help businesses build MVPs, scale apps, and deliver full-stack digital experiences with speed and precision."
+  pubDate={new Date()}
+  >
+	<main class="w-full">
+    <DisclosureHero client:load/>
+
+    <section class="pt-4 sm:pt-10 mt-10 mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl bg-white text-center">
+      <div class="max-w-4xl mx-auto font-inter">
+        <p class="text-lg sm:text-xl  lg:text-2xl text-gray-800 font-medium mb-4 leading-normal">
+          We are affiliated to CBSE bearing affiliation no. <span class="text-primarydark"><strong>1630182</strong></span>
+        </p>
+        <div class="flex justify-center items-center mt-4">
+          <img
+            src="/Images/Logos/mcslogo.png"
+            alt="CBSE Logo"
+            class="w-28 sm:w-32 h-auto"
+          />
+        </div>
+      </div>
+    </section>
+    
+    <MandatoryDisclosure data={data} client:load/>
+
+</Layout>

@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LeadershipHero from '../../components/sections/aboutpage/LeadershipHero';
+import LeadershipSection from '../../components/sections/aboutpage/Leadership';
+
+---
+
+<Layout
+  title="MCS Leadership | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Meet the leadership of MCS Pathankot – visionary educators and mentors dedicated to guiding students toward excellence in academics, discipline, and life."
+  pubDate={new Date()}
+  >
+	<main class="w-full">
+    <LeadershipHero client:load/>
+    <LeadershipSection client:load/>
+    
+</Layout>

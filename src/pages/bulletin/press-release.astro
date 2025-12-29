@@ -1,0 +1,43 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PressReleaseHero from "../../components/sections/bulletinpage/PressReleaseHero";
+import PressReleaseSection from "../../components/sections/bulletinpage/PressRelease";
+
+import { sanity } from "../../lib/sanity";
+
+const pressReleases = await sanity.fetch(`
+  *[_type == "pressRelease"] | order(date desc) {
+    _id,
+    title,
+    description,
+    date,
+    source,
+    link,
+    thumbnail
+  }
+`);
+
+const printMedia = await sanity.fetch(`
+  *[_type == "printMedia"] | order(_createdAt desc) {
+    _id,
+    title,
+    description,
+    image
+  }
+`);
+---
+
+<Layout
+  title="Official Press Releases | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Read the latest press releases and media updates about MCS Pathankot. Discover school achievements, initiatives, and stories covered in the press."
+  pubDate={new Date()}
+>
+  <main>
+    <PressReleaseHero client:load />
+    <PressReleaseSection
+      pressReleases={pressReleases}
+      printMedia={printMedia}
+      client:only
+    />
+  </main>
+</Layout>

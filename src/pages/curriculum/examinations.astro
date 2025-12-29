@@ -1,0 +1,33 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ExaminationsHero from '../../components/sections/curriculumpage/ExaminationsHero';
+import ExaminationsSection from '../../components/sections/curriculumpage/Examinations';
+
+---
+
+<Layout
+  title="Examinations and Assessments | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Examination schedules, date sheets and evaluation methods at MCS Pathankot ensure fair assessment and continuous learning progress."
+  pubDate={new Date()}
+  >
+  
+  <main>
+
+    <!-- <HeroSection client:load />
+    <DanceSection client:load />
+    <MusicSection client:load />
+    <DramaSection client:load /> -->
+
+    <!-- Hero Section -->
+    <ExaminationsHero client:load />
+    
+    <!-- Navigation Pills -->
+    <!-- <CurriculumNav client:load /> -->
+    
+    <ExaminationsSection client:load />
+
+  </main>
+  </Layout>
+
+</body>
+</html>

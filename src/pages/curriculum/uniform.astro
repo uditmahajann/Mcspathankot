@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import UniformsHero from '../../components/sections/curriculumpage/UniformsHero';
+import Uniforms from '../../components/sections/curriculumpage/Uniforms';
+
+---
+
+<Layout
+  title="School Uniform | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="The MCS Pathankot uniform represents discipline, unity, and pride. Find guidelines and details about school attire here."
+  pubDate={new Date()}
+  >
+  
+  <main>
+    <UniformsHero client:load />
+    <Uniforms client:load />
+
+  </main>
+  </Layout>
+  
+</body>
+</html>

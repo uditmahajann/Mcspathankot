@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FacilitiesHero from '../../components/sections/facilitiespage/FacilitiesHero';
+import FoundationCoaching from '../../components/sections/facilitiespage/FoundationCoaching';
+import CompetitiveCoaching from '../../components/sections/facilitiespage/CompetitiveCoaching';
+import SmartClasses from '../../components/sections/facilitiespage/SmartClasses';
+import ProfessionalLabs from '../../components/sections/facilitiespage/ProfessionalLabs';
+import SportsGym from '../../components/sections/facilitiespage/SportsGym';
+import BoardingFacility from '../../components/sections/facilitiespage/BoardingFacility';
+import DayBoardingFacility from '../../components/sections/facilitiespage/DayBoardingFacility';
+import TransportFacility from '../../components/sections/facilitiespage/TransportFacility';
+
+---
+
+<Layout
+  title="MCS Facilities | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Explore the world-class facilities at MCS, top boarding school with smart classrooms, modern hostels, sports complexes, and a safe learning environment to support holistic student development."
+  pubDate={new Date()}
+  >
+	 <main>
+    <FacilitiesHero />
+    <FoundationCoaching client:load />
+    <CompetitiveCoaching client:load />
+    <SmartClasses client:load />
+    <SportsGym client:load />
+    <ProfessionalLabs client:load />
+    <TransportFacility client:load />
+    <BoardingFacility client:load />
+    <DayBoardingFacility client:load />
+  </main>
+</Layout>

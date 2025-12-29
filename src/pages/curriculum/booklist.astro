@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BooklistHero from '../../components/sections/curriculumpage/BooklistHero';
+import BooklistSection from '../../components/sections/curriculumpage/Booklist';
+
+---
+
+<Layout
+  title="Booklist | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Access the latest booklist for every grade at MCS Pathankot. Ensure your child is equipped with the right resources for the academic year."
+  pubDate={new Date()}
+  >
+  
+  <main>
+    <BooklistHero client:load />
+    <BooklistSection client:load />
+
+  </main>
+  </Layout>
+</body>
+</html>

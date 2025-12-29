@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ResearchHero from '../../components/sections/cocurricularpage/researchinnovation/ResearchHero.tsx';
+import ResearchAbout from '../../components/sections/cocurricularpage/performingarts/ArtsAbout.tsx';
+import ResearchPhilosophy from '../../components/sections/cocurricularpage/performingarts/ArtsPhilosophy';
+import ResearchShowcase from '../../components/sections/cocurricularpage/performingarts/ArtsShowcase.tsx';
+import ResearchFacilities from '../../components/sections/cocurricularpage/performingarts/ArtsFacilities';
+import ResearchPrograms from '../../components/sections/cocurricularpage/performingarts/ArtsPrograms';
+import CompetitiveHighlights from '../../components/sections/cocurricularpage/performingarts/CompetitiveHighlights';
+import ResearchMentorship from '../../components/sections/cocurricularpage/performingarts/ArtsMentorship';
+---
+
+<Layout
+  title="About MCS: Our History | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
+  description="Learn about MCS Pathankot – our history, values, leadership, and dedication to nurturing disciplined, well-rounded students."
+  pubDate={new Date()}
+  >
+	<main class="w-full">
+    <ResearchHero client:load/>
+    <ResearchAbout client:load/>
+    <ResearchPhilosophy client:load/>
+    <ResearchShowcase client:load/>
+    <ResearchFacilities client:load/>
+    <ResearchPrograms client:load/>
+    <CompetitiveHighlights client:load/>
+    <ResearchMentorship client:load/>
+</Layout>
