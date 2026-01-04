@@ -5,7 +5,7 @@ const SportsGym = () => {
     {
       name: "Olympic-Size Swimming Pool",
       description: "Temperature-controlled pool with professional lanes and diving boards.",
-      image: "/Images/Heros/samplehero.JPG",
+      image: "/Images/Facility/swimmingpool.JPG",
     },
     {
       name: "Indoor Sports Complex",
@@ -30,15 +30,15 @@ const SportsGym = () => {
     {
       name: "Modern Gymnasium",
       description: "Fully equipped gym with cardio and strength training equipment.",
-      image: "/Images/Heros/samplehero.JPG",
+      image: "/Images/Facility/gym.JPG",
     },
   ]
 
   return (
-    <section id="sports-gym" className="py-4 sm:py-10 my-10 bg-white">
-      <div className="container mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
+    <section id="sports-gym" className="py-4 sm:py-10 lg:py-16 my-10 bg-white">
+      <div className="container mx-auto max-w-7xl px-5 min-[540px]:px-12 sm:px-16 xl:px-0">
         <div className="text-center mb-8 sm:mb-16">
-          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-gray-900 font-playpen font-medium leading-normal">
+          <h2 className="text-2xl min-[540px]:text-3xl text-gray-900 font-playpen font-medium leading-normal">
             Sports & {" "}
             <span className="relative inline-block">
               Gymnasium Facilities
@@ -46,11 +46,11 @@ const SportsGym = () => {
               <img
                 src="/Images/Doodles/SparkPurple.png"
                 alt="Spark"
-                className="absolute w-10 sm:w-12 md:w-14 -top-6 md:-top-8 -right-12 md:-right-15"
+                className="absolute w-8 sm:w-12 -top-6 -right-8 sm:-right-12"
               />
             </span>
           </h2>
-          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className="mt-2 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
             We believe in the holistic development of our students. Our world-class sports facilities and modern gymnasium provide
             students with opportunities to excel in various sports and maintain physical fitness.
           </p>
@@ -58,77 +58,18 @@ const SportsGym = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-8 lg:mb-12">
           {facilities.map((facility, index) => (
-            <div key={index} className="group relative overflow-hidden rounded-xl shadow-lg h-64">
+            <div key={index} className="group relative overflow-hidden rounded-xl shadow-lg h-80">
               <img
                 src={facility.image || "/placeholder.svg"}
                 alt={facility.name}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-black/90 to-transparent flex flex-col justify-end p-5">
+              <div className="absolute inset-0 bg-linear-to-t from-black via-black/30 to-transparent flex flex-col justify-end p-6">
                 <h3 className="text-white text-lg md:text-xl font-poppins font-semibold tracking-wider mb-1">{facility.name}</h3>
                 <p className="text-blue-100 text-sm font-inter">{facility.description}</p>
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="bg-slate-800 text-white rounded-2xl overflow-hidden">
-          <div className="flex flex-col lg:flex-row">
-            <div className="lg:w-1/2 p-6 sm:p-8 md:p-14">
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-poppins font-bold mb-4 tracking-wide">Sports Excellence Program</h3>
-              <p className="text-blue-100 font-inter mb-6 sm:mb-8">
-                Our Sports Excellence Program is designed to identify and nurture sporting talent through specialized
-                coaching, regular training, and participation in competitive events at various levels.
-              </p>
-
-              <div className="space-y-5">
-                <div className="flex items-start gap-4">
-                  <div className="bg-blue-50 p-3 rounded-full">
-                    <Trophy className="w-6 h-6 text-primarydark" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg sm:text-xl font-inter font-semibold mb-1">Professional Coaching</h4>
-                    <p className="text-blue-100 font-inter">
-                      Training under experienced coaches who have worked with national and international athletes.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-blue-400 p-3 rounded-full">
-                    <Timer className="w-6 h-6 text-blue-100" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg sm:text-xl font-inter font-semibold mb-1">Structured Training</h4>
-                    <p className="text-blue-100 font-inter">
-                      Systematic training programs with focus on technique, fitness, and mental preparation.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-blue-900 p-3 rounded-full">
-                    <Users className="w-6 h-6 text-blue-100" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg sm:text-xl font-inter font-semibold mb-1">Team Building</h4>
-                    <p className="text-blue-100 font-inter">
-                      Activities designed to develop leadership, teamwork, and sportsmanship.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:w-1/2 relative">
-              <img
-                src="/Images/Heros/samplehero.JPG"
-                alt="Students in sports training"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-linear-to-r from-slate-800 to-transparent lg:block hidden"></div>
-            </div>
-          </div>
         </div>
 
         <div className="mt-12 sm:mt-16 lg:mt-20">
@@ -178,6 +119,94 @@ const SportsGym = () => {
             </div>
           </div>
         </div>
+
+        <div className="bg-linear-to-r from-blue-950 via-blue-900 to-blue-900 my-10 overflow-hidden rounded-2xl">
+        <div className="flex flex-col lg:flex-row">
+          <div className="lg:w-1/2 p-8 md:p-20">
+            <h3
+              className="text-2xl min-[540px]:text-3xl font-playpen font-medium text-yellow-400 leading-normal"
+            >
+              Sports Excellence Program
+            </h3>
+            <p className="mt-6 text-gray-100 font-inter">
+              Our Sports Excellence Program is designed to identify and nurture
+              sporting talent through specialized coaching, regular training,
+              and participation in competitive events at various levels.
+            </p>
+
+            <div className="mt-12 space-y-6">
+              <div className="flex items-start gap-3">
+                <div className="bg-white/20 p-3 sm:p-4 rounded-full">
+                  <Trophy className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-poppins font-semibold text-lg sm:text-xl text-white tracking-wider">
+                    Professional Coaching
+                  </h4>
+                  <p className="text-base text-blue-300 font-inter mt-2 max-w-lg leading-normal">
+                    Training under experienced coaches who have worked with
+                    national and international athletes.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="bg-white/20 p-3 sm:p-4 rounded-full">
+                  <Timer className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-poppins font-semibold text-lg sm:text-xl text-white tracking-wider">
+                    Structured Training
+                  </h4>
+                  <p className="text-base text-blue-300 font-inter mt-2 max-w-lg leading-normal">
+                    Systematic training programs with focus on technique,
+                    fitness, and mental preparation.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="bg-white/20 p-3 sm:p-4 rounded-full">
+                  <Users className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-poppins font-semibold text-lg sm:text-xl text-white tracking-wider">
+                    Team Building
+                  </h4>
+                  <p className="text-base text-blue-300 font-inter mt-2 max-w-lg leading-normal">
+                    Activities designed to develop leadership, teamwork, and
+                    sportsmanship.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="bg-white/20 p-3 sm:p-4 rounded-full">
+                  <Users className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-poppins font-semibold text-lg sm:text-xl text-white tracking-wider">
+                    Team Building
+                  </h4>
+                  <p className="text-base text-blue-300 font-inter mt-2 max-w-lg leading-normal">
+                    Activities designed to develop leadership, teamwork, and
+                    sportsmanship.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:w-1/2 relative">
+            <img
+              src="/Images/Facility/sportsprogram.jpeg"
+              alt="Students in sports training"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-linear-to-r from-blue-900 via-transparent to-transparent md:block hidden"></div>
+          </div>
+        </div>
+      </div>
       </div>
     </section>
   )

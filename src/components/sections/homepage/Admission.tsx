@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 const AdmissionsCTA = () => {
   return (
     <section className="relative bg-linear-to-r from-blue-950 via-blue-900 to-blue-950 py-12 md:py-20">
-      <div className="mx-auto max-w-7xl px-5 min-[540px]:px-12">
+      <div className="mx-auto max-w-7xl px-6 min-[540px]:px-12">
 
         <div className="grid grid-cols-1 gap-8 sm:gap-12 md:grid-cols-2 items-center">
 
@@ -15,19 +15,19 @@ const AdmissionsCTA = () => {
 
             <h2 className="mt-6 text-3xl sm:text-4xl font-raleway font-bold leading-tight">
               Begin Your Child’s <br />
-              Journey Towards <span className="text-amber-400">Excellence</span>
+              Journey Towards <span className="text-yellow-400">Excellence</span>
             </h2>
 
             <p className="mt-6 max-w-xl text-base sm:text-lg text-slate-300">
-              Applications are now open for the academic session 2025–26.
+              Applications are now open for the academic session 2026–27.
               Join a nurturing environment focused on academic strength,
               values, and holistic development.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
               <a
-                href="/admissions"
-                className="inline-flex items-center gap-2 rounded-lg bg-amber-400 px-4 sm:px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-lg hover:bg-amber-500"
+                href="/admission#"
+                className="inline-flex items-center gap-2 rounded-lg bg-yellow-400 px-4 sm:px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-lg hover:bg-yellow-300"
               >
                 Apply for Admissions
                 <ArrowRight size={18} className="hidden sm:block"/>

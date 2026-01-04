@@ -5,7 +5,7 @@ const Hero: React.FC = () => {
     <section
       className="relative bg-cover bg-center bg-no-repeat min-h-170 flex items-center"
       style={{
-        backgroundImage: `url('/Images/Academics/Kindergartenhero.png')`, // replace with your image path
+        backgroundImage: `url('/Images/Heros/kinderhero.png')`, // replace with your image path
       }}
     >
       {/* Soft overlay for text readability */}

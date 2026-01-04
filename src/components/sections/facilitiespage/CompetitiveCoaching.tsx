@@ -3,17 +3,17 @@ import { Award, TrendingUp, Users, BarChart, CheckCircle, CheckCircle2 } from "l
 const CompetitiveCoaching = () => {
   return (
     <section id="competitive-coaching" className="py-4 sm:py-10 my-10 bg-white">
-      <div className="container mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
+      <div className="container mx-auto max-w-7xl px-6 min-[540px]:px-12 sm:px-16 xl:px-0">
         <div className="flex flex-col md:flex-row-reverse gap-12 md:gap-20">
 
           <div className="md:w-1/2">
             <div className="mb-6 md:mb-8">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl text-gray-900 font-playpen font-medium leading-normal">
+              <h2 className="text-2xl min-[540px]:text-3xl text-gray-900 font-playpen font-medium leading-normal">
                 Competitive <span className="relative inline-block">Coaching
                   <img
                     src="/Images/Doodles/LineBlue.png"
                     alt="Underline"
-                    className="absolute -bottom-4 sm:-bottom-6"
+                    className="absolute -bottom-5"
                   />
                 </span>
               </h2>
@@ -98,46 +98,10 @@ const CompetitiveCoaching = () => {
           <div className="hidden md:block md:w-1/2 sticky top-40 max-h-fit">
             <div className="relative">
               <img
-                src="/Images/Heros/samplehero.JPG"
+                src="/Images/Facility/competitive.JPG"
                 alt="Competitive coaching class with students"
                 className="rounded-lg shadow-xl relative z-10 w-full"
               />
-            </div>
-          </div>
-          
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12 md:mt-25">
-          <div className="relative overflow-hidden group rounded-xl shadow-lg">
-            <img
-              src="/Images/Heros/samplehero.JPG"
-              alt="Interactive digital whiteboard in classroom"
-              className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-linear-to-b from-black/90 to-transparent flex p-5 sm:p-6">
-            
-              <h3 className="text-white text-lg sm:text-xl font-poppins font-semibold tracking-wider mt-1">Laying the Academic Bedrock</h3>
-            </div>
-          </div>
-
-          <div className="relative overflow-hidden group rounded-xl shadow-lg">
-            <img
-              src="/Images/Heros/samplehero.JPG"
-              alt="Students using tablets in classroom"
-              className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-linear-to-b from-black/90 via-transparent to-transparent flex p-5 sm:p-6">
-              <h3 className="text-white text-lg sm:text-xl font-poppins font-semibold tracking-wider mt-1">Learning Beyond Books</h3>
-            </div>
-          </div>
-
-          <div className="relative overflow-hidden group rounded-xl shadow-lg">
-            <img
-              src="/Images/Heros/samplehero.JPG"
-              alt="Virtual reality learning session"
-              className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-linear-to-b from-black/90 to-transparent flex p-5 sm:p-6">
-              <h3 className="text-white text-lg sm:text-xl font-poppins font-semibold tracking-wider mt-1">Modern Infrastructure</h3>
             </div>
           </div>
         </div>

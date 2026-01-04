@@ -69,7 +69,7 @@ const FAQSection: React.FC = () => {
       question: "How does the school handle emergencies and medical situations?",
       answer:
         "We have a well-equipped medical room with a qualified nurse on duty during school hours. In case of emergencies, we follow a standard protocol that includes immediate first aid, contacting parents, and if necessary, transporting the student to the nearest hospital.",
-      category: "health",
+      category: "policies",
     },
     {
       id: 9,
@@ -96,7 +96,6 @@ const FAQSection: React.FC = () => {
     { id: "activities", name: "Activities & Events" },
     { id: "facilities", name: "Facilities & Services" },
     { id: "policies", name: "Policies & Procedures" },
-    { id: "health", name: "Health & Safety" },
   ]
 
   const toggleFAQ = (id: number) => {
@@ -113,14 +112,24 @@ const FAQSection: React.FC = () => {
   })
 
   return (
-    <section className="py-15 md:py-20 bg-linear-to-br from-violet-950 via-blue-900 to-indigo-950">
+    <section className="py-4 sm:py-16 my-10 bg-white">
       <div className="container mx-auto px-6 min-[540px]:px-8 lg:px-20 xl:px-10">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-amber-300 font-playpen font-medium leading-normal">
-                Frequently Asked Questions
+          <div className="text-center mb-6">
+            <h2 className="text-2xl min-[540px]:text-3xl text-gray-900 font-playpen font-medium inline-block relative leading-normal">
+              <span className="relative z-10 inline-block pl-5 pr-1">
+                Frequently
+                <span className="absolute inset-0 -z-10 -top-5">
+                  <img
+                    src="/Images/Doodles/CircleGreen.png"
+                    alt="Circle Doodle"
+                    className="w-full h-auto object-contain"
+                  />
+                </span>
+              </span>{" "}
+              Asked Questions
             </h2>
-            <p className="mt-4 sm:mt-7 text-base sm:text-lg text-gray-200 max-w-3xl mx-auto">
+            <p className="mt-2 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
               Find answers to most common questions about our school, admissions process, facilities, and more.
             </p>
           </div>
@@ -129,11 +138,11 @@ const FAQSection: React.FC = () => {
           <div className="mb-6 lg:mb-12">
             <div className="relative mb-6 sm:mb-10">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Search className="h-5 w-5 text-gray-300" />
+                <Search className="h-5 w-5 text-gray-400" />
               </div>
               <input
                 type="text"
-                className="block w-full pl-10 pr-3 py-3 border text-white border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-200 focus:border-blue-500 outline-none"
+                className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-200 focus:border-blue-500 outline-none"
                 placeholder="Search your questions..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -144,9 +153,9 @@ const FAQSection: React.FC = () => {
               {categories.map((category) => (
                 <button
                   key={category.id}
-                  className={`px-5 py-2 rounded-full text-base font-medium transition-colors cursor-pointer ${activeCategory === category.id
-                      ? "bg-primary text-white"
-                      : "bg-white/30 text-gray-100 hover:bg-primary hover:text-white"
+                  className={`px-5 py-2 rounded-full text-sm sm:text-base font-inter font-medium transition-colors cursor-pointer ${activeCategory === category.id
+                    ? "bg-primary text-white"
+                    : "bg-gray-200/60 text-gray-900 hover:bg-gray-200"
                     }`}
                   onClick={() => setActiveCategory(category.id)}
                 >
@@ -190,9 +199,9 @@ const FAQSection: React.FC = () => {
               ))
             ) : (
               <div className="text-center py-8">
-                <p className="text-yellow-400">No FAQs found matching your search criteria.</p>
+                <p className="text-gray-400 font-inter">No FAQs found matching your search criteria.</p>
                 <button
-                  className="mt-4 text-blue-500 hover:text-blue-600 font-medium cursor-pointer"
+                  className="mt-8 text-primary hover:text-primarydark font-medium cursor-pointer"
                   onClick={() => {
                     setSearchQuery("")
                     setActiveCategory("all")
@@ -202,28 +211,6 @@ const FAQSection: React.FC = () => {
                 </button>
               </div>
             )}
-          </div>
-
-          {/* Still Have Questions */}
-          <div className="hidden sm:block mt-12 bg-blue-50 rounded-xl p-8 text-center">
-            <h3 className="text-xl font-inter font-bold text-gray-900 mb-3">Still Have Questions?</h3>
-            <p className="text-gray-600 font-inter mb-6">
-              If you couldn't find the answer to your question, please feel free to contact us directly.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 font-outfit">
-              <a
-                href="#contact-form"
-                className="bg-primary hover:bg-primarydark text-white px-6 py-2 rounded-lg font-medium transition-colors"
-              >
-                Contact Us
-              </a>
-              <a
-                href="tel:+11234567890"
-                className="bg-white border-2 border-blue-300 hover:bg-blue-300 hover:text-white text-primarydark px-6 py-2 rounded-lg font-medium transition-colors"
-              >
-                Call Us
-              </a>
-            </div>
           </div>
         </div>
       </div>

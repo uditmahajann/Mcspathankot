@@ -111,14 +111,23 @@ const labs = [
 
 const ProfessionalLabs = () => {
   return (
-    <section className="my-10 md:my-20 py-15 md:py-20 bg-linear-to-br from-violet-950 via-blue-900 to-indigo-950">
-      <div className="container max-w-7xl mx-auto px-6 min-[540px]:px-12 sm:px-16 lg:px-20">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-yellow-400 font-playpen font-medium leading-normal">
-            Professional Laboratories
+    <section className="relative py-4 sm:py-10 lg:py-16 my-10 bg-white">
+      <div className="container mx-auto max-w-7xl px-5 min-[540px]:px-12 sm:px-16 xl:px-0">
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-2xl min-[540px]:text-3xl text-gray-900 font-playpen font-medium leading-normal">
+            Professional {" "}
+            <span className="relative inline-block">
+              Laboratories
+              {/* Spark Doodle */}
+              <img
+                src="/Images/Doodles/SparkYellow.png"
+                alt="Spark"
+                className="absolute w-8 sm:w-12 -top-6 -right-8 sm:-right-12"
+              />
+            </span>
           </h2>
-          <p className="mt-4 sm:mt-7 text-base sm:text-lg text-gray-200 max-w-3xl mx-auto">
-            Our professional laboratories provide hands-on learning experiences with state-of-the-art equipment
+          <p className="mt-2 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
+            Our professional laboratories provide hands-on learning experiences from qualified experts and state-of-the-art equipment.
           </p>
         </div>
 

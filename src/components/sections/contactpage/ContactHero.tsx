@@ -1,10 +1,11 @@
 import type React from "react";
+import { Mail } from "lucide-react";
 
 const ContactHero: React.FC = () => {
   return (
     <section className="relative text-white">
       <div
-        className="relative min-h-[60vh] md:min-h-[65vh] flex items-center"
+        className="relative min-h-[60vh] sm:min-h-[65vh] flex items-center"
         style={{
           backgroundImage: `url('/Images/Heros/contacthero.JPG')`,
           backgroundSize: "cover",
@@ -27,16 +28,17 @@ const ContactHero: React.FC = () => {
                 We're here to answer your questions and help you connect with our school community
               </p>
 
-              <div className="mt-6 flex items-center gap-4">
+              <div className="mt-8 flex items-center gap-4">
                 <a
                   href="/contact#contact-form"
-                  className="group inline-flex items-center px-4 py-2 md:py-3 text-outfit font-medium text-white bg-primary rounded-lg transition-all duration-300 ease-in-out hover:font-semibold cursor-pointer hover:bg-blue-600"
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 sm:px-6 py-3 text-sm sm:text-base font-semibold text-white shadow-lg hover:bg-primarydark"
                 >
                   Send a Message
+                  <Mail size={18} className="hidden sm:block"/>
                 </a>
                 <a
                   href="/contact#location"
-                  className="group inline-flex items-center px-4 py-2 md:py-3 text-outfit font-medium bg-white/15 backdrop-blur rounded-lg transition-all duration-300 ease-in-out hover:font-semibold cursor-pointer hover:bg-white/25"
+                  className="inline-flex items-center rounded-lg border border-white/40 px-4 sm:px-6 py-3 text-sm sm:text-base font-semibold text-white hover:bg-white/20"
                 >
                   Know our Location
                 </a>

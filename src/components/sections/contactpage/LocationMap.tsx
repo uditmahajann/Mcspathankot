@@ -3,23 +3,22 @@ import { MapPin, Navigation, Phone, Clock, Info } from "lucide-react"
 
 const LocationMap: React.FC = () => {
   return (
-    <section id="location" className="py-4 sm:py-10 lg:py-16 my-10 bg-white overflow-hidden">
-      <div className="container mx-auto px-6 min-[540px]:px-8 lg:px-10">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
-            Locate <span className="relative inline-block">our Campus
-              <img
-                src="/Images/Doodles/LineGreen.png"
-                alt="Underline"
-                className="absolute w-[80%] left-16 -bottom-4 min-[540px]:-bottom-6 md:-bottom-8"
-              />
-            </span>
-          </h2>
-          <p className="mt-4 sm:mt-7 text-base sm:text-lg text-gray-700 max-w-2xl mx-auto">
-             Discover our serene campus nestled in the heart of Pathankot. We're just a visit away from your child's next big opportunity.
-          </p>
-        </div>
+    <section id="location" className="py-4 sm:py-10 my-10 bg-white overflow-hidden">
+      <div className="container mx-auto max-w-7xl px-5 min-[540px]:px-12 sm:px-16 lg:px-20">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl min-[540px]:text-3xl text-gray-900 font-playpen font-medium leading-normal">
+              Locate <span className="relative inline-block">our Campus
+                <img
+                  src="/Images/Doodles/LineGreen.png"
+                  alt="Underline"
+                  className="absolute w-[80%] -bottom-5 left-12"
+                />
+              </span>
+            </h2>
+            <p className="mt-4 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
+              Discover our serene campus nestled in the heart of Pathankot. We're just a visit away from your child's next big opportunity.
+            </p>
+          </div>
 
           <div className="bg-white rounded-xl shadow-lg overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-3">
@@ -36,8 +35,8 @@ const LocationMap: React.FC = () => {
                 ></iframe>
               </div>
 
-              <div className="p-6 lg:-8 bg-primarydark text-white">
-                <h3 className="text-xl min-[540px]:text-2xl font-poppins font-bold mb-6 tracking-wide">Visit Our Campus</h3>
+              <div className="p-6 lg:p-9 bg-primarydark text-white">
+                <h3 className="text-lg sm:text-xl font-poppins font-bold mb-6 tracking-wide uppercase">Visit Our Campus</h3>
 
                 <div className="space-y-6 font-inter text-sm min-[540px]:text-base">
                   <div className="flex">
@@ -56,10 +55,12 @@ const LocationMap: React.FC = () => {
                     <Phone className="w-5 h-5 mt-1 mr-3 shrink-0" />
                     <div>
                       <h4 className="font-semibold">Contact</h4>
-                      <p className="text-blue-100 mt-1">
-                        Phone: +91 98765-70911
+                      <p className="text-blue-100 mt-1 leading-relaxed">
+                        Reception: 9876570911, 9876570912, 9876570913 
                         <br />
-                        Email: mcs_pathankot@yahoo.co.in
+                        P.A. to Principal: 7696333777
+                        <br />
+                        Fee Desk Contact: 9417339301
                       </p>
                     </div>
                   </div>
@@ -68,12 +69,12 @@ const LocationMap: React.FC = () => {
                     <Clock className="w-5 h-5 mt-1 mr-3 shrink-0" />
                     <div>
                       <h4 className="font-semibold">Visiting Hours</h4>
-                      <p className="text-blue-100 mt-1">
-                        Monday - Friday: 9:00 AM - 3:00 PM
+                      <p className="text-blue-100 mt-1 leading-relaxed">
+                        Principal: 12:00 PM - 1:00 PM
                         <br />
-                        Saturday: 10:00 AM - 12:00 PM
+                        Teachers: 09:00 AM - 12:00 PM
                         <br />
-                        (Appointment recommended)
+                        (with prior appointment)
                       </p>
                     </div>
                   </div>
@@ -84,7 +85,7 @@ const LocationMap: React.FC = () => {
 
           <div className="mt-6 sm:mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
-              <h3 className="text-lg font-outfit font-semibold text-primarydark mb-3">Parking Information</h3>
+              <h3 className="text-base font-poppins font-semibold text-primarydark mb-2 tracking-wide uppercase">Parking Information</h3>
               <p className="text-gray-600">
                 Visitor parking is available in the front lot. Additional parking can be found on the east side of the
                 campus.
@@ -92,7 +93,7 @@ const LocationMap: React.FC = () => {
             </div>
 
             <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
-              <h3 className="text-lg font-outfit font-semibold text-primarydark mb-3">Public Transportation</h3>
+              <h3 className="text-base font-poppins font-semibold text-primarydark mb-2 tracking-wide uppercase">Public Transportation</h3>
               <p className="text-gray-600">
                 School buses cover all major city routes. Auto and taxi stands nearby ensure smooth last-mile
                 connectivity.
@@ -100,14 +101,13 @@ const LocationMap: React.FC = () => {
             </div>
 
             <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
-              <h3 className="text-lg font-outfit font-semibold text-primarydark mb-3">Campus Tours</h3>
+              <h3 className="text-base font-poppins font-semibold text-primarydark mb-2 tracking-wide uppercase">Campus Tours</h3>
               <p className="text-gray-600">
                 Schedule a guided tour of our campus to see our facilities firsthand. Tours are available by
                 appointment.
               </p>
             </div>
           </div>
-        </div>
       </div>
     </section>
   )

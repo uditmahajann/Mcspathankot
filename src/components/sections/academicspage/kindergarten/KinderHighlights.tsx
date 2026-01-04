@@ -61,7 +61,7 @@ const KindergartenCarousel: React.FC = () => {
     <section
       className="relative bg-cover bg-center bg-no-repeat flex items-center py-30"
       style={{
-        backgroundImage: `url('/Images/Academics/Kinderhighlights.png')`, // background image
+        backgroundImage: `url('/Images/Academics/kinderhighlightsbg.png')`, // background image
       }}
     >
       <div className="relative w-full px-0 sm:px-4">

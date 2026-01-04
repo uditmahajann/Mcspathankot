@@ -104,7 +104,7 @@ const Circulars = ({ circulars }: { circulars: Circular[] }) => {
                   setCurrentPage(1)
                 }}
                 className={`px-5 py-2 rounded-full text-base font-medium transition-colors cursor-pointer ${
-                  activeFilter === filter ? "bg-primary text-white" : "bg-gray-200/60 text-gray-700 hover:bg-gray-200"
+                  activeFilter === filter ? "bg-primary text-white" : "bg-gray-200/60 text-gray-900 hover:bg-gray-200"
                 }`}
               >
                 {filter}

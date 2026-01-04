@@ -4,9 +4,9 @@ const FacilitiesHero: React.FC = () => {
   return (
     <section className="relative text-white">
       <div
-        className="relative min-h-[60vh] md:min-h-[65vh] flex items-center"
+        className="relative min-h-[60vh] sm:min-h-[65vh] flex items-center"
         style={{
-          backgroundImage: `url('/Images/Campus/EntryFront.JPG')`,
+          backgroundImage: `url('/Images/Heros/facilityhero.JPG')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed", // parallax-like

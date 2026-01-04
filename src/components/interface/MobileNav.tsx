@@ -133,23 +133,23 @@ const MobileNav: React.FC<MobileNavProps> = ({ navigation, currentPath, contactI
         <div className="fixed inset-0 bg-black/70"></div>
         <div
           ref={mobileMenuContainerRef}
-          className="fixed inset-y-0 right-0 max-w-60 w-full bg-white shadow-xl transform transition-transform duration-300 ease-in-out translate-x-full"
+          className="fixed inset-y-0 right-0 max-w-60 w-full bg-white shadow-xl transform transition-transform duration-300 ease-in-out translate-x-full font-inter"
         >
-          <div className="flex items-center justify-between p-4 border-b">
-            <h2 className="text-lg font-medium text-gray-900">Menu</h2>
-            <button onClick={closeMenu} className="p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100">
-              <X className="h-6 w-6" />
+          <div className="flex items-center justify-between p-4 border-b-2 border-gray-200 bg-blue-900">
+            <h2 className="text-lg font-medium text-gray-50">Menu</h2>
+            <button onClick={closeMenu} className="p-2 rounded-md text-gray-100">
+              <X className="h-5 w-5" />
             </button>
           </div>
-          <div className="px-2 py-3 h-full overflow-y-auto">
+          <div className="px-3 py-5 h-full overflow-y-auto">
             <div className="space-y-1">
               {navigation.map((item, index) => (
                 <div key={index}>
                   {!item.dropdown ? (
                     <a
                       href={item.href}
-                      className={`block px-3 py-2 rounded-md text-base font-medium ${currentPath === item.href
-                          ? "bg-blue-50 text-blue-700"
+                      className={`block px-3.5 py-2 rounded-md text-base font-medium ${currentPath === item.href
+                          ? "bg-primarylight text-primarydark font-semibold"
                           : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                         }`}
                     >
@@ -161,7 +161,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ navigation, currentPath, contactI
                         type="button"
                         onClick={() => toggleDropdown(item.name)}
                         className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium ${isItemActive(item)
-                            ? "bg-blue-50 text-blue-700"
+                            ? "bg-primarylight text-primarydark"
                             : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                           }`}
                       >
@@ -172,14 +172,14 @@ const MobileNav: React.FC<MobileNavProps> = ({ navigation, currentPath, contactI
                         />
                       </button>
 
-                      <div className={`pl-4 space-y-1 mt-1 ${openDropdowns[item.name] ? "" : "hidden"}`}>
+                      <div className={`px-4 space-y-1 my-2 bg ${openDropdowns[item.name] ? "" : "hidden"}`}>
                         {item.items?.map((subItem, subIndex) => (
                           <a
                             key={subIndex}
                             href={subItem.href}
-                            className={`block px-3 py-2 rounded-md text-sm font-medium ${currentPath === subItem.href
-                                ? "bg-blue-50 text-blue-700"
-                                : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                            className={`block px-3 py-2 rounded-md text-sm ${currentPath === subItem.href
+                                ? "bg-secondarylight text-secondarydark font-medium"
+                                : "text-gray-600 bg-gray-100 hover:text-gray-900"
                               }`}
                           >
                             {subItem.name}
@@ -193,14 +193,14 @@ const MobileNav: React.FC<MobileNavProps> = ({ navigation, currentPath, contactI
             </div>
 
             {/* Mobile Quick Actions */}
-            <div className="mt-8 pt-4 border-t border-gray-200">
+            <div className="mt-8 pt-4 border-t border-gray-200 font-inter">
               <h3 className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Quick Actions</h3>
               <div className="mt-2 space-y-1">
                 {quickActions.map((action, index) => (
                   <a
                     key={index}
                     href={action.href}
-                    className="flex items-center px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                    className="flex items-center px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                   >
                     {action.icon === "credit-card" && <CreditCard className="h-5 w-5 mr-3 text-gray-400" />}
                     {action.icon === "message-circle" && <MessageCircle className="h-5 w-5 mr-3 text-gray-400" />}
@@ -209,21 +209,6 @@ const MobileNav: React.FC<MobileNavProps> = ({ navigation, currentPath, contactI
                     {action.name}
                   </a>
                 ))}
-              </div>
-            </div>
-
-            {/* Mobile Contact Info */}
-            <div className="mt-8 pt-4 border-t border-gray-200">
-              <h3 className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Contact Us</h3>
-              <div className="mt-2 space-y-2 px-3">
-                <a href={`tel:${contactInfo.phone}`} className="flex items-center text-gray-700">
-                  <Phone className="h-5 w-5 mr-3 text-gray-400" />
-                  {contactInfo.phone}
-                </a>
-                <a href={`mailto:${contactInfo.email}`} className="flex items-center text-gray-700">
-                  <Mail className="h-5 w-5 mr-3 text-gray-400" />
-                  {contactInfo.email}
-                </a>
               </div>
             </div>
 

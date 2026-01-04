@@ -96,7 +96,7 @@ const InstaReels = ({ reels }: Props) => {
 
         {/* Header */}
         <div className="mb-8 md:mb-12 flex flex-col gap-6 md:flex-row items-start justify-between">
-          <h2 className="text-2xl min-[540px]:text-3xl font-playpen font-medium text-amber-400 leading-normal">
+          <h2 className="text-2xl min-[540px]:text-3xl font-playpen font-medium text-yellow-400 leading-normal">
             Campus Chronicles: Highlights of 2025
           </h2>
 

@@ -4,7 +4,7 @@ import { Phone, Mail, Clock, MapPin } from "lucide-react"
 const ContactInfo: React.FC = () => {
   return (
     <section className="min-[540px]:py-4 xl:py-10 my-10 bg-white">
-      <div className="container mx-auto px-6 min-[540px]:px-8 lg:px-20 xl:px-10">
+      <div className="container mx-auto px-5 min-[540px]:px-12 sm:px-16 lg:px-20">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
             <div
@@ -13,7 +13,7 @@ const ContactInfo: React.FC = () => {
               <div className="bg-primary p-4 rounded-full mb-4">
                 <MapPin className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-poppins font-semibold text-xl mb-2 text-gray-900">Our Address</h3>
+              <h3 className="font-poppins font-semibold text-xl mb-2 text-gray-900 tracking-wide">Our Address</h3>
               <p className="text-gray-700 font-inter">
                 MCS, Defence Road (Pangoli), Pathankot – 145001
               </p>
@@ -25,11 +25,11 @@ const ContactInfo: React.FC = () => {
               <div className="bg-primary p-4 rounded-full mb-4">
                 <Phone className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-poppins font-semibold text-xl mb-2 text-gray-900">Phone Numbers</h3>
+              <h3 className="font-poppins font-semibold text-xl mb-2 text-gray-900 tracking-wide">Phone Numbers</h3>
               <p className="text-gray-700 font-inter">
-                +91 98765-70911
+                Reception: 98765-70911
                 <br />
-                +91 98765-70911
+                Fee Desk: 94173-39301
               </p>
             </div>
 
@@ -39,9 +39,9 @@ const ContactInfo: React.FC = () => {
               <div className="bg-primary p-4 rounded-full mb-4">
                 <Mail className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-poppins font-semibold text-xl mb-2 text-gray-900">Email Us</h3>
+              <h3 className="font-poppins font-semibold text-xl mb-2 text-gray-900 tracking-wide">Email Us</h3>
               <p className="text-gray-700 font-inter">
-                mcs_pathankot@yahoo.co.in
+                mcspathankot1@gmail.com
                 <br />
                 mcs_pathankot@yahoo.co.in
               </p>
@@ -53,9 +53,9 @@ const ContactInfo: React.FC = () => {
               <div className="bg-primary p-4 rounded-full mb-4">
                 <Clock className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-poppins font-semibold text-xl mb-2 text-gray-900">Office Hours</h3>
+              <h3 className="font-poppins font-semibold text-xl mb-2 text-gray-900 tracking-wide">Office Hours</h3>
               <p className="text-gray-700 font-inter">
-                Mon-Fri: 8:00 AM - 4:00 PM
+                Mon-Fri: 8:30 AM - 2:00 PM
                 <br />
                 Sat-Sun: 9:00 AM - 12:00 PM
               </p>

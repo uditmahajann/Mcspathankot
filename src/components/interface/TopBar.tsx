@@ -1,19 +1,19 @@
 import type React from "react";
-import { Phone, Mail, Facebook, Instagram, Youtube, Linkedin } from "lucide-react";
+import { Phone, Mail, Facebook, Instagram, Youtube, Twitter } from "lucide-react";
 import SearchButton from "./SearchButton";
 
 const TopBar: React.FC = () => {
   // Hardcoded contact info
   const phone1 = "98765-70911";
-  const phone2 = "98765-70911";
-  const email = "mcs_pathankot@yahoo.co.in";
+  const phone2 = "98765-70912";
+  const email = "mcspathankot1@gmail.com";
 
   // Social links with brand hover styles
   const socialLinks = [
-    { name: "Facebook", href: "https://facebook.com", icon: "facebook", color: "hover:bg-[#1877F2]" },
-    { name: "Instagram", href: "https://instagram.com", icon: "instagram", color: "hover:bg-gradient-to-tr hover:from-pink-500 hover:via-pink-500 hover:to-yellow-500" },
-    { name: "YouTube", href: "https://youtube.com", icon: "youtube", color: "hover:bg-[#FF0000]" },
-    { name: "LinkedIn", href: "https://linkedin.com", icon: "linkedin", color: "hover:bg-[#0A66C2]" },
+    { name: "Facebook", href: "https://www.facebook.com/mcspathankot1997", icon: "facebook", color: "hover:bg-[#1877F2]" },
+    { name: "Instagram", href: "https://www.instagram.com/mcspathankot1997", icon: "instagram", color: "hover:bg-gradient-to-tr hover:from-pink-500 hover:via-pink-500 hover:to-yellow-500" },
+    { name: "YouTube", href: "https://www.youtube.com/@mcspathankot1997", icon: "youtube", color: "hover:bg-[#FF0000]" },
+    { name: "Twitter", href: "https://x.com/mcspathankot97", icon: "twitter", color: "hover:bg-sky-400" },
   ];
 
   return (
@@ -64,7 +64,7 @@ const TopBar: React.FC = () => {
                   {link.icon === "facebook" && <Facebook className="h-4.5 w-4.5 text-white group-hover:text-white" />}
                   {link.icon === "instagram" && <Instagram className="h-4.5 w-4.5 text-white group-hover:text-white" />}
                   {link.icon === "youtube" && <Youtube className="h-4.5 w-4.5 text-white group-hover:text-white" />}
-                  {link.icon === "linkedin" && <Linkedin className="h-4.5 w-4.5 text-white group-hover:text-white" />}
+                  {link.icon === "twitter" && <Twitter className="h-4.5 w-4.5 text-white group-hover:text-white" />}
                 </a>
               ))}
             </div>

@@ -104,7 +104,7 @@ const Vision: React.FC = () => {
       </div>
 
       {/* Mission pillars */}
-      <div className="my-12 sm:my-20 mx-auto max-w-7xl px-8 min-[540px]:px-12 sm:px-16 lg:px-20 xl:px-0">
+      <div className="my-12 sm:my-20 mx-auto max-w-7xl px-8 min-[540px]:px-12 sm:px-16">
        <div className="grid gap-8 xl:gap-12 md:grid-cols-2 lg:grid-cols-3">
         {[
           {

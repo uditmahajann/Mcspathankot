@@ -1,25 +1,40 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import FacilitiesHero from '../../components/sections/facilitiespage/FacilitiesHero';
-import FoundationCoaching from '../../components/sections/facilitiespage/FoundationCoaching';
-import CompetitiveCoaching from '../../components/sections/facilitiespage/CompetitiveCoaching';
-import SmartClasses from '../../components/sections/facilitiespage/SmartClasses';
-import ProfessionalLabs from '../../components/sections/facilitiespage/ProfessionalLabs';
-import SportsGym from '../../components/sections/facilitiespage/SportsGym';
-import BoardingFacility from '../../components/sections/facilitiespage/BoardingFacility';
-import DayBoardingFacility from '../../components/sections/facilitiespage/DayBoardingFacility';
-import TransportFacility from '../../components/sections/facilitiespage/TransportFacility';
-
+import Layout from "../../layouts/Layout.astro";
+import FacilitiesHero from "../../components/sections/facilitiespage/FacilitiesHero";
+import FoundationCoaching from "../../components/sections/facilitiespage/FoundationCoaching";
+import CompetitiveCoaching from "../../components/sections/facilitiespage/CompetitiveCoaching";
+import SmartClasses from "../../components/sections/facilitiespage/SmartClasses";
+import ProfessionalLabs from "../../components/sections/facilitiespage/ProfessionalLabs";
+import SportsGym from "../../components/sections/facilitiespage/SportsGym";
+import BoardingFacility from "../../components/sections/facilitiespage/BoardingFacility";
+import DayBoardingFacility from "../../components/sections/facilitiespage/DayBoardingFacility";
+import TransportFacility from "../../components/sections/facilitiespage/TransportFacility";
+import { Trophy, Timer, Users, Dumbbell, Target } from "lucide-react";
 ---
 
 <Layout
   title="MCS Facilities | MCS Pathankot | Montessori Cambridge School | Top Boarding School in Pathankot, Punjab, North India"
   description="Explore the world-class facilities at MCS, top boarding school with smart classrooms, modern hostels, sports complexes, and a safe learning environment to support holistic student development."
   pubDate={new Date()}
-  >
-	 <main>
+>
+  <main>
     <FacilitiesHero />
     <FoundationCoaching />
+    <section class="relative w-full md:h-145 my-8 sm:my-12 lg:my-20">
+      <video
+        class="w-full h-full object-cover"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="metadata"
+      >
+        <source
+          src="https://res.cloudinary.com/dhlzfm5ix/video/upload/v1767542081/foundationclip_zdbris.mp4"
+          type="video/mp4"
+        />
+      </video>
+    </section>
     <CompetitiveCoaching />
     <SmartClasses />
     <SportsGym />
