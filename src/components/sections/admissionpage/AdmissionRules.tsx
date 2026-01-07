@@ -31,7 +31,7 @@ const AdmissionRules = () => {
                                 alt="Underline"
                                 className="absolute w-[90%] left-5 -bottom-4"
                             />
-                        </span><br/>{" "} at MCS
+                        </span><br className="block md:hidden"/>{" "} at MCS
                     </h2>
                     <p className="mt-4 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
                         Our admission program offers the perfect balance between school and home life, providing extended hours of supervised learning, activities, and meals.

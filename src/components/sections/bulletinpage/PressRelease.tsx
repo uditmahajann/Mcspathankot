@@ -109,7 +109,7 @@ const PressRelease = ({
       {/* Print Media Section */}
       <section className="bg-white pb-16 lg:pb-20">
         <div className="grid lg:grid-cols-3 gap-10">
-          <div className="lg:col-span-1 bg-blue-950 text-white rounded-xl sm:rounded-2xl py-10 px-8 flex flex-col justify-between">
+          <div className="lg:col-span-1 bg-blue-900 text-white rounded-xl sm:rounded-2xl py-10 px-8 flex flex-col justify-between">
             <div>
               <h2 className="text-3xl lg:text-4xl font-poppins font-semibold mb-4">MCS in News</h2>
               <p className="text-blue-100 font-inter leading-relaxed mb-8">
@@ -149,7 +149,7 @@ const PressRelease = ({
 
       {/* Short Videos Section (with public embeds) */}
       <section className="pb-16 lg:pb-20">
-        <h2 className="text-xl sm:text-2xl lg:text-3xl text-gray-900 font-poppins font-semibold mb-4 sm:mb-8">Featured Media Coverage</h2>
+        <h2 className="text-xl sm:text-2xl text-gray-900 font-poppins font-semibold mb-4 sm:mb-8">Featured Media Coverage</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {shortVideos.map((video, i) => (
             <div
@@ -177,7 +177,7 @@ const PressRelease = ({
 
       {/* Press Highlights (paginated) */}
       <section className="pb-16 lg:pb-20 bg-white">
-        <h2 className="text-xl sm:text-2xl lg:text-3xl text-gray-900 font-poppins font-semibold mb-4 sm:mb-8">Press Highlights</h2>
+        <h2 className="text-xl sm:text-2xl text-gray-900 font-poppins font-semibold mb-4 sm:mb-8">Press Highlights</h2>
 
         {/* Render only current page's items (3 per page) */}
         {currentHighlights.map((press, i) => (

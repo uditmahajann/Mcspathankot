@@ -5,8 +5,10 @@ import Events from '../../components/sections/bulletinpage/UpcomingEvents';
 
 import { client } from "../../lib/sanity";
 import { newsListingQuery } from "../../lib/queries/news";
+import { upcomingEventsQuery } from "../../lib/queries/upcomingEvents";
 
 const news = await client.fetch(newsListingQuery);
+const upcomingEvents = await client.fetch(upcomingEventsQuery);
 ---
 
 <Layout
@@ -16,6 +18,6 @@ const news = await client.fetch(newsListingQuery);
   >
   <main>
     <EventsHero />
-    <Events news={news} client:load/>
+    <Events news={news} events={upcomingEvents} client:load/>
   </main>
 </Layout>

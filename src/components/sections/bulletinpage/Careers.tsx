@@ -70,21 +70,21 @@ const Careers = ({ careers }: { careers: CareerOpening[] }) => {
   const filteredJobs = mappedCareers
 
   return (
-    <section id="careers" className="py-4 sm:py-10 my-10 bg-white">
-      <div className="container mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
-        <div className="text-center mb-8 sm:mb-16">
-          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-gray-900 font-playpen font-medium inline-block relative leading-normal">
+    <section id="careers" className="relative bg-white py-4 sm:py-10 my-10">
+      <div className="container mx-auto max-w-7xl px-5 min-[540px]:px-12 sm:px-16 xl:px-0 mb-16 sm:mb-20">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl min-[540px]:text-3xl text-gray-900 font-playpen font-medium leading-normal">
             Careers{" "}
             <span className="relative inline-block">
               @MCS
               <img
                 src="/Images/Doodles/SparkGreen.png"
                 alt="Spark"
-                className="absolute w-10 sm:w-12 md:w-14 -top-6 md:-top-8 -right-12 md:-right-15"
+                className="absolute w-8 sm:w-10 -top-6 -right-8 sm:-right-12"
               />
             </span>
           </h2>
-          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className="mt-2 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
             Join our team of dedicated educators and staff. We are always looking for talented individuals who are
             passionate about education and committed to nurturing young minds.
           </p>
@@ -186,38 +186,53 @@ const Careers = ({ careers }: { careers: CareerOpening[] }) => {
 
 
       {/* FACULTY DEVELOPMENT */}
-      <div className="mx-auto px-6 min-[540px]:px-12 sm:px-16 lg:px-20 my-10 md:my-20 py-15 md:py-20 bg-linear-to-br from-violet-950 via-blue-900 to-indigo-950">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-amber-300 font-playpen font-medium leading-normal">
+      <div className="bg-linear-to-r from-blue-950 via-blue-900 to-blue-950 my-10 py-12 md:py-20 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-8 min-[540px]:px-12 sm:px-16 lg:px-24 xl:px-0">
+          <div className="flex flex-col xl:flex-row gap-6 lg:gap-8 xl:gap-20">
+          <div className="xl:w-1/2">
+            <h2 className="text-2xl min-[540px]:text-3xl font-playpen font-medium text-yellow-400 leading-normal">
               Faculty Development & Professional Growth
             </h2>
-            <p className="mt-4 sm:mt-7 text-base sm:text-lg text-gray-200 max-w-3xl mx-auto">
-              MCS believes in nurturing educators as lifelong learners through skill-building, collaboration, and innovation.
+            <p className="mt-4 text-base sm:text-lg text-gray-200 mx-auto mb-6">
+              MCS is committed to empowering its faculty through continuous professional development programs that encourage lifelong learning, innovation in teaching practices, and collaborative growth through regular training workshops & academic conferences.
             </p>
+            <div className="hidden xl:block w-full my-8">
+              <video
+                className="w-full h-full shadow-lg rounded-xl"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source src="https://res.cloudinary.com/dhlzfm5ix/video/upload/v1767545220/smartclassclip_cpwl0r.mp4" type="video/mp4" />
+              </video>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-10">
+          <div className="xl:w-1/2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 xl:gap-6">
             {development.map((item, i) => (
               <div
                 key={i}
-                className="bg-linear-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-2xl p-6 lg:p-8 hover:shadow-md transition-all"
+                className="bg-linear-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-xl p-6 hover:shadow-md transition-all"
               >
-                <item.icon className="w-7.5 h-7.5 lg:w-9 lg:h-9 text-blue-600 mb-3" />
-                <h4 className="text-lg lg:text-xl font-poppins tracking-wide font-semibold text-gray-900 mb-3">{item.title}</h4>
+                <item.icon className="w-8 h-8 text-blue-600 mb-3" />
+                <h4 className="text-lg font-poppins tracking-wide font-semibold text-gray-900 mb-3">{item.title}</h4>
                 <p className="text-gray-700 font-inter">{item.desc}</p>
               </div>
             ))}
           </div>
+          </div>
+        </div>
         </div>
       </div>
 
       {/* Job Application Form and Process */}
-      <div className="flex flex-col md:flex-row gap-8 container mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-8 lg:px-20 max-w-7xl">
+      <div className="flex flex-col md:flex-row gap-8 container mx-auto px-6 min-[540px]:px-8 max-w-7xl">
 
         {/* Application Process */}
         <div className="w-full bg-gray-50 p-6 rounded-lg ">
-          <h3 className="text-2xl font-poppins font-semibold text-gray-900 mb-8 tracking-wide">Application Process</h3>
+          <h3 className="text-xl lg:text-2xl font-poppins font-semibold text-gray-900 mb-8 tracking-wide">Application Process</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {

@@ -74,10 +74,10 @@ const Circulars = ({ circulars }: { circulars: Circular[] }) => {
   const getCircularById = (id: number | null) => mappedCirculars.find((c) => c.id === id) ?? null
 
   return (
-    <section className="py-4 sm:py-10 my-10 bg-white">
-      <div className="container mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
+    <section className="relative bg-white py-4 sm:py-10 my-10">
+      <div className="container mx-auto max-w-7xl px-5 min-[540px]:px-12 sm:px-16 -lg:px-20">
         <div className="text-center mb-8 sm:mb-16">
-          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-gray-900 font-playpen font-medium inline-block relative leading-normal">
+          <h2 className="text-2xl min-[540px]:text-3xl text-gray-900 font-playpen font-medium leading-normal">
             MCS Latest
             <span className="relative z-10 inline-block pl-4 pr-0.5">
               Circulars &
@@ -103,7 +103,7 @@ const Circulars = ({ circulars }: { circulars: Circular[] }) => {
                   setActiveFilter(filter)
                   setCurrentPage(1)
                 }}
-                className={`px-5 py-2 rounded-full text-base font-medium transition-colors cursor-pointer ${
+                className={`px-5 py-2 rounded-full text-sm sm:text-base font-inter font-medium transition cursor-pointer ${
                   activeFilter === filter ? "bg-primary text-white" : "bg-gray-200/60 text-gray-900 hover:bg-gray-200"
                 }`}
               >
