@@ -1,52 +1,14 @@
-import React, { useRef, useEffect } from "react"
 import {
   Users,
-  Heart,
   Star,
-  BookOpen,
-  Leaf,
-  Sparkles,
   Trophy,
-  Globe2,
   ArrowRight,
   MessageSquareText,
   GraduationCap,
-  Medal,
 } from "lucide-react"
 
 const McsImpact = () => {
-  const carouselRef = useRef<HTMLDivElement | null>(null)
-
-  // Auto-scroll for image carousel
-  useEffect(() => {
-    const scroll = () => {
-      if (carouselRef.current) {
-        carouselRef.current.scrollLeft += 1
-        if (
-          carouselRef.current.scrollLeft >=
-          carouselRef.current.scrollWidth / 2
-        ) {
-          carouselRef.current.scrollLeft = 0
-        }
-      }
-    }
-    const interval = setInterval(scroll, 10)
-    return () => clearInterval(interval)
-  }, [])
-
-  const carouselImages = [
-    "/Images/Heros/samplehero.JPG",
-    "/Images/Heros/samplehero.JPG",
-    "/Images/Heros/samplehero.JPG",
-    "/Images/Heros/samplehero.JPG",
-    "/Images/Heros/samplehero.JPG",
-    "/Images/Heros/samplehero.JPG",
-    "/Images/Heros/samplehero.JPG",
-    "/Images/Heros/samplehero.JPG",
-    "/Images/Heros/samplehero.JPG",
-    "/Images/Heros/samplehero.JPG",
-  ]
-
+  
   const testimonials = [
     {
       quote:
@@ -74,79 +36,56 @@ const McsImpact = () => {
   return (
     <section id="why-choose-us" className="bg-white">
       {/* MCS IMPACT */}
-      <div className="text-center my-10 md:my-20 py-15 md:py-20 relative bg-linear-to-br from-violet-950 via-blue-900 to-indigo-950">
-
-        <div className="mx-auto px-6 min-[540px]:px-12 sm:px-16 lg:px-20 mb-10 sm:mb-16">
-          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-amber-300 font-playpen font-medium leading-normal">
+      <div className="text-center bg-linear-to-r from-blue-950 via-blue-900 to-blue-950 my-10 py-12 md:py-20 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-12 min-[540px]:px-16 md:px-20">
+          <div className="mb-8 flex flex-col gap-6 md:flex-row items-center justify-center">
+          <h2 className="text-2xl min-[540px]:text-3xl font-playpen font-medium text-yellow-400 leading-normal">
             The MCS Impact
           </h2>
-          <p className="mt-4 md:mt-7 text-base sm:text-lg text-gray-200 max-w-3xl mx-auto">
-            Our results speak through our students — confident communicators, ethical citizens, and lifelong learners who carry the MCS spirit wherever they go.
-          </p>
-        </div>
-
+          </div>
+        
           {/* Animated Impact Cards */}
-          <div className="grid grid-cols-1 min-[540px]:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-10 px-10 min-[540px]:px-12 sm:px-16 xl:px-20 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 min-[540px]:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8">
             {[
               {
-                icon: <Trophy className="w-10 h-10 text-yellow-400" />,
+                icon: <Trophy className="w-7.5 h-7.5 text-orange-400" />,
                 stat: "98%",
-                title: "Board Exams Pass Percentage",
+                title: "Boards Passing Percentage",
                 desc: "Every student achieves academic excellence with passion and purpose.",
-                glow: "shadow-[0_0_25px_rgba(255,193,7,0.4)]",
               },
               {
-                icon: <Users className="w-10 h-10 text-green-400" />,
+                icon: <Users className="w-8 h-8 text-green-400" />,
                 stat: "20+",
-                title: "Active Clubs & Societies",
+                title: "Student Societies & Clubs",
                 desc: "From astronomy to art — students explore every dimension of interest.",
-                glow: "shadow-[0_0_25px_rgba(34,197,94,0.4)]",
               },
               {
-                icon: <Star className="w-10 h-10 text-pink-400" />,
+                icon: <Star className="w-8 h-8 text-fuchsia-400" />,
                 stat: "5000+",
                 title: "Successful Alumni of MCS",
                 desc: "Our alumni are thriving professionals, artists, and innovators worldwide.",
-                glow: "shadow-[0_0_25px_rgba(236,72,153,0.4)]",
               },
               {
-                icon: <GraduationCap className="w-10 h-10 text-sky-400" />,
+                icon: <GraduationCap className="w-8 h-8 text-sky-400" />,
                 stat: "30+",
                 title: "Years of Academic Excellence",
                 desc: "Decades of nurturing intellect, empathy, and global citizenship.",
-                glow: "shadow-[0_0_25px_rgba(56,189,248,0.4)]",
               },
             ].map((card, i) => (
               <div
                 key={i}
-                className={`group bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl xl:rounded-3xl p-6 text-center text-white transition-all duration-500 hover:scale-[1.05] hover:bg-white/20 hover:shadow-xl ${card.glow}`}
+                className={`group bg-white/5 backdrop-blur-lg border border-white/20 rounded-2xl xl:rounded-3xl p-6 text-center text-white transition-all duration-500 hover:scale-[1.05] hover:bg-white/10 hover:shadow-xl`}
               >
                 <div className="flex justify-center mb-4">{card.icon}</div>
-                <h3 className="text-4xl xl:text-5xl font-bold font-outfit text-yellow-400 mb-2">
+                <h3 className="text-4xl sm:text-5xl font-bold font-outfit bg-linear-to-r from-yellow-800 via-yellow-200 to-yellow-800 text-transparent bg-clip-text mb-3">
                   {card.stat}
                 </h3>
-                <p className="text-base xl:text-lg font-medium font-poppins tracking-wide">{card.title}</p>
+                <p className="text-base font-medium font-poppins tracking-wide">{card.title}</p>
                 {/* <p className="text-gray-300 mt-3 text-sm font-inter">{card.desc}</p> */}
               </div>
             ))}
           </div>
-
-          {/* Image Carousel */}
-          <div className="relative w-full mt-16 xl:mt-20">
-            <div
-              ref={carouselRef}
-              className="flex gap-5 xl:gap-6 overflow-x-auto scroll-smooth scrollbar-hide"
-            >
-              {[...carouselImages, ...carouselImages].map((src, i) => (
-                <img
-                  key={i}
-                  src={src}
-                  alt={`MCS Impact ${i + 1}`}
-                  className="rounded-xl h-64 xl:h-80 w-90 xl:w-105 object-cover shrink-0 shadow-md hover:scale-[1.05] transition-transform duration-500 "
-                />
-              ))}
-            </div>
-          </div>
+        </div>
       </div>
 
       {/* TESTIMONIAL SECTION */}

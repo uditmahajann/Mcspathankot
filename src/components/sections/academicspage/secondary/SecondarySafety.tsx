@@ -53,7 +53,7 @@ const SafetyCareCreative: React.FC = () => {
       }}
     >
 
-      <div className="relative mx-auto max-w-7xl px-6 min-[540px]:px-12 py-15 sm:py-25 lg:py-35">
+      <div className="relative mx-auto max-w-7xl px-6 min-[540px]:px-12 py-25 lg:py-45">
         {/* Header */}
         <div className="text-center mb-6 sm:mb-12 lg:mb-16">
           <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-gray-900 font-playpen font-medium leading-normal">

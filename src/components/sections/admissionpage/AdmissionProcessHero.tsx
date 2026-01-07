@@ -6,7 +6,7 @@ const AdmissionProcessHero: React.FC = () => {
       <div
         className="relative min-h-[60vh] md:min-h-[65vh] flex items-center"
         style={{
-          backgroundImage: `url('/Images/Campus/EntryFront.JPG')`,
+          backgroundImage: `url('/Images/Heros/admissionhero.JPG')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed", // parallax-like

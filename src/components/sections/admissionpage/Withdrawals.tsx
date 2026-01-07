@@ -47,25 +47,25 @@ const Withdrawals: React.FC = () => {
   ]
 
   return (
-    <section id="withdrawals" className="py-4 sm:py-10 my-10 bg-white">
-      <div className="container mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
+    <section id="withdrawals" className="relative bg-white py-4 sm:py-10 my-10">
+      <div className="container mx-auto max-w-7xl px-5 min-[540px]:px-12 sm:px-16 lg:px-20">
         <div className="text-center mb-8 sm:mb-16">
-          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
+          <h2 className="text-2xl min-[540px]:text-3xl text-gray-900 font-playpen font-medium leading-normal">
             Withdrawal Process <span className="relative inline-block">& Guidelines
               <img
-                src="/Images/Doodles/LineYellow.png"
+                src="/Images/Doodles/LineBlue.png"
                 alt="Underline"
-                className="absolute w-[80%] left-12 -bottom-4 sm:-bottom-6 lg:-bottom-8"
+                className="absolute w-[75%] -bottom-4"
               />
             </span>
           </h2>
-          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-700 max-w-4xl mx-auto">
+          <p className="mt-4 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
             Learn about the withdrawal procedure, required approvals, and final documentation steps.
           </p>
         </div>
         
         {/* Withdrawal Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16 xl:px-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-16">
           {withdrawalSteps.map((step, index) => {
             const Icon = step.icon
             return (
@@ -87,8 +87,8 @@ const Withdrawals: React.FC = () => {
         </div>
 
         {/* Withdrawal Policy */}
-        <div className="bg-white rounded-xl lg:rounded-2xl shadow-lg overflow-hidden border-gray-100 mb-12 lg:mb-16">
-          <div className="bg-primary p-5">
+        <div className="bg-white rounded-xl lg:rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+          <div className="bg-primarydark p-5">
             <h3 className="mb-1 text-xl font-poppins font-bold text-white tracking-wide">Withdrawal Policy</h3>
             <p className="text-blue-100 text-sm sm:text-base font-inter">Important guidelines regarding student withdrawals</p>
           </div>
@@ -105,7 +105,7 @@ const Withdrawals: React.FC = () => {
         </div>
 
         {/* Withdrawal Form Download */}
-        <div className="mt-12 bg-blue-50 rounded-xl p-6 lg:p-8 shadow-md">
+        {/* <div className="mt-12 bg-blue-50 rounded-xl p-6 lg:p-8 shadow-md">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-6 md:mb-0">
               <h3 className="text-xl font-poppins font-bold text-gray-900 mb-2 tracking-wide">Withdrawal Application Form</h3>
@@ -115,9 +115,9 @@ const Withdrawals: React.FC = () => {
             </div>
            <div className="text-start text-base">
               <CtaButton className="text-base" text="Download Application Form" href="/preview" icon={Download} />
-            </div>
           </div>
-        </div>
+          </div>
+        </div> */}
       </div>
     </section>
   )

@@ -6,7 +6,7 @@ const TransferCertificateHero: React.FC = () => {
       <div
         className="relative min-h-[60vh] md:min-h-[65vh] flex items-center"
         style={{
-          backgroundImage: `url('/Images/Campus/EntryFront.JPG')`,
+          backgroundImage: `url('/Images/Heros/transferhero.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed", // parallax-like
@@ -20,7 +20,7 @@ const TransferCertificateHero: React.FC = () => {
             <div className="max-w-md md:max-w-xl lg:max-w-2xl">
               <span className="text-xs md:text-sm tracking-widest uppercase font-semibold text-white/80">Transfer Certificate</span>
               <h1 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-poppins font-semibold leading-tight">
-                Get <span className="text-blue-400">Easy Access</span><br className="" />
+                Get <span className="text-sky-400">Easy Access</span><br className="" />
                 to Transfer Certificate
               </h1>
               <p className="mt-3 sm:mt-4 text-base md:text-lg text-white/85">

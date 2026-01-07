@@ -9,22 +9,26 @@ const TransferCertificate: React.FC = () => {
       title: "Submit Application",
       description: "Parents must submit a written application requesting a Transfer Certificate to the school office.",
       icon: FileText,
+      color: "bg-green-100 border-green-200",
     },
     {
       title: "Clearance Process",
       description:
         "Obtain clearance from all departments including library, laboratories, sports, and accounts office.",
       icon: CircleCheck,
+      color: "bg-rose-100 border-rose-200",
     },
     {
       title: "Fee Settlement",
       description: "All outstanding dues must be cleared before the TC can be issued.",
       icon: ReceiptIndianRupee,
+      color: "bg-yellow-100 border-yellow-200",
     },
     {
       title: "Processing Time",
       description: "The TC will be issued within 7 working days after completing all formalities.",
       icon: RefreshCw,
+      color: "bg-purple-100 border-purple-200",
     },
   ]
 
@@ -38,39 +42,27 @@ const TransferCertificate: React.FC = () => {
   ]
 
   return (
-    <section id="transfer-certificate" className="py-4 sm:py-10 my-10 bg-white">
-      <div className="container mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
-        <div className="text-center mb-8 sm:mb-16">
-          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
-            Transfer <span className="relative inline-block">Certificate
-              <img
-                src="/Images/Doodles/LineYellow.png"
-                alt="Underline"
-                className="absolute w-[90%] left-6 -bottom-4 sm:-bottom-6 lg:-bottom-8"
-              />
-            </span>
-          </h2>
-          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-700 max-w-4xl mx-auto">
-            Access information and application details for obtaining a student’s transfer certificate.
-          </p>
-        </div>
-
+    <section id="transfer-certificate" className="relative bg-white py-4 sm:py-10 my-10">
+      <div className="container mx-auto max-w-7xl px-5 min-[540px]:px-12 sm:px-16 lg:px-20">
         {/* What is a TC */}
-        <div className="bg-blue-50 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-md mb-12 lg:mb-16">
-          <h3 className="text-xl lg:text-2xl font-poppins font-bold text-gray-900 mb-4 tracking-wide">What is a Transfer Certificate?</h3>
-          <p className="text-gray-700 mb-4 font-inter">
+        <div className="bg-sky-50 rounded-2xl p-8 lg:p-12 shadow-md mb-12 lg:mb-16">
+          <h3 className="text-xl lg:text-2xl font-poppins font-semibold text-gray-900 mb-8 tracking-wide">What is a Transfer Certificate?</h3>
+          <p className="text-gray-700 mb-6 font-inter text-base xl:text-lg">
             A Transfer Certificate (TC) is an official document issued by the school when a student leaves to join
             another educational institution. It contains essential information about the student's academic record,
             conduct, and reason for leaving. This document is mandatory for admission to another school or college.
           </p>
-          <p className="text-gray-700 font-inter">
+          <p className="text-gray-700 font-inter mb-12 text-base xl:text-lg">
             At Montessori Cambridge School, we ensure a smooth and efficient process for issuing Transfer Certificates
             to our outgoing students, following all guidelines set by the Central Board of Secondary Education (CBSE).
           </p>
+          <div className="flex items-center justify-center">
+            <CtaButton text="Get Transfer Certificate" href="https://forms.edunexttechnologies.com/website-service/mcsp/transfer-certificate/" icon={Download} />
+          </div>
         </div>
 
         {/* TC Process Steps */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 mb-12 lg:mb-16 xl:px-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 mb-12 lg:mb-16">
           {tcSteps.map((step, index) => {
             const Icon = step.icon
             return (
@@ -88,14 +80,13 @@ const TransferCertificate: React.FC = () => {
               </div>
             )
           })}
-
         </div>
 
         {/* Required Documents */}
         <div className="bg-white rounded-xl lg:rounded-2xl shadow-lg overflow-hidden border border-gray-100 mb-12 lg:mb-16">
-          <div className="bg-primary p-5">
-            <h3 className="mb-1 text-xl font-poppins font-bold text-white tracking-wide">Required Documents</h3>
-            <p className="text-blue-100 text-sm sm:text-base font-inter">Documents needed for TC application</p>
+          <div className="bg-primarydark p-5">
+            <h3 className="mb-1 text-lg sm:text-xl font-poppins font-bold text-white tracking-wide">Required Documents</h3>
+            <p className="text-blue-100 text-sm sm:text-base font-inter">List of documents needed for TC application</p>
           </div>
           <div className="p-6">
             <ul className="space-y-4">
@@ -110,9 +101,12 @@ const TransferCertificate: React.FC = () => {
         </div>
 
         {/* Important Information */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
-            <h3 className="text-xl font-poppins font-bold text-gray-900 mb-4 tracking-wide">Important Information</h3>
+          <div className="bg-white rounded-xl lg:rounded-2xl shadow-lg overflow-hidden border border-gray-100 mb-12 lg:mb-16">
+            <div className="bg-primarydark p-5">
+            <h3 className="mb-1 text-lg sm:text-xl font-poppins font-bold text-white tracking-wide">Important Information</h3>
+            <p className="text-blue-100 text-sm sm:text-base font-inter">General guidelines for TC application</p>
+          </div>
+           <div className="p-6">
             <ul className="space-y-3">
               <li className="flex items-start">
                 <Info className="w-5 h-5 shrink-0 text-secondary mr-2 mt-1" />
@@ -142,17 +136,7 @@ const TransferCertificate: React.FC = () => {
               </li>
             </ul>
           </div>
-
-          <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
-            <h3 className="text-xl font-poppins font-bold text-gray-900 mb-4 tracking-wide">TC Application Form</h3>
-            <p className="text-gray-700 mb-6 font-inter">
-              Download the official Transfer Certificate application form to initiate the process.
-            </p>
-            <div className="text-start text-base">
-              <CtaButton className="text-base" text="Download TC Form" href="/preview" icon={Download} />
-            </div>
           </div>
-        </div>
       </div>
     </section>
   )

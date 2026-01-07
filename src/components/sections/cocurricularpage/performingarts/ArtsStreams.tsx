@@ -29,16 +29,7 @@ const ArtStreams = () => {
     <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-10 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-5xl text-gray-900 font-raleway font-extrabold">
-            Performing Arts {" "}
-            <span className="relative inline-block">
-              is a Language
-              {/* Spark Doodle */}
-              <img
-                src="/Images/Doodles/SparkYellow.png"
-                alt="Spark"
-                className="absolute w-10 sm:w-12 md:w-14 -top-8 -right-16"
-              />
-            </span>
+            Performing Arts is a Language
           </h2>
           <p className="mt-4 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
             A place where creativity feels at home.
