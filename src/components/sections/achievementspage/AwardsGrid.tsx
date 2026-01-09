@@ -18,10 +18,10 @@ interface AwardsGridProps {
 
 const AwardsGrid: React.FC<AwardsGridProps> = ({ awards }) => {
   return (
-    <section id="awards" className="py-4 sm:py-10 my-10 bg-white">
-      <div className="mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
+    <section id="awards" className="relative bg-white py-4 sm:py-10 my-10">
+      <div className="mx-auto max-w-7xl px-6 min-[540px]:px-12 sm:px-16 xl:px-0">
         <div className="text-center mb-8 sm:mb-16">
-          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-gray-900 font-playpen font-medium leading-normal">
+          <h2 className="text-2xl min-[540px]:text-3xl text-gray-900 font-playpen font-medium leading-normal">
             Awards & {" "}
             <span className="relative inline-block">
               Recognitions
@@ -29,16 +29,16 @@ const AwardsGrid: React.FC<AwardsGridProps> = ({ awards }) => {
               <img
                 src="/Images/Doodles/SparkYellow.png"
                 alt="Spark"
-                className="absolute w-10 sm:w-12 md:w-14 -top-6 md:-top-8 -right-12 md:-right-15"
+                className="absolute w-8 sm:w-10 -top-6 -right-8 sm:-right-12"
               />
             </span>
           </h2>
-          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className="mt-2 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
             Our commitment to academic excellence, innovation, and community engagement has been celebrated by reputed organizations across India.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {awards.map((award) => (
 
             <div
@@ -65,7 +65,7 @@ const AwardsGrid: React.FC<AwardsGridProps> = ({ awards }) => {
                   </p>
                 )}
 
-                <p className="text-base font-inter font-medium text-yellow-600 mb-2">
+                <p className="text-base font-inter font-semibold text-blue-800 mb-2">
                   {award.year}
                 </p>
 

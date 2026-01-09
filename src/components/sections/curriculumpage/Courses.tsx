@@ -54,11 +54,11 @@ const [activeTab, setActiveTab] = useState<"I-V" | "VI-VIII" | "IX-X" | "XI-XII"
   const current = coursesData[activeTab]
 
   return (
-    <section id="courses" className="py-4 sm:py-10 my-10 bg-white">
-      <div className="container mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
+    <section id="courses" className="relative bg-white py-4 sm:py-10 my-10">
+      <div className="container mx-auto max-w-7xl px-5 min-[540px]:px-12 sm:px-16 xl:px-0">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-16">
-          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-gray-900 font-playpen font-medium inline-block relative leading-normal">
+          <h2 className="text-2xl min-[540px]:text-3xl text-gray-900 font-playpen font-medium leading-normal">
             Academic Courses{" "}
             <span className="relative inline-block">
               & Curriculum
@@ -94,7 +94,7 @@ const [activeTab, setActiveTab] = useState<"I-V" | "VI-VIII" | "IX-X" | "XI-XII"
 
         {/* Active Content */}
         <div className="transition-all duration-300 ease-in-out">
-          <h3 className="text-xl sm:text-2xl font-poppins font-semibold text-gray-900 mb-3 text-center">
+          <h3 className="text-xl sm:text-2xl font-inter font-semibold text-gray-900 mb-3 text-center uppercase">
             {current.title}
           </h3>
           <p className="text-gray-700 text-center font-inter mb-10 max-w-4xl mx-auto">

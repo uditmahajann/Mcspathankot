@@ -64,23 +64,29 @@ const StudentAchieversGrid = ({ achievements }: Props) => {
   return (
     <section
       id="achievers"
-      className="mt-10 md:mt-20 py-16 bg-linear-to-br from-violet-950 via-blue-900 to-indigo-950"
+      className="relative bg-white py-4 sm:py-10 my-10"
     >
-      <div className="mx-auto max-w-7xl px-6 min-[540px]:px-12 sm:px-16 lg:px-20">
+      <div className="mx-auto max-w-7xl px-6 min-[540px]:px-12 sm:px-16 xl:px-0">
 
         {/* ---------- HEADER ---------- */}
-        <div className="text-center mb-10">
-          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-yellow-400 font-playpen font-medium">
-            Our Proud Achievers in 2025–26
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-2xl min-[540px]:text-3xl text-gray-900 font-playpen font-medium leading-normal">
+            Our Proud <span className="relative inline-block">Achievers
+              <img
+                src="/Images/Doodles/LinePink.png"
+                alt="Underline"
+                className="absolute w-[95%] -bottom-4"
+              />
+            </span>{" "} in 2025–26
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-gray-200 max-w-3xl mx-auto">
+          <p className="mt-4 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
             Meet the shining stars of Montessori Cambridge School —
             students who bring pride through their outstanding achievements.
           </p>
         </div>
 
         {/* ---------- CATEGORY FILTER ---------- */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
+        <div className="flex flex-wrap justify-center gap-2 mb-8 sm:mb-10">
           {CATEGORIES.map((cat) => (
             <button
               key={cat.value}
@@ -88,10 +94,10 @@ const StudentAchieversGrid = ({ achievements }: Props) => {
                 setActiveCategory(cat.value);
                 setCurrentPage(1);
               }}
-              className={`px-5 py-2 rounded-full text-base font-outfit font-medium transition ${
+              className={`px-5 py-2 rounded-full text-sm min-[540px]:text-base font-outfit font-medium transition cursor-pointer ${
                 activeCategory === cat.value
-                  ? "bg-yellow-400 text-gray-900"
-                  : "bg-white border border-gray-300 hover:bg-gray-100"
+                  ? "bg-amber-300 text-gray-900"
+                  : "bg-white border border-gray-300 hover:bg-gray-300"
               }`}
             >
               {cat.label}
@@ -100,7 +106,7 @@ const StudentAchieversGrid = ({ achievements }: Props) => {
         </div>
 
         {/* ---------- GRID ---------- */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {paginatedAchievers.map((achiever, index) => (
             <div
               key={index}
@@ -115,8 +121,8 @@ const StudentAchieversGrid = ({ achievements }: Props) => {
                 />
 
                 <div className="absolute bottom-4 left-3 flex items-center gap-2 bg-white/85 px-3 py-1 rounded-full shadow-sm">
-                  <Trophy className="h-4 w-4 text-yellow-500" />
-                  <span className="text-sm font-semibold text-gray-900">
+                  <Trophy className="h-4 w-4 text-amber-500" />
+                  <span className="text-sm font-outfit font-semibold text-gray-700 uppercase">
                     {new Date(achiever.date).getFullYear()} •{" "}
                     {activeCategory.charAt(0).toUpperCase() +
                       activeCategory.slice(1)}
@@ -124,11 +130,11 @@ const StudentAchieversGrid = ({ achievements }: Props) => {
                 </div>
               </div>
 
-              <div className="p-4 sm:p-5">
-                <h3 className="text-lg font-poppins font-semibold text-gray-900">
+              <div className="p-5">
+                <h3 className="text-lg font-inter font-semibold text-gray-900">
                   {achiever.personName}
                 </h3>
-                <p className="text-gray-700 font-inter text-sm mt-1">
+                <p className="text-blue-800 font-inter font-medium mt-1">
                   {achiever.title}
                 </p>
                 <p className="text-gray-600 font-inter text-sm mt-1">

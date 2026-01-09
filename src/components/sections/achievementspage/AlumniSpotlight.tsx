@@ -37,48 +37,41 @@ const AlumniSpotlight: React.FC<Props> = ({ alumni }) => {
   const alum = items[index];
 
   return (
-    <section id="alumni-spotlight" className="relative py-4 sm:py-10 my-10 bg-white">
-    <div className="container mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
-      <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-gray-900 font-playpen font-medium leading-normal">
-            Recognizing Our <br className="block md:hidden"/>
-            <span className="relative inline-block">
-              Alumni Success
-              {/* Spark Doodle */}
-              <img
-                src="/Images/Doodles/SparkPurple.png"
-                alt="Spark"
-                className="absolute w-10 sm:w-12 md:w-14 -top-6 md:-top-8 -right-12 md:-right-15"
-              />
-            </span>
+    <section id="alumni-spotlight" className="relative bg-linear-to-r from-blue-950 via-blue-900 to-blue-950 my-10 py-12 md:py-16 overflow-hidden">
+    <div className="container mx-auto max-w-7xl px-6 min-[540px]:px-12 sm:px-16 lg:px-20">
+      <div className="mb-8 md:mb-12 flex flex-col items-center">
+        <h2 className="text-2xl min-[540px]:text-3xl font-playpen font-medium text-yellow-400 leading-normal">
+            Recognizing Our Alumni Success
           </h2>
-          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-700 max-w-2xl mx-auto">
-            Our alumni make their mark across the world. Their journeys are a testament to the values and vision nurtured at Montessori Cambridge School.
-          </p>
         </div>
 
-      <div className="max-w-7xl mx-auto sm:px-8 flex flex-col lg:flex-row items-center gap-8 sm:gap-10">
-        
+      <div className="mx-auto flex flex-col md:flex-row items-center gap-8 lg:gap-12">
         {/* Image */}
-        <div className="relative w-full lg:w-1/2 rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg">
+        <div className="relative w-full md:w-1/2 rounded-2xl overflow-hidden shadow-lg">
           <img
             src={alum.image.asset.url}
-            alt={alum.personName}
-            className="w-full h-105 object-cover"
+            className="w-full h-72 md:h-90 object-cover"
             loading="lazy"
           />
           <div className="absolute inset-0 bg-black/20" />
         </div>
 
         {/* Text */}
-        <div className="lg:w-1/2">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-poppins tracking-wide font-semibold text-gray-900 mb-3 sm:mb-4">
+        <div className="md:w-1/2">
+          <p className="mb-4 text-sm sm:text-base font-inter text-amber-400 font-medium">
+             {new Date(alum.date).toLocaleDateString("en-IN", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+              })}
+          </p>
+          <h2 className="text-xl lg:text-2xl font-poppins tracking-wide font-semibold text-white mb-4">
             {alum.title}
           </h2>
-          <p className="font-inter text-base sm:text-lg text-gray-600 mb-6 max-w-xl">{alum.description}</p>
-          <h3 className="text-lg sm:text-xl font-poppins tracking-wide font-semibold text-gray-900">{alum.personName}</h3>
-          <p className="text-sm sm:text-base font-inter text-yellow-700 font-medium">
-            {alum.personDesignation} — {alum.date}
+          <p className="font-inter text-base sm:text-lg text-gray-400 mb-6 max-w-xl">{alum.description}</p>
+          <h3 className="text-lg lg:text-xl font-inter font-medium text-gray-200 uppercase">{alum.personName}</h3>
+          <p className="mt-2 text-sm sm:text-base font-inter text-amber-400 font-medium">
+            {alum.personDesignation}
           </p>
         </div>
       </div>
@@ -86,15 +79,15 @@ const AlumniSpotlight: React.FC<Props> = ({ alumni }) => {
       {/* Navigation */}
       <button
         onClick={prev}
-        className="absolute left-9 sm:left-12 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 p-2 sm:p-3 rounded-full shadow-md transition cursor-pointer"
+        className="absolute left-9 min-[540px]:left-15 sm:left-20 md:left-8 xl:left-15 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-900 p-2 xl:p-3 rounded-full shadow-md transition cursor-pointer"
       >
-        <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+        <ChevronLeft className="w-6 h-6" />
       </button>
       <button
         onClick={next}
-        className="absolute right-9 sm:right-12 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-800 p-2 sm:p-3 rounded-full shadow-md transition cursor-pointer"
+        className="absolute right-9 min-[540px]:right-15 sm:right-20 md:right-8 xl:right-15 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-900 p-2 xl:p-3 rounded-full shadow-md transition cursor-pointer"
       >
-        <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+        <ChevronRight className="w-6 h-6" />
       </button>
     </div>
     </section>

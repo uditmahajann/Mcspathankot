@@ -36,14 +36,14 @@ const MILESTONES = [
 
 const MilestonesJourney: React.FC = () => {
   return (
-    <section id="journey" className="py-4 sm:py-10 my-10 bg-white">
-      <div className="mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
+    <section id="mcs-journey" className="relative bg-white py-4 sm:py-10 my-10">
+      <div className="mx-auto max-w-7xl px-5 min-[540px]:px-12 sm:px-16 lg:px-20">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-16">
-          <h2 className="text-gray-900 text-2xl sm:text-3xl md:text-4xl font-playpen font-medium inline-block relative">The
-          <span className="relative z-10 inline-block pl-5 pr-1">
+          <h2 className="text-2xl min-[540px]:text-3xl text-gray-900 font-playpen font-medium leading-normal">The
+          <span className="relative z-10 inline-block pl-3 pr-1">
           MCS Journey
-          <span className="absolute inset-0 -z-10 -top-6 md:-top-10">
+          <span className="absolute inset-0 -z-10 -top-6">
           <img
           src="/Images/Doodles/CircleYellow.png"
           alt="Circle Doodle"
@@ -53,7 +53,7 @@ const MilestonesJourney: React.FC = () => {
         </span>{" "}
         so far...
         </h2>
-        <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
+        <p className="mt-4 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
         From a humble beginning to a leading educational institution — a story of growth, milestones, and excellence.
         </p>
         </div>

@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import SuccessStoriesHero from '../../components/sections/achievementspage/SuccessStoriesHero';
 import AwardsGrid from '../../components/sections/achievementspage/AwardsGrid';
-import AchieversCarousel from '../../components/sections/achievementspage/AchieversCarousel';
+import StudentAchievers from '../../components/sections/achievementspage/AchieversCarousel';
 import PhotoHighlights from '../../components/sections/achievementspage/PhotoHighlights';
 import MilestoneJourney from '../../components/sections/achievementspage/MilestoneJourney';
 import SpecialMentions from '../../components/sections/achievementspage/SpecialMentions';
@@ -31,9 +31,9 @@ const banner = await client.fetch(studentAchieversBannersQuery);
 	<main class="w-full">
     <SuccessStoriesHero/>
     <AwardsGrid awards={awards} client:load/>
-    <AchieversCarousel achievements={achievements} client:load/>
-    <PhotoHighlights client:load/>
     <AlumniSpotlight alumni={alumni} client:load/>
+    <StudentAchievers achievements={achievements} client:load/>
+    <!-- <PhotoHighlights client:load/> -->
     <SpecialMentions  banners={banner}/>
     <MilestoneJourney/>
 

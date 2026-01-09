@@ -399,31 +399,6 @@ const Results = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-linear-to-r from-purple-700 to-indigo-800 text-white py-16 md:py-24">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/public/result-pattern.svg')] opacity-10"></div>
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Academic Excellence</h1>
-            <p className="text-lg md:text-xl opacity-90 mb-8">
-              Our students consistently achieve outstanding results in board examinations and competitive tests,
-              reflecting our commitment to academic excellence and holistic education.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <button className="bg-white text-purple-700 hover:bg-purple-50 px-6 py-3 rounded-lg font-medium flex items-center gap-2 transition-colors">
-                <Trophy className="w-5 h-5" />
-                Latest Results
-              </button>
-              <button className="bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded-lg font-medium flex items-center gap-2 transition-colors border border-purple-400">
-                <Search className="w-5 h-5" />
-                Find Your Result
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Navigation Tabs */}
       <div className="bg-white sticky top-0 z-20 shadow-sm">

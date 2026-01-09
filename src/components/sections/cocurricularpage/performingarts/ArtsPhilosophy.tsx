@@ -5,7 +5,7 @@ const SportsPhilosophy = () => {
     <section
       className="relative w-full h-[80vh] overflow-hidden flex items-center justify-start px-6 md:px-16"
       style={{
-        backgroundImage: "url('/Images/Sample/Sports.jpg')",
+        backgroundImage: "url('/Images/Heros/artsbanner.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

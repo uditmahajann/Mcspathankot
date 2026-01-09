@@ -1,5 +1,5 @@
 export const awardsQuery = `
-  *[_type == "award"] | order(year desc)[0..3] {
+  *[_type == "award"] | order(year desc)[0..5] {
     _id,
     name,
     description,

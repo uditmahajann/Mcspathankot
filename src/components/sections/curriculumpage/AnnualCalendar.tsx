@@ -205,20 +205,20 @@ const AnnualCalendar = ({ events }: { events: CalendarCMSItem[] }) => {
 
   return (
     <section className="py-4 sm:py-10 my-10 bg-white" id="events">
-      <div className="container mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
+      <div className="container mx-auto max-w-7xl px-5 min-[540px]:px-12 sm:px-16">
         <div className="text-center mb-8 sm:mb-16">
-           <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-gray-900 font-playpen font-medium">
+           <h2 className="text-2xl min-[540px]:text-3xl text-gray-900 font-playpen font-medium leading-normal">
              Academic{" "}
              <span className="relative inline-block">
-               Calendar (2025-2026)
+               Calendar (2026-2027)
                <img
                  src="/Images/Doodles/SparkGreen.png"
                  alt="Spark"
-                 className="absolute w-10 sm:w-12 md:w-14 -top-6 -right-10 sm:-right-15"
+                 className="absolute w-8 lg:w-12 -top-6 -right-8 lg:-right-12"
                />
              </span>
            </h2>
-           <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
+           <p className="mt-4 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
              Stay updated with all the upcoming events and activities at our school.
            </p>
          </div>

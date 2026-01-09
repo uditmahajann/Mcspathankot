@@ -1,11 +1,9 @@
-import React from "react";
-
 const ArtsHero = () => {
   return (
     <section
       className="relative w-full h-[80vh] flex items-center justify-center text-center overflow-hidden"
       style={{
-        backgroundImage: "url('/Images/Sample/SportsH.jpg')",
+        backgroundImage: "url('/Images/Heros/artshero.JPG')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

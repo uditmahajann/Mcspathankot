@@ -44,16 +44,7 @@ const ArtsPrograms = () => {
       {/* Section Title */}
       <div className="text-center mb-10 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-5xl text-gray-900 font-raleway font-extrabold">
-            Programs & {" "}
-            <span className="relative inline-block">
-              Artistic Pathways
-              {/* Spark Doodle */}
-              <img
-                src="/Images/Doodles/SparkYellow.png"
-                alt="Spark"
-                className="absolute w-10 sm:w-12 md:w-14 -top-8 -right-16"
-              />
-            </span>
+            Programs & Artistic Pathways
           </h2>
           <p className="mt-4 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
             Whether discovering the stage for the first time or preparing for competitive and professional platforms — every student grows with intentional progression.

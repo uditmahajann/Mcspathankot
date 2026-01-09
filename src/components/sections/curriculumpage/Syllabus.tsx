@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { FileText, SquarePen, School, ChartColumnBig, CircleSmall, Heart } from "lucide-react"
+import { FileText, SquarePen, School, ChartColumnBig } from "lucide-react"
 
 type SyllabusItem = {
   _id: string;
@@ -35,19 +35,19 @@ const Syllabus: React.FC<Props> = ({ syllabus }) => {
 
 
   return (
-    <section id="syllabus" className="py-4 sm:py-10 my-10 bg-white">
-      <div className="container mx-auto px-6 min-[540px]:px-12 sm:px-16 md:px-12 lg:px-20 max-w-7xl">
+    <section id="syllabus" className="relative bg-white py-4 sm:py-10 my-10">
+      <div className="container mx-auto max-w-7xl px-6 min-[540px]:px-12 sm:px-16 lg:px-20">
         <div className="text-center mb-8 sm:mb-16">
-          <h2 className="text-2xl min-[540px]:text-3xl md:text-4xl text-gray-900 font-playpen font-medium leading-normal">
+          <h2 className="text-2xl min-[540px]:text-3xl text-gray-900 font-playpen font-medium leading-normal">
             Latest Curriculum <span className="relative inline-block">Syllabus
               <img
                 src="/Images/Doodles/LinePink.png"
                 alt="Underline"
-                className="absolute w-[95%] left-2 -bottom-4 sm:-bottom-6"
+                className="absolute -bottom-4"
               />
             </span>
           </h2>
-          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className="mt-4 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto">
             Download detailed syllabus documents by grade level for the current academic session.
           </p>
         </div>
@@ -77,7 +77,7 @@ const Syllabus: React.FC<Props> = ({ syllabus }) => {
             >
               <div className="flex flex-col justify-between h-full">
                 <div>
-                  <h3 className="text-xl font-poppins font-bold text-gray-900 mb-2 tracking-wide">{item.className}</h3>
+                  <h3 className="text-xl font-poppins font-semibold text-gray-900 mb-2 tracking-wide">{item.className}</h3>
                   <p className="text-gray-700 mb-4 font-inter">{item.description}</p>
                 </div>
                 <div>
@@ -109,7 +109,7 @@ const Syllabus: React.FC<Props> = ({ syllabus }) => {
         </div>
 
         {/* Syllabus Development */}
-        <div className="mt-12 sm:mt-16 bg-blue-50 rounded-lg p-6 md:p-8 lg:p-12">
+        <div className="mt-12 sm:mt-16 bg-blue-50 rounded-lg p-6 min-[540px]:p-8 md:p-10 lg:p-12">
           <h3 className="text-xl sm:text-2xl font-poppins font-semibold text-primarydark mb-8 sm:mb-12 tracking-wide leading-normal">Syllabus Development & Review</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             <div className="flex">

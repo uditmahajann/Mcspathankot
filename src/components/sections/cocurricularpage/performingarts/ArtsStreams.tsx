@@ -9,7 +9,7 @@ const players = [
   {
     title: "MUSIC",
     desc: "Voice, melody, harmony — a space to listen, create, feel, and perform with intention.",
-    img: "/Images/Campus/NewHostel.JPG",
+    img: "/Images/Heros/NewHostel.JPG",
   },
   {
     title: "THEATRE",
